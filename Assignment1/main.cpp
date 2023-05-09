@@ -5,10 +5,12 @@ using namespace std;
 
 void tableFrame (int);
 void printMultiples (int n, int high);
-void tempInputs(void);
+void tempInputs();
+bool typeCheck(int, int);
+
     
 int main() {
     // int high = 12;
     // printMultTable(high);
     tempInputs();
-};
+};/*  */
