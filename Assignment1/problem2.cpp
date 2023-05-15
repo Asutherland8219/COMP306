@@ -1,3 +1,5 @@
+// Temperature input program 
+
 #include <iostream>
 #include <iomanip>
 #include <cmath>
@@ -11,6 +13,7 @@ void tempOutputs(int, char);
 int unitConversion(int, char);
 
 void tempConversion() {
+    // Parent function.Collect the inputs, handle the conversions and checks then return the result.
     int temperature;
     char units;
     int id_type;
@@ -69,6 +72,7 @@ void tempOutputs(int temperature, char units) {
 }
 
 int unitConversion(int temperature, char units) {
+    // main math calculation 
     int calculation;
 
     if (units == 'C') {

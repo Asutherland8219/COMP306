@@ -5,13 +5,13 @@ using namespace std;
 
 
 void tableFrame (int);
-void printMultiples (int n, int high);
+void printValues (int n, int high);
 
 // The printMultiples, and printMulTable methods were taken from sample code in the Unit 6 readings.
 
-void printMultTable (int high) {
+void printTable () {
 	int i = 1;
-	
+	int high = 12;
 	// Styling in order to move the headers to the right leaving the empty space representing 0
     cout << "\t" << setw(1) << "|";
 
@@ -23,7 +23,7 @@ void printMultTable (int high) {
 	while (i <= high) {
 		cout << setw(5) << i << "\t" << "|"; 
 
-		printMultiples(i, high );
+		printValues(i, high );
 		i += 1;
 	}
 
@@ -31,7 +31,7 @@ void printMultTable (int high) {
 
 
 
-void printMultiples (int n, int high) {
+void printValues (int n, int high) {
 	int i = 1;
 	
 	// While the i value is less than 12 we loop through and do two things:
