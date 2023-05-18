@@ -1,5 +1,7 @@
 // Temp conversion table, starting at -40 with 5 increments 
 
+// need to figure out decimal rounding and perhaps some styling / spacing 
+
 #include <iostream>
 #include <iomanip>
 #include <cmath>
