@@ -1,7 +1,8 @@
 #include <iostream>
-#include "problem1.cpp"
-#include "problem2.cpp"
-#include "problem3.cpp"
+#include "multTable.cpp"
+#include "tempConversion.cpp"
+#include "tempConversionTable.cpp"
+#include "cppHelp.cpp"
 using namespace std;
 
 void tableFrame (int);
@@ -14,6 +15,8 @@ void tempConversionTable(void);
 int main() {
     // printTable();
     // tempConversion();
-    tempConversionTable();
+    // tempConversionTable();
+    helpMenu();
 
+    return 0;
 };

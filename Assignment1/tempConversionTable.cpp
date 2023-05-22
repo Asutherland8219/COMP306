@@ -1,6 +1,11 @@
-// Temp conversion table, starting at -40 with 5 increments 
-
-// need to figure out decimal rounding and perhaps some styling / spacing 
+/*
+ Title: tempConversionTable.cpp
+ Description: A temperature conversion table from -40 to 455
+ Date: May 22nd, 2023
+ Author: Alex Sutherland
+ StudentID: 3640392
+ Version: 1.0
+*/
 
 #include <iostream>
 #include <iomanip>
@@ -9,14 +14,14 @@
 
 using namespace std;
 
-double rowConversion(int, char);
+float rowConversion(float, char);
 void tableHeaders();
 
 void tempConversionTable() {
     // parent function 
-    int increment = 5;
-    int floor = -40;
-    int ceiling = 455;
+    float increment = 5;
+    float floor = -40;
+    float ceiling = 455;
 
     tableHeaders();
 
@@ -41,8 +46,8 @@ void tempConversionTable() {
 
 }
 
-double rowConversion(int temperature, char units) {
-    double calculation;
+float rowConversion(float temperature, char units) {
+    float calculation;
 
     if (units == 'C') {
         calculation = (temperature * 9 / 5) + 32 ;

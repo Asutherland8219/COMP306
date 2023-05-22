@@ -1,4 +1,11 @@
-// Temperature input program 
+/*
+ Title: tempConversion.cpp
+ Description: A temperature conversion application based on user input
+ Date: May 22nd, 2023
+ Author: Alex Sutherland
+ StudentID: 3640392
+ Version: 1.0
+*/
 
 #include <iostream>
 #include <iomanip>

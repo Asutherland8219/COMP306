@@ -1,4 +1,11 @@
-// At this point, you will not create anything so complex. Instead, your mission is to create a C++ program that will generate a multiplication table. Start with the 1× table, followed by 2×, then 3×, and so on, until you have generated a table from 1× to 12×. An example output would display as follows:
+/*
+ Title: multTable.cpp
+ Description: Creating a Multiplication Table from 1 to 12
+ Date: May 22nd, 2023
+ Author: Alex Sutherland
+ StudentID: 3640392
+ Version: 1.0
+*/
 #include <iostream>
 #include <iomanip>
 using namespace std;
