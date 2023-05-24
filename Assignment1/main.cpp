@@ -3,6 +3,7 @@
 #include "tempConversion.cpp"
 #include "tempConversionTable.cpp"
 #include "cppHelp.cpp"
+#include "unitConversionHeader.h"
 using namespace std;
 
 void tableFrame (int);
@@ -14,9 +15,10 @@ void tempConversionTable(void);
     
 int main() {
     // printTable();
-    // tempConversion();
-    // tempConversionTable();
+    tempConversion();
+    tempConversionTable();
     helpMenu();
 
     return 0;
 };
+/*  */

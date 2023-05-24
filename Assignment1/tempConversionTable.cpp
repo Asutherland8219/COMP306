@@ -14,7 +14,6 @@
 
 using namespace std;
 
-float rowConversion(float, char);
 void tableHeaders();
 
 void tempConversionTable() {
@@ -29,14 +28,14 @@ void tempConversionTable() {
 
         // column one, F to C 
         cout << "\t" << floor << "\t";
-        cout << rowConversion(floor, 'F');
+        cout << unitConversion(floor, 'F');
 
         // pipe
         cout << "\t|";
 
         // column two, C to F 
         cout << "\t" << floor << "\t";
-        cout << rowConversion(floor, 'C') << "\n";
+        cout << unitConversion(floor, 'C') << "\n";
 
 
         if ( floor == ceiling){
@@ -44,19 +43,6 @@ void tempConversionTable() {
         }
     }
 
-}
-
-float rowConversion(float temperature, char units) {
-    float calculation;
-
-    if (units == 'C') {
-        calculation = (temperature * 9 / 5) + 32 ;
-    }
-    else {
-        calculation = (temperature - 32) * 5/9 ; 
-    }
-
-    return calculation;
 }
 
 void tableHeaders() {
