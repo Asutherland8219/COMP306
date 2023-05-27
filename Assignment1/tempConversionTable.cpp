@@ -11,10 +11,12 @@
 #include <iomanip>
 #include <cmath>
 #include <typeinfo>
+#include "unitConversionHeader.h"
 
 using namespace std;
 
 void tableHeaders();
+int  unitConversion(int, char);
 
 void tempConversionTable() {
     // parent function 

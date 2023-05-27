@@ -6,6 +6,46 @@
  StudentID: 3640392
  Version: 1.0
 */
+
+
+/*
+ DOCUMENTATION
+ 
+ Program Purpose:
+	Create a multiplication table from 1 to 12 with appropriate style guidelines given.
+ 	
+ Compile (assuming Cygwin is running): g++ -o Assignment1 multTable.cpp
+ Execution (assuming Cygwin is running): ./multTable.exe
+ 
+ Classes:
+	- tableFrame: set the top row for the table
+	- printValues: print the values in the table
+	- printTable: The main function that prints the entire table. This is the class I would add to Main.
+
+ Variables:
+ 	i - int - 1 Starting value for the table  
+ 	high - int - 12 The final value, basically the stop point.
+*/
+
+/*
+ TEST PLAN
+ 
+ Normal case:
+ 	>printTable()
+ 	
+
+ Case 1 (infinite loop)
+ 	> if we ommit the final point of 12, the loop may continue indefinitely.
+ 
+
+ Discussion:
+ 	The values are hard coded in this program so any issues that may occur are limited. If we had a prompt and input model
+	then the test plan would have to be much more elaborate.
+ 
+*/
+
+
+
 #include <iostream>
 #include <iomanip>
 using namespace std;

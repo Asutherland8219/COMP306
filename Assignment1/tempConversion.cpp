@@ -7,59 +7,91 @@
  Version: 1.0
 */
 
+/*
+ DOCUMENTATION
+ 
+ Program Purpose:
+	Convert a user entered value to either Fahrenheight or Celsius, also entered by the user.
+ 	
+ Compile (assuming Cygwin is running): g++ -o Assignment1 tempConversion.cpp
+ Execution (assuming Cygwin is running): ./tempConversion.exe
+ 
+ Classes:
+	- tempOutputs : Enter the temp and desired units, output is the answer in sentence format.
+
+ Variables:
+ 	temperature - int - the temperature value 
+ 	units - char - the Units you would like to conver to
+*/
+
+/*
+ TEST PLAN
+ 
+ Normal case:
+ 	>printTable()
+ 	
+
+ Case 1 (infinite loop)
+ 	> if we ommit the final point of 12, the loop may continue indefinitely.
+ 
+
+ Discussion:
+ 	The values are hard coded in this program so any issues that may occur are limited. If we had a prompt and input model
+	then the test plan would have to be much more elaborate.
+ 
+*/
+
+#include "unitConversionHeader.h"
 #include <iostream>
 #include <iomanip>
 #include <cmath>
 #include <typeinfo>
+
 using namespace std;
 
 void tempOutputs(int, char);
+int unitConversion(int, char);
 
 void tempConversion() {
     // Parent function.Collect the inputs, handle the conversions and checks then return the result.
     int temperature;
     char units;
-    int id_type;
+    bool running;
 
+    running = true;
    
     cout << "This program converts Temperatures from Fahrenheit to Celsius and vice versa. \n";
+
     cout <<  "Please enter your temperature: ";
     cin >> temperature; 
-    cout << "\n";
 
-    while (cin.good()) {
-        cout <<  "Please enter your units (F/C): ";
-        cin >> units; 
-        cout << "\n";  
+    while (running == true) {
+        cout << "\n";
+        if (cin.good()) {
+            cout <<  "Please enter your units (F/C): ";
+            cin >> units; 
+            cout << "\n";
+        }  
 
         if (cin.good()) {
             tempOutputs(temperature, units);
+            running = false;
         }
         else {
-            cout << "The value you have entered is incorrect or not supported. Please enter either F or C for Fahrenheit or Celsius respectively:";
+            cout << "The value you have entered is incorrect or not supported. Please enter either F or C or to exit the program enter N :";
             cin >> temperature;
+
+            if (temperature == 'N') {
+                running = false;
+            }
         }
-
     }
-}
-
-int unitConversion(int temperature, char units) {
-    // main math calculation 
-    int calculation;
-
-    if (units == 'C') {
-        calculation = (temperature * 9 / 5) + 32 ;
-    }
-    else {
-        calculation = (temperature - 32) * 5/9 ; 
-    }
-
-    return calculation;
-
+    
 }
 
 
 
+    
 void tempOutputs(int temperature, char units) {
     // After receiving the inputs we add the conversion logic and then run the calculations
     string lhs = "Celsius";
