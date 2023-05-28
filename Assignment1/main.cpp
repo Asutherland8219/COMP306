@@ -18,9 +18,8 @@ void tempConversionTable(void);
 int main() {
     // printTable();
     tempConversion();
-    tempConversionTable();
-    helpMenu();
+    // tempConversionTable();
+    // helpMenu();
 
     return 0;
 };
-/*  */
