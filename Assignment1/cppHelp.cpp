@@ -59,19 +59,48 @@ void userInput(char choice) {
 
     switch (choice) {
         case '1':
-            cout << "Help on If: ..." ; 
+            cout << "Help on If: \n" ;
+            cout << "A condtional statement to check if the data meets a set condtion. It operates on true/false logic. \n ";
+            cout << "If the condition is met, the if statement is evaluated as true and the appropirate codeblock is executed. \n";
+            cout << "If the condition is not met we default to false and the code continues. \n" ;
+            cout << "We can also create an else statement to specify another code block to be executed if the if condition is evaluated as false. \n";
+            cout <<  "Source: Think CPP  Chapter 4 Conditionals and Recursions. " 
             break;
         case '2':
-            cout << "Help on Switch: ..." ;
+            cout << "Help on Switch: \n" ;
+            cout << "A statement based on specific cases. The switch statement evaluates an expression once, then compares the expression value to each possible case. \n";
+            cout << "If a match exists then the corresponding codeblock is executed. If you know certain cases are more likely than others, you can add a break function. \n";
+            cout << "A break can save time in looping over the remaining cases if the case is already met. \n";
+            cout << "Additionally, you can add a default statement that will execute if no case is matched. \n";
+            cout <<  "Source: https://www.w3schools.com/cpp/cpp_switch.asp";
             break;
         case '3':
-            cout << "Help on For: ..." ;
+            cout << "Help on For: \n" ;
+            cout << "A loop function that will run a finite amount of times. \n";
+            cout << "The for loop operates based on three [optional] parameters: \n";
+            cout << "\t 1. Initialization: initializes the variables, executed only once. \n";
+            cout << "\t 2. Condition: the condition to be met, if met the code block is executed, if not the loop is terminated. \n";
+            cout << "\t 3. Update: updates the value of the initialized variables and again checks the condition. \n";
+            cout << "Though optional, one of the three must be present. \n";
+            cout << "Sources : \n https://www.programiz.com/cpp-programming/for-loop \n";
+            cout << "https://learn.microsoft.com/en-us/cpp/cpp/for-statement-cpp?view=msvc-170";
+
             break;
         case '4':
-            cout << "Help on While: ..." ;
+            cout << "Help on While:  \n" ;
+            cout << "A loop function that runs while a conditional statement is evaluated as true. A while loop begins by evaluating the condtion; \n";
+            cout << "If the condition is true, the code block inside the loop is executed. This process continues until the condition evaluates as false.\n";
+            cout << "When it is evaluated as false the loop terminates. \n";
+            cout << "While loops can be dangerous because if a condition is never set to false, the loop will run indefinitely.\n";
+            cout << "For safety, you can add a simple counter variable and increment on each loop. Once the counter value is hit, exit the loop.\n";
+            cout << "Source: https://www.programiz.com/cpp-programming/do-while-loop";
             break;
         case '5':
-            cout << "Help on Do-While: ..."  ;
+            cout << "Help on Do-While: \n"  ;
+            cout << "A variant of a standard while loop but differs by adding a 'do' code block. This code block is executed once before the condition is checked. \n";
+            cout << "While the condition evaluates to true, the body of the loop inside of the do code block is executed. After execution the condition is evaluated again. \n";
+            cout << "If the condition is false, the loop ends. \n";
+            cout << "Source: https://www.programiz.com/cpp-programming/do-while-loop";
             break;
         default:
             cout << "Invalid selection. Please select an item from the options listed above."  ;
