@@ -17,7 +17,7 @@ void tempConversionTable(void);
     
 int main() {
     // printTable();
-    // tempConversion();
+    tempConversion();
     // tempConversionTable();
     helpMenu();
 
