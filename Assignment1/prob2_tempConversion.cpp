@@ -1,5 +1,5 @@
 /*
- Title: tempConversion.cpp
+ Title: prob2_tempConversion.cpp
  Description: A temperature conversion application based on user input
  Date: May 22nd, 2023
  Author: Alex Sutherland
@@ -80,12 +80,12 @@ void tempConversion() {
         if ( units == 'F' || units == 'C') {
             tempOutputs(temperature, units);
             cout << "\n";
-            cout << " Do you want another conversion? (Y/N): ";
+            cout << " Do you want another conversion? (Y/N): \n";
             cin >> killswitch;
             killswitch = toupper(killswitch);
         }
         else {
-            cout << "The value you have entered is incorrect or not supported. Would you like to try again? (Y/N): ";
+            cout << "The value you have entered is incorrect or not supported. Would you like to try again? (Y/N): \n";
             cin >> units;
             units = toupper(units);
 
@@ -128,6 +128,6 @@ void tempOutputs(int temperature, char units) {
     // taken from header
     calculation = unitConversion(temperature, units);
 
-    cout << "A temperature of " << temperature << " degrees " << lhs << " is equivalent to " << calculation << " " << rhs << ".";
+    cout << "A temperature of " << temperature << " degrees " << lhs << " is equivalent to " << calculation << " " << rhs << ". \n";
 }
 

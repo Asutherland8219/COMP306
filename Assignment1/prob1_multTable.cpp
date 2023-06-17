@@ -1,5 +1,5 @@
 /*
- Title: multTable.cpp
+ Title: prob1_multTable.cpp
  Description: Creating a Multiplication Table from 1 to 12
  Date: May 22nd, 2023
  Author: Alex Sutherland

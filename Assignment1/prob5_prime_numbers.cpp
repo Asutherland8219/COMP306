@@ -41,50 +41,30 @@
  
 */
 
-
 #include <iostream>
-#include <iomanip>
 #include <cmath>
-#include <typeinfo>
-#include "unitConversionHeader.h"
 
-using namespace std;
+// basic check to see if the value satisfies the constraints of being  a prime number 
+bool is_prime_number(int value) {
+    if (value < 2) {
+        return false;
+    }
+    for (int i = 2; i <= std::sqrt(value); ++i) {
+        if (value % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
 
-void tableHeaders();
-int  unitConversion(int, char);
-
-void tempConversionTable() {
-    // parent function 
-    float increment = 5;
-    float floor = -40;
-    float ceiling = 455;
-
-    tableHeaders();
-
-    for ( floor; ceiling; floor += increment) {
-
-        // column one, F to C 
-        cout << "\t" << floor << "\t";
-        cout << unitConversion(floor, 'F');
-
-        // pipe
-        cout << "\t|";
-
-        // column two, C to F 
-        cout << "\t" << floor << "\t";
-        cout << unitConversion(floor, 'C') << "\n";
-
-
-        if ( floor == ceiling){
-            break;
+int find_prime_numbers() {
+    // Find and print prime numbers in the range 
+    for (int number = 1; number <= 10000; ++number) {
+        if (is_prime_number(number)) {
+            std::cout << number << std::endl;
         }
     }
 
+    return 0;
 }
 
-void tableHeaders() {
-    cout <<  setw(5) << "\t" << "Temperature \t" << "|" << "\t" << "Temperature \t \n";
-    cout << "\t" << " (degrees) \t" << "|" << "\t" << " (degrees) \t \n";
-    cout << "\t" << "F" << "\t" << setw(3) << "C";
-    cout << "\t|\t" << "C" << "\t" << setw(5) << "F \n";
-}
