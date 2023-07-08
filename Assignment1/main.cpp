@@ -13,22 +13,21 @@ using namespace std;
 void tableFrame (int);
 void printValues (int n, int high);
 void tempConversion();
-bool typeCheck(int, int);
 void printTable(void);
 void tempConversionTable(void);
     
 int main() {
     // problem 1 --> Done
-    // printTable();
+    printTable();
 
     // problem 2 --> Needs a little more work 
-    // tempConversion();
+    tempConversion();
 
     // problem 3 --> add trailing 0's
-    //tempConversionTable();
+    tempConversionTable();
     
     // problem 4 --> Done
-    // helpMenu();
+    helpMenu();
 
     // problem 5  --> Done
     find_prime_numbers();
