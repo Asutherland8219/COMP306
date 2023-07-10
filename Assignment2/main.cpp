@@ -1,29 +1,36 @@
 using namespace std;
 
 #include "Animal.cpp"
+#include "AnimalTest.cpp"
 
 int main() {
 
-   Animal animal;
-   // default constructor
-   animal.sound();
+    std::string input ;
 
-   // Pig
-   Pig pig;
-   pig.sound();
+    Animal animal;
+    // default constructor
+    animal.sound();
 
-   // Sheep
-   Sheep sheep;
-   sheep.sound();
+    // Pig
+    Pig pig;
+    pig.sound();
 
-   // Duck
-   Duck duck;
-   duck.sound();
+    // Sheep
+    Sheep sheep;
+    sheep.sound();
 
-   // Cow
-   Cow cow;
-   cow.sound();
+    // Duck
+    Duck duck;
+    duck.sound();
 
+    // Cow
+    Cow cow;
+    cow.sound();
+
+    // Test input function
+    cout << "Enter an animal: ";
+    cin >> input;
+    (AnimalTest(input));
    return 0;
 
 };
