@@ -22,3 +22,9 @@ This sound() method does not generate an actual sound; it only prints the word d
 Write a main() that creates several instances of each animal, and then calls each animal instance’s sound() method, so that different animals print different sounds accordingly.
 
 Create another class called AnimalTest that reads the command line user input and creates the appropriate Animal child class based on the type of animal, and then calls the animal’s sound() method. Take some time to reflect on which class to create.
+
+Problem 2
+
+Define a class called Book. The Book class should store attributes, such as the title, ISBN number, author, edition, publisher, and year of publication. These attributes must be private.
+
+Provide public get/set methods in this class to access these attributes. Test your Book class by creating several books and displaying the attributes.

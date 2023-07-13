@@ -10,12 +10,7 @@
 
 using namespace std;
 
-void tableFrame (int);
-void printValues (int n, int high);
-void tempConversion();
-void printTable(void);
-void tempConversionTable(void);
-    
+
 int main() {
     // problem 1 --> Done
     printTable();
