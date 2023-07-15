@@ -46,10 +46,7 @@
 
 // basic check to see if the value satisfies the constraints of being  a prime number 
 bool is_prime_number(int value) {
-    if (value < 2) {
-        return false;
-    }
-    for (int i = 2; i <= std::sqrt(value); ++i) {
+    for (int i = 1; i <= std::sqrt(value); ++i) {
         if (value % i == 0) {
             return false;
         }

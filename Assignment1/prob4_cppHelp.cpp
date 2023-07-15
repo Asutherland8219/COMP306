@@ -49,45 +49,36 @@ void helpMenu() {
     /*
     Create a help menu for C++ topics such as if, switch, for , while, do-while
     */
-   char input;
-   bool running = true;
-   void userInput(char);
+    char input;
+    bool running = true;
+    void userInput(char);
 
-   while(running) {
+    while (running) {
 
-    cout << "Select Help on: \n";
-    cout << "\t 1. If\n";
-    cout << "\t 2. Switch\n";
-    cout << "\t 3. For\n";
-    cout << "\t 4. While\n";
-    cout << "\t 5. Do-while\n";
-    cout << "\t x. Exit\n";
-    cin >> input;
+        cout << "Select Help on: \n";
+        cout << "\t 1. If\n";
+        cout << "\t 2. Switch\n";
+        cout << "\t 3. For\n";
+        cout << "\t 4. While\n";
+        cout << "\t 5. Do-while\n";
+        cout << "\t x. Exit\n";
+        cin >> input;
 
-    // because the inputs can be both int and char it is best for us to convert the int to char and handle accordingly
+        cout << "\nSelection: " << input << "\n";
 
-   switch (input) {
-        case '1':
-        case '2':
-        case '3':
-        case '4':
-        case '5':
-            cout << "\nSelection: " << input << "\n";
-            userInput(input);
-            break;
-        case 'x':
-            cout << "\nSelection: " << input << "\n";
+        if (input == 'x') {
             running = false;
             cout << "\nThank you. Good bye.";
             break;
-        default:
-            cout << "\nSelection: " << input << "\n";
-            cout << "Invalid selection. Please select an item from the options listed.\n";
+        } else {
+            userInput(input);
             break;
+
+        }
     }
 }
 
-};
+
 
 void userInput(char choice) {
     // encapsulation of the input code where we will print the info based on the input.
@@ -136,6 +127,9 @@ void userInput(char choice) {
             cout << "While the condition evaluates to true, the body of the loop inside of the do code block is executed. After execution the condition is evaluated again. \n";
             cout << "If the condition is false, the loop ends. \n";
             cout << "Source: https://www.programiz.com/cpp-programming/do-while-loop \n";
+            break;
+        default:
+            cout << "Invalid selection. Please select an item from the options listed.\n";
             break;
     }
 }
