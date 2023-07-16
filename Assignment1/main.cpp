@@ -13,19 +13,19 @@ using namespace std;
 
 int main() {
     // problem 1 --> Done
-    printTable();
+//    printTable();
 
     // problem 2 --> Needs a little more work 
     tempConversion();
 
     // problem 3 --> add trailing 0's
-    tempConversionTable();
+//    tempConversionTable();
     
     // problem 4 --> Done
-    helpMenu();
+//    helpMenu();
 
     // problem 5  --> Done
-    find_prime_numbers();
+//    find_prime_numbers();
 
     return 0;
 };

@@ -68,11 +68,10 @@ void helpMenu() {
 
         if (input == 'x') {
             running = false;
-            cout << "\nThank you. Good bye.";
+            cout << "\nThank you. Good bye. \n";
             break;
         } else {
             userInput(input);
-            break;
 
         }
     }

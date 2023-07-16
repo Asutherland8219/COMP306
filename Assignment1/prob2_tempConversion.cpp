@@ -50,64 +50,68 @@
 using namespace std;
 
 void tempOutputs(int, char);
-int unitConversion(int, char);
 
 void tempConversion() {
     // Parent function.Collect the inputs, handle the conversions and checks then return the result.
     int temperature;
     char units;
+    char retry;
     char killswitch;
     bool running;
 
     running = true;
-   
+
     cout << "This program converts Temperatures from Fahrenheit to Celsius and vice versa. \n";
 
-    while (running == true) {
-        cout <<  "Please enter your temperature: \n";
-        cin >> temperature; 
+    while (running) {
+        cout << "Please enter your temperature: \n";
+        cin >> temperature;
 
         cout << "\n";
-        if (cin.good()) {
-            cout <<  "Please enter your units (F/C): ";
-
-            // convert to upper to eliminate risk of inputting the wrong value, lowercase is sufficient
-            cin >> units;
-            units = toupper(units);
-            cout << "\n";
-        }  
-
-        if ( units == 'F' || units == 'C') {
-            tempOutputs(temperature, units);
-            cout << "\n";
-            cout << " Do you want another conversion? (Y/N): \n";
-            cin >> killswitch;
-            killswitch = toupper(killswitch);
-        }
-        else {
+        if (cin.fail()) {
+            cin.clear();
             cout << "The value you have entered is incorrect or not supported. Would you like to try again? (Y/N): \n";
-            cin >> units;
-            units = toupper(units);
+            cin >> retry;
+            units = toupper(retry);
 
-            if (units == 'N') {
-                cout << "Thank you. Goodbye. \n";
-                running = false;
+            if (units == 'Y') {
+                break;
+
             }
-
-            if (units != 'Y' || units != 'N') {
+            else {
                 cout << "Too many incorrect attempts. Exiting program now. \n";
                 cout << "Thank you. Goodbye. \n";
-                running = false;
+
+
+            }
+            running = false;
+        }
+
+        else if (cin.good()) {
+                cout << "Please enter your units (F/C): ";
+                // convert to upper to eliminate risk of inputting the wrong value, lowercase is sufficient
+                cin >> units;
+                units = toupper(units);
+                cout << "\n";
+
+                if (units == 'F' || units == 'C') {
+                    tempOutputs(temperature, units);
+                    cout << "\n";
+                    cout << " Do you want another conversion? (Y/N): \n";
+                    cin >> killswitch;
+                    killswitch = toupper(killswitch);
+                }
+                if (killswitch == 'N') {
+                    cout << "Thank you. Goodbye. \n";
+                    running = false;
+                }
+
             }
         }
 
-        if (killswitch == 'N') {
-            cout << "Thank you. Goodbye. \n";
-            running = false;
-        } 
+
     }
-    
-}
+
 
 
 
@@ -119,7 +123,7 @@ void tempOutputs(int temperature, char units) {
     int calculation;
 
     if (units == 'F') {
-        lhs = "Fahrenheiht";
+        lhs = "Fahrenheit";
 
     }
     else {
@@ -128,6 +132,6 @@ void tempOutputs(int temperature, char units) {
     // taken from header
     calculation = unitConversion(temperature, units);
 
-    cout << "A temperature of " << temperature << " degrees " << lhs << " is equivalent to " << calculation << " " << rhs << ". \n";
+    cout << "A temperature of " << temperature << " degrees " << lhs << " is equivalent to " << calculation << " degrees " << rhs << ". \n";
 }
 
