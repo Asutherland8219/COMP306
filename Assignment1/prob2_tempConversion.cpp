@@ -68,27 +68,11 @@ void tempConversion() {
         cin >> temperature;
 
         cout << "\n";
-        if (cin.fail()) {
-            cin.clear();
-            cout << "The value you have entered is incorrect or not supported. Would you like to try again? (Y/N): \n";
-            cin >> retry;
-            units = toupper(retry);
 
-            if (units == 'Y') {
-                break;
-
-            }
-            else {
-                cout << "Too many incorrect attempts. Exiting program now. \n";
-                cout << "Thank you. Goodbye. \n";
-
-
-            }
-            running = false;
-        }
-
-        else if (cin.good()) {
+        if (cin.good()) {
                 cout << "Please enter your units (F/C): ";
+                cin.clear();
+                cin.ignore( std::numeric_limits<std::streamsize>::max(), '\n' );
                 // convert to upper to eliminate risk of inputting the wrong value, lowercase is sufficient
                 cin >> units;
                 units = toupper(units);
@@ -107,15 +91,34 @@ void tempConversion() {
                 }
 
             }
+        if (cin.fail()) {
+            cin.clear();
+            cin.ignore( std::numeric_limits<std::streamsize>::max(), '\n' );
+
+            cout << "The value you have entered is incorrect or not supported. Would you like to try again? (Y/N): \n";
+            cin >> retry;
+            units = toupper(retry);
+
+            if (units == 'Y') {
+                continue;
+
+            }
+            else {
+                cout << "Too many incorrect attempts. Exiting program now. \n";
+                cout << "Thank you. Goodbye. \n";
+                running = false;
+
+
+            }
         }
+
+    }
 
 
     }
 
 
 
-
-    
 void tempOutputs(int temperature, char units) {
     // After receiving the inputs we add the conversion logic and then run the calculations
     string lhs = "Celsius";
