@@ -106,7 +106,6 @@ void userInput(char choice) {
             cout << "\t 1. Initialization: initializes the variables, executed only once. \n";
             cout << "\t 2. Condition: the condition to be met, if met the code block is executed, if not the loop is terminated. \n";
             cout << "\t 3. Update: updates the value of the initialized variables and again checks the condition. \n";
-            cout << "Though optional, one of the three must be present. \n";
             cout << "Sources :\n https://www.programiz.com/cpp-programming/for-loop \n";
             cout << "https://learn.microsoft.com/en-us/cpp/cpp/for-statement-cpp?view=msvc-170 \n";
 

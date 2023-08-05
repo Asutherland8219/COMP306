@@ -7,6 +7,7 @@ using namespace std;
 
 class Animal {
 public:
+
     Animal(const std::string& animalType = "animal") {
         // Default constructor for the Animal class
         cout << "I am an " << animalType << "." << endl;
