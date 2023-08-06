@@ -39,7 +39,18 @@ public:
             return year_published;
         };
     };
+
+    void details() {
+        cout << "Title: " << title << std::endl;
+        cout << "ISBN: " << ISBN << std::endl;
+        cout << "Author: " << author << std::endl;
+        cout << "Edition: " << edition << std::endl;
+        cout << "Publisher: " << publisher << std::endl;
+        cout << "Year Published: " << year_published << std::endl;
+    }
+
 public:
+        //setters
         void setTitle(const string newTitle) {
             title = newTitle;
         }
@@ -58,10 +69,6 @@ public:
         void setYearPublished(const string newYearPublished) {
             year_published = newYearPublished;
         }
-public:
-    Book details(){
 
-            return
-        };
     };
 

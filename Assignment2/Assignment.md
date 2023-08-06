@@ -28,3 +28,13 @@ Problem 2
 Define a class called Book. The Book class should store attributes, such as the title, ISBN number, author, edition, publisher, and year of publication. These attributes must be private.
 
 Provide public get/set methods in this class to access these attributes. Test your Book class by creating several books and displaying the attributes.
+ 
+Problem 3
+
+Create a class called Elevator that can be moved between floors in an N-storey building. Elevator uses a constructor to initialize the number of floors (N) in the building when the object is instantiated.
+
+Elevator also has a default constructor that creates a five- (5) storey building.
+
+The Elevator class has a termination condition that requires the elevator to be moved to the main (i.e., first) floor when the object is cleaned up. Write a finalize() method that satisfies this termination condition and verifies the condition by printing a message to the output, Elevator ending: elevator returned to the first floor.
+
+In main(), test at least five (5) possible scenarios that can occur when Elevator is used in a building with many floors (e.g., create, move from one floor to another, etc.).
