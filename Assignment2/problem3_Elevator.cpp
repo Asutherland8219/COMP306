@@ -14,31 +14,41 @@ public:
     Elevator(int N = 5){
         //default constructor for the class, 5 stories
         top = N;
-        std::cout << "You are currently on floor: " << position << std::endl;
+        std::cout << "Welcome! You are currently on floor: " << position << std::endl;
     }
 
     void up(){
         // move up a floor
-        if (in_range(position)) {
-            position++;
+        int pos_up = ++position;
+        if (in_range(pos_up)) {
+            position = pos_up;
             std::cout << "Going up." << std::endl;
+            std::cout << "You are currently on floor: " << position << std::endl;
         }
     }
 
     void down(){
         //move down a floor
-        if (in_range(position)) {
-            position--;
+        int pos_down = --position;
+        if (in_range(pos_down)) {
+            position = pos_down;
             std::cout << "Going down." << std::endl;
+            std::cout << "You are currently on floor: " << position << std::endl;
         }
 
     }
 
+    void reset(){
+        // The reset function, returning to the main floor
+        position = 1;
+        std::cout << "Elevator ending: Returning to the first floor." << std::endl;
+    }
+
     void go_to(int N){
         // go to a specific floor
-        if (in_range(position)) {
+        if (in_range(N)) {
             position = N;
-            std::cout << "We have arrived on floor " << position << std::endl;
+            std::cout << "You have arrived on floor:  " << position << std::endl;
         }
 
     }
@@ -49,10 +59,13 @@ public:
             std::cout << "This value is more than the maximum of floors in this building.\n" << std::endl;
             return false;
         }
-        else if (desired_floor < 1 ){
+        if (desired_floor < 1 ){
             std::cout << "This is less than the number of floors in this building. \n" << std::endl;
             std::cout << "Please enter a value between " << 1 << "and " << top << std::endl;
             return false;
+        }
+        if (desired_floor == top){
+            std::cout << "You have reached the top floor of this establishment." << endl;
         }
         else {
             return true;

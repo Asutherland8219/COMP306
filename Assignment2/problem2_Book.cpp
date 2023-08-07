@@ -23,7 +23,7 @@ public:
         if (query == "TITLE") {
             return title;
         };
-        if (query == "ISBN") {
+        if (query == "ISBN"){
             return ISBN;
         };
         if (query == "AUTHOR") {

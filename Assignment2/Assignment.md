@@ -38,3 +38,13 @@ Elevator also has a default constructor that creates a five- (5) storey building
 The Elevator class has a termination condition that requires the elevator to be moved to the main (i.e., first) floor when the object is cleaned up. Write a finalize() method that satisfies this termination condition and verifies the condition by printing a message to the output, Elevator ending: elevator returned to the first floor.
 
 In main(), test at least five (5) possible scenarios that can occur when Elevator is used in a building with many floors (e.g., create, move from one floor to another, etc.).
+
+Problem 4
+
+Create an inheritance hierarchy of Rodent: mouse, gerbil, hamster, guinea pig.
+
+In the base class, provide methods that are common to all rodents based on behaviours you find with a quick Internet search. Be sure to document the behaviours you implement (e.g., eat, sleep, groom, move, etc.). Each behaviour should print its action to standard output (e.g., rodent eating).
+
+Next, refine these behaviours in the child classes to perform different behaviours, depending on the specific type of rodent, but only if the behaviour is actually different (e.g., mouse eating seeds or guinea pig eating grass). If you are having difficulty coming up with various behaviours, start a discussion in the forum for this assignment and compare notes with others taking the course.
+
+Test your Rodent classes by writing a main() class and creating instances of every rodent, and demonstrate all the behaviours for each rodent.

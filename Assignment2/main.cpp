@@ -3,8 +3,10 @@ using namespace std;
 #include "problem1_Animal.cpp"
 #include "problem1_AnimalTest.cpp"
 #include "problem2_Book.cpp"
+#include "problem3_Elevator.cpp"
 
-int main() {
+
+ int main() {
 
     // problem 1
     std::string input ;
@@ -30,9 +32,9 @@ int main() {
     cow.sound();
 
     // Test input function
-    cout << "Enter an animal: ";
-    cin >> input;
-    (AnimalTest(input));
+//    cout << "Enter an animal: ";
+//    cin >> input;
+//    (AnimalTest(input));
 
     // problem 2
     // Test function for the Book class ; mainly on creation
@@ -57,12 +59,53 @@ int main() {
     golden_son.setYearPublished("Jan. 6 2015");
 
     // get all the details
-    cout << golden_son.get("title");
-    cout << golden_son.get("isbn");
-    cout << golden_son.get("author");
-    cout << golden_son.get("edition");
-    cout << golden_son.get("publisher");
-    cout << golden_son.get("year published");
+    cout << golden_son.get("title") << "\n";
+    cout << golden_son.get("isbn") << "\n";
+    cout << golden_son.get("author") << "\n";
+    cout << golden_son.get("edition") << "\n";
+    cout << golden_son.get("publisher")<< "\n";
+    cout << golden_son.get("year published") << "\n";
+
+    // problem 3 ; The elevator
+
+    // init the elevator
+    Elevator elevator = Elevator();
+
+    // go all the way up to floor 5, one at a time
+    elevator.up();
+    elevator.up();
+    elevator.up();
+    elevator.up();
+
+    // test the max floor error response
+    elevator.up();
+
+    // go all the way down
+    elevator.down();
+    elevator.down();
+    elevator.down();
+    elevator.down();
+
+    // go beyond first floor to test error response
+    elevator.down();
+
+    // reset to one (main floor)
+    elevator.reset();
+
+    // go to floor outside upper limit
+    elevator.go_to(6);
+
+    // go to floor outside lower limit
+    elevator.go_to(-1);
+
+    // go to specific floor, then reset
+    elevator.go_to(3);
+    elevator.reset();
+
+    // create a big elevator, for a tower with 20 floors
+    Elevator big_elevator = Elevator(20);
+    big_elevator.go_to(20);
+
 
 
     return 0;
