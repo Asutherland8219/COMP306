@@ -106,8 +106,6 @@ using namespace std;
     Elevator big_elevator = Elevator(20);
     big_elevator.go_to(20);
 
-
-
     return 0;
 
 };
