@@ -8,7 +8,7 @@
 
 class Rodent {
 public:
-    //Rodent(std::string name) : name(name) {};
+    Rodent();
 
     void dance() {
         std::cout << name << " is dancing!!" << std::endl;
@@ -31,7 +31,57 @@ public:
     }
 
     void eat(std::string food) {
+        std::cout << name << "is eating " << food << ". yum!" << std::endl;
+
+    }
+private:
+    std::string name;
+};
+
+class GuineaPig : public Rodent {
+public:
+    GuineaPig() {
 
     }
 
+    void Talk() {
+        // Guineapig squeak
+        std::cout << "*squeak*, *squeak*, *squeak!*" << std::endl;
+    }
+
+
+};
+
+class Hamster : public Rodent {
+    Hamster() {
+
+    }
+
+    void Exercise() {
+        // Hamster running on the wheel
+        std::cout << "wrrrrrrrr the hamster wheel is spinning as the hamster is running." << std::endl;
+    }
+
+
+};
+
+class Gerbil : public Rodent {
+    Gerbil() {
+    }
+
+    void Smell() {
+        // sniffing around
+        std::cout << "*sniff* *sniff* *sniff*" << std::endl;
+    }
+};
+
+class Mouse : public Rodent {
+    Mouse() {
+
+    }
+
+    void Hide() {
+        // Mouse hiding from predators
+        std::cout << "the mouse is hiding." << std::endl;
+    }
 };
