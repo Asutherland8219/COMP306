@@ -4,11 +4,12 @@ using namespace std;
 #include "problem1_AnimalTest.cpp"
 #include "problem2_Book.cpp"
 #include "problem3_Elevator.cpp"
+#include "problem4_Rodent.cpp"
 
 
  int main() {
 
-    // problem 1
+    // PROBLEM 1
     std::string input ;
 
     Animal animal;
@@ -36,7 +37,7 @@ using namespace std;
 //    cin >> input;
 //    (AnimalTest(input));
 
-    // problem 2
+    // PROBLEM 2
     // Test function for the Book class ; mainly on creation
     // test getters in the main
     Book red_rising = Book();
@@ -66,7 +67,7 @@ using namespace std;
     cout << golden_son.get("publisher")<< "\n";
     cout << golden_son.get("year published") << "\n";
 
-    // problem 3 ; The elevator
+    // PROBLEM 3 ; The elevator
 
     // init the elevator
     Elevator elevator = Elevator();
@@ -106,7 +107,13 @@ using namespace std;
     Elevator big_elevator = Elevator(20);
     big_elevator.go_to(20);
 
-
+    // PROBLEM 4
+    Rodent mouse = Mouse();
+    mouse.jump();
+    mouse.dance();
+    mouse.eat("carrot");
+    mouse.move();
+    mouse.sleep();
 
     return 0;
 

@@ -22,21 +22,24 @@ public:
 
         if (query == "TITLE") {
             return title;
-        };
+        }
         if (query == "ISBN"){
             return ISBN;
-        };
+        }
         if (query == "AUTHOR") {
             return author;
-        };
+        }
         if (query == "EDITION") {
             return edition;
-        };
+        }
         if (query == "PUBLISHER") {
             return publisher;
-        };
+        }
         if (query == "YEAR PUBLISHED") {
             return year_published;
+        }
+        else {
+            return "Incorrect input, please try again.";
         };
     };
 
@@ -51,22 +54,22 @@ public:
 
 public:
         //setters
-        void setTitle(const string newTitle) {
+        void setTitle(const string& newTitle) {
             title = newTitle;
         }
-        void setISBN(const string newISBN) {
+        void setISBN(const string& newISBN) {
             ISBN = newISBN;
         }
-        void setAuthor(const string newAuthor) {
+        void setAuthor(const string& newAuthor) {
             author = newAuthor;
         }
-        void setEdition(const string newEdition) {
+        void setEdition(const string& newEdition) {
             edition = newEdition;
         }
-        void setPublisher(const string newPublisher) {
+        void setPublisher(const string& newPublisher) {
             publisher = newPublisher;
         }
-        void setYearPublished(const string newYearPublished) {
+        void setYearPublished(const string& newYearPublished) {
             year_published = newYearPublished;
         }
 

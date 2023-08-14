@@ -8,7 +8,9 @@
 
 class Rodent {
 public:
-    Rodent();
+    Rodent(const std::string& name = "rodent"){
+        cout << "This is " << name << ". They are a " << typeid(Rodent).name();
+    };
 
     void dance() {
         std::cout << name << " is dancing!!" << std::endl;
@@ -53,6 +55,7 @@ public:
 };
 
 class Hamster : public Rodent {
+public:
     Hamster() {
 
     }
@@ -66,6 +69,7 @@ class Hamster : public Rodent {
 };
 
 class Gerbil : public Rodent {
+public:
     Gerbil() {
     }
 
@@ -76,12 +80,13 @@ class Gerbil : public Rodent {
 };
 
 class Mouse : public Rodent {
-    Mouse() {
-
-    }
-
+public:
     void Hide() {
         // Mouse hiding from predators
         std::cout << "the mouse is hiding." << std::endl;
+    }
+
+    Mouse() {
+
     }
 };
