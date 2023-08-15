@@ -108,12 +108,16 @@ using namespace std;
     big_elevator.go_to(20);
 
     // PROBLEM 4
-    Rodent mouse = Mouse();
+    Mouse mouse("Lola");
     mouse.jump();
     mouse.dance();
-    mouse.eat("carrot");
+    mouse.eat("cheese");
     mouse.move();
     mouse.sleep();
+    mouse.hide();
+
+//    Gerbil gerbil("Gibby");
+//    gerbil.jump();
 
     return 0;
 

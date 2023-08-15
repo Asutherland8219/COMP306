@@ -8,36 +8,37 @@
 
 class Rodent {
 public:
-    Rodent(const std::string& name = "rodent"){
-        cout << "This is " << name << ". They are a " << typeid(Rodent).name();
+    Rodent(const std::string& name = "rodent", const std::string& species="rodent") : name(name), species(species){
+        cout << "This is " << name << ". They are a " << species << "." << std::endl;
     };
 
     void dance() {
-        std::cout << name << " is dancing!!" << std::endl;
+        std::cout << name << " the " << species << " is dancing!!" << std::endl;
     }
 
     void jump() {
-        std::cout << name << " is jumping!!" << std::endl;
+        std::cout << name << " the " << species << " is jumping!!" << std::endl;
     }
 
     void move() {
-        std::cout << name << " is moving" << std::endl;
+        std::cout << name << " the " << species << " is moving" << std::endl;
     }
 
     void sleep() {
-        std::cout << name << " is sleeping. shhh!" << std::endl;
+        std::cout << name << " the " << species << " is sleeping. shhh!" << std::endl;
     }
 
     void groom() {
-        std::cout << name << " is grooming itself." << std::endl;
+        std::cout << name << " the " << species << " is grooming itself." << std::endl;
     }
 
     void eat(std::string food) {
-        std::cout << name << "is eating " << food << ". yum!" << std::endl;
+        std::cout << name << " the " << species <<  "is eating " << food << ". yum!" << std::endl;
 
     }
-private:
+protected:
     std::string name;
+    std::string species;
 };
 
 class GuineaPig : public Rodent {
@@ -46,7 +47,7 @@ public:
 
     }
 
-    void Talk() {
+    void talk() {
         // Guineapig squeak
         std::cout << "*squeak*, *squeak*, *squeak!*" << std::endl;
     }
@@ -60,7 +61,7 @@ public:
 
     }
 
-    void Exercise() {
+    void exercise() {
         // Hamster running on the wheel
         std::cout << "wrrrrrrrr the hamster wheel is spinning as the hamster is running." << std::endl;
     }
@@ -73,7 +74,7 @@ public:
     Gerbil() {
     }
 
-    void Smell() {
+    void smell() {
         // sniffing around
         std::cout << "*sniff* *sniff* *sniff*" << std::endl;
     }
@@ -81,12 +82,12 @@ public:
 
 class Mouse : public Rodent {
 public:
-    void Hide() {
+    Mouse(const std::string& name = "mouse") : Rodent(name, "mouse") {
+    }
+
+    void hide() {
         // Mouse hiding from predators
-        std::cout << "the mouse is hiding." << std::endl;
+        std::cout << name << " the " << species << "is hiding." << std::endl;
     }
 
-    Mouse() {
-
-    }
 };
