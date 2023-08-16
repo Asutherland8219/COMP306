@@ -114,11 +114,39 @@ using namespace std;
     mouse.eat("cheese");
     mouse.move();
     mouse.sleep();
+    mouse.groom();
+    // unique ability
     mouse.hide();
 
-//    Gerbil gerbil("Gibby");
-//    gerbil.jump();
+    Gerbil gerbil("Gibby");
+    gerbil.jump();
+    gerbil.dance();
+    gerbil.eat("apple");
+    gerbil.move();
+    gerbil.sleep();
+    gerbil.groom();
+    // unique
+    gerbil.smell();
 
+    Hamster hamster("Hammy");
+    hamster.jump();
+    hamster.dance();
+    hamster.eat("carrot");
+    hamster.move();
+    hamster.sleep();
+    hamster.groom();
+    // unique
+    hamster.exercise();
+
+    GuineaPig guineapig("Gerald-Paul");
+    guineapig.jump();
+    guineapig.dance();
+    guineapig.eat("celery");
+    guineapig.move();
+    guineapig.sleep();
+    guineapig.groom();
+    //unique
+    guineapig.talk();
     return 0;
 
 };

@@ -33,7 +33,7 @@ public:
     }
 
     void eat(std::string food) {
-        std::cout << name << " the " << species <<  "is eating " << food << ". yum!" << std::endl;
+        std::cout << name << " the " << species <<  " is eating " << food << ". yum!" << std::endl;
 
     }
 protected:
@@ -43,7 +43,7 @@ protected:
 
 class GuineaPig : public Rodent {
 public:
-    GuineaPig() {
+    GuineaPig(const std::string& name = "GuineaPig") : Rodent(name, "GuineaPig") {
 
     }
 
@@ -57,7 +57,7 @@ public:
 
 class Hamster : public Rodent {
 public:
-    Hamster() {
+    Hamster(const std::string& name = "Hamster") : Rodent(name, "hamster") {
 
     }
 
@@ -71,7 +71,7 @@ public:
 
 class Gerbil : public Rodent {
 public:
-    Gerbil() {
+    Gerbil(const std::string& name = "Gerbil") : Rodent(name, "gerbil") {
     }
 
     void smell() {
@@ -82,12 +82,12 @@ public:
 
 class Mouse : public Rodent {
 public:
-    Mouse(const std::string& name = "mouse") : Rodent(name, "mouse") {
+    Mouse(const std::string& name = "Mouse") : Rodent(name, "mouse") {
     }
 
     void hide() {
         // Mouse hiding from predators
-        std::cout << name << " the " << species << "is hiding." << std::endl;
+        std::cout << name << " the " << species << " is hiding." << std::endl;
     }
 
 };
