@@ -147,6 +147,8 @@ using namespace std;
     guineapig.groom();
     //unique
     guineapig.talk();
+
+
     return 0;
 
 };

@@ -49,7 +49,7 @@ public:
 
     void talk() {
         // Guineapig squeak
-        std::cout << "*squeak*, *squeak*, *squeak!*" << std::endl;
+        std::cout << name << " says: *squeak*, *squeak*, *squeak!*" << std::endl;
     }
 
 
@@ -63,7 +63,7 @@ public:
 
     void exercise() {
         // Hamster running on the wheel
-        std::cout << "wrrrrrrrr the hamster wheel is spinning as the hamster is running." << std::endl;
+        std::cout << "wrrrrrrrr the hamster wheel is spinning as " << name << "the hamster is running." << std::endl;
     }
 
 
@@ -76,7 +76,7 @@ public:
 
     void smell() {
         // sniffing around
-        std::cout << "*sniff* *sniff* *sniff*" << std::endl;
+        std::cout << name << " is smelling: " << "*sniff* *sniff* *sniff*" << std::endl;
     }
 };
 

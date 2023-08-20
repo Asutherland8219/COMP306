@@ -48,3 +48,26 @@ In the base class, provide methods that are common to all rodents based on behav
 Next, refine these behaviours in the child classes to perform different behaviours, depending on the specific type of rodent, but only if the behaviour is actually different (e.g., mouse eating seeds or guinea pig eating grass). If you are having difficulty coming up with various behaviours, start a discussion in the forum for this assignment and compare notes with others taking the course.
 
 Test your Rodent classes by writing a main() class and creating instances of every rodent, and demonstrate all the behaviours for each rodent.
+
+
+Problem 5 
+
+Create a Point class to hold x and y values for a point. Create methods show(), add() and subtract() to display the Point x and y values, and add and subtract point coordinates.
+HINT
+
+Keep x and y separate in the calculation.
+
+Create another class Shape, which will form the basis of a set of shapes. The Shape class will contain default functions to calculate area and circumference of the shape, and provide the coordinates (Points) of a rectangle that encloses the shape (a bounding box). These will be overloaded by the derived classes; therefore, the default methods for Shape will only print a simple message to standard output.
+
+Create a display() function for Shape, which will display the name of the class and all stored information about the class (including area, circumference and bounding box).
+
+Build the hierarchy by creating the Shape classes Circle, Rectangle and Triangle. Search the Internet for the rules governing these shapes, if necessary.
+
+For these three Shape classes, create default constructors, as well as constructors whose arguments will initialize the shapes appropriately using the correct number of Point objects (i.e., Circle requires a Point center and a radius; Rectangle requires four Point vertices; and Triangle requires three Point vertices). Add error-checking to the constructors, such that they print a warning if the arguments do not conform to the appropriate shape.
+HINT
+
+Not all four-sided shapes are rectangles.
+
+Also add a check to Rectangle, such that it tests for the special case of a “square” and prints an appropriate message if the test is true.
+
+In main(), create several instances of each shape object and display the information for each object. Be sure to create at least one non-rectangle shape to demonstrate your error handling, and at least one square.
