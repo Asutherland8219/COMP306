@@ -14,10 +14,10 @@
  Program Purpose:
 	Create a multiplication table from 1 to 12 with appropriate style guidelines given.
  	
- Compile (assuming Cygwin is running): g++ -o Assignment1 multTable.cpp
- Execution (assuming Cygwin is running): ./multTable.exe
+ Compile (assuming Cygwin is running): g++ -o Assignment1 prob1_multTable.cpp
+ Execution (assuming Cygwin is running): ./prob1_multTable.exe
  
- Classes:
+ Classes (functions):
 	- tableFrame: set the top row for the table
 	- printValues: print the values in the table
 	- printTable: The main function that prints the entire table. This is the class I would add to Main.

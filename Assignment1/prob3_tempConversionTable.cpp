@@ -1,6 +1,6 @@
 /*
- Title: prob3_tempConversion.cpp
- Description: A temperature conversion application based on user input
+ Title: prob3_tempConversionTable.cpp
+ Description: A temperature conversion table
  Date: May 22nd, 2023
  Author: Alex Sutherland
  StudentID: 3640392
@@ -11,17 +11,19 @@
  DOCUMENTATION
  
  Program Purpose:
-	Convert a user entered value to either Fahrenheit or Celsius, also entered by the user.
+	Convert a table of temperatures ranging from -40 to 455.
  	
- Compile (assuming Cygwin is running): g++ -o Assignment1 tempConversion.cpp
- Execution (assuming Cygwin is running): ./tempConversion.exe
+ Compile (assuming Cygwin is running): g++ -o Assignment1 prob3_tempConversionTable.cpp
+ Execution (assuming Cygwin is running): ./prob3_tempConversionTable.exe
  
- Classes:
-	- tempOutputs : Enter the temp and desired units, output is the answer in sentence format.
+ Classes (functions):
+	- tableHeaders() :
+    - tempConversionHeaders() :
 
  Variables:
- 	temperature - int - the temperature value 
- 	units - char - the Units you would like to convert to
+ 	int increment - the integer amount to increment each instance by
+ 	int floor - the starting value
+ 	int ceiling - the top value, max value
 */
 
 /*
@@ -32,7 +34,8 @@
  	
 
  Case 1 (infinite loop)
- 	> if we ommit the final point of 12, the loop may continue indefinitely.
+ 	> If by chance the ceiling value was not set, then this calculation would continue indefinitely
+ 	> In order to avoid this, we just increment the floor value till it equals the ceiling
  
 
  Discussion:
@@ -50,7 +53,13 @@
 
 using namespace std;
 
-void tableHeaders();
+void tableHeaders() {
+    cout <<  setw(5) << "\t" << "Temperature \t" << "|" << "\t" << "Temperature \t \n";
+    cout << "\t" << " (degrees) \t" << "|" << "\t" << " (degrees) \t \n";
+    cout << "\t" << "F" << "\t" << setw(5) << "C";
+    cout << "\t|\t" << "C" << "\t" << setw(5) << "F \n";
+}
+
 
 void tempConversionTable() {
     // parent function 
@@ -81,9 +90,3 @@ void tempConversionTable() {
 
 }
 
-void tableHeaders() {
-    cout <<  setw(5) << "\t" << "Temperature \t" << "|" << "\t" << "Temperature \t \n";
-    cout << "\t" << " (degrees) \t" << "|" << "\t" << " (degrees) \t \n";
-    cout << "\t" << "F" << "\t" << setw(5) << "C";
-    cout << "\t|\t" << "C" << "\t" << setw(5) << "F \n";
-}

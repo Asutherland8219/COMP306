@@ -1,6 +1,6 @@
 /*
- Title: tempConversion.cpp
- Description: A temperature conversion application based on user input
+ Title: prob4_cppHelp.cpp
+ Description: A help function for basic CPP
  Date: May 22nd, 2023
  Author: Alex Sutherland
  StudentID: 3640392
@@ -11,33 +11,47 @@
  DOCUMENTATION
  
  Program Purpose:
-	Convert a user entered value to either Fahrenheight or Celsius, also entered by the user.
+	Allow the user to select things related to CPP to help and provide information.
  	
- Compile (assuming Cygwin is running): g++ -o Assignment1 tempConversion.cpp
- Execution (assuming Cygwin is running): ./tempConversion.exe
- 
- Classes:
-	- tempOutputs : Enter the temp and desired units, output is the answer in sentence format.
+ Compile (assuming Cygwin is running): g++ -o Assignment1 prob4_cppHelp.cpp
+ Execution (assuming Cygwin is running): ./prob4_cppHelp.exe
+
+ Classes (functions):
+	- helpMenu() : The base menu setting for the program. Lists the available options
+    - userInput() : The input function, once entered, returns the corresponding information
 
  Variables:
- 	temperature - int - the temperature value 
- 	units - char - the Units you would like to conver to
+ 	char input : A char value input, because data uses both int and char, it is best to convert int to char to avoid loops.
+ 	bool running : a flag to indicate if the program is running or not.
+
 */
 
 /*
  TEST PLAN
  
  Normal case:
- 	>printTable()
+ 	>helpMenu()
  	
 
  Case 1 (infinite loop)
- 	> if we ommit the final point of 12, the loop may continue indefinitely.
- 
+ 	> If we didn't convert int to a char in the input and we didn't get the expected value, it would loop.
+
+ Case 2 (Selection outside of listed selection)
+    > Raise invalid selection and return back to the helpMenu listing the selections
+
+ Case 3 (No selection)
+    > Wait and do nothing, continue holding at the helpMenu
+
+ Case 4 (Upper or lowercase x)
+    > program accepts both variations, conditional logic works for both X and x
 
  Discussion:
- 	The values are hard coded in this program so any issues that may occur are limited. If we had a prompt and input model
-	then the test plan would have to be much more elaborate.
+ 	This program, unlike the tempConversion, will not end if too many bad inputs are given. The separation of the input
+ 	and the menu allow the program to restart back to the original menu. This allows for a user to select more than one
+ 	of the items in the list and educate themselves on multiple topics, not just one at a time.
+
+ 	Incorrect inputs are not supported but if entered an exception will be raised and the program will restart
+ 	(ie. just wait at the menu)
  
 */
 
@@ -66,7 +80,7 @@ void helpMenu() {
 
         cout << "\nSelection: " << input << "\n";
 
-        if (input == 'x') {
+        if (input == 'x' || input == 'X') {
             running = false;
             cout << "\nThank you. Good bye. \n";
             break;

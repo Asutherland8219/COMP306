@@ -11,34 +11,40 @@
  DOCUMENTATION
  
  Program Purpose:
-	Convert a user entered value to either Fahrenheight or Celsius, also entered by the user.
+	Convert a user entered value to either Fahrenheit or Celsius, also entered by the user.
  	
- Compile (assuming Cygwin is running): g++ -o Assignment1 tempConversion.cpp
- Execution (assuming Cygwin is running): ./tempConversion.exe
+ Compile (assuming Cygwin is running): g++ -o Assignment1 prob2_tempConversion.cpp
+ Execution (assuming Cygwin is running): ./prob2_tempConversion.exe
  
- Classes:
+ Classes (functions):
 	- tempOutputs : Enter the temp and desired units, output is the answer in sentence format.
 
  Variables:
  	temperature - int - the temperature value 
- 	units - char - the Units you would like to conver to
+ 	units - char - the Units you would like to convert to
 */
 
 /*
  TEST PLAN
  
  Normal case:
- 	>printTable()
+ 	>tempConversion()
  	
 
- Case 1 (infinite loop)
- 	> if we ommit the final point of 12, the loop may continue indefinitely.
- 
+ Case 1 (Incorrect type entered during first input)
+ 	> Raise incorrect input and ask user to try again, if Y then try again, if N then  exit program
+ 	> If any other input, raise "Too many incorrect attempts"
 
- Discussion:
- 	The values are hard coded in this program so any issues that may occur are limited. If we had a prompt and input model
-	then the test plan would have to be much more elaborate.
- 
+ Case 2 ( Incorrect type entered during 2nd input , F/C)
+    > Raise incorrect input and ask user to try again, do not restart the program. Follow the same error flow.
+    > Wait for a good input, if it is still bad on 2nd attempt, kill the program.
+
+ Case 3 ( Incorrect format, upper or lower case)
+    > Converting all values to upper so that this issue does not occur
+
+ Discussion: The program waits for the correct type of input, if we dont get the correct type the first time then we try again.
+ If on that 2nd attempt it does not work, kill the program.
+
 */
 
 #include "unitConversionHeader.h"
@@ -102,6 +108,9 @@ void tempConversion() {
             if (units == 'Y') {
                 continue;
 
+            }
+            if (units == 'N') {
+                cout << "Exiting program. Thank you, Goodbye.";
             }
             else {
                 cout << "Too many incorrect attempts. Exiting program now. \n";

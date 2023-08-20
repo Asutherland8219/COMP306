@@ -1,6 +1,6 @@
 /*
- Title: tempConversion.cpp
- Description: A temperature conversion application based on user input
+ Title: prob5_prime_numbers.cpp
+ Description: List the prime numbers between 0 and 10000
  Date: May 22nd, 2023
  Author: Alex Sutherland
  StudentID: 3640392
@@ -11,28 +11,29 @@
  DOCUMENTATION
  
  Program Purpose:
-	Convert a user entered value to either Fahrenheight or Celsius, also entered by the user.
+	List all prime numbers between 0 and 10000
  	
- Compile (assuming Cygwin is running): g++ -o Assignment1 tempConversion.cpp
- Execution (assuming Cygwin is running): ./tempConversion.exe
- 
- Classes:
-	- tempOutputs : Enter the temp and desired units, output is the answer in sentence format.
+ Compile (assuming Cygwin is running): g++ -o Assignment1 prob5_prime_numbers.cpp
+ Execution (assuming Cygwin is running): ./prob5_prime_numbers.exe
+
+ Classes (functions) :
+	- isPrimeNumber : calculates if the number is in fact prime
+    - findPrimeNumber : prints the number if it is prime
 
  Variables:
- 	temperature - int - the temperature value 
- 	units - char - the Units you would like to conver to
+ 	int value - the number that we are checking if it is prime
 */
 
 /*
  TEST PLAN
  
  Normal case:
- 	>printTable()
+ 	>findPrimeNumbers
  	
 
  Case 1 (infinite loop)
- 	> if we ommit the final point of 12, the loop may continue indefinitely.
+ 	> we set the floor and ceiling values in the function and then increment. If we didn't set these correctly
+ 	it could loop.
  
 
  Discussion:
@@ -45,7 +46,7 @@
 #include <cmath>
 
 // basic check to see if the value satisfies the constraints of being  a prime number 
-bool is_prime_number(int value) {
+bool isPrimeNumber(int value) {
     // we could also use greater than 1; we know that 0,1 are both not prime
     if (value < 2)
         return false;
@@ -58,10 +59,10 @@ bool is_prime_number(int value) {
     return true;
 }
 
-int find_prime_numbers() {
+int findPrimeNumbers() {
     // Find and print prime numbers in the range 
     for (int number = 1; number <= 10000; ++number) {
-        if (is_prime_number(number)) {
+        if (isPrimeNumber(number)) {
             std::cout << number << std::endl;
         }
     }
