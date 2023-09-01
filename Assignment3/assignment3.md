@@ -3,6 +3,7 @@ Problem 1
 Write a program that opens a file and counts the whitespace-separated words in that file. You may obtain the name of the input file either from the command line or via prompt and user input. Be sure to clearly document the method chosen.
 
 You may test your program using any number of text files; however, you must be sure to test your program using the Sample Text File provided at the end of this assignment (excerpt.txt). This file is also available in the Assessment section of the course home page.
+
 Problem 2
 
 Write a program that opens a (text) file and displays the contents of that file one line at a time. You must obtain the name of the input file for this program via prompt and user input, not via command line arguments.
@@ -10,6 +11,7 @@ Write a program that opens a (text) file and displays the contents of that file 
 After a line has been displayed, the program should wait for the user to press the <Enter> key before displaying the next line in the file.
 
 As with Problem 1, you may test your program on any number of text files; however, you must be sure to test your program using the Sample Text File provided at the end of this assignment (excerpt.txt).
+
 Problem 3
 
 Write a program in which you create a class called TextFileReader. The TextFileReader class must contain an instance variable consisting of an array of 100 elements.
@@ -25,6 +27,7 @@ Now, create a second class TextFileReaderDemo, which contains a main() method us
 TextFileReaderDemo should use command-line arguments to obtain the text file name supplied to the TextFileReader constructor.
 
 As with Problems 1 and 2, you may test your program on any number of text files; however, you must be sure to test your program using the Sample Text File provided at the end of this assignment (excerpt.txt).
+
 Problem 4
 
 Write a program that creates three floating point arrays. Fill the first two arrays with 25 floating point numbers using loop structures, as follows: fill the first array with the loop counter value and fill the second array with the loop counter value squared. Finally, write a loop that adds the corresponding elements in the first two arrays and puts the result in the corresponding element of the third array. Display all three arrays using the format for counter; element + element = element.
