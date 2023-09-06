@@ -15,11 +15,11 @@ and re-use it instead of calling it twice.
 
 
 #include <iostream>
-#include "prob1_multTable.cpp"
-#include "prob2_tempConversion.cpp"
-#include "prob3_tempConversionTable.cpp"
-#include "prob4_cppHelp.cpp"
-#include "prob5_prime_numbers.cpp"
+#include "Assignment1Question1.cpp"
+#include "Assignment1Question2.cpp"
+#include "Assignment1Question3.cpp"
+#include "Assignment1Question4.cpp"
+#include "AssignmentQuestion5.cpp"
 #include "unitConversion.cpp"
 
 using namespace std;

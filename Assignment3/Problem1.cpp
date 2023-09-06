@@ -19,8 +19,17 @@ public:
         if (CheckType()) {
             char selection;
             std:: cout << "You have entered the following path or filename: " << fileName << std::endl;
+            std:: cout << "What function would you like to execute in regards to this file? Please make a selection from the list below: " << std::endl;
+            std:: cout << "\t 1. Count\n";
+            std:: cout << "\t 2. Print Line By Line\n";
+            std:: cout << "\t 3. Text Reader \n";
+            std:: cout << "\t 4. Text Reader Demo\n";
+            std:: cout << "\t x. Exit\n";
+
             std:: cin >> selection;
             selectionMenu(selection);
+
+
 
 
 
@@ -32,15 +41,8 @@ public:
     void selectionMenu(char selection) {
         // a menu to select what function you want to execute
         bool running = true;
-        void userInput(char);
 
         while (running) {
-            std:: cout << "What function would you like to execute in regards to this file? Please make a selection from the list below: " << std::endl;
-            std:: cout << "\t 1. Count\n";
-            std:: cout << "\t 2. Print Line By Line\n";
-            std:: cout << "\t 3. Text Reader \n";
-            std:: cout << "\t 4. Text Reader Demo\n";
-            std:: cout << "\t x. Exit\n";
 
             std:: cout << "Selected: " << selection << std::endl;
 
@@ -56,22 +58,41 @@ public:
 
     void userTextInput(char selection) {
         switch (selection) {
-
+            case '1':
+                // Count
+                Count();
+                break;
+            case '2':
+                // Print Line By Line
+                PrintLineByLine();
+                break;
+            case '3':
+                // Text reader
+                ReadFile();
+                break;
+            case '4':
+                // Text reader demo
+                ReadFileDemo();
+                break;
+            default:
+                std::cout << "Invalid selection. Please select an item from the options listed. \n";
         }
     }
     void ReadFile() {
             // A function that will be used to read the file and then print the new output
         };
+    void ReadFileDemo() {
+        // A function that will be used to write the file and then print the new output
+    };
     void WriteFile() {
             // A function that will be used to write the file and then print the new output
         };
-    void ReadWriteFile() {
-            // A function that will be used to read the file, print the output, then write the file and print the new modified output
-        };
     void Count() {
             // A function that counts the number of words in a file
+    };
+    void PrintLineByLine() {
 
-    }
+    };
 
 
     bool CheckType() {

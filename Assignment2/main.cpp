@@ -1,10 +1,10 @@
 using namespace std;
 
-#include "problem1_Animal.cpp"
-#include "problem1_AnimalTest.cpp"
-#include "problem2_Book.cpp"
-#include "problem3_Elevator.cpp"
-#include "problem4_Rodent.cpp"
+#include "Assignment2Question1.cpp"
+#include "Assignment2Question1Test.cpp"
+#include "Assignment2Question2.cpp"
+#include "Assignment2Question3.cpp"
+#include "Assignment2Question4.cpp"
 
 
  int main() {
