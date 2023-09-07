@@ -1,5 +1,5 @@
 /*
- Title: prob1_multTable.cpp
+ Title: Assignment1Question1.cpp
  Description: Creating a Multiplication Table from 1 to 12
  Date: May 22nd, 2023
  Author: Alex Sutherland
@@ -14,8 +14,8 @@
  Program Purpose:
 	Create a multiplication table from 1 to 12 with appropriate style guidelines given.
  	
- Compile (assuming Cygwin is running): g++ -o Assignment1 prob1_multTable.cpp
- Execution (assuming Cygwin is running): ./prob1_multTable.exe
+ Compile (assuming Cygwin is running): g++ -o Assignment1 Assignment1Question1.cpp
+ Execution (assuming Cygwin is running): ./Assignment1Question1.exe
  
  Classes (functions):
 	- tableFrame: set the top row for the table

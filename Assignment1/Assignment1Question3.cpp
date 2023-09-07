@@ -1,5 +1,5 @@
 /*
- Title: prob3_tempConversionTable.cpp
+ Title: Assignment1Question3.cpp
  Description: A temperature conversion table
  Date: May 22nd, 2023
  Author: Alex Sutherland
@@ -13,8 +13,8 @@
  Program Purpose:
 	Convert a table of temperatures ranging from -40 to 455.
  	
- Compile (assuming Cygwin is running): g++ -o Assignment1 prob3_tempConversionTable.cpp
- Execution (assuming Cygwin is running): ./prob3_tempConversionTable.exe
+ Compile (assuming Cygwin is running): g++ -o Assignment1 Assignment1Question3.cpp
+ Execution (assuming Cygwin is running): ./Assignment1Question3.exe
  
  Classes (functions):
 	- tableHeaders() :

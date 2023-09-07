@@ -1,5 +1,5 @@
 /*
- Title: prob4_cppHelp.cpp
+ Title: Assignment1Question4.cpp
  Description: A help function for basic CPP
  Date: May 22nd, 2023
  Author: Alex Sutherland
@@ -13,8 +13,8 @@
  Program Purpose:
 	Allow the user to select things related to CPP to help and provide information.
  	
- Compile (assuming Cygwin is running): g++ -o Assignment1 prob4_cppHelp.cpp
- Execution (assuming Cygwin is running): ./prob4_cppHelp.exe
+ Compile (assuming Cygwin is running): g++ -o Assignment1 Assignment1Question4.cpp
+ Execution (assuming Cygwin is running): ./Assignment1Question4.exe
 
  Classes (functions):
 	- helpMenu() : The base menu setting for the program. Lists the available options

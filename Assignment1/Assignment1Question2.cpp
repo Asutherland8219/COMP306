@@ -1,5 +1,5 @@
 /*
- Title: prob2_tempConversion.cpp
+ Title: Assignment1Question2.cpp
  Description: A temperature conversion application based on user input
  Date: May 22nd, 2023
  Author: Alex Sutherland
@@ -13,8 +13,8 @@
  Program Purpose:
 	Convert a user entered value to either Fahrenheit or Celsius, also entered by the user.
  	
- Compile (assuming Cygwin is running): g++ -o Assignment1 prob2_tempConversion.cpp
- Execution (assuming Cygwin is running): ./prob2_tempConversion.exe
+ Compile (assuming Cygwin is running): g++ -o Assignment1 Assignment1Question2.cpp
+ Execution (assuming Cygwin is running): ./Assignment1Question2.exe
  
  Classes (functions):
 	- tempOutputs : Enter the temp and desired units, output is the answer in sentence format.

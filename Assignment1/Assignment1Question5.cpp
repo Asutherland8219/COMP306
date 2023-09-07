@@ -1,5 +1,5 @@
 /*
- Title: prob5_prime_numbers.cpp
+ Title: Assignment1Question5.cpp
  Description: List the prime numbers between 0 and 10000
  Date: May 22nd, 2023
  Author: Alex Sutherland
@@ -13,8 +13,8 @@
  Program Purpose:
 	List all prime numbers between 0 and 10000
  	
- Compile (assuming Cygwin is running): g++ -o Assignment1 prob5_prime_numbers.cpp
- Execution (assuming Cygwin is running): ./prob5_prime_numbers.exe
+ Compile (assuming Cygwin is running): g++ -o Assignment1 Assignment1Question5.cpp
+ Execution (assuming Cygwin is running): ./Assignment1Question5.exe
 
  Classes (functions) :
 	- isPrimeNumber : calculates if the number is in fact prime
