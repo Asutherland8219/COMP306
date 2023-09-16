@@ -1,7 +1,85 @@
-//
-// Created by alex on 08/07/23.
-//
+/*
+ Title: Assignment2Question1.cpp
+ Description: The Animal Class
+ Date: September 14th, 2023
+ Author: Alex Sutherland
+ StudentID: 3640392
+ Version: 1.0
+*/
 
+
+/*
+ DOCUMENTATION
+
+ Program Purpose:
+	Create a super/parent Animal class along with specific animal instances
+
+ Compile (assuming Cygwin is running): g++ -o Assignment2 Assignment2Question1.cpp
+ Execution (assuming Cygwin is running): ./Assignment2Question1.exe
+
+ Classes (functions):
+	- Animal (Super/Parent Class)
+        - Pig : Pig Animal child class
+        - Sheep : Sheep Animal child class
+        - Duck : Duck Animal child class
+        - Cow : Cow Animal child class
+
+        The parent Animal class has a function, sound. The sound function prints a description of
+        what sound the animal would make.
+
+        Each child class has their own unique sound.
+
+ Variables:
+ 	animalType: string
+
+    The variable is overridden by the default output of  the child class. If no default output is given, "animal" is printed
+*/
+
+/*
+ TEST PLAN
+
+ Normal case:
+ 	> Animal()
+ 	    Output: " I am an animal "
+
+        Animal.sound()
+        Output: "An animal makes a sound based on the animal that it is"
+
+ 	> Pig()
+ 	    Output: " I am a Pig "
+
+        Animal.sound()
+        Output: "The pig says 'oink'. "
+
+ 	> Duck()
+ 	    Output: " I am a Duck "
+
+        Animal.sound()
+        Output: "The duck says 'quack'. "
+
+ 	> Sheep()
+ 	    Output: " I am a Sheep"
+
+        Animal.sound()
+        Output: "The sheep says 'baah'."
+
+ 	> Cow()
+ 	    Output: " I am a Cow"
+
+        Animal.sound()
+        Output: "The cow says 'moo'. "
+
+
+ Bad Case
+ 	> No input exists, each of the return values are hard coded so bad cases are essentially none.
+ 	> Any issues would be in compiling/building
+
+
+ Discussion:
+ 	Very simple program with 2 outputs. One declaring the name of the animal,
+ 	another declaring the sound the animal would make.
+
+*/
 #include <iostream>
 using namespace std;
 

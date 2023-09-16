@@ -14,7 +14,6 @@ and re-use it instead of calling it twice.
 */
 
 
-#include <iostream>
 #include "Assignment1Question1.cpp"
 #include "Assignment1Question2.cpp"
 #include "Assignment1Question3.cpp"
@@ -42,4 +41,4 @@ int main() {
     findPrimeNumbers();
 
     return 0;
-};
+}
