@@ -17,17 +17,7 @@ public:
         std::cout << "Please enter the name of the file you would like to open (make sure to include the extension): ";
         std::cin >> fileName;
         if (CheckType()) {
-            char selection;
-            std:: cout << "You have entered the following path or filename: " << fileName << std::endl;
-            std:: cout << "What function would you like to execute in regards to this file? Please make a selection from the list below: " << std::endl;
-            std:: cout << "\t 1. Count\n";
-            std:: cout << "\t 2. Print Line By Line\n";
-            std:: cout << "\t 3. Text Reader \n";
-            std:: cout << "\t 4. Text Reader Demo\n";
-            std:: cout << "\t x. Exit\n";
-
-            std:: cin >> selection;
-            selectionMenu(selection);
+            selectionMenu();
 
 
 
@@ -38,12 +28,21 @@ public:
         }
     };
 
-    void selectionMenu(char selection) {
+    void selectionMenu() {
         // a menu to select what function you want to execute
         bool running = true;
 
         while (running) {
+            char selection;
+            std:: cout << "You have entered the following path or filename: " << fileName << std::endl;
+            std:: cout << "What function would you like to execute in regards to this file? Please make a selection from the list below: " << std::endl;
+            std:: cout << "\t 1. Count\n";
+            std:: cout << "\t 2. Print Line By Line\n";
+            std:: cout << "\t 3. Text Reader \n";
+            std:: cout << "\t 4. Text Reader Demo\n";
+            std:: cout << "\t x. Exit\n";
 
+            std:: cin >> selection;
             std:: cout << "Selected: " << selection << std::endl;
 
             if (selection == 'x' || selection == 'X') {
