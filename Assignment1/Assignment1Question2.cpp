@@ -66,7 +66,6 @@ void tempConversion() {
     bool running;
 
     running = true;
-
     cout << "This program converts Temperatures from Fahrenheit to Celsius and vice versa. \n";
 
     while (running) {
@@ -76,11 +75,13 @@ void tempConversion() {
         cout << "\n";
 
         if (cin.good()) {
-                cout << "Please enter your units (F/C): ";
-                cin.clear();
-                cin.ignore( std::numeric_limits<std::streamsize>::max(), '\n' );
-                // convert to upper to eliminate risk of inputting the wrong value, lowercase is sufficient
-                cin >> units;
+            cout << "Please enter your units (F/C): ";
+            cin.clear();
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            // convert to upper to eliminate risk of inputting the wrong value, lowercase is sufficient
+            cin >> units;
+
+            if (cin.good()) {
                 units = toupper(units);
                 cout << "\n";
 
@@ -91,13 +92,28 @@ void tempConversion() {
                     cin >> killswitch;
                     killswitch = toupper(killswitch);
                 }
-                if (killswitch == 'N') {
-                    cout << "Thank you. Goodbye. \n";
-                    running = false;
-                }
+                else {
+                    cout << "The value you have entered is incorrect or not supported. Would you like to try again? (Y/N): \n";
+                    cin >> retry;
+                    units = toupper(retry);
 
+                    if (units == 'Y') {
+                        continue;
+
+                    }
+                    if (units == 'N') {
+                        cout << "Exiting program. Thank you, Goodbye.";
+                    }
+                    else {
+                        cout << "Too many incorrect attempts. Exiting program. Good bye. \n";
+                        running = false;
+
+                    }
+                }
             }
-        if (cin.fail()) {
+        }
+
+        else if (cin.fail()) {
             cin.clear();
             cin.ignore( std::numeric_limits<std::streamsize>::max(), '\n' );
 
@@ -116,14 +132,16 @@ void tempConversion() {
                 cout << "Too many incorrect attempts. Exiting program now. \n";
                 cout << "Thank you. Goodbye. \n";
                 running = false;
-
-
             }
         }
 
+        if (killswitch == 'N') {
+            cout << "Exiting program. Thank you, Goodbye. \n";
+            running = false;
+        } else {
+
+        }
     }
-
-
     }
 
 

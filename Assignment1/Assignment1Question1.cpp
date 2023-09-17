@@ -60,7 +60,7 @@ void printTable () {
 	int i = 1;
 	int high = 12;
 	// Styling in order to move the headers to the right leaving the empty space representing 0
-    cout << "\t" << setw(1) << "|";
+    cout << "\t" << setw(5) << "|";
 
     // Output the column headers
 	tableFrame(high);

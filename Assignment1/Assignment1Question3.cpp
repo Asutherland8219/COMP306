@@ -47,24 +47,22 @@
 
 #include <iostream>
 #include <iomanip>
-#include <cmath>
-#include <typeinfo>
 #include "unitConversionHeader.h"
 
 using namespace std;
 
 void tableHeaders() {
-    cout <<  setw(5) << "\t" << "Temperature \t" << "|" << "\t" << "Temperature \t \n";
-    cout << "\t" << " (degrees) \t" << "|" << "\t" << " (degrees) \t \n";
-    cout << "\t" << "F" << "\t" << setw(5) << "C";
-    cout << "\t|\t" << "C" << "\t" << setw(5) << "F \n";
+    cout <<  setw(5) << "\t" << "Temperature\t" << " |" << "\t" << "  Temperature\n";
+    cout <<  setw(5) << "\t" << " (degrees) \t" << " |" << "\t" << "   (degrees)\n";
+    cout <<  setw(5) << "\t" << "F" << "\t" << setw(5) << "C";
+    cout <<  setw(5) << "\t |\t" << "\t" << "C" << "\t" << setw(5) << "F \n";
 }
 
 
 void tempConversionTable() {
     // parent function 
     float increment = 5.0;
-    float floor = -40.0;
+    float floor = -40.000;
     float ceiling = 455.0;
 
     tableHeaders();
@@ -72,14 +70,14 @@ void tempConversionTable() {
     for ( floor; ceiling; floor += increment) {
 
         // column one, F to C 
-        cout << "\t" << floor << "\t";
+        cout << "\t" << std::setprecision(3) << std::fixed << floor << "\t";
         cout << std::setprecision(3) << std::fixed << unitConversion(floor, 'F');
 
         // pipe
-        cout << "\t|";
+        cout << "\t |";
 
         // column two, C to F 
-        cout << "\t" << floor << "\t";
+        cout << "\t" << std::setprecision(3) << std::fixed << floor << "\t";
         cout << unitConversion(floor, 'C') << "\n";
 
 

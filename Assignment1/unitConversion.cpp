@@ -1,3 +1,5 @@
+using namespace std;
+
 double unitConversion(double temperature, char units) {
     // main math calculation 
     double calculation;
@@ -8,7 +10,6 @@ double unitConversion(double temperature, char units) {
     else {
         calculation = (temperature - 32) * 5/9 ;
     }
-
     return calculation;
 
 }

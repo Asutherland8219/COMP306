@@ -25,15 +25,15 @@ using namespace std;
 
 
 int main() {
-    // problem 1 --> Done
+    //problem 1 --> Done
     printTable();
 
-    // problem 2 --> Needs a little more work 
+    // problem 2 --> Done
     tempConversion();
 
-    // problem 3 --> add trailing 0's
+    // problem 3 --> Done
     tempConversionTable();
-    
+
     // problem 4 --> Done
     helpMenu();
 
