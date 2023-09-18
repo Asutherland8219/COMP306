@@ -103,6 +103,7 @@ void tempConversion() {
                     }
                     if (units == 'N') {
                         cout << "Exiting program. Thank you, Goodbye.";
+                        running = false;
                     }
                     else {
                         cout << "Too many incorrect attempts. Exiting program. Good bye. \n";
