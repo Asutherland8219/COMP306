@@ -54,8 +54,8 @@ using namespace std;
 void tableHeaders() {
     cout <<  setw(5) << "\t" << "Temperature\t" << " |" << "\t" << "  Temperature\n";
     cout <<  setw(5) << "\t" << " (degrees) \t" << " |" << "\t" << "   (degrees)\n";
-    cout <<  setw(5) << "\t" << "F" << "\t" << setw(5) << "C";
-    cout <<  setw(5) << "\t |\t" << "\t" << "C" << "\t" << setw(5) << "F \n";
+    cout <<  setw(5) << "\t" << setw(3) << "F" << "\t" << setw(5) << "C";
+    cout <<  setw(5) << "\t |\t" << setw(3) << "C" << "\t" << setw(5) << "F \n";
 }
 
 
