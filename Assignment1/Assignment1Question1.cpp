@@ -60,7 +60,7 @@ void printTable () {
 	int i = 1;
 	int high = 12;
 	// Styling in order to move the headers to the right leaving the empty space representing 0
-    cout << "\t" << setw(5) << "|";
+    cout << "\t" << "|" << setw(2) ;
 
     // Output the column headers
 	tableFrame(high);
@@ -86,7 +86,7 @@ void printValues (int n, int high) {
 	// 2. print the value along with styling
 	// Demonstrated using a while loop but a for loop will also work
 	while (i <= high) {
-		cout  << setw(3) << n*i  << setw(3) << "|" << "\t";
+		cout  << setw(5) << n*i  << setw(3) << "|";
 		i = i + 1;
 
 	}
@@ -100,7 +100,13 @@ void tableFrame (int high) {
 
 	// Done with a simple for loop;
 	for (int col = 1; col <= high; col++) {
-        cout << setw(3) << col << setw(3) << "|" << "\t";
+		if (col == 10 || col == 11 || col == 12){
+			 cout << setw(5) << col << setw(3) << "|" ;
+		}
+
+		else {
+        	cout << setw(4) << "" << col << setw(3) << "|" ;
+		}
 		
     }
 	cout << endl;
