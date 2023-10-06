@@ -1,15 +1,15 @@
 using namespace std;
 
 #include "Assignment2Question1.cpp"
-#include "Assignment2Question1Test.cpp"
 #include "Assignment2Question2.cpp"
 #include "Assignment2Question3.cpp"
 #include "Assignment2Question4.cpp"
+#include "Assignment2Question5.cpp"
 
 
  int main() {
 
-    // PROBLEM 1
+    // PROBLEM 1 -- > Done
     std::string input ;
 
     Animal animal;
@@ -32,12 +32,12 @@ using namespace std;
     Cow cow;
     cow.sound();
 
-    // Test input function
-//    cout << "Enter an animal: ";
-//    cin >> input;
-//    (AnimalTest(input));
+    // Test input function --> Almost Done
+    cout << "Enter an animal: ";
+    cin >> input;
+    (AnimalTest(input));
 
-    // PROBLEM 2
+    // PROBLEM 2 --> Done
     // Test function for the Book class ; mainly on creation
     // test getters in the main
     Book red_rising = Book();
@@ -67,7 +67,7 @@ using namespace std;
     cout << golden_son.get("publisher")<< "\n";
     cout << golden_son.get("year published") << "\n";
 
-    // PROBLEM 3 ; The elevator
+    // PROBLEM 3 ; The elevator --> Done
 
     // init the elevator
     Elevator elevator = Elevator();
@@ -107,7 +107,7 @@ using namespace std;
     Elevator big_elevator = Elevator(20);
     big_elevator.go_to(20);
 
-    // PROBLEM 4
+    // PROBLEM 4 --> Done
     Mouse mouse("Lola");
     mouse.jump();
     mouse.dance();
@@ -147,7 +147,6 @@ using namespace std;
     guineapig.groom();
     //unique
     guineapig.talk();
-
 
     return 0;
 

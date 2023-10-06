@@ -1,0 +1,3 @@
+C:/Users/asuth/COMP306/cmake-build-debug/CMakeFiles/COMP306.dir
+C:/Users/asuth/COMP306/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/asuth/COMP306/cmake-build-debug/CMakeFiles/rebuild_cache.dir
