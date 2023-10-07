@@ -1,7 +1,7 @@
 //
 // Created by alex on 27/08/23.
 //
-#include "Problem1.cpp"
+#include "Assignment3Question1.cpp"
 
 int main() {
     File file;

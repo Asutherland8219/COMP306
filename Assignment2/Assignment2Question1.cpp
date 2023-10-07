@@ -83,6 +83,8 @@
 
 #include <iostream>
 #include <any>
+#include <algorithm>
+
 using namespace std;
 bool print_statement = true;
 
@@ -206,29 +208,30 @@ public:
     static bool Test(std::string &animal) {
         // Test function for the animal class, where the animal class is a string
         bool valid = false;
+        std::transform(animal.begin(), animal.end(), animal.begin(), ::toupper);
 
-        if (animal == "pig") {
+        if (animal == "PIG") {
             Pig pig;
             pig.sound();
             valid = true;
 
-        } else if (animal == "sheep") {
+        } else if (animal == "SHEEP") {
             Sheep sheep;
             sheep.sound();
             valid = true;
 
 
-        } else if (animal == "duck") {
+        } else if (animal == "DUCK") {
             Duck duck;
             duck.sound();
             valid = true;
 
-        } else if (animal == "cow") {
+        } else if (animal == "COW") {
             Cow cow;
             cow.sound();
             valid = true;
         }
-        else if (animal == "x" || animal == "X") {
+        else if (animal == "X") {
             cout << "Exiting program now. Thank you. \n";
             valid = true;
         }

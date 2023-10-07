@@ -1,6 +1,75 @@
-//
-// Created by alex on 06/08/23.
-//
+/*
+ Title: Assignment2Question3.cpp
+ Description: Elevator Class
+ Date: October 7th, 2023
+ Author: Alex Sutherland
+ StudentID: 3640392
+ Version: 1.0
+*/
+
+
+/*
+ DOCUMENTATION
+
+ Program Purpose:
+	Create an Elevator Class that moves between floors.
+
+ Compile (assuming Cygwin is running): g++ -o Assignment2 Assignment2Question3.cpp
+ Execution (assuming Cygwin is running): ./Assignment2Question3.exe
+
+ Classes (functions):
+	- Elevator()
+        The default constructor for the Elevator object, has two attributes, position and top.
+
+ Variables:
+    int position;
+        - The current position of the elevator
+    int top;
+        - the top floor
+
+*/
+
+/*
+ TEST PLAN
+
+ Normal case:
+    elevator = Elevator()
+        **Defaults to 5 floors, so 5 is the top value
+    --> "Welcome! You are currently on floor: 0"
+
+    elevator.up()
+    --> "Going up."
+    --> "You are currently on floor: 1"
+
+    elevator.down()
+    --> "Going down."
+    --> "You are currently on floor: 0"
+
+    elevator.go_to(6)
+    --> "You have arrived on floor: 6"
+
+    elevator.reset()
+    --> "Elevator ending, returning to first floor"
+
+ Bad Case:
+    elevator.go_to(-1)
+    --> "This is less than the number of floors in this building."
+        "Please enter a value between 1 and 5"
+
+    elevator.go_to(10)
+    --> "This value is more than the maximum of floors in this building."
+        "Please enter a value between 1 and 5"
+
+ Discussion:
+    An additional bad case could be entering a character value instead of a numeric value.
+    Because this is not an input based problem I opted to not include any measures to handle that.
+
+    Outside of that, the main bad cases are either entering a value far out of range (ie. below 1 or above top)
+    Both of which are handled accordingly.
+
+
+
+*/
 
 #include <iostream>
 #include <iomanip>
@@ -66,6 +135,7 @@ public:
         }
         if (desired_floor == top) {
             std::cout << "You have reached the top floor of this establishment." << endl;
+            std::cout << "Please enter a value between " << 1 << "and " << top << std::endl;
         } else {
             return true;
         }
