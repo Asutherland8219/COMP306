@@ -71,7 +71,6 @@
  Discussion:
 
 */
-#include <cstring>
 #include <algorithm>
 #include <string>
 #include <iostream>

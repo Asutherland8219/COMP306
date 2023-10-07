@@ -82,14 +82,23 @@
 */
 
 #include <iostream>
+#include <any>
 using namespace std;
+bool print_statement = true;
+
 
 class Animal {
 public:
 
+
     Animal(const std::string& animalType = "animal") {
         // Default constructor for the Animal class
-        cout << "I am an " << animalType << "." << endl;
+        if (print_statement) {
+            cout << "I am an " << animalType << "." << endl;
+            print_statement = false;
+        }
+
+
     }
 
     virtual void sound()  {
@@ -194,25 +203,42 @@ public:
 
 class AnimalTest {
 public:
-    explicit AnimalTest(std::string& animal){
+    static bool Test(std::string &animal) {
         // Test function for the animal class, where the animal class is a string
+        bool valid = false;
 
         if (animal == "pig") {
             Pig pig;
             pig.sound();
+            valid = true;
+
         } else if (animal == "sheep") {
             Sheep sheep;
             sheep.sound();
+            valid = true;
+
+
         } else if (animal == "duck") {
             Duck duck;
             duck.sound();
+            valid = true;
+
         } else if (animal == "cow") {
             Cow cow;
             cow.sound();
-        } else {
-            cout << "Invalid selection. Please select one of the preset animals. \n";
+            valid = true;
         }
-
+        else if (animal == "x" || animal == "X") {
+            cout << "Exiting program now. Thank you. \n";
+            valid = true;
+        }
+        // Bad case checks. One offense is fine, 2nd lists options, 3rd exits
+        else {
+            cout << "Invalid selection. Please select one of the preset animals. \n";
+            cout << "The options are: pig, sheep, duck or cow. \n";
+            cout << "If you want to quit the program, enter x. \n";
+        }
+        return valid;
     }
 };
 

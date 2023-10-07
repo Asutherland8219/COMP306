@@ -10,7 +10,7 @@ using namespace std;
  int main() {
 
     // PROBLEM 1 -- > Done
-    std::string input ;
+    string input;
 
     Animal animal;
     // default constructor
@@ -32,10 +32,15 @@ using namespace std;
     Cow cow;
     cow.sound();
 
-    // Test input function --> Almost Done
+
+    // Test input function --> Problem 1
     cout << "Enter an animal: ";
     cin >> input;
-    (AnimalTest(input));
+
+    while (!AnimalTest::Test(input)) {
+         cout << "Enter an animal: ";
+         cin >> input;
+    }
 
     // PROBLEM 2 --> Done
     // Test function for the Book class ; mainly on creation
@@ -148,6 +153,11 @@ using namespace std;
     //unique
     guineapig.talk();
 
-    return 0;
+
+
+
+
+
+     return 0;
 
 };
