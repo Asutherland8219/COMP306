@@ -197,6 +197,13 @@ public:
 /*
  TEST PLAN
 
+ Bad Case:
+    input = "crow"
+    AnimalTest::Test(input)
+    --> "Invalid selection. Please select one of the preset animals."
+        "The options are: pig, sheep, duck or cow."
+        "If you want to quit the program, enter x."
+
  Discussion:
  	A input test function for the animal class, allows the user to input animal in order to hear its sound.
  	If any of the input values are not in the defined animals, An error, invalid selection error is raised.

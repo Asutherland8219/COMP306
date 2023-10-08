@@ -153,11 +153,6 @@ using namespace std;
     //unique
     guineapig.talk();
 
-
-
-
-
-
      return 0;
 
 };

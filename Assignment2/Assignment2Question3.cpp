@@ -66,9 +66,6 @@
 
     Outside of that, the main bad cases are either entering a value far out of range (ie. below 1 or above top)
     Both of which are handled accordingly.
-
-
-
 */
 
 #include <iostream>

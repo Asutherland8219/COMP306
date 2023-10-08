@@ -66,9 +66,59 @@
 
  Normal case:
 
- Bad Case
+     Book red_rising = Book();
+
+     red_rising.setTitle("Red Rising");
+     red_rising.setISBN("034553980X");
+     red_rising.setAuthor("Pierce Brown");
+     red_rising.setEdition("1st Edition");
+     red_rising.setPublisher("Del Rey Books");
+     red_rising.setYearPublished("Jan. 1 2014");
+
+     red_rising.details();
+     --> Title: Red Rising
+         ISBN: 034553980X
+         Author: Pierce Brown
+         Edition: 1st Edition
+         Publisher: Del Rey Books
+         Year Published: Jan. 1 2014
+
+
+     // create a second book, this time only getting one item at a time
+     Book golden_son = Book();
+     golden_son.setTitle("Golden Son");
+     golden_son.setISBN("0345539818");
+     golden_son.setAuthor("Pierce Brown");
+     golden_son.setEdition("1st Edition");
+     golden_son.setPublisher("Del Rey Books");
+     golden_son.setYearPublished("Jan. 6 2015");
+
+     // get all the details
+     golden_son.get("title")
+     --> Golden Son
+
+     golden_son.get("isbn")
+     --> 0345539818
+
+     golden_son.get("author")
+     --> Pierce Brown
+
+     golden_son.get("edition")
+     --> 1st Edition
+
+     golden_son.get("publisher")
+     --> Del Rey Books
+
+     golden_son.get("year published")
+     --> Jan. 6 2015
+
+ Bad Case:
+    Some values, such as the ISBN are actually numeric so could be a double. However, I have set the value as a string in order to avoid any type issues.
+    If a numeric value is entered, the program will not compile.
 
  Discussion:
+    With the setter functions, we could also opt to print the output. As a sort of confirmation of the value being set.
+    This is not necessary given the constraints of this assignment, but could be implemented if desired.
 
 */
 #include <algorithm>
