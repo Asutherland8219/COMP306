@@ -5,6 +5,7 @@
 #include <iostream>
 #include <fstream>
 #include <filesystem>
+#include "assignment3Question2.h"
 using namespace std;
 
 class File{
@@ -63,7 +64,9 @@ public:
                 std::cout << "\nThank you. Good bye. \n";
                 break;
             } else {
+                running = false;
                 userTextInput(selection, inputFile);
+                running = true;
             }
     }
         }
@@ -75,8 +78,8 @@ public:
                 Count(inputFile);
                 break;
             case '2':
-                // Print Line By Line
-                PrintLineByLine(inputFile);
+                // Print Line By Line imported from header
+                printLineByLine(inputFile);
                 break;
             case '3':
                 // Text reader
@@ -106,26 +109,7 @@ public:
         std::cout << "Word count: " << num_word << std::endl;
 
     };
-    void PrintLineByLine(std::ifstream& inputFile) {
-        std::string txt_line;
 
-        while (std::getline(inputFile, txt_line)) {
-            // print the line
-            char userInput;
-            std::cin.get(userInput);
-
-            if (userInput == '\n') {
-                std::cout << txt_line << std::endl;
-            }
-            else if (userInput == 'x' || userInput == 'X') {
-                return; // Exit the function
-            }
-            else {
-                std::cout << "Please press enter to continue or enter x to exit." << std::endl;
-                std::cin.ignore();
-            }
-        }
-    }
 
 
 
