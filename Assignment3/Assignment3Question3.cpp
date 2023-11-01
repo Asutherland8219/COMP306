@@ -1,32 +1,28 @@
-//
-// Created by asuth on 10/31/2023.
-//
 #include <fstream>
 #include <string>
 #include <sstream>
-using  namespace std;
+using namespace std;
 
-class TextFileReader {
+class textFileReader {
 private:
-    std::string lines[100];
+    string lines[100];
     int count;
 
 public:
     // Default constructor
-    TextFileReader() : count(0) {}
+    textFileReader() : count(0) {}
 
-    // Constructor that takes a filename
-    TextFileReader(std::string filename) : count(0) {
-        std::ifstream file(filename);
-        std::string line;
-        while (std::getline(file, line) && count < 100) {
+    // Constructor that takes an ifstream object
+    explicit textFileReader(ifstream& file) : count(0) {
+        string line;
+        while (getline(file, line) && count < 100) {
             lines[count++] = line;
         }
     }
 
-    // string array to string array buffer
-    std::string contents() {
-        std::stringstream str_stream;
+    // Function to convert the array of Strings into a single StringBuffer
+    string contents() {
+        stringstream str_stream;
         for (int i = 0; i < count; ++i) {
             str_stream << lines[i] << "\n";
         }
@@ -36,7 +32,7 @@ public:
     // Function to print the array to standard output
     void display() {
         for (int i = 0; i < count; ++i) {
-            std::cout << "line " << (i+1) << ": " << lines[i] << std::endl;
+            cout << "line " << (i+1) << ": " << lines[i] << endl;
         }
     }
 };
