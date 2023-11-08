@@ -10,10 +10,9 @@
 class inputMenu {
 public:
     // A function that will be used to read in the file text and output it
-
-
     // let the user input the path of the file they want to open
     std::string fileName;
+    std::ifstream inputFile; // make sure to make the object public so it can be accessed in other functions
 
     inputMenu() {
         std::cout
@@ -29,32 +28,28 @@ public:
                 return;
             }
 
-            std::ifstream inputFile(filePath); // create the stream object
+            inputFile.open(filePath); // open the stream object
 
             if (!inputFile.is_open()) {
                 std::cout << "Error. Could not open the file entered." << endl;
 
             } else {
                 std::cout << "File opened." << endl;
-                selectionMenu(inputFile);
+                selectionMenu();
             }
         }
     };
 
-    void selectionMenu(std::ifstream &inputFile) {
-        // a menu to select what function you want to execute
+    void selectionMenu() {
         bool running = true;
 
         while (running) {
             char selection;
             std::cout << "You have entered the following path or filename: " << fileName << std::endl;
-            std::cout
-                    << "What function would you like to execute in regards to this file? Please make a selection from the list below: "
-                    << std::endl;
+            std::cout << "What function would you like to execute in regards to this file? Please make a selection from the list below: " << std::endl;
             std::cout << "\t 1. Count\n";
             std::cout << "\t 2. Print Line By Line\n";
-            std::cout << "\t 3. Text Reader \n";
-            std::cout << "\t 4. Text Reader Demo\n";
+            std::cout << "\t 3. Text Reader\n";
             std::cout << "\t x. Exit\n";
 
             std::cin >> selection;
@@ -62,17 +57,14 @@ public:
 
             if (selection == 'x' || selection == 'X') {
                 running = false;
-                std::cout << "\nThank you. Good bye. \n";
-                break;
+                std::cout << "\nThank you. Goodbye.\n";
             } else {
-                running = false;
-                userTextInput(selection, inputFile);
-                running = true;
+                userTextInput(selection);
             }
         }
     }
 
-    void userTextInput(char selection, std::ifstream &inputFile) {
+    void userTextInput(char selection) {
         switch (selection) {
             case '1':
                 // Count
@@ -84,7 +76,7 @@ public:
                 break;
             case '3':
                 // Text reader
-                textFileReader();
+                textFileReader(&inputFile);
                 break;
 //                case '4':
 //                    // Text reader demo
@@ -93,6 +85,10 @@ public:
             default:
                 std::cout << "Invalid selection. Please select an item from the options listed. \n";
         }
+        // reset to the top of the file
+        inputFile.clear();
+        inputFile.seekg(0, std::ios::beg);
+
     }
 };
 
