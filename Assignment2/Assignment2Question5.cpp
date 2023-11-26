@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <vector>
+#include <cmath>
 
 class Point {
 private:
@@ -22,6 +23,15 @@ public:
     }
     double getY() const {
         return y;
+    }
+
+    static double distance(Point p1, Point p2) {
+        // calculate the distance between points
+        double x_val = p1.x - p2.x;
+        double y_val = p1.y - p2.y;
+        double dist = std::sqrt(x_val * x_val + y_val * y_val);
+
+        return dist;
     }
 
    void Show() {
@@ -206,17 +216,58 @@ private:
     Point peak;
     Point rightPoint;
     Point leftPoint;
-    double area() override  {
+public:
+    Triangle(Point peak, Point rightPoint, Point leftPoint) {
+        if (!isValidTriangle(peak, rightPoint, leftPoint)) {
+            std::cout << "Warning: Invalid triangle coordinates. Please ensure vertices form a valid triangle.\n";
+        };
 
-    };
+    }
 
-    double circumference() override  {
 
-    };
+    double area() override {
+        // Heron's formula for the area of a triangle
+        double a = Point::distance(peak, rightPoint);
+        double b = Point::distance(rightPoint, leftPoint);
+        double c = Point::distance(leftPoint, peak);
+        double s = (a + b + c) / 2;
+        return sqrt(s * (s - a) * (s - b) * (s - c));
+    }
 
-//    std::vector<Point> boundingBox() override
-//    {
-//    }
+    double circumference() override {
+        // Sum of the lengths of the sides
+        return Point::distance(peak, rightPoint) + Point::distance(rightPoint, leftPoint) +
+               Point::distance(leftPoint, peak);
+    }
+
+    bool isValidTriangle(Point p1, Point p2, Point p3) {
+        double side1 = Point::distance(p1,p2);
+        double side2 = Point::distance(p2, p3);
+        double side3 = Point::distance(p3, p1);
+
+        if (side1 + side2 > side3 && side2 + side3 > side1 && side3 + side1 > side2) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    std::vector<Point> boundingBox() override {
+        // Find the minimum and maximum x and y coordinates among the vertices
+        double minX = std::min({peak.getX(), rightPoint.getX(), leftPoint.getX()});
+        double minY = std::min({peak.getY(), rightPoint.getY(), leftPoint.getY()});
+        double maxX = std::max({peak.getX(), rightPoint.getX(), leftPoint.getX()});
+        double maxY = std::max({peak.getY(), rightPoint.getY(), leftPoint.getY()});
+
+        // Create points for the bounding box
+        Point topLeft(minX, minY);
+        Point topRight(maxX, minY);
+        Point bottomLeft(minX, maxY);
+        Point bottomRight(maxX, maxY);
+
+        // Return the vector of points representing the bounding box
+        return {topLeft, topRight, bottomRight, bottomLeft};
+    }
 };
 
 
