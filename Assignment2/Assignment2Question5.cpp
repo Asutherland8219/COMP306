@@ -75,11 +75,18 @@ public:
     virtual void display() {
         std::cout << "Area: " << area() << endl;
         std::cout << "Circumference: " << circumference() << endl;
-//        std::cout << "Bounding Box: " << boundingBox() << endl;
+        std::cout << "Bounding Box: [";
+        const vector box = boundingBox();
+        for (size_t i = 0; i < box.size(); ++i) {
+            std::cout << "(" << box[i].getX() << ", " << box[i].getY() << ")";
+            if (i < box.size() - 1) {
+                std::cout << ", ";
+            }
+        }
+        std::cout << "]" << std::endl;
     };
 
     virtual std::vector<Point> boundingBox() {
-        return {};
 
     };
 
@@ -125,27 +132,80 @@ public:
         double right_y = center.getY() + radius;
 
         // Create the multiple points  of the surrounding box
-    }
+        Point point1 = Point(left_x, left_y);
+        Point point2 = Point(right_x, left_y);
+        Point point3 = Point(right_x, right_y);
+        Point point4 = Point(left_x, right_y);
+
+        return {point1, point2, point3, point4};
+    };
 
 };
 
 class Rectangle : public Shape {
+private:
+    Point base_start;
+    Point base_end;
+    Point height_start;
+    Point height_end;
+
+public:
+    Rectangle(Point base_start, Point base_end, Point height_start, Point height_end){
+        if (!isValidRectangle()) {
+            std::cout << " The values entered are not indicative of a rectangle \n";
+            std::cout << " Remember, a rectangle must have parallel sides AND they cannot be equal.";
+        }
+
+        // Check if it's a square
+        if (isSquare()) {
+            std::cout << "The sides are equal! This rectangle is a square.\n";
+        }
+    }
+
+    bool isValidRectangle() const {
+        // Check if opposite sides are parallel, indicating a correct rectangle
+        return (base_start.getX() <= base_end.getX()) &&
+               (base_start.getY() <= height_start.getY()) &&
+               (base_end.getY() <= height_end.getY()) &&
+               (height_start.getX() <= height_end.getX());
+    }
+
+    bool isSquare() const {
+        // check if the values create a square, if they do error out
+        double width = std::abs(base_end.getX() - base_start.getX());
+        double height = std::abs(height_end.getY() - height_start.getY());
+        return width == height;
+    }
+
+
     // perimeter
     double area() override  {
-
+        double width = std::abs(base_end.getX() - base_start.getX());
+        double height = std::abs(height_end.getY() - height_start.getY());
+        return width * height;
     };
 
     double circumference() override  {
-
+        // circumference is double the area
+        double width = std::abs(base_end.getX() - base_start.getX());
+        double height = std::abs(height_end.getY() - height_start.getY());
+        return 2 * (width + height);
     };
 
     std::vector<Point> boundingBox() override
     {
-    }
+      // the bounding box for a rectangle would just be the rectangle itself
+        return {base_start, base_end, height_start, height_end};
+    };
+
 };
 
 class Triangle : public Shape {
     // perimeter
+private:
+    Point peak;
+    Point rightPoint;
+    Point leftPoint;
     double area() override  {
 
     };
@@ -154,9 +214,9 @@ class Triangle : public Shape {
 
     };
 
-    std::vector<Point> boundingBox() override
-    {
-    }
+//    std::vector<Point> boundingBox() override
+//    {
+//    }
 };
 
 
