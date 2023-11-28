@@ -184,7 +184,22 @@ using namespace std;
     // Display
     base_circle.display();
 
+    // Create a rectangle
+    Point base_start(4, 8);
+    Point base_end(8,8);
+    Point height_start(4,16);
+    Point height_end(4, 8);
 
+    Rectangle rec(base_start, base_end, height_start, height_end);
+
+    // Display all
+    rec.display();
+
+    // Create a square using the same values
+    Point height_sq(4, 12);
+    Point height_sq_end(8,12);
+    Rectangle square(base_start, base_end, height_sq, height_sq_end);
+    square.display();
 
      return 0;
 

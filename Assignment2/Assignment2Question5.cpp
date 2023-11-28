@@ -27,8 +27,8 @@ public:
 
     static double distance(Point p1, Point p2) {
         // calculate the distance between points
-        double x_val = p1.x - p2.x;
-        double y_val = p1.y - p2.y;
+        double x_val = p2.x - p1.x;
+        double y_val = p2.y - p1.y;
         double dist = std::sqrt(x_val * x_val + y_val * y_val);
 
         return dist;
@@ -83,7 +83,7 @@ public:
     }
 
     virtual void display() {
-        std::cout << "Area: " << area() << endl;
+        std::cout << "\nArea: " << area() << endl;
         std::cout << "Circumference: " << circumference() << endl;
         std::cout << "Bounding Box: [";
         const vector box = boundingBox();
@@ -105,6 +105,7 @@ public:
     };
 
     virtual double area() {
+        return 0.0;
 
     };
 };
@@ -123,7 +124,7 @@ public:
         }
     }
 
-    double area() override  {
+    double area() {
         double circle_area = 3.14159 * radius * radius;
         return circle_area;
     };
@@ -160,16 +161,18 @@ private:
     Point height_end;
 
 public:
-    Rectangle(Point base_start, Point base_end, Point height_start, Point height_end){
-        if (!isValidRectangle()) {
-            std::cout << " The values entered are not indicative of a rectangle \n";
-            std::cout << " Remember, a rectangle must have parallel sides AND they cannot be equal.";
-        }
-
+    Rectangle(Point base_start, Point base_end, Point height_start, Point height_end) : base_start(base_start), base_end(base_end), height_start(height_start), height_end(height_end) {
         // Check if it's a square
-        if (isSquare()) {
+        if (isSquare() == 1) {
             std::cout << "The sides are equal! This rectangle is a square.\n";
         }
+
+        else if (!isValidRectangle()) {
+            std::cout << " The values entered are not indicative of a rectangle \n";
+            std::cout << " Remember, a rectangle must have parallel sides AND they cannot be equal.\n";
+        }
+
+
     }
 
     bool isValidRectangle() const {
@@ -181,19 +184,20 @@ public:
     }
 
     bool isSquare() const {
-        // check if the values create a square, if they do error out
-        double width = std::abs(base_end.getX() - base_start.getX());
-        double height = std::abs(height_end.getY() - height_start.getY());
+        // Check if the values create a square
+        // Round the values to avoid arithmetic errors
+        double width = Point::distance(base_start, base_end);
+        double height = Point::distance(height_start, height_end);
         return width == height;
     }
 
 
     // perimeter
-    double area() override  {
-        double width = std::abs(base_end.getX() - base_start.getX());
-        double height = std::abs(height_end.getY() - height_start.getY());
+    double area() override {
+        double width = Point::distance(base_start, base_end);
+        double height = Point::distance(height_start, height_end);
         return width * height;
-    };
+    }
 
     double circumference() override  {
         // circumference is double the area
@@ -253,7 +257,6 @@ public:
     }
 
     std::vector<Point> boundingBox() override {
-        // Find the minimum and maximum x and y coordinates among the vertices
         double minX = std::min({peak.getX(), rightPoint.getX(), leftPoint.getX()});
         double minY = std::min({peak.getY(), rightPoint.getY(), leftPoint.getY()});
         double maxX = std::max({peak.getX(), rightPoint.getX(), leftPoint.getX()});
