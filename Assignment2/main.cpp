@@ -185,21 +185,23 @@ using namespace std;
     base_circle.display();
 
     // Create a rectangle
-    Point base_start(4, 8);
-    Point base_end(8,8);
-    Point height_start(4,16);
-    Point height_end(4, 8);
+    Point bottom_left_corner(4, 8);
+    Point bottom_right_corner(8,8);
+    Point upper_left_corner(4,16);
+    Point upper_right_corner(8, 16);
 
-    Rectangle rec(base_start, base_end, height_start, height_end);
+    Rectangle rec(bottom_left_corner, bottom_right_corner, upper_left_corner, upper_right_corner);
 
     // Display all
     rec.display();
 
     // Create a square using the same values
-    Point height_sq(4, 12);
-    Point height_sq_end(8,12);
-    Rectangle square(base_start, base_end, height_sq, height_sq_end);
-    square.display();
+     Point bottom_left_corner_sq(4, 8);
+     Point bottom_right_corner_sq(8,8);
+     Point upper_left_corner_sq(4,12);
+     Point upper_right_corner_sq(8, 12);
+
+     Rectangle square(bottom_left_corner_sq, bottom_right_corner_sq, upper_left_corner_sq, upper_right_corner_sq);
 
      return 0;
 
