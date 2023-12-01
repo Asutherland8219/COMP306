@@ -168,10 +168,9 @@ public:
     Rectangle(Point topLeft, Point topRight, Point bottomLeft, Point bottomRight)
             : topLeft(topLeft), topRight(topRight), bottomLeft(bottomLeft), bottomRight(bottomRight) {
         if (isSquare()) {
-            throw std::invalid_argument("The sides are equal! This rectangle is a square.\n");
+            throw std::invalid_argument("Bad Rectangle: The sides are equal! This rectangle is a square.\n");
         } else if (!isValidRectangle()) {
-            std::cout << "The values entered are not indicative of a rectangle.\n";
-            std::cout << "Remember, a rectangle must have parallel sides, and they cannot be equal.\n";
+            throw std::invalid_argument("Bad Rectangle: The values entered are not indicative of a rectangle.\n Remember, a rectangle must have parallel sides, and they all cannot be equal.\n");
         }
     }
 
@@ -187,10 +186,6 @@ public:
 
         return width == height;
     }
-
-
-
-
 
     double area() override {
         double width = Point::distance(topLeft, topRight);
@@ -217,9 +212,9 @@ private:
     Point rightPoint;
     Point leftPoint;
 public:
-    Triangle(Point peak, Point rightPoint, Point leftPoint) {
+    Triangle(Point peak, Point rightPoint, Point leftPoint) : peak(peak), rightPoint(rightPoint), leftPoint(leftPoint) {
         if (!isValidTriangle(peak, rightPoint, leftPoint)) {
-            std::cout << "Warning: Invalid triangle coordinates. Please ensure vertices form a valid triangle.\n";
+            throw std::invalid_argument("Bad Triangle: Invalid triangle coordinates. Please ensure vertices form a valid triangle.\n");
         };
 
     }
@@ -241,10 +236,11 @@ public:
     }
 
     bool isValidTriangle(Point p1, Point p2, Point p3) {
-        double side1 = Point::distance(p1,p2);
+        double side1 = Point::distance(p1, p2);
         double side2 = Point::distance(p2, p3);
         double side3 = Point::distance(p3, p1);
 
+        // Check for degenerate cases where the vertices are collinear
         if (side1 + side2 > side3 && side2 + side3 > side1 && side3 + side1 > side2) {
             return true;
         } else {

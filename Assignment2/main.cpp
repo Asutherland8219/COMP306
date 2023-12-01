@@ -182,6 +182,7 @@ using namespace std;
     Circle base_circle(circle_point, 10);
 
     // Display
+    std::cout << "Good Circle:";
     base_circle.display();
 
     // Create a rectangle
@@ -190,6 +191,7 @@ using namespace std;
     Point upper_left_corner(4,16);
     Point upper_right_corner(8, 16);
 
+    std::cout << "Good rectangle:";
     Rectangle rec(bottom_left_corner, bottom_right_corner, upper_left_corner, upper_right_corner);
 
     // Display all
@@ -201,7 +203,46 @@ using namespace std;
      Point upper_left_corner_sq(4,12);
      Point upper_right_corner_sq(8, 12);
 
-     Rectangle square(bottom_left_corner_sq, bottom_right_corner_sq, upper_left_corner_sq, upper_right_corner_sq);
+     // Check exception is thrown for square
+     try {
+         Rectangle square(bottom_left_corner_sq, bottom_right_corner_sq, upper_left_corner_sq, upper_right_corner_sq);
+     } catch (const std::exception& except) {
+         // Catch exception
+         std::cerr << "Caught exception: " << except.what() << std::endl;
+     }
+
+     // Check exception is thrown for a bad rectangle, (ie. not square, just
+     Point bottom_left_corner_bad(-1, 8);
+     Point bottom_right_corner_bad(8,8);
+     Point upper_left_corner_bad(4,12);
+     Point upper_right_corner_bad(8, 12);
+
+     try {
+         Rectangle bad_rec(bottom_left_corner_bad, bottom_right_corner_bad, upper_left_corner_bad, upper_right_corner_bad);
+     } catch (const std::exception& except) {
+         // Catch exception
+         std::cerr << "Caught exception: " << except.what() << std::endl;
+     }
+
+     // Create a Triangle
+     Point peak(4,8);
+     Point left_point(4,12);
+     Point right_point(8, 12);
+     std::cout << "Good Triangle:";
+     Triangle tri(peak, right_point, left_point);
+     tri.display();
+
+    // Create a bad triangle
+     Point peak_bad(1,1);
+     Point left_point_bad(2,2);
+     Point right_point_bad(3, 3);
+
+     try {
+         Triangle tri_bad(peak_bad, right_point_bad, left_point_bad);
+     } catch (const std::exception& except) {
+         // Catch exception
+         std::cerr << "Caught exception: " << except.what() << std::endl;
+     }
 
      return 0;
 
