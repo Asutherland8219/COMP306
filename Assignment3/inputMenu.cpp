@@ -1,6 +1,8 @@
 //
 // Created by asuth on 11/1/2023.
 //
+#include <utility>
+
 #include "Assignment3Question1.cpp"
 #include "Assignment3Question2.cpp"
 #include "Assignment3Question3.cpp"
@@ -8,6 +10,8 @@
 
 
 class inputMenu {
+private:
+    std::filesystem::path main_path;
 public:
     // A function that will be used to read in the file text and output it
     // let the user input the path of the file they want to open
@@ -18,6 +22,7 @@ public:
         std::cout
                 << "Please enter the name of the file you would like to open (make sure to include the extension): ";
         std::cin >> fileName;
+
         if (checkType(fileName)) {
             // append to the path
             std::filesystem::path filePath = std::filesystem::current_path() / "Assignment3" / fileName;
@@ -27,17 +32,24 @@ public:
                 std::cout << "Error: The file '" << fileName << "' does not exist." << std::endl;
                 return;
             }
-
-            inputFile.open(filePath); // open the stream object
-
-            if (!inputFile.is_open()) {
-                std::cout << "Error. Could not open the file entered." << endl;
-
-            } else {
-                std::cout << "File opened." << endl;
+            else {
+                setPath(filePath);
                 selectionMenu();
             }
         }
+    };
+
+    string getFileName() const {
+        // get the file name
+        return fileName;
+    };
+
+    void setPath(std::filesystem::path path) {
+        main_path = path;
+    }
+
+    std::filesystem::path getPath() {
+        return main_path;
     };
 
     void selectionMenu() {
@@ -46,10 +58,11 @@ public:
         while (running) {
             char selection;
             std::cout << "You have entered the following path or filename: " << fileName << std::endl;
-            std::cout << "What function would you like to execute in regards to this file? Please make a selection from the list below: " << std::endl;
+            std::cout<< "What function would you like to execute in regards to this file? Please make a selection from the list below: " << std::endl;
             std::cout << "\t 1. Count\n";
             std::cout << "\t 2. Print Line By Line\n";
             std::cout << "\t 3. Text Reader\n";
+            std::cout << "\t 4. Text Reader Demo\n";
             std::cout << "\t x. Exit\n";
 
             std::cin >> selection;
@@ -65,30 +78,47 @@ public:
     }
 
     void userTextInput(char selection) {
-        switch (selection) {
-            case '1':
-                // Count
-                wordCount(inputFile);
-                break;
-            case '2':
-                // Print Line By Line imported from header
-                printLineByLine(inputFile);
-                break;
-            case '3':
-                // Text reader
-                textFileReader(&inputFile);
-                break;
-//                case '4':
-//                    // Text reader demo
-////                    ReadFileDemo(inputFile);
-//                    break;
-            default:
-                std::cout << "Invalid selection. Please select an item from the options listed. \n";
+        try {
+            switch (selection) {
+                case '1':
+                    // Count
+                    inputFile.open(getPath()); // open the stream object
+                    if (!inputFile.is_open()) {
+                        throw std::invalid_argument("Error: File is not open.\n");
+                    }
+                    wordCount(inputFile);
+                    break;
+                case '2':
+                    // Print Line By Line imported from header
+                    inputFile.open(getPath()); // open the stream object
+                    if (!inputFile.is_open()) {
+                        throw std::invalid_argument("Error: File is not open.\n");
+                    }
+                    printLineByLine(inputFile);
+                    break;
+                case '3':
+                    // Text reader
+                    inputFile.open(getPath()); // open the stream object
+                    if (!inputFile.is_open()) {
+                        throw std::invalid_argument("Error: File is not open.\n");
+                    }
+                    {
+                        TextFileReader reader(getFileName());
+                        reader.display();
+                    }
+                    break;
+                case '4':
+                    TextFileReaderDemo::run(getFileName());
+                    break;
+                default:
+                    std::cout << "Invalid selection. Please select an item from the options listed. \n";
+            }
+        } catch (const std::exception &except) {
+            std::cerr << "Error: " << except.what() << std::endl;
         }
+
         // reset to the top of the file
         inputFile.clear();
         inputFile.seekg(0, std::ios::beg);
-
     }
 };
-

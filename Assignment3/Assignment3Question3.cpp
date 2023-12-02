@@ -1,38 +1,54 @@
+#include <iostream>
 #include <fstream>
-#include <string>
 #include <sstream>
-using namespace std;
+#include <string>
 
-class textFileReader {
+class TextFileReader {
 private:
-    string lines[100];
+    std::string lines[100];
     int count;
 
 public:
     // Default constructor
-    textFileReader() : count(0) {}
+    TextFileReader() : count(0) {}
 
-    // Constructor that takes an ifstream object
-    explicit textFileReader(ifstream& file) : count(0) {
-        string line;
-        while (getline(file, line) && count < 100) {
+    // Constructor with a filename argument
+    TextFileReader(const std::string& filename) : count(0) {
+        std::ifstream inputFile(filename);
+
+        std::string line;
+        while (getline(inputFile, line) && count < 100) {
             lines[count++] = line;
         }
+
+        inputFile.close();
     }
 
-    // Function to convert the array of Strings into a single StringBuffer
-    string contents() {
-        stringstream str_stream;
+    std::string contents() const {
+        std::stringstream str_stream;
         for (int i = 0; i < count; ++i) {
             str_stream << lines[i] << "\n";
         }
         return str_stream.str();
     }
 
-    // Function to print the array to standard output
-    void display() {
+    void display() const {
         for (int i = 0; i < count; ++i) {
-            cout << "line " << (i+1) << ": " << lines[i] << endl;
+            std::cout << "line " << (i + 1) << ": " << lines[i] << std::endl;
         }
+    }
+};
+
+class TextFileReaderDemo {
+public:
+    static void run(const std::string& filename) {
+        TextFileReader reader(filename);
+
+        // Display contents
+        std::cout << "File Contents:\n" << reader.contents() << std::endl;
+
+        // Display with line numbers
+        std::cout << "File Contents with Line Numbers:\n";
+        reader.display();
     }
 };
