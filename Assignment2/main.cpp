@@ -179,11 +179,21 @@ using namespace std;
 
     // Create a shape (circle)
     Point circle_point(1,1);
-    Circle base_circle(circle_point, 10);
+    double radius = 10;
+    Circle base_circle(circle_point, radius);
 
     // Display
     std::cout << "Good Circle:";
     base_circle.display();
+
+    // Create a bad circle
+    double radius_bad  = -1;
+    try {
+         Circle bad_circle(circle_point, radius_bad);
+     } catch (const std::exception& except) {
+         // Catch exception
+         std::cerr << "Caught exception: " << except.what() << std::endl;
+     }
 
     // Create a rectangle
     Point bottom_left_corner(4, 8);

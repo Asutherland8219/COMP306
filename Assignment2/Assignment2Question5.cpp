@@ -124,7 +124,7 @@ public:
     Circle(Point center, double radius) : center(center), radius(radius) {
         // check that the value is positive
         if (radius <= 0) {
-            cout << "Value is not possible for a circle. Please enter a number greater than 0. \n";
+            throw std::invalid_argument("Value is not possible for a circle. Please enter a number greater than 0. \n");
         }
     }
 
