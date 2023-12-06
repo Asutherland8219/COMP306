@@ -127,12 +127,12 @@ public:
         }
         if (desired_floor < 1) {
             std::cout << "This is less than the number of floors in this building. \n" << std::endl;
-            std::cout << "Please enter a value between " << 1 << "and " << top << std::endl;
+            std::cout << "Please enter a value between " << 1 << " and " << top << std::endl;
             return false;
         }
         if (desired_floor == top) {
             std::cout << "You have reached the top floor of this establishment." << endl;
-            std::cout << "Please enter a value between " << 1 << "and " << top << std::endl;
+            std::cout << "Please enter a value between " << 1 << " and " << top << std::endl;
         } else {
             return true;
         }

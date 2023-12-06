@@ -42,6 +42,8 @@ using namespace std;
          cin >> input;
     }
 
+    std::cout << endl;
+
     // PROBLEM 2 --> Done
     // Test function for the Book class ; mainly on creation
     // test getters in the main
@@ -55,7 +57,9 @@ using namespace std;
     red_rising.setYearPublished("Jan. 1 2014");
     red_rising.details();
 
-    // create a second book, this time only getting one item at a time
+    std::cout << endl;
+
+     // create a second book, this time only getting one item at a time
     Book golden_son = Book();
     golden_son.setTitle("Golden Son");
     golden_son.setISBN("0345539818");
@@ -64,7 +68,10 @@ using namespace std;
     golden_son.setPublisher("Del Rey Books");
     golden_son.setYearPublished("Jan. 6 2015");
 
-    // get all the details
+    std::cout << endl;
+
+
+     // get all the details
     cout << golden_son.get("title") << "\n";
     cout << golden_son.get("isbn") << "\n";
     cout << golden_son.get("author") << "\n";
@@ -72,7 +79,10 @@ using namespace std;
     cout << golden_son.get("publisher")<< "\n";
     cout << golden_son.get("year published") << "\n";
 
-    // PROBLEM 3 ; The elevator --> Done
+    std::cout << endl;
+
+
+     // PROBLEM 3 ; The elevator --> Done
 
     // init the elevator
     Elevator elevator = Elevator();
@@ -112,7 +122,10 @@ using namespace std;
     Elevator big_elevator = Elevator(20);
     big_elevator.go_to(20);
 
-    // PROBLEM 4 --> Done
+    std::cout << endl;
+
+
+     // PROBLEM 4 --> Done
     Mouse mouse("Lola");
     mouse.jump();
     mouse.dance();
@@ -122,6 +135,9 @@ using namespace std;
     mouse.groom();
     // unique ability
     mouse.hide();
+
+    std::cout << endl;
+
 
     Gerbil gerbil("Gibby");
     gerbil.jump();
@@ -133,6 +149,8 @@ using namespace std;
     // unique
     gerbil.smell();
 
+    std::cout << endl;
+
     Hamster hamster("Hammy");
     hamster.jump();
     hamster.dance();
@@ -143,6 +161,8 @@ using namespace std;
     // unique
     hamster.exercise();
 
+    std::cout << endl;
+
     GuineaPig guineapig("Gerald-Paul");
     guineapig.jump();
     guineapig.dance();
@@ -152,6 +172,8 @@ using namespace std;
     guineapig.groom();
     //unique
     guineapig.talk();
+
+    std::cout << endl;
 
     // PROBLEM 5
 
@@ -177,6 +199,8 @@ using namespace std;
     // Decrease y
     base.Subtract(0, 1);
 
+    std::cout << endl;
+
     // Create a shape (circle)
     Point circle_point(1,1);
     double radius = 10;
@@ -186,6 +210,8 @@ using namespace std;
     std::cout << "Good Circle:";
     base_circle.display();
 
+    std::cout << endl;
+
     // Create a bad circle
     double radius_bad  = -1;
     try {
@@ -194,6 +220,8 @@ using namespace std;
          // Catch exception
          std::cerr << "Caught exception: " << except.what() << std::endl;
      }
+
+    std::cout << endl;
 
     // Create a rectangle
     Point bottom_left_corner(4, 8);
@@ -206,6 +234,8 @@ using namespace std;
 
     // Display all
     rec.display();
+
+    std::cout << endl;
 
     // Create a square using the same values
      Point bottom_left_corner_sq(4, 8);
@@ -221,6 +251,8 @@ using namespace std;
          std::cerr << "Caught exception: " << except.what() << std::endl;
      }
 
+     std::cout << endl;
+
      // Check exception is thrown for a bad rectangle, (ie. not square, just
      Point bottom_left_corner_bad(-1, 8);
      Point bottom_right_corner_bad(8,8);
@@ -234,6 +266,8 @@ using namespace std;
          std::cerr << "Caught exception: " << except.what() << std::endl;
      }
 
+     std::cout << endl;
+
      // Create a Triangle
      Point peak(4,8);
      Point left_point(4,12);
@@ -241,6 +275,8 @@ using namespace std;
      std::cout << "Good Triangle:";
      Triangle tri(peak, right_point, left_point);
      tri.display();
+
+     std::cout << endl;
 
     // Create a bad triangle
      Point peak_bad(1,1);
@@ -253,6 +289,8 @@ using namespace std;
          // Catch exception
          std::cerr << "Caught exception: " << except.what() << std::endl;
      }
+
+     std::cout << endl;
 
      return 0;
 

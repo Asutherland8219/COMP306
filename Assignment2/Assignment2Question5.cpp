@@ -1,6 +1,204 @@
-//
-// Created by alex on 19/08/23.
-//
+/*
+ Title: Assignment2Question5.cpp
+ Description: Shapes
+ Date: December 5th, 2023
+ Author: Alex Sutherland
+ StudentID: 3640392
+ Version: 1.0
+*/
+
+
+/*
+ DOCUMENTATION
+
+ Program Purpose:
+	Create a base Shape class, then create child classes for various shapes such as Circle, Rectangle and Triangle. Calculate Area and Circumference for each as well as the bounding box.
+    Create a base Point class, these points are used to create the shape classes.
+
+ Compile (assuming Cygwin is running): g++ -o Assignment2 Assignment2Question5.cpp
+ Execution (assuming Cygwin is running): ./Assignment2Question5.exe
+
+ Classes (functions):
+    - Point
+        - [Double] getX() : Gets the x Value
+        - [Double] getY() : Gets the y value
+        - [Void] Add( Double, Double) : Add to the point value
+        - [Void] Subtract(Double, Double) : Subtract from the point value
+        - [Void] Show() : Prints the values of the points currently
+
+
+        - [Double] Distance(Point, Point)
+
+        ** I didn't end up using this but left it because I was trying it out when doing calculations
+        - [Double] Length(Point, Point)
+
+
+	- Shape (Super/Parent Class)
+        - [Array of doubles] Bounding Box : The points for the surrounding Box of the shape
+        - [Double] Circumference : The circumference of the shape
+        - [Double] Area: The area of the shape
+        - [Void] Display: Print the Area, Circumference and Bounding Box
+
+        - Inherited classes (from Shape)
+            - Rectangle( Point, Point, Point, Point)  : Rectangle Class, inheriting from the parent Shape Class
+                - [bool] isValidRectangle() : Check if the rectangle is valid
+                - [bool] isSquare() : Check if the rectangle is ... a square
+
+            - Triangle(Point, Point, Point) : Triangle class
+                - [bool] isValidTriangle() : Check if triangle is a triangle
+
+            - Circle(Point1, [Double] radius : Circle Class
+
+
+        Each child class takes minimum 1 Point value (Circle), 3 for a triangle and 4 for a rectangle.
+        Each child class also has validity checks to make sure the values enter fall under the constraints of being their respective shape.
+        They also have their own versions of the calculations for each of the shape base functions (Circumference, Area, Display, BoundingBox).
+
+
+ Variables:
+ 	Point:
+ 	    - [Double] x
+ 	    - [Double] y
+ 	    - [Double] x_change
+ 	    - [Double] y_change
+
+ 	    ## Point objects are also used as variables in the point class for the calculation of distance/length
+
+    Shape : No variables on Shape, just child classes
+
+    Circle:
+        - [Point] center : The desired point center value of the circle
+        - [Double] radius: The desired circle radius
+
+    Rectangle:
+        - [Point] topLeft : The upper left most point
+        - [Point] topRight : The upper right most point
+        - [Point] bottomLeft : The lower left most point
+        - [Point] bottomRight : The lower right most point
+
+    Triangle:
+        - [Point] peak: The apex of the triangle
+        - [Point] rightPoint : The right most point of the triangle
+        - [Point] leftPoint : The left most point of the triangle
+
+
+    The variable is overridden by the default output of  the child class. If no default output is given, "animal" is printed
+*/
+
+/*
+ TEST PLAN
+
+ Normal case:
+ 	> Point base;
+ 	> base.Show();
+        Output: You have not entered any values so the default point object is created at 0,0.
+        x and y are currently set at: (0,0)
+
+
+    // Add to both
+    > base.Add(1,1);
+        Output: x and y are currently set at: (0,0)
+                The new point values for x and y are set at: 1 , 1
+
+    // Add to X
+    > base.Add(1);
+        Output: x and y are currently set at: (1,1)
+                The new point values for x and y are set at: 2 , 1
+
+    // Add to Y
+    > base.Add(0,1);
+        Output: x and y are currently set at: (2,1)
+                The new point values for x and y are set at: 2 , 2
+
+    // Subtract from both
+    > base.Subtract(1,1);
+        Output: x and y are currently set at: (2,2)
+                The new point values for x and y are set at: 1 , 1
+
+    // Subtract from x
+    > base.Subtract(1);
+        Output: x and y are currently set at: (1,1)
+                The new point values for x and y are set at: 0 , 1
+
+    // Subtract from Y
+    > base.Subtract(0,1);
+        Output: x and y are currently set at: (0,1)
+                The new point values for x and y are set at: 0 , 0
+
+    // Circle
+    > Point circle_point(1,1);
+    > double radius = 10
+    > Circle base_circle(circle_point, radius)
+    > base_circle.display()
+        Output: Good Circle:
+                Area: 314.159
+                Circumference: 62.8318
+                Bounding Box: [(-9, -9), (11, -9), (11, 11), (-9, 11)]
+
+    > Point bottom_left_corner(4, 8);
+    > Point bottom_right_corner(8,8);
+    > Point upper_left_corner(4,16);
+    > Point upper_right_corner(8, 16);
+
+    // Rectangle
+    > Rectangle rec(bottom_left_corner, bottom_right_corner, upper_left_corner, upper_right_corner);
+    > rec.display()
+        Output: Good rectangle:
+                Area: 32
+                Circumference: 24
+                Bounding Box: [(4, 8), (8, 8), (8, 16), (4, 16)]
+
+    > Point peak(4,8);
+    > Point left_point(4,12);
+    > Point right_point(8, 12);
+
+    // Triangle
+    > Triangle tri(peak, right_point, left_point);
+    > tri.display()
+        Output: Good Triangle:
+                Area: 8
+                Circumference: 13.6569
+                Bounding Box: [(4, 8), (8, 8), (8, 12), (4, 12)]
+
+
+
+ Bad Case
+ 	Circle:
+ 	    > double radius_bad = -1;
+ 	    > Circle bad_circle(circle_point, radius_bad)
+ 	        Output: Caught exception: Value is not possible for a circle. Please enter a number greater than 0.
+
+    Rectangle:
+    // Square case
+     > Point bottom_left_corner_sq(4, 8);
+     > Point bottom_right_corner_sq(8,8);
+     > Point upper_left_corner_sq(4,12);
+     > Point upper_right_corner_sq(8, 12);
+     > Rectangle square(bottom_left_corner_sq, bottom_right_corner_sq, upper_left_corner_sq, upper_right_corner_sq);
+        Output: Caught exception: Bad Rectangle: The sides are equal! This rectangle is a square.
+
+    // bad rectangle case
+    > Point bottom_left_corner_bad(-1, 8);
+    > Point bottom_right_corner_bad(8,8);
+    > Point upper_left_corner_bad(4,12);
+    > Point upper_right_corner_bad(8, 12);
+    > Rectangle bad_rec(bottom_left_corner_bad, bottom_right_corner_bad, upper_left_corner_bad, upper_right_corner_bad);
+        Output: Caught exception: Bad Rectangle: The values entered are not indicative of a rectangle.
+                Remember, a rectangle must have parallel sides, and they all cannot be equal.
+
+    Triangle:
+    > Point peak(4,8);
+    > Point left_point(4,12);
+    > Point right_point(8, 12);
+    > Triangle tri_bad(peak_bad, right_point_bad, left_point_bad);
+        Output: Caught exception: Bad Triangle: Invalid triangle coordinates. Please ensure vertices form a valid triangle.
+
+ Discussion:
+ 	Program focusing on two main constructors , Point and Shape. The shape constructor has 3 child functions that are inheriting from its base functions. The each shape requires minimum one
+ 	Point value, with the rectangle requiring 4.
+
+ 	Each child function, the inherited shapes, has a validity check to ensure the Point and other values enter meet the requirements for the child shape function (Circle, Rectangle, Triangle)
+*/
 
 #include <iostream>
 #include <vector>
@@ -42,7 +240,7 @@ public:
        std::cout << "x and y are currently set at: (" << x << "," << y << ") \n";
     }
 
-    void Add( int x_change = 0, int y_change = 0) {
+    void Add( double x_change = 0, double y_change = 0) {
         // have both variables and set default to 0, because they have a default value, we can treat them as optional
         Show();
 
@@ -60,7 +258,7 @@ public:
 
     }
 
-    void Subtract( int x_change = 0, int y_change = 0) {
+    void Subtract( double x_change = 0, double y_change = 0) {
         // have both variables and set default to 0, because they have a default value, we can treat them as optional
         Show();
 
@@ -101,11 +299,11 @@ public:
     };
 
     virtual std::vector<Point> boundingBox() {
-
+        return {};
     };
 
     virtual double circumference() {
-
+        return 0.0;
     };
 
     virtual double area() {
@@ -170,7 +368,7 @@ public:
         if (isSquare()) {
             throw std::invalid_argument("Bad Rectangle: The sides are equal! This rectangle is a square.\n");
         } else if (!isValidRectangle()) {
-            throw std::invalid_argument("Bad Rectangle: The values entered are not indicative of a rectangle.\n Remember, a rectangle must have parallel sides, and they all cannot be equal.\n");
+            throw std::invalid_argument("Bad Rectangle: The values entered are not indicative of a rectangle.\nRemember, a rectangle must have parallel sides, and they all cannot be equal.\n");
         }
     }
 
@@ -230,7 +428,7 @@ public:
     }
 
     double circumference() override {
-        // Sum of the lengths of the sides
+        // Sum of the distances of the sides
         return Point::distance(peak, rightPoint) + Point::distance(rightPoint, leftPoint) +
                Point::distance(leftPoint, peak);
     }
