@@ -7,22 +7,20 @@
 using namespace std;
 
 void printLineByLine(std::ifstream& inputFile) {
+    inputFile.clear();
+    inputFile.seekg(0, std::ios::beg);
     std::string txt_line;
 
     while (std::getline(inputFile, txt_line)) {
         // print the line
-        char userInput;
-        std::cin.get(userInput);
+        std::string userInput;
+        std::getline(std::cin, userInput);
 
-        if (userInput == '\n') {
+        if (userInput.empty() || userInput == "x" || userInput == "X") {
             std::cout << txt_line << std::endl;
-        }
-        else if (userInput == 'x' || userInput == 'X') {
-            return; // Exit the function
-        }
-        else {
-            std::cout << "Please press enter to continue or enter x to exit." << std::endl;
-            std::cin.ignore();
+        } else {
+            std::cout << "Please press Enter to continue or enter x to exit." << std::endl;
         }
     }
+
 }

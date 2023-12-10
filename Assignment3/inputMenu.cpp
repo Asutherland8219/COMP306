@@ -61,8 +61,7 @@ public:
             std::cout<< "What function would you like to execute in regards to this file? Please make a selection from the list below: " << std::endl;
             std::cout << "\t 1. Count\n";
             std::cout << "\t 2. Print Line By Line\n";
-            std::cout << "\t 3. Text Reader\n";
-            std::cout << "\t 4. Text Reader Demo\n";
+            std::cout << "\t 3. Text Reader Demo\n";
             std::cout << "\t x. Exit\n";
 
             std::cin >> selection;
@@ -81,6 +80,9 @@ public:
         try {
             switch (selection) {
                 case '1':
+                    // reset to the top of the file
+                    inputFile.clear();
+                    inputFile.seekg(0, std::ios::beg);
                     // Count
                     inputFile.open(getPath()); // open the stream object
                     if (!inputFile.is_open()) {
@@ -89,6 +91,9 @@ public:
                     wordCount(inputFile);
                     break;
                 case '2':
+                    // reset to the top of the file
+                    inputFile.clear();
+                    inputFile.seekg(0, std::ios::beg);
                     // Print Line By Line imported from header
                     inputFile.open(getPath()); // open the stream object
                     if (!inputFile.is_open()) {
@@ -97,18 +102,10 @@ public:
                     printLineByLine(inputFile);
                     break;
                 case '3':
-                    // Text reader
-                    inputFile.open(getPath()); // open the stream object
-                    if (!inputFile.is_open()) {
-                        throw std::invalid_argument("Error: File is not open.\n");
-                    }
-                    {
-                        TextFileReader reader(getFileName());
-                        reader.display();
-                    }
-                    break;
-                case '4':
-                    TextFileReaderDemo::run(getFileName());
+                    // reset to the top of the file
+                    inputFile.clear();
+                    inputFile.seekg(0, std::ios::beg);
+                    TextFileReaderDemo::run(inputFile);
                     break;
                 default:
                     std::cout << "Invalid selection. Please select an item from the options listed. \n";
@@ -117,8 +114,6 @@ public:
             std::cerr << "Error: " << except.what() << std::endl;
         }
 
-        // reset to the top of the file
-        inputFile.clear();
-        inputFile.seekg(0, std::ios::beg);
+
     }
 };

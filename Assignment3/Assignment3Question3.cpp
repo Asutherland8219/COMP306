@@ -13,8 +13,9 @@ public:
     TextFileReader() : count(0) {}
 
     // Constructor with a filename argument
-    TextFileReader(const std::string& filename) : count(0) {
-        std::ifstream inputFile(filename);
+    TextFileReader(std::ifstream& inputFile) : count(0) {
+        inputFile.clear();
+        inputFile.seekg(0, std::ios::beg);
 
         std::string line;
         while (getline(inputFile, line) && count < 100) {
@@ -41,8 +42,8 @@ public:
 
 class TextFileReaderDemo {
 public:
-    static void run(const std::string& filename) {
-        TextFileReader reader(filename);
+    static void run(std::ifstream& inputFile) {
+        TextFileReader reader(inputFile);
 
         // Display contents
         std::cout << "File Contents:\n" << reader.contents() << std::endl;
