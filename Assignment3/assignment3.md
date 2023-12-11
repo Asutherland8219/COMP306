@@ -31,3 +31,20 @@ As with Problems 1 and 2, you may test your program on any number of text files;
 Problem 4
 
 Write a program that creates three floating point arrays. Fill the first two arrays with 25 floating point numbers using loop structures, as follows: fill the first array with the loop counter value and fill the second array with the loop counter value squared. Finally, write a loop that adds the corresponding elements in the first two arrays and puts the result in the corresponding element of the third array. Display all three arrays using the format for counter; element + element = element.
+
+Problem 5
+
+Define a class called Book. The Book class should store attributes such as the title, ISBN, author, edition, publisher, and year of publication. These attributes must be private.
+
+Provide public get/set methods in this class to access these attributes. Test your Book class by creating several books and displaying the attributes. You may start with the Book program you wrote for Assignment 2, Problem 2.
+
+Define a class called Bookshelf, which contains only a main() method. The Bookshelf class must create a dozen (12) Book objects with distinct attributes, and it must store them in an ArrayList of Books.
+
+The Bookshelf class must then list all the attributes of all books in the ArrayList in the order they were entered into the ArrayList.
+
+Create a sort function for Bookshelf, which will sort books in the ArrayList in ascending order by name, and then by year of publication.
+HINT
+
+You will need to define a comparator class that takes two Book objects as parameters of the compareTo method. This method should make a two-step comparison and return a Boolean value. The first comparison should compare the book names. If the names are the same, the second comparison should compare the years of publication.
+
+Add code to main() to display the sorted Book list after the first output list—that is, Books in the order they were entered into the ArrayList.

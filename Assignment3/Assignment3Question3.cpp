@@ -51,5 +51,6 @@ public:
         // Display with line numbers
         std::cout << "File Contents with Line Numbers:\n";
         reader.display();
+        std::cout << std::endl;
     }
 };

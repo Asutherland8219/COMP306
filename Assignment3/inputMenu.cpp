@@ -105,6 +105,7 @@ public:
                     // reset to the top of the file
                     inputFile.clear();
                     inputFile.seekg(0, std::ios::beg);
+                    inputFile.open(getPath()); // open the stream object
                     TextFileReaderDemo::run(inputFile);
                     break;
                 default:
@@ -113,6 +114,10 @@ public:
         } catch (const std::exception &except) {
             std::cerr << "Error: " << except.what() << std::endl;
         }
+
+        // reset to the top of the file
+        inputFile.clear();
+        inputFile.seekg(0, std::ios::beg);
 
 
     }
