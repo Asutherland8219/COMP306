@@ -181,6 +181,8 @@ public:
                 {"Red Rising", " 0345539834 ", "Pierce Brown", "Second Edition", "Del Rey", "2023"},
         };
         bulkCreateBooks(books_raw_same);
+        bookSort(books);
+        books.clear();
     }
 
     static bool compareBooks(Book book1, Book book2, std::string field = "TITLE") {
