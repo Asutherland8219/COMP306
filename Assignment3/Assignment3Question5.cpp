@@ -30,6 +30,15 @@ public:
             publisher = bookInfo[4];
             year_published = bookInfo[5];
         }
+        else if (bookInfo.size() > 6){
+            throw std::invalid_argument("You have entered too many fields. Please ensure you have the following details: \n"
+                                        "title \n"
+                                        "isbn \n"
+                                        "author \n"
+                                        "edition \n"
+                                        "publisher \n"
+                                        "year_published \n");
+        }
         else {
             throw std::invalid_argument("You are missing some mandatory fields to create a book. Please ensure you have the following details: \n"
                                         "title \n"
@@ -76,27 +85,6 @@ public:
         cout << "Edition: " << edition << std::endl;
         cout << "Publisher: " << publisher << std::endl;
         cout << "Year Published: " << year_published << std::endl;
-    }
-
-public:
-    //setters
-    void setTitle(const string& newTitle) {
-        title = newTitle;
-    }
-    void setISBN(const string& newISBN) {
-        ISBN = newISBN;
-    }
-    void setAuthor(const string& newAuthor) {
-        author = newAuthor;
-    }
-    void setEdition(const string& newEdition) {
-        edition = newEdition;
-    }
-    void setPublisher(const string& newPublisher) {
-        publisher = newPublisher;
-    }
-    void setYearPublished(const string& newYearPublished) {
-        year_published = newYearPublished;
     }
 
 };
