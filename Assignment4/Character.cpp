@@ -5,6 +5,8 @@
 // Character.cpp (Implementation file for Character class)
 
 #include "Character.h"
+#include "Quest.h"
+#include "Quest.cpp"
 #include <iostream>
 
 // Display character details
@@ -12,16 +14,16 @@ void Character::displayCharacter() const {
     std::cout << "Name: " << name << std::endl;
     std::cout << "Hair Color: " << hairColor << std::endl;
     std::cout << "Eye Color: " << eyeColor << std::endl;
-    std::cout << "Pronouns: " << getPronounsString() << std::endl;
-    std::cout << "Quest Objectives:" << std::endl;
-    quest.displayQuest();
+    std::cout << "Pronouns: " << customPronouns << std::endl;
+
+    // Display completed quests
+    std::cout << "Quests:" << std::endl;
+    quests.displayQuests();  // Display quests
 }
 
-// Accessor for the Quest object
-const Quest& Character::getQuest() const {
-    return quest;
+void Character::getQuests() const {
+    quests.displayQuests();
 }
-
 
 // Setters
 void Character::setName(const std::string& newName) {
@@ -37,16 +39,8 @@ void Character::setEyeColor(const std::string& newEyeColor) {
 }
 
 // Setter for pronouns with menu
-void Character::setPronouns() {
-    std::cout << "Select Pronouns:\n";
-    std::cout << "1. He/Him\n";
-    std::cout << "2. She/Her\n";
-    std::cout << "3. Other\n";
-
-    int choice;
-    std::cin >> choice;
-
-    switch (choice) {
+void Character::setPronouns(int pronoun_choice) {
+    switch (pronoun_choice) {
         case 1:
             pronouns = Pronouns::HE;
             customPronouns = "He";  // Clear custom pronouns
@@ -88,16 +82,26 @@ std::string Character::getPronounsString() const {
     return "";  // Default case (should not happen)
 }
 
-// Display quest objectives with completion status
-void Quest::displayQuest() const {
-    for (size_t i = 0; i < objectives.size(); ++i) {
-        std::cout << "[" << completionStatus[i] << "] " << objectives[i] << std::endl;
-    }
+
+Character::Character(const std::string& name, const std::string& hairColor, const std::string& eyeColor,
+          int pronounChoice, const Quests& quest)
+{
+    // Initialize the character's pronouns
+    setPronouns(pronounChoice);
 }
 
-// Mark an objective as completed
-void Quest::completeObjective(size_t index) {
-    if (index < objectives.size()) {
-        completionStatus[index] = 'x';
-    }
-};
+
+void Character::addQuest(const std::string &description) {
+    quests.addQuest(description);
+}
+
+
+// Method to complete the last objective of the last quest
+void Character::completeLastQuestObjective() {
+    quests.completeLastQuestObjective();
+}
+
+
+
+
+

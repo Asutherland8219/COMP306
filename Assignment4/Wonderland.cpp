@@ -2,9 +2,12 @@
 // Created by asuth on 12/13/2023.
 //
 
-int Wonderland() {
+#include "Intro.cpp"
+
+int main() {
 
     // intro
+    Character my_character = Intro::character_build();
 
     // checkpoint 1
 
