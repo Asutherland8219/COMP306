@@ -51,6 +51,7 @@ public:
 
     // Function to get pronouns as a string
     std::string getPronounsString() const;
+    void talk(const std::string& dialogue) const;
 
     // Method to complete a quest objective
     void completeLastQuestObjective();

@@ -32,9 +32,7 @@ void Quests::addQuest(const std::string& description) {
 
 void Quests::completeLastQuestObjective() {
     if (!quests.empty()) {
-        std::rotate(quests.begin(), quests.end() - 1, quests.end()); // Move completed quest to the top
-        quests.front().completeObjective(); // Complete the first quest (at the top)
-
+        quests.back().completeObjective();  // Complete the last objective of the last quest
     }
 }
 

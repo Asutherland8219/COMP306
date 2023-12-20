@@ -25,6 +25,7 @@ public:
 
     // Mark an objective as completed
     void completeObjective();
+
 };
 
 class Quests {

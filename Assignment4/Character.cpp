@@ -101,6 +101,10 @@ void Character::completeLastQuestObjective() {
     quests.completeLastQuestObjective();
 }
 
+void Character::talk(const std::string& dialogue) const {
+    std::cout << name << ": `" << dialogue << "`" << std::endl;
+}
+
 
 
 
