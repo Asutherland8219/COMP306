@@ -11,7 +11,7 @@
 #include "Inventory.h"  // Include the header for the Inventory class
 #include "Quest.h"
 
-enum class Pronouns {
+enum Pronouns {
     HE,
     SHE,
     OTHER

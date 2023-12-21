@@ -10,8 +10,8 @@
 
 class Intro {
 private:
-    bool well_breaker = true;
-    bool hall_breaker = true;
+    bool well_breaker;
+    bool hall_breaker;
 public:
     void startAliceInWonderland(Character custom_character) {
         std::cout << "The sun was shining on a beautiful summer day. The dew on the ground reflecting the sunlight while the deer and other fauna scamper around the forest. \n";

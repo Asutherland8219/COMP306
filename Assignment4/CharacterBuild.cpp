@@ -44,12 +44,12 @@ public:
         std::cin >> pronounChoice;
 
         // Objectives for the quests
-        std::vector<std::string> escapeObjectives = {};
-        std::vector<std::string> keyObjectives = {};
+        std::vector<std::string> escapeObjectives;
+        std::vector<std::string> keyObjectives;
 
         // Create character with quests
-
-        Character custom_character = Character("", "", "", pronounChoice, {});
+        Quests quests;
+        Character custom_character = Character("", "", "", pronounChoice, quests);
         custom_character.setName(name);
         custom_character.setPronouns(pronounChoice);
         custom_character.setEyeColor(eyeColor);
