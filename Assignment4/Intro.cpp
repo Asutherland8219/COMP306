@@ -12,6 +12,8 @@ class Intro {
 private:
     bool well_breaker;
     bool hall_breaker;
+    bool drink_breaker;
+    bool table_breaker;
 public:
     void startAliceInWonderland(Character custom_character) {
         std::cout << "The sun was shining on a beautiful summer day. The dew on the ground reflecting the sunlight while the deer and other fauna scamper around the forest. \n";
@@ -94,13 +96,42 @@ public:
         std::cout << "You return to the table where you were before but this time something else catches your eye.\n";
         std::cout << "There is a new door, tucked away with some drapes in front of it. You are positive that wasn't there before...\n";
         std::cout << "You try the key in the door and to your surprise it works! and the door opens. It is too small for you to enter so you peek inside...\n";
+        std::cout << "From here, there is nothing you can do. You are much too large to enter this door.. You decide to turn around and notice something new on the table \n";
+        std::cout << "On the table now is a bottle, with the words written on it, in capital letters, DRINK ME.";
 
+        while (Intro::drink_breaker) {
+            std::cout << "What would you like to do?\n";
+            std::cout << "1. Down the whole thing. What's the worst that could happen. \n";
+            std::cout << "2. Inspect the bottle, try and see if there's indicating what it is. Open it and smell. \n";
+            std::cout << "3. Try and leave \n";
+            int drink_choice;
+            std::cin >> drink_choice;
+            if (std::cin.fail()) {
+                throw std::invalid_argument("Invalid input. Please enter a number.\n");
+            }
+            drinkChoice(drink_choice);
 
+        }
 
-//
-//        std::cout << "Little did Alice know that this would mark the beginning of a fantastical journey, where the impossible became possible,\n";
-//        std::cout << "and the familiar twisted into the delightfully unexpected. The world she once knew would unfold into a kaleidoscope of\n";
-//        std::cout << "whimsy and wonder, and adventure beckoned from every corner of Wonderland.\n";
+        std::cout << "You feel different. Not in a bad way but just like things around you are changing.\n";
+        std::cout << "As you survey your surroundings, you notice that things around you are HUGE... \n";
+        std::cout << "This however was not the case, but in fact the opposite! You have shrunk! Perhaps you can get through the small door..\n";
+        std::cout << "You move towards the door but it is shut again, you look around your pockets and notice you have forgotten the key!\n";
+        std::cout << "You turn back to the table and you can see the key! But alas you are small and table is large... How on earth are you gonna get that...\n";
+
+        while (Intro::table_breaker) {
+            std::cout << "What would you like to do?\n";
+            std::cout << "1. Try and climb the table leg. \n";
+            std::cout << "2. Look around for anything else that might be helpful. \n";
+            std::cout << "3. Yell for help. \n";
+            int table_choice;
+            std::cin >> table_choice;
+            if (std::cin.fail()) {
+                throw std::invalid_argument("Invalid input. Please enter a number.\n");
+            }
+            tableChoice(table_choice);
+
+        }
     }
 
     // Setter for pronouns with menu
@@ -143,6 +174,26 @@ public:
 
     }
 
+    void drinkChoice(int drink_choice) {
+        switch (drink_choice) {
+            case 1:
+                std::cout << "You taste a savory flavor, one reminiscent of roast turkey, cherry-tart, custard, toffee and hot buttered toast\n";
+                drink_breaker = false;
+                break;
+
+
+            case 2:
+                std::cout << "You pick up the bottle, turn it over in your hands trying to find anything identifiable.. \n";
+                std::cout << "Nothing seems to stand out. You pop the top off and waft in the smells...\n";
+                std::cout << "It has a warm, soothing savory sent, reminding you of a christmas dinner.\n";
+                std::cout << "It could be poison but it is quite enticing to try it out. \n";
+                break;
+            case 3:
+                std::cout << "You think to yourself `maybe the way back is changed now too. \n When you turn around you see the same dark void as before \n";
+                break;
+        }
+    }
+
     void hallwayChoice(int hallway_choice) {
         switch (hallway_choice) {
             case 1:
@@ -159,6 +210,28 @@ public:
                 std::cout << "You've had enough and turn around to go back where you came. \n"
                              "As you turn, you notice the area behind you is dark now... with seemingly no end.\n";
                 std::cout << "It seems you can only move forward from here. \n";
+                break;
+        }
+    }
+
+    void tableChoice(int table_choice) {
+        switch (table_choice) {
+            case 1:
+                std::cout << "You try and muster up all your might and climb the leg... You get a bit up and then slip.\n";
+                std::cout << "It seems near impossible to climb without anything to grab on to.\n";
+                break;
+            case 2:
+                std::cout << "You take in a few deep breaths and look around for something useful. You notice a small glass box you missed before.\n";
+                std::cout << "At this point, you have nothing to lose and it likely isn't poison *since the drink wasn't* \n";
+                std::cout << "You open it up, and see a cake with the words `EAT ME` on the top. \n";
+                std::cout << "You start eating small peices to see what would happen... after a while nothing happens \n";
+                std::cout << "You keep eating until the entire cake is finished, perhaps then something will happen...";
+                table_breaker = false;
+                break;
+            case 3:
+                std::cout << "You scream at the top of your lungs `HELLO IS ANYONE THERE? I NEED SOME HELP`\n";
+                std::cout << "You hear nothing but an echo of your own voice... Crickets \n";
+
                 break;
         }
     }
