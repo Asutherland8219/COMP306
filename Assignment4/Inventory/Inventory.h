@@ -7,7 +7,7 @@
 
 
 #include <vector>
-#include "Item.h" // Include the header for the Item class
+#include "Items/Item.h" // Include the header for the Item class
 
 class Inventory {
 public:

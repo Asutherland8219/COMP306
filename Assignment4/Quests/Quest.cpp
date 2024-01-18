@@ -27,6 +27,10 @@ void Quests::displayQuests() const {
 
 void Quests::addQuest(const std::string& description) {
     Quest newQuest(description);
+    std::cout << std::endl;
+    std::cout << "A new quest has been added: " << "{ " << description << "}";
+    std::cout << std::endl;
+
     quests.push_back(newQuest);
 }
 

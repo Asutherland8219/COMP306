@@ -5,11 +5,12 @@
 // Character.cpp (Implementation file for Character class)
 
 #include "Character.h"
-#include "Quest.h"
-#include "Quest.cpp"
+#include "../Quests/Quest.h"
+#include "../Quests/Quest.cpp"
 #include <iostream>
 
 // Display character details
+
 void Character::displayCharacter() const {
     std::cout << "Name: " << name << std::endl;
     std::cout << "Hair Color: " << hairColor << std::endl;
@@ -18,7 +19,8 @@ void Character::displayCharacter() const {
 
     // Display completed quests
     std::cout << "Quests:" << std::endl;
-    quests.displayQuests();  // Display quests
+    quests.displayQuests();
+    std::cout << std::endl;// Display quests
 }
 
 void Character::getQuests() const {
@@ -52,7 +54,6 @@ void Character::setPronouns(int pronoun_choice) {
         case 3:
             pronouns = Pronouns::OTHER;
             std::cout << "Enter your pronouns: ";
-            std::cin.ignore();  // Clear newline from previous input
             std::getline(std::cin, customPronouns);
             break;
         default:
@@ -102,7 +103,9 @@ void Character::completeLastQuestObjective() {
 }
 
 void Character::talk(const std::string& dialogue) const {
+    std::cout << std::endl;
     std::cout << name << ": `" << dialogue << "`" << std::endl;
+    std::cout << std::endl;
 }
 
 

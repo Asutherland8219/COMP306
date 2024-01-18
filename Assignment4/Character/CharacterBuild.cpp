@@ -3,10 +3,10 @@
 //
 #include "Character.h"
 #include "Character.cpp"
-#include "Inventory.h"
-#include "Inventory.cpp"
-#include "Item.h"
-#include "Item.cpp"
+#include "../Inventory/Inventory.h"
+#include "../Inventory/Inventory.cpp"
+#include "../Inventory/Items/Item.h"
+#include "../Inventory/Items/Item.cpp"
 #include <iostream>
 
 

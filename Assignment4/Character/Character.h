@@ -8,8 +8,8 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "Inventory.h"  // Include the header for the Inventory class
-#include "Quest.h"
+#include "../Inventory/Inventory.h"  // Include the header for the Inventory class
+#include "../Quests/Quest.h"
 
 enum Pronouns {
     HE,
