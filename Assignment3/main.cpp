@@ -5,31 +5,15 @@
 #include "Assignment3Question4.cpp"
 #include "Assignment3Question5.cpp"
 #include "Assignment3Question6.cpp"
+#include <set>
 
 int main() {
     // Question 1, 2, 3
-//    inputMenu();
+    inputMenu();
 
     // Question 4
     floatingPointArray();
     std::cout << std::endl;
-
-    // Question 6
-    Set<int> set;
-    set.add(1);
-    set.add(2);
-    set.add(4);
-
-    // add a duplicate
-    set.add(4);
-
-    // Output set
-    std::cout << "Custom Set: ";
-    for (const auto& element : set) {
-        std::cout << element << " ";
-    }
-    std::cout << std::endl;
-
 
     // Question 5
     std::cout << std::endl;
@@ -44,6 +28,36 @@ int main() {
 
     // Test duplicate entries
     bookshelf.testDuplicateEntries();
+
+    // Question 6
+    Set<int> set;
+    set.add(1);
+    set.add(2);
+    set.add(3);
+
+    // add a duplicate
+    set.add(3);
+
+    // Output set
+    std::cout << "Custom Set: ";
+    for (const int element : set) {
+        std::cout << element << " ";
+    }
+    std::cout << std::endl;
+
+    // Standard C++ set
+    std::set<int> stdSet;
+    stdSet.insert(1);
+    stdSet.insert(2);
+    stdSet.insert(3);
+    // Duplicate test
+    stdSet.insert(3);
+
+    std::cout << "STD Set: ";
+    for (const int stdelem : stdSet) {
+        std::cout << stdelem << " ";
+    }
+
 
 
 };

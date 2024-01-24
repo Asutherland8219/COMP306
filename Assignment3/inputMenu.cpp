@@ -19,29 +19,29 @@ public:
     std::ifstream inputFile; // make sure to make the object public so it can be accessed in other functions
 
     inputMenu() {
-        std::cout
-                << "Please enter the name of the file you would like to open (make sure to include the extension): ";
-        std::cin >> fileName;
+        while (true) {
+            std::cout
+                    << "Please enter the name of the file you would like to open (make sure to include the extension): ";
+            std::cin >> fileName;
 
-        if (checkType(fileName)) {
-            // append to the path
-            std::filesystem::path filePath = std::filesystem::current_path() / "Assignment3" / fileName;
-
-            // Check if the file exists
-            if (!std::filesystem::exists(filePath)) {
-                std::cout << "Error: The file '" << fileName << "' does not exist." << std::endl;
-                return;
+            // break pattern
+            if(std::tolower(fileName[0]) == 'x') {
+                break;
             }
-            else {
-                setPath(filePath);
-                selectionMenu();
+
+            if (checkType(fileName)) {
+                // append to the path
+                std::filesystem::path filePath = std::filesystem::current_path() / "Assignment3" / fileName;
+
+                // Check if the file exists
+                if (!std::filesystem::exists(filePath)) {
+                    std::cout << "Error: The file '" << fileName << "' does not exist." << std::endl;
+                } else {
+                    setPath(filePath);
+                    selectionMenu();
+                }
             }
         }
-    };
-
-    string getFileName() const {
-        // get the file name
-        return fileName;
     };
 
     void setPath(std::filesystem::path path) {
@@ -110,6 +110,7 @@ public:
                     break;
                 default:
                     std::cout << "Invalid selection. Please select an item from the options listed. \n";
+                    std::cout << "Alternatively, press x to exit the program. \n";
             }
         } catch (const std::exception &except) {
             std::cerr << "Error: " << except.what() << std::endl;

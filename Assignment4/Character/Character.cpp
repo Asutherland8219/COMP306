@@ -8,6 +8,7 @@
 #include "../Quests/Quest.h"
 #include "../Quests/Quest.cpp"
 #include <iostream>
+#include <limits>
 
 // Display character details
 

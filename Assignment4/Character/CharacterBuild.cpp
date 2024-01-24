@@ -42,6 +42,7 @@ public:
 
         int pronounChoice;
         std::cin >> pronounChoice;
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
         // Objectives for the quests
         std::vector<std::string> escapeObjectives;
