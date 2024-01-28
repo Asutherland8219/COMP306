@@ -23,13 +23,7 @@ int main() {
     // Test second condition
     bookshelf.testSecondCondition();
 
-    // Test invalid book
-    bookshelf.testInvalidBook();
-
-    // Test duplicate entries
-    bookshelf.testDuplicateEntries();
-
-    // Question 6
+    // Question 6 Custom set
     Set<int> set;
     set.add(1);
     set.add(2);
@@ -57,7 +51,20 @@ int main() {
     for (const int stdelem : stdSet) {
         std::cout << stdelem << " ";
     }
+    std::cout << std::endl;
+    std::cout << std::endl;
 
+    std::cout << "Test cases for Bookshelf with assertions and custom error messages: \n";
+    // Test invalid book
+    std::cout << "- Invalid book; too few values. \n";
+    bookshelf.testInvalidBookFew();
+
+    std::cout << "- Invalid book; too many values. \n";
+    bookshelf.testInvalidBookMany();
+
+    // Test duplicate entries
+    std::cout << "- Duplicate ISBN values \n";
+    bookshelf.testDuplicateEntries();
 
 
 };

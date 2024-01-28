@@ -7,6 +7,8 @@
 #include <iostream>
 #include <vector>
 #include <map>
+#include <functional>
+#include <stdexcept>
 
 using namespace std;
 
@@ -137,15 +139,25 @@ public:
 
         // display books by sorting default of Title
         bookSort(books);
-        displayBooks(books, "Books sorted by Default Field:" );
+        displayBooks(books, "Books sorted by Default Field [Title]:" );
         books.clear();
     }
 
-    static void testInvalidBook() {
+    static void testInvalidBookFew() {
+        bool debug;
         std::vector<std::vector<std::string>> books_raw_incorrect = {
                 {"Red Rising",  "034553980X", "Pierce Brown", "First Edition",  "Del Rey"},
         };
-        bulkCreateBooks(books_raw_incorrect);
+        assertInvalidArgument([&]() {bulkCreateBooks(books_raw_incorrect, debug=true); });
+        books.clear();
+    }
+
+    static void testInvalidBookMany() {
+        bool debug;
+        std::vector<std::vector<std::string>> books_raw_incorrect = {
+                {"Red Rising",  "034553980X", "Pierce Brown", "First Edition",  "Del Rey", "2014", "My favorite"},
+        };
+        assertInvalidArgument([&]() {bulkCreateBooks(books_raw_incorrect, debug=true); });
         books.clear();
     }
 
@@ -169,7 +181,7 @@ public:
                 {"Red Rising", " 0345539834 ", "Pierce Brown", "Second Edition", "Del Rey", "2023"},
         };
         bulkCreateBooks(books_raw_same);
-        bookSort(books);
+        assertInvalidArgument([&]() {bookSort(books);});
         books.clear();
     }
 
@@ -201,12 +213,16 @@ public:
     }
 
 
-    static void bulkCreateBooks(std::vector<std::vector<std::string>>& books_raw) {
+    static void bulkCreateBooks(std::vector<std::vector<std::string>>& books_raw, bool debug = true) {
         for (const auto &bookInfo: books_raw) {
             try {
                 books.emplace_back(bookInfo);
             } catch (const std::invalid_argument& e) {
-                std::cerr << "Error creating book: " << e.what() << std::endl;
+                if (!debug) {
+                    std::cerr << "Error creating book: " << e.what() << std::endl;
+                    throw;
+                }
+                throw;
             }
         }
     };
@@ -217,6 +233,17 @@ public:
             return compareBooks(book1, book2, sortCriteria);
         });
     }
+
+    // an assertion test argument; raises the error in a quieter fashion
+    // accepts a function to run
+    static void assertInvalidArgument(const std::function<void()>& func) {
+        try {
+            func();
+        } catch (const std::invalid_argument &e) {
+            std::cerr << "Success: std::invalid_argument caught - " << e.what() << std::endl;
+        }
+    }
+
 };
 
 
