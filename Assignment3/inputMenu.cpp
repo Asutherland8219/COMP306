@@ -32,9 +32,9 @@
             - Takes the users input value, feeds into a switch statement that runs the matching function
 
  Variables:
- 	- string word : The word index
- 	- int num_word : The word counter, incremented by each word counted
- 	- std::ifstream inputFile : The ifstream object that is read in and counted
+ 	- string fileName - name of the file entered by the user
+ 	- ifstream inputFile - the ifstream object, fetched if the filex exists
+ 	- filesystem::path main_path - the path object
 
 */
 
@@ -43,18 +43,43 @@
 
  Normal case:
     ifstream inputFile = "excerpt.txt"
- 	> wordCount(inputFile)
- 	    Output: "Word Count: xxx"
+
+    selectionMenu()
+ 	    Output:
+            You have entered the following path or filename: excerpt.txt
+            What function would you like to execute in regards to this file? Please make a selection from the list below:
+                     1. Count
+                     2. Print Line By Line
+                     3. Text Reader Demo
+                     x. Exit
+
+    ** From here,  the user can select one of the options above or hit x to exit.
 
 
  Bad Case
-    Because this is a user input, there are a lot of potential issues for bad cases. However, this is handled externally, before this function is hit.
- 	> Bad input will not reach the function.
+    Because this is a user input, there are a lot of potential issues for bad cases. In this case, there are two main instances of potential issues:
+        1. User enters file that does not exist
+             Output:
+                 Whoops, wrong file format.
+                 Please enter a supported text file (.txt).
+                    Alternatively, press x to exit.
+        2. User presses an input that is not a number or x
+            Output:
+                    Selected: f
+                    Invalid selection. Please select an item from the options listed.
+                    Alternatively, press x to exit the program.
+                    You have entered the following path or filename: excerpt.txt
+                    What function would you like to execute in regards to this file? Please make a selection from the list below:
+                             1. Count
+                             2. Print Line By Line
+                             3. Text Reader Demo
+                             x. Exit
+
 
 
  Discussion:
- 	Program that counts words in an entered file. Must be a .txt file. No error handling as the function is called in a separate inputMenu function.
- 	Program will not be run unless makes it through necessary checks.
+    The input menu for the user selection. Used to handled problems 1 through 3. Handles errors related to the user input.
+    Reason for design, was to allow user to select multiple functions in order and also handles a better flow for a user input.
 
 */
 
