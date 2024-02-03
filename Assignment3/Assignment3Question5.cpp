@@ -1,6 +1,391 @@
-//
-// Created by asuth on 12/10/2023.
-//
+/*
+ Title: Assignment3Question5.cpp
+ Description: Create a book class, sort the books by various parameters in a bookshelf
+ Date: January 28th, 2024
+ Author: Alex Sutherland
+ StudentID: 3640392
+ Version: 1.0
+*/
+
+
+/*
+ DOCUMENTATION
+
+ Program Purpose:
+	Create a book and bookshelf class. Sort books via various params in the bookshelf. Add validation protocol for data quality as well.
+
+ Compile (assuming Cygwin is running): g++ -o Assignment3 Assignment3Question5.cpp
+ Execution (assuming Cygwin is running): ./Assignment3Question5.exe
+
+ Classes (functions):
+    - Class
+        - Book
+            - Functions
+                - Book(std::vector<std::string>) - the main book constructor, takes a vector of strings
+                - get(string query) - The getter for book, with a queryable input
+                - details() - Prints all the details of a book
+
+        - BookShelf
+            - Functions
+                - displayBooks(std::vector<Book>, std::string, std::string)
+                    - The output function, can include a custom message (first string) or filter by a specific field (2nd string)
+                - testBookshelf() - Test function, outputs books in the order entered, followed by sorted by year and title, then
+                    finally sorted by default field, title.
+                - testInvalidBookFew() - Test if too few fields are entered, error raised.
+                - testInvalidBookMany() - Test if too many fields are entered, error raised.
+                - testSecondCondition() - Test if the name is the same the books are sorted by year published.
+                - testDuplicateEntries() - Test if ISBN are the same raise an error.
+                - compareBooks(Book, Book, string) - compare books also has a field param if comparing for specific assignment
+                - bulkCreateBooks(std::vector<std::vector<std::string>>, debug= True)
+                    - Create a list of books based on raw data. Also have option to debug for more verbose and less aggressive error handling.
+                - bookSort(std::vector<Book>, string)
+                    - Sort the books based on a specific criteria
+                - assertInvalidArgument(std::function)
+
+ Variables:
+ 	- string title - the book title
+ 	- string ISBN - the ISBN code
+ 	- string author - the author of the novel
+ 	- string edition - the edition of the novel (ie. 1st, 2nd)
+ 	- string publisher - the publisher of the novel
+ 	- string year_published - the year published
+
+ 	- std::vector<std::string> bookInfo - the book data in the format of list of strings, single entry
+ 	- string query - the query string
+ 	- std::vector<Book> - a list of Books
+ 	- std::vector<std::vector<std::string>> books_raw - a list of bookInfo, a list of lists of strings
+
+*/
+
+/*
+ TEST PLAN
+
+ Normal case:
+    Bookshelf bookshelf;
+    bookshelf.testBookshelf();
+    Output:
+        Books in the order they were entered:
+            Title: Red Rising
+            ISBN: 034553980X
+            Author: Pierce Brown
+            Edition: First Edition
+            Publisher: Del Rey
+            Year Published: 2014
+
+            Title: Golden Son
+            ISBN:  0345539834
+            Author: Pierce Brown
+            Edition: Second Edition
+            Publisher: Del Rey
+            Year Published: 2015
+
+            Title: Morning Star
+            ISBN: 9781444759075
+            Author: Pierce Brown
+            Edition: First Edition
+            Publisher: Del Rey
+            Year Published: 2017
+
+            Title: Iron Gold
+            ISBN:  147364657X
+            Author: Pierce Brown
+            Edition: Second Edition
+            Publisher: Del Rey
+            Year Published: 2018
+
+            Title: Dark Age
+            ISBN: 0425285960
+            Author: Pierce Brown
+            Edition: First Edition
+            Publisher: Del Rey
+            Year Published: 2020
+
+            Title: Lightbringer
+            ISBN: 0425285979
+            Author: Pierce Brown
+            Edition: Second Edition
+            Publisher: Del Rey
+            Year Published: 2023
+
+            Title: East of Eden
+            ISBN: 9780140186390
+            Author: John Steinbeck
+            Edition: First Edition
+            Publisher: Viking Press
+            Year Published: 1952
+
+            Title: Of Mice and Men
+            ISBN: 78901266754
+            Author: John Steinbeck
+            Edition: Second Edition
+            Publisher: Covici Friede
+            Year Published: 1937
+
+            Title: Babel
+            ISBN: 9780063021426
+            Author: R.F. Kuang
+            Edition: First Edition
+            Publisher: Harper Voyager
+            Year Published: 2020
+
+            Title: The Name of the Wind
+            ISBN: 756404079
+            Author: Patrick Rothfuss
+            Edition: Second Edition
+            Publisher: DAW Books
+            Year Published: 2007
+
+            Title: A Wise Man's Fear
+            ISBN: 9780756404734
+            Author: Patrick Rothfuss
+            Edition: First Edition
+            Publisher: DAW Books
+            Year Published: 2011
+
+            Title: The Art of War
+            ISBN: 000000000001
+            Author: Sun Tzu
+            Edition: Archaic Edition
+            Publisher: Sun Tzu Publishing
+            Year Published: 400
+
+
+            Books sorted by entered field: YEAR PUBLISHED
+            Title: The Art of War
+            ISBN: 000000000001
+            Author: Sun Tzu
+            Edition: Archaic Edition
+            Publisher: Sun Tzu Publishing
+            Year Published: 400
+
+            Title: Of Mice and Men
+            ISBN: 78901266754
+            Author: John Steinbeck
+            Edition: Second Edition
+            Publisher: Covici Friede
+            Year Published: 1937
+
+            Title: East of Eden
+            ISBN: 9780140186390
+            Author: John Steinbeck
+            Edition: First Edition
+            Publisher: Viking Press
+            Year Published: 1952
+
+            Title: The Name of the Wind
+            ISBN: 756404079
+            Author: Patrick Rothfuss
+            Edition: Second Edition
+            Publisher: DAW Books
+            Year Published: 2007
+
+            Title: A Wise Man's Fear
+            ISBN: 9780756404734
+            Author: Patrick Rothfuss
+            Edition: First Edition
+            Publisher: DAW Books
+            Year Published: 2011
+
+            Title: Red Rising
+            ISBN: 034553980X
+            Author: Pierce Brown
+            Edition: First Edition
+            Publisher: Del Rey
+            Year Published: 2014
+
+            Title: Golden Son
+            ISBN:  0345539834
+            Author: Pierce Brown
+            Edition: Second Edition
+            Publisher: Del Rey
+            Year Published: 2015
+
+            Title: Morning Star
+            ISBN: 9781444759075
+            Author: Pierce Brown
+            Edition: First Edition
+            Publisher: Del Rey
+            Year Published: 2017
+
+            Title: Iron Gold
+            ISBN:  147364657X
+            Author: Pierce Brown
+            Edition: Second Edition
+            Publisher: Del Rey
+            Year Published: 2018
+
+            Title: Dark Age
+            ISBN: 0425285960
+            Author: Pierce Brown
+            Edition: First Edition
+            Publisher: Del Rey
+            Year Published: 2020
+
+            Title: Babel
+            ISBN: 9780063021426
+            Author: R.F. Kuang
+            Edition: First Edition
+            Publisher: Harper Voyager
+            Year Published: 2020
+
+            Title: Lightbringer
+            ISBN: 0425285979
+            Author: Pierce Brown
+            Edition: Second Edition
+            Publisher: Del Rey
+            Year Published: 2023
+
+
+            Books sorted by Default Field [Title]:
+            Title: A Wise Man's Fear
+            ISBN: 9780756404734
+            Author: Patrick Rothfuss
+            Edition: First Edition
+            Publisher: DAW Books
+            Year Published: 2011
+
+            Title: Babel
+            ISBN: 9780063021426
+            Author: R.F. Kuang
+            Edition: First Edition
+            Publisher: Harper Voyager
+            Year Published: 2020
+
+            Title: Dark Age
+            ISBN: 0425285960
+            Author: Pierce Brown
+            Edition: First Edition
+            Publisher: Del Rey
+            Year Published: 2020
+
+            Title: East of Eden
+            ISBN: 9780140186390
+            Author: John Steinbeck
+            Edition: First Edition
+            Publisher: Viking Press
+            Year Published: 1952
+
+            Title: Golden Son
+            ISBN:  0345539834
+            Author: Pierce Brown
+            Edition: Second Edition
+            Publisher: Del Rey
+            Year Published: 2015
+
+            Title: Iron Gold
+            ISBN:  147364657X
+            Author: Pierce Brown
+            Edition: Second Edition
+            Publisher: Del Rey
+            Year Published: 2018
+
+            Title: Lightbringer
+            ISBN: 0425285979
+            Author: Pierce Brown
+            Edition: Second Edition
+            Publisher: Del Rey
+            Year Published: 2023
+
+            Title: Morning Star
+            ISBN: 9781444759075
+            Author: Pierce Brown
+            Edition: First Edition
+            Publisher: Del Rey
+            Year Published: 2017
+
+            Title: Of Mice and Men
+            ISBN: 78901266754
+            Author: John Steinbeck
+            Edition: Second Edition
+            Publisher: Covici Friede
+            Year Published: 1937
+
+            Title: Red Rising
+            ISBN: 034553980X
+            Author: Pierce Brown
+            Edition: First Edition
+            Publisher: Del Rey
+            Year Published: 2014
+
+            Title: The Art of War
+            ISBN: 000000000001
+            Author: Sun Tzu
+            Edition: Archaic Edition
+            Publisher: Sun Tzu Publishing
+            Year Published: 400
+
+            Title: The Name of the Wind
+            ISBN: 756404079
+            Author: Patrick Rothfuss
+            Edition: Second Edition
+            Publisher: DAW Books
+            Year Published: 2007
+
+ Bad Case
+    Not user input based, so less likely to experience any serious issues. Possible margin of error would come from entering
+    duplicate entries and entering an incorrect value for certain fields like year.
+
+    Because these are based on pre-set data, any bad case or errors is executed in the test functions.
+
+    // Test second condition
+    bookshelf.testSecondCondition();
+    Output:
+        Books with the same title sorted by year published:
+            Title: Red Rising
+            ISBN:  0345539834
+            Author: Pierce Brown
+            Edition: Second Edition
+            Publisher: Del Rey
+            Year Published: 2000
+
+            Title: Red Rising
+            ISBN: 034553980X
+            Author: Pierce Brown
+            Edition: First Edition
+            Publisher: Del Rey
+            Year Published: 2015
+
+            Title: Red Rising
+            ISBN:  0345539833
+            Author: Pierce Brown
+            Edition: Second Edition
+            Publisher: Del Rey
+            Year Published: 2023
+
+
+    bookshelf.testInvalidBookFew();
+    Output:
+        Success: std::invalid_argument caught - You are missing some mandatory fields to create a book. Please ensure you have
+        the following details:
+        title
+        isbn
+        author
+        edition
+        publisher
+        year_published
+
+
+    bookshelf.testInvalidBookMany();
+    Output:
+        Success: std::invalid_argument caught - You have entered too many fields. Please ensure you have the following details:
+
+        title
+        isbn
+        author
+        edition
+        publisher
+        year_published
+
+
+    bookshelf.testDuplicateEntries();
+    Output:
+        Success: std::invalid_argument caught - Duplicate entry: ISBN values are unique, please make sure you do not have duplicate entries.
+
+
+ Discussion:
+ 	Create a Bookshelf, along with a Book class. The bookshelf contains books and allows for various sorting methods.
+ 	Handle things like duplicates and conflicting data (ie. same name).
+*/
 
 #include <algorithm>
 #include <string>

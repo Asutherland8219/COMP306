@@ -32,9 +32,8 @@
         run(inputFile) - Run's the contents and the display function. Demonstrating functionality.
 
  Variables:
- 	- string word : The word index
- 	- int num_word : The word counter, incremented by each word counted
- 	- std::ifstream inputFile : The ifstream object that is read in and counted
+ 	- string lines - the maximum number of lines
+ 	- int count - the counter index
 
 */
 
@@ -43,13 +42,23 @@
 
  Normal case:
     ifstream inputFile = "excerpt.txt"
- 	> wordCount(inputFile)
- 	    Output: "Word Count: xxx"
+ 	> TextFileReaderDemo::run(inputFile)
+ 	> Output:
+ 	File Contents:
+        There was nothing so VERY remarkable in that; nor did Alice
+        think it so VERY much out of the way to hear the Rabbit say to
+        itself, `Oh dear!  Oh dear!  I shall be late!'  (when she thought
+        it over afterwards, it occurred to her that she ought to have ...
+
+    File Contents with Line Numbers:
+        line 1: There was nothing so VERY remarkable in that; nor did Alice
+        line 2: think it so VERY much out of the way to hear the Rabbit say to
+        line 3: itself, `Oh dear!  Oh dear!  I shall be late!'  (when she thought
 
 
  Bad Case
-    Because this is a user input, there are a lot of potential issues for bad cases. However, this is handled externally, before this function is hit.
- 	> Bad input will not reach the function.
+    Bad Input is unlikely if it reaches this stage. The input values entered earlier are already validated at this point.
+    Any errors up till this point are handled outside of this explicit function.
 
 
  Discussion:
