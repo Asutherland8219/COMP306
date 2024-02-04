@@ -102,7 +102,7 @@ public:
     inputMenu() {
         while (true) {
             std::cout
-                    << "Please enter the name of the file you would like to open (make sure to include the extension): ";
+                    << "Please enter the name of the file you would like to open (make sure to include the extension) or press x to exit: ";
             std::cin >> fileName;
 
             // break pattern
@@ -143,7 +143,7 @@ public:
             std::cout << "\t 1. Count\n";
             std::cout << "\t 2. Print Line By Line\n";
             std::cout << "\t 3. Text Reader Demo\n";
-            std::cout << "\t x. Exit\n";
+            std::cout << "\t x. Exit (Return to previous menu) \n";
 
             std::cin >> selection;
             std::cout << "Selected: " << selection << std::endl;
