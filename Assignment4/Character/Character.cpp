@@ -67,7 +67,7 @@ void Character::setPronouns(int pronoun_choice) {
 
 // Method to add an item to the character's inventory
 void Character::addItemToInventory(const Item& newItem) {
-    inventory.addItem(newItem);
+    Inventory::addItem(newItem);
 }
 
 // Function to get pronouns as a string
@@ -108,6 +108,15 @@ void Character::talk(const std::string& dialogue) const {
     std::cout << name << ": `" << dialogue << "`" << std::endl;
     std::cout << std::endl;
 }
+
+void Character::listInventory(Inventory) {
+    return Inventory::displayInventory();
+}
+
+
+
+
+
 
 
 

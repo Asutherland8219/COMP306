@@ -3,32 +3,62 @@
 //
 
 #include <iostream>
+#include "../../Inventory/Inventory.h"
+#include "../../Character/Character.h"
 
 class ChapterOneGates {
+private:
+    static bool bottle;
 public:
-    bool panic_breaker;
-    bool panicChoice(int choice) {
+    static bool panic_breaker;
+    // Carry over the originally created character to modify inventory
+    static bool panicChoice(int choice, const Character& custom_character) {
         switch (choice) {
             case 1:
-                std::cout << "You vault over the edge and jump without a fear or care in the world!";
+                std::cout << "You grab the key, without a second thought, and rush towards the door. \n";
+                std::cout << "Because of your size, you couldn't possibly fit through it, you bend down and peek through...";
                 panic_breaker = true;
                 break;
             case 2:
-                std::cout << "You reach into your pocket, and find a small bronze coin, you throw it in to the well...\n";
-                std::cout << "and you wait...\n";
-                std::cout << "and you wait...\n";
-                std::cout << "and you wait...\n";
-                std::cout << "But you never hear it hit the bottom.";
+                std::cout << "You start to get dizzy. Thinking to yourself `Is this what a panic attack feels like`.\n";
+                std::cout << "Because of the dizzyness, you sit down. \n";
+                std::cout << "Losing your balance, you drop to the floor...\n";
+                std::cout << "THUNK! The whole building shakes when you sit on the floor.\n";
+                std::cout << "Slowly, you regain your orientation and take a few deep breaths...";
                 break;
             case 3:
-                std::cout << "You turn around to walk away thinking nothing of what just happened. Just as you start to walk away, a bird swoops down in front of your face. \n"
-                             "Out of panic, you take a step back towards the well, losing your footing in the process and tumbling backwards while yelling: \n";
-                std::cout << "ahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh...\n";
-                panic_breaker = true;
+                std::cout << "Looking around again, trying to find something useful you catch a glimpse of the bottle from earlier. \n";
+                std::cout << "You grab it and tip it up into your mouth... unfortunately nothing comes out \n";
+                std::cout << "A thought pops into your head, perhaps this bottle could be useful later... \n";
+                while (!bottle) {
+                    std::cout << "What do you want to do with the bottle? \n";
+                    int bottle_choice;
+                    std::cin >> bottle_choice;
+                    if (std::cin.fail()) {
+                        throw std::invalid_argument("Invalid input. Please enter a number.");
+                    }
+                    else {
+                        bottle = inventoryBottleChoice(bottle_choice, custom_character);
+                    }
+
+                }
                 break;
         }
         return panic_breaker;
     }
+    static bool inventoryBottleChoice(int bottle_choice, const Character& custom_character) {
+        Item empty_bottle("Empty Bottle", "An empty bottle; previously a shrinking potion", 1);
+        switch(bottle_choice) {
+            case 1:
+                std::cout << "You add the bottle to your inventory.";
+                custom_character.addItemToInventory(empty_bottle);
+                break;
+            case 2:
+                std::cout << "Meh. Just a bottle. You throw it away.";
+                break;
+        }
+    }
+
 
 
 

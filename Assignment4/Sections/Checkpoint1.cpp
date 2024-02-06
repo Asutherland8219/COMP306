@@ -5,15 +5,14 @@
 #include <string>
 #include "../Character/Character.h"
 #include "../NPC/NPC.h"
-#include "../Gates/Intro/intro_choices.cpp"
 #include "../Gates/Chapter_1/ChapterOne.cpp"
 
 class Checkpoint1 {
 private:
-    bool panic_breaker;
+    static bool panic_breaker;
 
 public:
-    void Chapter1(Character custom_character) {
+    static void Chapter1(Character custom_character) {
         std::cout << "You fell engorged, almost like you are blowing up. You look down and see the world around you changing... \n";
         std::cout << "But wait.. no that's not the case, the world isn't changing.. YOU are changing. You are growing! \n";
         std::cout << "You look around at your hands and feet noticing them both grow in size. Before you even start to think about panicking...\n";
@@ -32,7 +31,7 @@ public:
                 throw std::invalid_argument("Invalid input. Please enter a number.");
             }
             else {
-                panic_breaker = ChapterOneGates::panicChoice(panic);
+                panic_breaker = ChapterOneGates::panicChoice(panic, custom_character);
             }
         }
 

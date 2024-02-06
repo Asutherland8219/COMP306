@@ -15,13 +15,13 @@ public:
     Inventory();
 
     // Methods
-    void addItem(const Item& newItem);
-    void displayInventory() const;
+    static void addItem(const Item& newItem);
+    static void displayInventory() ;
     // Internal Inventory
     void _displayInventory() const;
 
 private:
-    std::vector<Item> items;
+    static std::vector<Item> items;
 };
 
 

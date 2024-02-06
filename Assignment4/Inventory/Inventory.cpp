@@ -14,7 +14,7 @@ void Inventory::addItem(const Item& newItem) {
 }
 
 // Method to display the inventory
-void Inventory::displayInventory() const {
+void Inventory::displayInventory() {
     std::cout << "Inventory:\n";
     for (const auto& item : items) {
         std::cout << "Name: " << item.getName() << "\n";
@@ -23,7 +23,7 @@ void Inventory::displayInventory() const {
 }
 
 // The internal inventory, this will be called by internal logic in order to get the flag value for
-// future calcutions.
+// future calculations.
 void Inventory::_displayInventory() const {
     std::cout << "Inventory:\n";
     for (const auto& item : items) {
