@@ -13,7 +13,8 @@ int main() {
     Character my_character = CharacterBuild::character_build();
 
     // intro
-    Intro::startAliceInWonderland(my_character);
+    Intro intro_instance;
+    intro_instance.startAliceInWonderland(my_character);
     my_character.listInventory();
 
     // checkpoint 1

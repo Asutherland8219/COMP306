@@ -18,8 +18,8 @@ private:
     static bool table_breaker;
     static bool land_breaker;
 public:
-    Intro();
-    static void startAliceInWonderland(Character custom_character) {
+    void startAliceInWonderland(Character custom_character) {
+        introChoices int_choice{};
         std::cout
                 << "The sun was shining on a beautiful summer day. The dew on the ground reflecting the sunlight while the deer and other fauna scamper around the forest. \n";
         std::cout
@@ -52,7 +52,7 @@ public:
             if (std::cin.fail()) {
                 throw std::invalid_argument("Invalid input. Please enter a number.");
             } else {
-                well_breaker = introChoices::wellChoice(choice);
+                well_breaker = int_choice.wellChoice(choice);
             }
         }
 
@@ -76,7 +76,7 @@ public:
             if (std::cin.fail()) {
                 throw std::invalid_argument("Invalid input. Please enter a number.\n");
             } else {
-                land_breaker = introChoices::landChoice(land_choice);
+                land_breaker = int_choice.landChoice(land_choice);
             }
         }
 
@@ -109,7 +109,7 @@ public:
             if (std::cin.fail()) {
                 throw std::invalid_argument("Invalid input. Please enter a number.\n");
             }
-            hall_breaker = introChoices::hallwayChoice(hallway_choice);
+            hall_breaker = int_choice.hallwayChoice(hallway_choice);
         }
 
         std::cout << "You return to the table where you were before but this time something else catches your eye.\n";
@@ -132,7 +132,7 @@ public:
             if (std::cin.fail()) {
                 throw std::invalid_argument("Invalid input. Please enter a number.\n");
             }
-            drink_breaker = introChoices::drinkChoice(drink_choice);
+            drink_breaker = int_choice.drinkChoice(drink_choice);
 
         }
 
@@ -156,7 +156,7 @@ public:
             if (std::cin.fail()) {
                 throw std::invalid_argument("Invalid input. Please enter a number.\n");
             }
-            table_breaker = introChoices::tableChoice(table_choice);
+            table_breaker = int_choice.tableChoice(table_choice);
 
         }
         std::cout << "and now your adventure REALLY begins...";

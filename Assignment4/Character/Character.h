@@ -48,7 +48,7 @@ public:
 
     // Method to add an item to the character's inventory
     static void addItemToInventory(const Item& newItem);
-    void listInventory(Inventory);
+    void listInventory();
 
     // Function to get pronouns as a string
     std::string getPronounsString() const;

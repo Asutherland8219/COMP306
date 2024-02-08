@@ -8,11 +8,12 @@
 
 class ChapterOneGates {
 private:
-    static bool bottle;
+    bool bottle;
+    bool bottle_inventory;
 public:
-    static bool panic_breaker;
+    bool panic_breaker;
     // Carry over the originally created character to modify inventory
-    static bool panicChoice(int choice, const Character& custom_character) {
+    bool panicChoice(int choice, const Character& custom_character) {
         switch (choice) {
             case 1:
                 std::cout << "You grab the key, without a second thought, and rush towards the door. \n";
@@ -46,22 +47,18 @@ public:
         }
         return panic_breaker;
     }
-    static bool inventoryBottleChoice(int bottle_choice, const Character& custom_character) {
+    bool inventoryBottleChoice(int bottle_choice, const Character& custom_character) {
         Item empty_bottle("Empty Bottle", "An empty bottle; previously a shrinking potion", 1);
         switch(bottle_choice) {
             case 1:
                 std::cout << "You add the bottle to your inventory.";
                 custom_character.addItemToInventory(empty_bottle);
-                break;
+
             case 2:
                 std::cout << "Meh. Just a bottle. You throw it away.";
-                break;
         }
+        bottle_inventory = false;
+        return bottle_inventory;
     }
-
-
-
-
-
 };
 

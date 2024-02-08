@@ -1,0 +1,20 @@
+# ninja log v5
+1	171	7290612885828990	build.ninja	f0dc91628ef67978
+15	1154	7290611888974485	Assignment4/Tests/googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj	f79b4b5aff45f6c0
+10	76	7290609786617293	lib/libgtest_main.a	fe879176e9164ae2
+11	6582	7290611943088539	Assignment4/Tests/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj	895517463e384b46
+8	2500	7290612844861987	lib/libgtest.a	485c1923d9bed38a
+0	10	0	clean	567f01a6bad3308b
+9	75	7290613047215365	lib/libgtest_main.a	fe879176e9164ae2
+4	1276	7290613324669992	Assignment4/Tests/CMakeFiles/Tests.dir/Base/TestFull.cpp.obj	398953aedac4f00b
+6	1378	7290619175079050	Assignment4/Tests/CMakeFiles/Tests.dir/Base/TestFull.cpp.obj	398953aedac4f00b
+5	1286	7290620915205074	Assignment4/Tests/CMakeFiles/Tests.dir/Base/TestFull.cpp.obj	398953aedac4f00b
+6	1581	7290621330034095	Assignment4/Tests/CMakeFiles/Tests.dir/Base/TestFull.cpp.obj	398953aedac4f00b
+5	1295	7290621552304311	Assignment4/Tests/CMakeFiles/Tests.dir/Base/TestFull.cpp.obj	398953aedac4f00b
+4	1287	7290621668668664	Assignment4/Tests/CMakeFiles/Tests.dir/Base/TestFull.cpp.obj	398953aedac4f00b
+5	1325	7290623111098510	Assignment4/Tests/CMakeFiles/Tests.dir/Base/TestFull.cpp.obj	398953aedac4f00b
+5	1352	7290623681276551	Assignment4/Tests/CMakeFiles/Tests.dir/Base/TestFull.cpp.obj	398953aedac4f00b
+5	1305	7290623854730225	Assignment4/Tests/CMakeFiles/Tests.dir/Base/TestFull.cpp.obj	398953aedac4f00b
+5	1401	7290624934145230	Assignment4/Tests/CMakeFiles/Tests.dir/Base/TestFull.cpp.obj	398953aedac4f00b
+5	1347	7290626080202308	Assignment4/Tests/CMakeFiles/Tests.dir/Base/TestFull.cpp.obj	398953aedac4f00b
+1347	3942	7290626106081471	Assignment4/Tests/Tests.exe	7c7d889b41ea3c46

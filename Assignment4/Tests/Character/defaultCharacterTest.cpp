@@ -5,7 +5,7 @@
 #include "defaultCharacterTest.h"
 
 #include <gtest/gtest.h>
-#include "../../../../../Character/CharacterBuild.cpp"
+#include "../../../../Character/CharacterBuild.cpp"
 #include <iostream>
 
 // Define a fixture class for common setup and teardown
@@ -37,7 +37,7 @@ TEST_F(CharacterBuildTest, CharacterBuildTest) {
     // Call the character_build() function from CharacterBuild
     Character character = CharacterBuild::character_build();
 
-//    std::cout << character.displayCharacter();
+    character.displayCharacter();
 
     // Assert that the character fields are filled correctly
 //    EXPECT_EQ(character.getName(), testName);

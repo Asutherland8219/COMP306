@@ -7,6 +7,7 @@
 
 // Constructor
 Inventory::Inventory() {}
+std::vector<Item> Inventory::items;
 
 // Method to add an item to the inventory
 void Inventory::addItem(const Item& newItem) {

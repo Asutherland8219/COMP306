@@ -6,14 +6,14 @@
 
 class introChoices {
 public:
-    static bool intro_well_breaker;
-    static bool intro_hall_breaker;
-    static bool intro_drink_breaker;
-    static bool intro_table_breaker;
-    static bool intro_land_breaker;
+    bool intro_well_breaker;
+    bool intro_hall_breaker;
+    bool intro_drink_breaker;
+    bool intro_table_breaker;
+    bool intro_land_breaker;
 
 
-    static bool wellChoice(int choice) {
+    bool wellChoice(int choice) {
         switch (choice) {
             case 1:
                 std::cout << "You vault over the edge and jump without a fear or care in the world!";
@@ -36,7 +36,7 @@ public:
         return intro_well_breaker;
     }
 
-    static bool landChoice(int land_choice) {
+    bool landChoice(int land_choice) {
         switch (land_choice) {
             case 1:
                 std::cout << "You wiggle your toes, move your arms and legs making sure everything is good.\n"
@@ -54,7 +54,7 @@ public:
         return intro_land_breaker;
     }
 
-    static bool drinkChoice(int drink_choice) {
+    bool drinkChoice(int drink_choice) {
         switch (drink_choice) {
             case 1:
                 std::cout << "You taste a savory flavor, one reminiscent of roast turkey, cherry-tart, custard, toffee and hot buttered toast\n";
@@ -75,7 +75,7 @@ public:
         return intro_drink_breaker;
     }
 
-    static bool hallwayChoice(int hallway_choice) {
+    bool hallwayChoice(int hallway_choice) {
         switch (hallway_choice) {
             case 1:
                 std::cout << "You run up and down both sides of the hall, trying all the doors but they are all locked.";
@@ -96,7 +96,7 @@ public:
         return intro_hall_breaker;
     }
 
-    static bool tableChoice(int table_choice) {
+    bool tableChoice(int table_choice) {
         switch (table_choice) {
             case 1:
                 std::cout << "You try and muster up all your might and climb the leg... You get a bit up and then slip.\n";

@@ -19,8 +19,6 @@ public:
     static void displayInventory() ;
     // Internal Inventory
     void _displayInventory() const;
-
-private:
     static std::vector<Item> items;
 };
 

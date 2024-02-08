@@ -109,9 +109,9 @@ void Character::talk(const std::string& dialogue) const {
     std::cout << std::endl;
 }
 
-void Character::listInventory(Inventory) {
-    return Inventory::displayInventory();
-}
+void Character::listInventory() {
+    return Character::inventory.displayInventory();
+};
 
 
 
