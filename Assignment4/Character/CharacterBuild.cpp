@@ -8,13 +8,12 @@
 #include "../Inventory/Items/Item.h"
 #include "../Inventory/Items/Item.cpp"
 #include <iostream>
+#include <string>
 
 
 class CharacterBuild {
 public:
     static Character character_build() {
-
-
         std::cout << "Welcome to the Adventure Game!" << std::endl;
         std::cout << "Let's start by creating your character." << std::endl;
 
@@ -50,11 +49,8 @@ public:
 
         // Create character with quests
         Quests quests;
-        Character custom_character = Character("", "", "", pronounChoice, quests);
-        custom_character.setName(name);
+        Character custom_character = Character(name, hairColor, eyeColor, pronounChoice, quests);
         custom_character.setPronouns(pronounChoice);
-        custom_character.setEyeColor(eyeColor);
-        custom_character.setHairColor(hairColor);
         custom_character.addQuest("Create Your Character");
         custom_character.completeLastQuestObjective();
 
@@ -66,4 +62,22 @@ public:
         // Return the created character
         return custom_character;
     }
+
+    // test character build
+    static Character test_character_build(
+            std::string name,
+            std::string eye_color,
+            std::string hair_color,
+            int pronouns_choice,
+            Quests default_quest
+            ){
+        Character default_character = Character(name, hair_color, eye_color, pronouns_choice, default_quest);
+        default_character.setPronouns(pronouns_choice);
+        default_character.addQuest("Create Your Character");
+        default_character.completeLastQuestObjective();
+
+        EXPECT_EQ(default_character.name, name);
+
+    };
 };
+

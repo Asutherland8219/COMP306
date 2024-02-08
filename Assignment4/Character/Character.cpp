@@ -28,19 +28,6 @@ void Character::getQuests() const {
     quests.displayQuests();
 }
 
-// Setters
-void Character::setName(const std::string& newName) {
-    name = newName;
-}
-
-void Character::setHairColor(const std::string& newHairColor) {
-    hairColor = newHairColor;
-}
-
-void Character::setEyeColor(const std::string& newEyeColor) {
-    eyeColor = newEyeColor;
-}
-
 // Setter for pronouns with menu
 void Character::setPronouns(int pronoun_choice) {
     switch (pronoun_choice) {
@@ -86,7 +73,7 @@ std::string Character::getPronounsString() const {
 
 
 Character::Character(const std::string& name, const std::string& hairColor, const std::string& eyeColor,
-          int pronounChoice, const Quests& quest)
+          int pronounChoice, const Quests& quest) : name(name), hairColor(hairColor), eyeColor(eyeColor),quests(quest)
 {
     // Initialize the character's pronouns
     setPronouns(pronounChoice);

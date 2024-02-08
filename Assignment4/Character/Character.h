@@ -18,7 +18,7 @@ enum Pronouns {
 };
 
 class Character {
-private:
+public:
     std::string name;
     std::string hairColor;
     std::string eyeColor;
@@ -26,8 +26,6 @@ private:
     Pronouns pronouns;
     Inventory inventory;
     Quests quests;
-
-public:
     Character(const std::string &name, const std::string &hairColor, const std::string &eyeColor, int pronounChoice,
               const Quests &quest);
 
@@ -41,9 +39,6 @@ public:
     void addCompletedQuest(const Quest& completedQuest);
 
     // Setters
-    void setName(const std::string& newName);
-    void setHairColor(const std::string& newHairColor);
-    void setEyeColor(const std::string& newEyeColor);
     void setPronouns(int pronoun_choice);  // Setter for pronouns with menu
 
     // Method to add an item to the character's inventory

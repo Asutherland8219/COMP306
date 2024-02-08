@@ -7,6 +7,7 @@
 #include <gtest/gtest.h>
 #include "../../../../Character/CharacterBuild.cpp"
 #include <iostream>
+#include <sstream>
 
 // Define a fixture class for common setup and teardown
 class CharacterBuildTest : public ::testing::Test {
@@ -35,12 +36,14 @@ protected:
 // Test case for CharacterBuild
 TEST_F(CharacterBuildTest, CharacterBuildTest) {
     // Call the character_build() function from CharacterBuild
-    Character character = CharacterBuild::character_build();
-
-    character.displayCharacter();
-
-    // Assert that the character fields are filled correctly
-//    EXPECT_EQ(character.getName(), testName);
+    Quests blank;
+    Character character = CharacterBuild::test_character_build(
+            "test",
+            "brown",
+            "blue",
+            1,
+            blank);
+    EXPECT_EQ(character.name, testName) << "true";
 //    EXPECT_EQ(character.getHairColor(), testHairColor);
 //    EXPECT_EQ(character.getEyeColor(), testEyeColor);
 //    EXPECT_EQ(character.getPronounChoice(), testPronounChoice);
