@@ -1,0 +1,14 @@
+//
+// Created by asuth on 2/7/2024.
+//
+
+#ifndef YOURPROJECTNAME_DEFAULTCHARACTERTEST_H
+#define YOURPROJECTNAME_DEFAULTCHARACTERTEST_H
+
+
+class defaultCharacterTest {
+
+};
+
+
+#endif //YOURPROJECTNAME_DEFAULTCHARACTERTEST_H
