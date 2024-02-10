@@ -9,18 +9,18 @@
 
 int main() {
 
-    // character creator
+    // Character creator portion. Walks through the user in creating their own user.
     Character my_character = CharacterBuild::character_build();
 
-    // intro
+    // The intro to the subject material. Same intro regardless of path or choices made.
     Intro intro_instance;
     intro_instance.startAliceInWonderland(my_character);
     my_character.listInventory();
 
-    // checkpoint 1
-    Checkpoint1::Chapter1(my_character);
-
-
+    // The first checkpoint; contains multiple chapters and has unique routes based on choices made.
+    // Also where we start adding items to inventory and tracking choices made for possible outcomes.
+    Checkpoint1 section1;
+    section1.Chapter1(my_character);
 
     // checkpoint 2
 

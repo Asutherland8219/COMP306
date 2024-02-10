@@ -38,3 +38,9 @@ she falls down a black hole into Wonderland.
 Her goal, at the beginning of the game, is to escape Wonderland and return to her world. 
 She has no idea where to go but can see in the distance a LARGE beautiful castle. Perhaps they could be of assistance...
 
+_________________________________________________________
+The project will have text code using gtest, (GoogleTest). While researching test methods in C++ I found that no such internal 
+tooling existed. 
+
+The gtests will be used to test chapters and logic around quests, inventory etc...
+The tests will not be comprehensive, and instead focus on more problematic areas. 

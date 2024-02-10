@@ -2,6 +2,12 @@
 // Created by asuth on 1/8/2024.
 //
 // Setter for pronouns with menu
+
+/*
+ Logic gates and choices for the first section of the story. Basic prompts to user, with no modifications to choices matrix
+ or inventory. Simple gates to progress story, typical structure is 3 options presented, one being the correct, the other two being
+ for flair and comedic effect.
+ */
 #include <iostream>
 
 class introChoices {

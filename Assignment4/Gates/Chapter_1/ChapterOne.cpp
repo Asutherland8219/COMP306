@@ -2,6 +2,10 @@
 // Created by asuth on 1/17/2024.
 //
 
+/*
+ Logic Gates regarding the first chapter, handled in Checkpoint1. Includes modification to inventory and choices matrix
+ */
+
 #include <iostream>
 #include "../../Inventory/Inventory.h"
 #include "../../Character/Character.h"

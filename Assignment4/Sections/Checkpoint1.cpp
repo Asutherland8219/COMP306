@@ -9,10 +9,10 @@
 
 class Checkpoint1 {
 private:
-    static bool panic_breaker;
+    bool panic_breaker;
 
 public:
-    static void Chapter1(Character custom_character) {
+    void Chapter1(const Character& custom_character) {
         ChapterOneGates ch_one_gates;
         std::cout << "You fell engorged, almost like you are blowing up. You look down and see the world around you changing... \n";
         std::cout << "But wait.. no that's not the case, the world isn't changing.. YOU are changing. You are growing! \n";

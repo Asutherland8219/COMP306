@@ -2,6 +2,11 @@
 // Created by asuth on 12/20/2023.
 //
 
+/*
+ NPC constructor. Used for all NPC models. Creating NPC will be initialized in this class, then when they communicate,
+ will be called in the respective chapter.
+ */
+
 #include "NPC.h"
 
 // NPC.cpp

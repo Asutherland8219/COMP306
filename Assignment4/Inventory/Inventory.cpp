@@ -2,6 +2,14 @@
 // Created by asuth on 12/13/2023.
 //
 
+/*
+ Base Inventory class. Initialize with the Character class. Simple functions such as addItem which adds item, and display
+ inventory which lists the inventory alaong with their name, and description.
+
+ Internal function use is listed with a suffix of _, _display_inventory mirrors the main display inventory function
+ except also returns a value. This value will be used in calculations with the choices matrix later.
+ */
+
 #include "Inventory.h"
 #include <iostream>
 

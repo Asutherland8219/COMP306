@@ -4,6 +4,14 @@
 
 // Quest.cpp
 
+/*
+ Quest and Quests class. A quest is a single quest, presented in a dict format {"example quest" : []}.
+ The brackets, will be filled with an x once completed. Active quests will remain blank.
+
+ Quests is a list of Quest items. Contains functionality for Adding Quests, completing quests and
+ listing all quests.
+ */
+
 #include "Quest.h"
 #include <algorithm>
 

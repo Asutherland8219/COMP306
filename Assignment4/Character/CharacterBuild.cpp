@@ -1,6 +1,13 @@
 //
 // Created by asuth on 12/13/2023.
 //
+/*
+ The Character building function. A walk through where the user is prompted in choices when building their character.
+ Final result is a Character model that is passed through subsequent chapters and additional data is added/appended.
+
+ Includes a test character build to run quick test function in character building. This is used to quickly create a
+ default character to pass into each chapter and makes for faster testing.
+ */
 #include "Character.h"
 #include "Character.cpp"
 #include "../Inventory/Inventory.h"
@@ -75,9 +82,7 @@ public:
         default_character.setPronouns(pronouns_choice);
         default_character.addQuest("Create Your Character");
         default_character.completeLastQuestObjective();
-
-        EXPECT_EQ(default_character.name, name);
-
+    return default_character;
     };
 };
 

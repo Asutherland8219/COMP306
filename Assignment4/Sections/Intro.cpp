@@ -12,14 +12,14 @@
 
 class Intro {
 private:
-    static bool well_breaker;
-    static bool hall_breaker;
-    static bool drink_breaker;
-    static bool table_breaker;
-    static bool land_breaker;
+    bool well_breaker;
+    bool hall_breaker;
+    bool drink_breaker;
+    bool table_breaker;
+    bool land_breaker;
 public:
     void startAliceInWonderland(Character custom_character) {
-        introChoices int_choice{};
+        introChoices int_choice = {};
         std::cout
                 << "The sun was shining on a beautiful summer day. The dew on the ground reflecting the sunlight while the deer and other fauna scamper around the forest. \n";
         std::cout

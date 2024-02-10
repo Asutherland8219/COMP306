@@ -3,6 +3,13 @@
 //
 
 // Character.cpp (Implementation file for Character class)
+/*
+ Functions for the character class. Includes the default constructor. By default the character starts with hair color,
+ eye color, name and pronouns. Additional linked classes include Quests and Inventory.
+
+ Contains addQuest function to add a quest to the character, as well as setters and getters.
+ Displaycharacter outputs a summary of the character and the details associated.
+*/
 
 #include "Character.h"
 #include "../Quests/Quest.h"
