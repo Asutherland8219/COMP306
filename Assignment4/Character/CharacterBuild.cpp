@@ -22,7 +22,7 @@ class CharacterBuild {
 public:
     static Character character_build() {
         std::cout << "Welcome to the Adventure Game!" << std::endl;
-        std::cout << "Let's start by creating your character." << std::endl;
+        std::cout << "Let's start by creating your character. Menu functions are not available at this point." << std::endl;
 
         // Gather information to create the character
         std::string name, hairColor, eyeColor;
@@ -71,13 +71,13 @@ public:
     }
 
     // test character build
-    static Character test_character_build(
-            std::string name,
-            std::string eye_color,
-            std::string hair_color,
-            int pronouns_choice,
-            Quests default_quest
-            ){
+    static Character test_character_build(){
+        std::string name = "John Smith";
+        std::string hair_color = "white";
+        std::string eye_color = "red";
+        int pronouns_choice = 1;
+        Quests default_quest;
+
         Character default_character = Character(name, hair_color, eye_color, pronouns_choice, default_quest);
         default_character.setPronouns(pronouns_choice);
         default_character.addQuest("Create Your Character");

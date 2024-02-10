@@ -6,6 +6,8 @@
 #include "../Character/Character.h"
 #include "../NPC/NPC.h"
 #include "../Gates/Chapter_1/ChapterOne.cpp"
+#include "../UniversalFunctions/user_input.cpp"
+#include <sstream>
 
 class Checkpoint1 {
 private:
@@ -19,29 +21,19 @@ public:
         std::cout << "You look around at your hands and feet noticing them both grow in size. Before you even start to think about panicking...\n";
         std::cout << "THUNK. You clunk your head on the ceiling...\n";
 
-        while (!Checkpoint1::panic_breaker){
+        while (!Checkpoint1::panic_breaker) {
             std::cout << std::endl;
             std::cout << "What would you like to do?\n";
             std::cout << "1. Grab the key, and head for the door.\n";
             std::cout << "2. PANIC!!!\n";
             std::cout << "3. Look around for anything useful...\n";
-            int panic;
-            std::cin >> panic;
 
-            if (std::cin.fail()) {
-                throw std::invalid_argument("Invalid input. Please enter a number.");
-            }
-            else {
+            auto input1 = getUserInput(custom_character);
+            std::istringstream iss(input1);
+            int panic;
+            if (iss >> panic) { // Attempt to read an integer from the input
                 panic_breaker = ch_one_gates.panicChoice(panic, custom_character);
             }
         }
-
-
-
-
-
-
-
-
     }
 };

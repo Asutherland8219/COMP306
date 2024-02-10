@@ -9,6 +9,8 @@
 #include <iostream>
 #include "../../Inventory/Inventory.h"
 #include "../../Character/Character.h"
+#include "../../UniversalFunctions/user_input.cpp"
+#include <sstream>
 
 class ChapterOneGates {
 private:
@@ -21,14 +23,14 @@ public:
         switch (choice) {
             case 1:
                 std::cout << "You grab the key, without a second thought, and rush towards the door. \n";
-                std::cout << "Because of your size, you couldn't possibly fit through it, you bend down and peek through...";
+                std::cout << "Because of your size, you couldn't possibly fit through it, you bend down and peek through... \n";
                 panic_breaker = true;
                 break;
             case 2:
                 std::cout << "You start to get dizzy. Thinking to yourself `Is this what a panic attack feels like`.\n";
-                std::cout << "Because of the dizzyness, you sit down. \n";
-                std::cout << "Losing your balance, you drop to the floor...\n";
-                std::cout << "THUNK! The whole building shakes when you sit on the floor.\n";
+                std::cout << "Because of the dizzyness, you decide to sit down. \n";
+                std::cout << "On the way down you lose your balance and drop to the floor...\n";
+                std::cout << "THUNK! \n The whole building shakes when you sit on the floor.\n";
                 std::cout << "Slowly, you regain your orientation and take a few deep breaths...";
                 break;
             case 3:
@@ -37,13 +39,16 @@ public:
                 std::cout << "A thought pops into your head, perhaps this bottle could be useful later... \n";
                 while (!bottle) {
                     std::cout << "What do you want to do with the bottle? \n";
+                    std::cout << "1. Add the bottle to your inventory. \n";
+                    std::cout << "2. Discard the bottle. \n";
+
+                    auto input_bottle = getUserInput(custom_character);
+                    std::istringstream iss(input_bottle);
+
                     int bottle_choice;
-                    std::cin >> bottle_choice;
-                    if (std::cin.fail()) {
-                        throw std::invalid_argument("Invalid input. Please enter a number.");
-                    }
-                    else {
-                        bottle = inventoryBottleChoice(bottle_choice, custom_character);
+                    if (iss >> bottle_choice) { // Attempt to read an integer from the input
+                        ChapterOneGates::bottle = inventoryBottleChoice(bottle_choice, custom_character);
+                        panicChoice(1, custom_character);
                     }
 
                 }
@@ -55,13 +60,13 @@ public:
         Item empty_bottle("Empty Bottle", "An empty bottle; previously a shrinking potion", 1);
         switch(bottle_choice) {
             case 1:
-                std::cout << "You add the bottle to your inventory.";
+                std::cout << "You add the bottle to your inventory. \n";
                 custom_character.addItemToInventory(empty_bottle);
-
+                break;
             case 2:
-                std::cout << "Meh. Just a bottle. You throw it away.";
+                std::cout << "Meh. Just a bottle. You throw it away. \n";
         }
-        bottle_inventory = false;
+        bottle_inventory = true;
         return bottle_inventory;
     }
 };

@@ -9,6 +9,8 @@
 #include "../NPC/NPC.h"
 #include "../Gates/Intro/intro_choices.cpp"
 #include "../Gates/Intro/intro_choices.h"
+#include "../UniversalFunctions/user_input.cpp"
+#include <sstream>
 
 class Intro {
 private:
@@ -46,12 +48,12 @@ public:
             std::cout << "1. Jump in\n";
             std::cout << "2. Throw Something in\n";
             std::cout << "3. Walk away\n";
-            int choice;
-            std::cin >> choice;
 
-            if (std::cin.fail()) {
-                throw std::invalid_argument("Invalid input. Please enter a number.");
-            } else {
+            // input check
+            int choice;
+            auto input_well = getUserInput(custom_character);
+            std::istringstream iss(input_well);
+            if (iss >> choice) {
                 well_breaker = int_choice.wellChoice(choice);
             }
         }
@@ -64,30 +66,28 @@ public:
         std::cout << "You land in a pile of leaves and sticks. \n";
 
         while (!Intro::land_breaker) {
-            int land_choice;
 
             // Next steps after landing
             std::cout << std::endl;
             std::cout << "What would you like to do?\n";
             std::cout << "1. Check yourself for injuries\n";
             std::cout << "2. Lay down and rest (You don't know what just happened)\n";
-            std::cin >> land_choice;
 
-            if (std::cin.fail()) {
-                throw std::invalid_argument("Invalid input. Please enter a number.\n");
-            } else {
+            auto input_land = getUserInput(custom_character);
+            std::istringstream iss(input_land);
+            int land_choice;
+
+            if (iss >> land_choice) {
                 land_breaker = int_choice.landChoice(land_choice);
             }
         }
 
-        std::cout
-                << "You look around and scan the area. Everything looks relatively normal except you look up at the sky and it is no longer blue...\n"
+        std::cout << "You look around and scan the area. Everything looks relatively normal except you look up at the sky and it is no longer blue...\n"
                    "The sky is now dark. Strange, as it was just sunny.\n";
         std::cout << "Out of the corner of your eye, you see something move... It's the rabbit from earlier!\n";
         rabbit.talk("Oh my ears and whiskers, how late it's getting!");
 
-        std::cout
-                << "You turn and chase after the rabbit, maybe they have an idea of where you are and how to help you get out. \n";
+        std::cout << "You turn and chase after the rabbit, maybe they have an idea of where you are and how to help you get out. \n";
 
         // add the quest
         custom_character.addQuest("Follow the rabbit and figure out where you are");
@@ -104,12 +104,13 @@ public:
             std::cout << "1. Check the doors and see if there is anything there \n";
             std::cout << "2. Head towards the table at the end of the hallway \n";
             std::cout << "3. Leave \n";
+
             int hallway_choice;
-            std::cin >> hallway_choice;
-            if (std::cin.fail()) {
-                throw std::invalid_argument("Invalid input. Please enter a number.\n");
-            }
-            hall_breaker = int_choice.hallwayChoice(hallway_choice);
+            auto input_hall = getUserInput(custom_character);
+            std::istringstream iss(input_hall);
+
+            if (iss >> hallway_choice)
+                hall_breaker = int_choice.hallwayChoice(hallway_choice);
         }
 
         std::cout << "You return to the table where you were before but this time something else catches your eye.\n";
