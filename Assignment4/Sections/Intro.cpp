@@ -128,13 +128,14 @@ public:
             std::cout << "1. Down the whole thing. What's the worst that could happen. \n";
             std::cout << "2. Inspect the bottle, try and see if there's indicating what it is. Open it and smell. \n";
             std::cout << "3. Try and leave \n";
-            int drink_choice;
-            std::cin >> drink_choice;
-            if (std::cin.fail()) {
-                throw std::invalid_argument("Invalid input. Please enter a number.\n");
-            }
-            drink_breaker = int_choice.drinkChoice(drink_choice);
 
+            int drink_choice;;
+
+            auto input_drink = getUserInput(custom_character);
+            std::istringstream iss(input_drink);
+            if (iss >> drink_choice) {
+                drink_breaker = int_choice.drinkChoice(drink_choice);
+            }
         }
 
         std::cout << "You feel different. Not in a bad way but just like things around you are changing.\n";
@@ -153,12 +154,12 @@ public:
             std::cout << "2. Look around for anything else that might be helpful. \n";
             std::cout << "3. Yell for help. \n";
             int table_choice;
-            std::cin >> table_choice;
-            if (std::cin.fail()) {
-                throw std::invalid_argument("Invalid input. Please enter a number.\n");
-            }
-            table_breaker = int_choice.tableChoice(table_choice);
 
+            auto input_table = getUserInput(custom_character);
+            std::istringstream iss(input_table);
+            if (iss >> table_choice) {
+                table_breaker = int_choice.tableChoice(table_choice);
+            }
         }
         std::cout << "and now your adventure REALLY begins...";
     }

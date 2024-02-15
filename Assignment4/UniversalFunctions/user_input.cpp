@@ -10,49 +10,65 @@
 */
 
 #include "../Character/Character.h"
-#include "../Inventory/Inventory.h"
-#include "../Quests/Quest.h"
+#include <iostream>
+#include <sstream>
 #include <vector>
 #include <algorithm>
 
+bool isInt(const std::string &str) {
+    std::istringstream iss(str);
+    int temp;
+    return iss >> temp && iss.eof();
+}
+
 std::string getUserInput(Character custom_character) {
     std::string input;
-    std::getline(std::cin, input);
 
-    if (std::cin.fail()) {
-        return input;
+    while (true) {
+        std::getline(std::cin, input);
+
+        if (isInt(input)) {
+            int numericValue = std::stoi(input);
+            return std::to_string(numericValue);
+        }
+
+        // Convert input to lowercase
+        std::transform(input.begin(), input.end(), input.begin(), ::tolower);
+
+        // Remove newline character from the input
+        input.erase(std::remove(input.begin(), input.end(), '\n'), input.end());
+
+        std::vector<std::string> validInputs = {"i", "q", "r", "x", "h", "help",};
+
+        if (std::find(validInputs.begin(), validInputs.end(), input) == validInputs.end() and !input.empty()) {
+            // If the input is not found in the list of valid inputs, handle the error
+            std::cout << "Invalid selection. Please select one of the options in the menu above.\n";
+        }
+
+        if (input == "i") {
+            custom_character.listInventory();
+            std::cout << "Press enter to return to your previous menu. \n";
+            // Optionally, you might want to wait for Enter key press before continuing
+        } else if (input == "q") {
+            custom_character.getQuests();
+            std::cout << "Press enter to return to your previous menu. \n";
+            // Optionally, you might want to wait for Enter key press before continuing
+        } else if (input == "exit" || input == "x") {
+            std::cout << "Exiting program...\n";
+            std::exit(0);
+        } else if (input == "h" || input == "help") {
+            std::cout << "Enter one of the following values for more information: \n"
+                         "i | inventory : list the character's inventory. \n"
+                         "q | quest : list the quests assigned to the character. \n"
+                         "r | enter : return to the previous menu\n"
+                         "x | exit : to exit the program \n";
+        } else if (input == "r" or input.empty()) {
+            // Return to the previous menu
+            break;
+        }
     }
 
-    std::vector<std::string> validInputs = {"i", "q", "r", "x"};
-
-    if (std::find(validInputs.begin(), validInputs.end(), input) == validInputs.end()) {
-        // If the input is not found in the list of valid inputs, throw an exception
-        throw std::invalid_argument("Invalid selection. Please select one of the options in the menu above.");
-    }
-
-
-    // Convert input to lowercase
-    for (char &c: input) {
-        c = std::tolower(c);
-    }
-
-    if (input == "i") {
-        custom_character.listInventory();
-        std::cout << "press enter to return to your previous menu. \n";
-        return getUserInput(custom_character); // Recursively ask for input again
-    } else if (input == "q") {
-        custom_character.getQuests();
-        return getUserInput(custom_character); // Recursively ask for input again
-    } else if (input == "exit" or input == "x") {
-        std::cout << "Exiting program..." << std::endl;
-        std::exit(0); // Exit the program with a normal termination status
-    } else if (input == "h" or input == "help") {
-        std::cout << "Enter one of the following values for more information: \n"
-                     "i | inventory : list the characters inventory. \n"
-                     "q | quest : list the quests assigned to the character. \n"
-                     "r | enter : return to the previous menu\n"
-                     "x | exit : to exit the program \n";
-        return getUserInput(custom_character); //
-    }
-        return input;
-    }
+    // Continue with the rest of your program logic
+    // ...
+    return input;
+}
