@@ -16,6 +16,7 @@
 #include "../Quests/Quest.cpp"
 #include <iostream>
 #include <limits>
+#include "../UniversalFunctions/textFormatting.cpp"
 
 // Display character details
 
@@ -99,13 +100,23 @@ void Character::completeLastQuestObjective() {
 
 void Character::talk(const std::string& dialogue) const {
     std::cout << std::endl;
-    std::cout << name << ": `" << dialogue << "`" << std::endl;
+    std::cout << name << ": ";
+    textFormatter::printItalic(dialogue);
     std::cout << std::endl;
 }
 
 void Character::listInventory() {
     return Character::inventory.displayInventory();
-};
+}
+
+void Character::dropItem(const std::string &item_name) {
+    Character::inventory.dropItem(item_name);
+}
+
+Item * Character::getItem(const std::string &item_name) {
+    Character::inventory.getInventoryItem(item_name);
+}
+
 
 
 

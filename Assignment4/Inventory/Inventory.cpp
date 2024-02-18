@@ -41,3 +41,37 @@ void Inventory::_displayInventory() const {
         std::cout << "Value: " << item.getValue() << "\n\n";
     }
 }
+
+// Implementation of dropItem function
+void Inventory::dropItem(const std::string& itemName) {
+    // Find the item based on the string given
+    auto it = std::find_if(items.begin(), items.end(),
+                           [&itemName](const Item& item) {
+                               return item.getName() == itemName;
+                           });
+    if (it != items.end()) {
+        // Item found, erase it from the inventory
+        items.erase(it);
+
+        // Raise a prompt saying "Item dropped"
+        std::cout << "Item dropped: " << itemName << "\n";
+    } else {
+        // Item not found, raise a prompt indicating that it's not in the inventory
+        std::cout << "Item not found in the inventory: " << itemName << "\n";
+    }
+}
+
+// Implementation of getInventoryItem function
+const Item* Inventory::getInventoryItem(const std::string& itemName) const {
+    auto it = std::find_if(items.begin(), items.end(),
+                           [&itemName](const Item& item) {
+                               return item.getName() == itemName;
+                           });
+
+    // Check if the item was found
+    if (it != items.end()) {
+        return &(*it);
+    } else {
+        return nullptr;
+    }
+}

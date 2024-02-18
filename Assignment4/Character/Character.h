@@ -54,6 +54,9 @@ public:
 
     void addQuest(const std::string &description);
 
+    void dropItem(const std::string &item_name);
+
+    Item * getItem(const std::string &item_name);
 };
 
 

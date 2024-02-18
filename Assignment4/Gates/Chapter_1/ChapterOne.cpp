@@ -10,6 +10,7 @@
 #include "../../Inventory/Inventory.h"
 #include "../../Character/Character.h"
 #include <sstream>
+#include "../../UniversalFunctions/textFormatting.cpp"
 
 class ChapterOneGates {
 private:
@@ -18,6 +19,10 @@ private:
 public:
     bool panic_breaker;
     bool rabbit_breaker;
+    bool fan_breaker;
+    bool embankment_breaker;
+    bool glove_breaker;
+    bool house_breaker;
     // Carry over the originally created character to modify inventory
     bool panicChoice(int panic_choice, const Character& custom_character) {
         switch (panic_choice) {
@@ -85,11 +90,124 @@ public:
                 std::cout << "The rabbit slows down and turns to face you, tilting it's head with an inquisitive look \n";
                 break;
             case 3:
-                std::cout << "The rabbit jumps and lets out a yelp, indicating that you have startled the creature \n";
+                std::cout << "The rabbit jumps and lets out a yelp, indicating that you have startled the creature, and scurries behind a rock."
+                             "After a while, he slowly peeks out his head. \n";
                 break;
         }
         return rabbit_breaker;
     }
+
+    bool rabbitItemChoice(int rabbit_item_choice, const Character& custom_character) {
+        Item fan("Paper Fan" , "A basic paper fan, used to stay cool during hot weather.", 2);
+        Item gloves("Gloves", "White gloves. Meant for formal attire.", 3);
+
+        switch (rabbit_item_choice) {
+            case 1:
+                std::cout << "You leave all the items as they don't seem to be of use";
+                rabbit_breaker = false;
+                break;
+            case 2:
+                std::cout << "You grab the gloves but they are too large to put on. \n";
+                custom_character.addItemToInventory(gloves);
+                break;
+            case 3:
+                std::cout << "You grab the fan, as it could come of use later. \n";
+                custom_character.addItemToInventory(fan);
+                break;
+            case 4:
+                std::cout << "You grab both items, adding them to your inventory. \n";
+                custom_character.addItemToInventory(fan);
+                custom_character.addItemToInventory(gloves);
+                break;
+        }
+        return rabbit_breaker;
+    }
+
+    bool fanChoice(int fan_choice, const Character& custom_character) {
+        Item fan(" Shrinking Paper Fan" , "A fan, that seemingly shrinks the user.", 1);
+
+        switch (fan_choice) {
+            case 1:
+                std::cout << "You pickup the fan, and add it to your inventory. It could be of use later";
+                custom_character.addItemToInventory(fan);
+                break;
+            case 2:
+                std::cout << "You ignore the fan, thinking it could only be trouble later on. \n";
+                break;
+        }
+        return fan_breaker;
+    }
+
+    bool embankmentChoice(int embankment_choice, const Character& custom_character) {
+        switch (embankment_choice) {
+            case 1:
+                std::cout << "You try and speak to the animals... \n";
+                textFormatter::printItalic("Hello little animals, do you prehaps speak like the rabbit? \n");
+                std::cout << "They all just stare at you, probably thinking what is wrong with this person. \n";
+                break;
+            case 2:
+                textFormatter::printItalic("Shoo animals! Get out of here! Shoo! Shoo! \n");
+                std::cout << " They all stare at you, then slowly decide to go there separate ways \n";
+                break;
+            case 3:
+                textFormatter::printItalic("Oh these animals seem harmless, perhaps they themselves are also stuck. \n");
+                std::cout << "You leave them be, instead looking for something useful. \n";
+                break;
+        }
+        return embankment_breaker;
+    }
+
+    bool gloveChoice(int glove_choice, Character custom_character) {
+        Item* glove = custom_character.getItem("Gloves");
+        switch (glove_choice) {
+            case 1:
+                textFormatter::printItalic("Hello Mr Rabbit, are these the gloves you are looking for? \n");
+                custom_character.dropItem(glove->name);
+                break;
+            case 2:
+                textFormatter::printItalic("I am sorry Mr. Rabbit! I have not seen your gloves! \n");
+                glove_breaker = false;
+                break;
+            case 3:
+                std::cout << "You wait to see if he even sees you; unlike your last encounter this time he sees you! \n";
+                glove_breaker = false;
+                break;
+        }
+        return glove_breaker;
+    }
+
+    bool houseChoice(int house_choice, Character custom_character) {
+        switch (house_choice) {
+            case 1:
+                std::cout << "You walk up the stairs, seeing one door open and many others closed. You wander into the open door \n"
+                             "and see a beautiful four post bed, and very lage wardrobe... \n"
+                             "This must be the Duchess's room";
+                break;
+            case 2:
+                std::cout << "You walk through the doorway, into a beautiful room with a lit fireplace. Above the fireplace is a stuffed bears head \n"
+                             "All around the fire you see some small chairs with a coffee table in the middle. \n"
+                             "Tucked away to the side, is a massive red throne style chair sitting in front of the biggest bookshelves you have ever seen \n";
+                // add an option to peruse the bookshelves and take a book
+                house_breaker = false;
+                break;
+            case 3:
+                std::cout << "You slowly approach the door, and gently open it... \n"
+                             "Inside, you smell a pot boiling, likely some sort of soup \n"
+                             "You see a man wearing a chefs hat, the cook, and another woman dressed in very gaudy attire... \n"
+                             "She is also quite raucous; directing some crass comments towards the cook.";
+                house_breaker = false;
+                break;
+            case 4:
+                std::cout << "You walk towards the door, and slowly open it. Looking out into a beautiful large garden, with a small table and chairs set up. \n"
+                             "Every chair is empty, but food is on the table and tea looks to be served. \n"
+                             "As you take a step out the door to investigate further, the rabbit jumps out in front of you!";
+                break;
+        }
+        return house_breaker;
+    }
+
+
+
 
 };
 

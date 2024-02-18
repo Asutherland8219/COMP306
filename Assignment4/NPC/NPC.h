@@ -23,6 +23,21 @@ class NPC {
         WhiteRabbit();
     };
 
+    class FishFootman : public NPC {
+    public:
+        FishFootman();
+    };
+
+    class Dutchess : public NPC {
+    public:
+        Dutchess();
+    };
+
+    class CheshireCat : public NPC {
+    public:
+        CheshireCat();
+    };
+
 
 
 #endif //COMP306_NPC_H

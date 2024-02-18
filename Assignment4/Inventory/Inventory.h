@@ -20,6 +20,8 @@ public:
     // Internal Inventory
     void _displayInventory() const;
     static std::vector<Item> items;
+    void dropItem(const std::string& itemName);
+    const Item* getInventoryItem(const std::string& itemName) const;
 };
 
 

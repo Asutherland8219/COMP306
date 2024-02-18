@@ -9,7 +9,7 @@
 #include "../NPC/NPC.h"
 #include "../Gates/Intro/intro_choices.cpp"
 #include "../Gates/Intro/intro_choices.h"
-#include "../UniversalFunctions/user_input.cpp"
+#include "../UniversalFunctions/userInput.cpp"
 #include <sstream>
 
 class Intro {

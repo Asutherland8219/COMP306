@@ -38,6 +38,11 @@ she falls down a black hole into Wonderland.
 Her goal, at the beginning of the game, is to escape Wonderland and return to her world. 
 She has no idea where to go but can see in the distance a LARGE beautiful castle. Perhaps they could be of assistance...
 
+The main story is quite verbose and has many characters. For brevity and time-constraints, I will be taking some creative liberties in speeding up  the story. 
+The beginning and entering the world will be the same, till around chapter 2. Once chapter 2, the pool of tears is completed, I will be condensing chapter 3, 4 followed 
+by skipping chapter 5 (as it is filler). Then will move to 6 introducing the Cheshire cat and the duchess. Then I will move to the tea party followed by the last two chapters marking 
+the conclusion of the story. 
+
 _________________________________________________________
 The project will have text code using gtest, (GoogleTest). While researching test methods in C++ I found that no such internal 
 tooling existed. 

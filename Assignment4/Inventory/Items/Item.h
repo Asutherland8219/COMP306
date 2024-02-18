@@ -17,8 +17,8 @@ public:
     std::string getDescription() const;
     int getValue() const;
 
-private:
     std::string name;
+private:
     std::string description;
     int value;
 };
