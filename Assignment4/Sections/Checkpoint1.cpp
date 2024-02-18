@@ -22,17 +22,18 @@ private:
     bool house_breaker;
 
 public:
-    void Chapter1(Character custom_character) {
+    Character Chapter1(Character custom_character) {
         ChapterOneGates ch_one_gates;
 
         // Init the npcs
         NPC rabbit = WhiteRabbit();
         NPC fishman = FishFootman();
-        NPC dutchess = Dutchess();
+        NPC duchess = Duchess();
         NPC cheshirecat = CheshireCat();
+        NPC cook = Cook();
 
         // Items
-        Item letter("Letter", "A letter addressed to the Dutchess", 1);
+        Item letter("Letter", "A letter addressed to the Duchess", 1);
 
         RestartChapter:
 
@@ -136,6 +137,9 @@ public:
                 std::cout << "You awake feeling refreshed, but also, have shrunk down, potentially big enough to get through the door... \n";
             };
 
+            // Complete find the rabbit quest
+            custom_character.completeLastQuestObjective();
+
             std::cout << "You look around, noticing the room has changed a bit. Then the small door catches your eye. You bolt to the door, hoping to make it through \n "
                          "but as you get there you notice it's closed AGAIN. Not only that, the key from earlier, is back on the table WAY above where you are able to reach. \n";
                          textFormatter::printItalic("Well DRAT, what am I supposed to do now?");
@@ -205,11 +209,14 @@ public:
             std::cout << "Before the rabbit can answer, there is a rap at the door \n";
             textFormatter::printBold("** Knock Knock ** \n");
             std::cout << "At the door appeared a Fish-Footman... \n";
-            fishman.talk("Good day, I have a letter for the Dutchess. \n ");
+            fishman.talk("Good day, I have a letter for the Duchess. \n ");
             std::cout << "He extends his arm holding a large letter. \n";
             fishman.talk("It is an invitation from the Queen to play croquet. \n");
             std::cout << "As you are the closest person to him, he hands you the letter and turns away, heading back in whatever direction he came. \n";
+
+            // Add to inventory and add quest
             custom_character.addItemToInventory(letter);
+            custom_character.addQuest("Deliver the letter");
 
             std::cout << "When you turn around to pass the letter to the rabbit, you notice he's gone! \n";
             custom_character.talk("Oh my that rabbit is oh so sly. Always disappearing. \n");
@@ -229,8 +236,105 @@ public:
                 int house;
                 if (iss >> house) { // Attempt to read an integer from the input
                     house_breaker = ch_one_gates.houseChoice(house, custom_character);
+
+                    if(!house_breaker) {
+                        bool kitchen_breaker;
+                        // This is the main path to take
+                        duchess.talk("You buffoon, this soup tastes like pepper! Too much! Too much! \n");
+                        std::cout << "The Duchess spits out the food aggressively. \n";
+                        cook.talk("I am so sorry I will start over.");
+
+                        std::cout
+                                << "The Duchess turns to look at you, with a puzzling look then notices the letter in your hand. \n";
+                        duchess.talk("You, give that here. \n");
+                        std::cout << "You hand over the letter to the duchess. \n";
+                        custom_character.dropItem("Letter");
+                        custom_character.completeLastQuestObjective();
+                        duchess.talk("Thank you dear. \n");
+                        custom_character.talk("It is for a croquet match with the Queen. \n");
+                        duchess.talk(
+                                "With the Queen!? Oh I must go get ready. Cook forget the soup, it's horrid anyways. \n");
+                        std::cout << "The Duchess pushes past you and rushes upstairs. \n";
+                        std::cout
+                                << "The cook turns to look at you, looking awfully glum after her insulting his cooking. \n";
+                        cook.talk(
+                                "Would you like some food? I have lots to spare. I swear it's not as bad as she says. \n");
+                        while (!kitchen_breaker) {
+                            std::cout << std::endl;
+                            std::cout << "What would you like to do?\n";
+                            std::cout << "1. Accept some food. It can't be that bad. \n";
+                            std::cout << "2. Politely pass on the food.  \n";
+                            std::cout << "3. Accept some food, asking for more for the road.  \n";
+
+                            auto input8 = getUserInput(custom_character);
+                            std::istringstream iss(input8);
+                            int kitchen;
+                            if (iss >> kitchen) { // Attempt to read an integer from the input
+                                kitchen_breaker = ch_one_gates.kitchenChoice(kitchen, custom_character);
+                            };
+
+                            // introduce cheshire cat
+                            std::cout << "After speaking with the cook, you turn to exit the kitchen. \n"
+                                         "While turning, you are spooked by a pair of eyes looking directly at you. \n"
+                                         "It's a cat, perched up on a shelf just watching...\n";
+                            cheshirecat.talk("Hello dear, you must be new, what is your name? \n");
+                            std::string response = "Hello Mr Puss, my name is " + custom_character.name + "\n";
+                            custom_character.talk(response);
+                            cheshirecat.talk("Pleasure to meet you, you may call me Cheshire, or the Chesire Cat, whatever suits you best. \n");
+                            std::cout << "The cat flashes you a wide grin, taking up most of its face with large pointed teeth. \n"
+                                         "You look it up and down and notice not only does it have sharp teeth, but also sharp claws. \n"
+                                         "While friendly at the moment, it would be wise to stay on the good side of such a vicious looking creature. \n";
+                            custom_character.talk("“Would you tell me, please, which way I ought to go from here? \n");
+                            cheshirecat.talk("That depends a good deal on where you want to get to,” said the Cat.\n");
+                            custom_character.talk("I don't much care where — \n");
+                            custom_character.talk("— so long as I get somewhere, \n");
+
+                            cheshirecat.talk("Oh, you're sure to do that, if you only walk long enough.\n");
+
+                            custom_character.talk("What sort of people live about here?");
+
+                            cheshirecat.talk("In that direction, -- ");
+                            std::cout << "the Cat said, waving its right paw round --";
+                            cheshirecat.talk("lives a Hatter: and in that direction, ");
+                            std::cout << " -- waving the other paw -- ";
+                            cheshirecat.talk("lives a March Hare. Visit either you like: they're both mad. \n");
+                            std::cout << "You think to yourself `ah a Hare, not a rabbit, so is the name of the mysterious rabbit from earlier \n";
+
+                            custom_character.talk("But I don't want to go among mad people. \n");
+
+                            cheshirecat.talk("Oh, you can't help that,” said the Cat. “We're all mad here. I'm mad. You're mad. \n");
+
+                            custom_character.talk("How do you know I'm mad? \n");
+                            cheshirecat.talk("You must be, or you wouldn't have come here. \n");
+
+                            custom_character.talk("And how do you know that you're mad? \n");
+                            cheshirecat.talk("To begin with, a dog's not mad. You grant that? \n");
+                            custom_character.talk("I suppose so. \n");
+
+                            cheshirecat.talk("Well, then, you see, a dog growls when it's angry, and wags its tail when it's pleased. \n Now I growl when I'm pleased, and wag my tail when I'm angry. Therefore I'm mad. \n");
+
+                            custom_character.talk("I call it purring, not growling. \n");
+                            cheshirecat.talk("Call it what you like. Do you play croquet with the Queen today? \n");
+
+                            custom_character.talk("I should like it very much, but I haven't been invited yet. \n");
+                            cheshirecat.talk("You'll see me there, \n");
+                            std::cout << "The cat threw a wide grin, and winked as it then vanished from sight. \n";
+
+                            std::cout << "You return to the entryway from earlier, but this time, the door to the garden that was closed is now open \n";
+                            std::cout << "Squinting to focus your vision, you see two creatures sitting at the table; the Mad Hatter and the March Hare \n";
+                            std::cout << "The March Hare see you looking and beckons you over. You walk towards the garden, and get ready to join the tea party \n";
+
+                            custom_character.addQuest("Attend the Tea Party");
+
+                            // End Section 1
+                        }
+                    }
+                    else {
+                        goto RestartHouse ;
+                    };
                 }
             }
+            return custom_character;
 
 
 

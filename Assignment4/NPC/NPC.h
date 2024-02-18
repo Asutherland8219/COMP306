@@ -28,14 +28,19 @@ class NPC {
         FishFootman();
     };
 
-    class Dutchess : public NPC {
+    class Duchess : public NPC {
     public:
-        Dutchess();
+        Duchess();
     };
 
     class CheshireCat : public NPC {
     public:
         CheshireCat();
+    };
+
+    class Cook : public NPC {
+    public:
+        Cook();
     };
 
 

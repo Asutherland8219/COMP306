@@ -11,6 +11,7 @@
 #include "../../Character/Character.h"
 #include <sstream>
 #include "../../UniversalFunctions/textFormatting.cpp"
+#include "../../NPC/NPC.h"
 
 class ChapterOneGates {
 private:
@@ -24,6 +25,7 @@ public:
     bool glove_breaker;
     bool house_breaker;
     // Carry over the originally created character to modify inventory
+    NPC rabbit = WhiteRabbit();
     bool panicChoice(int panic_choice, const Character& custom_character) {
         switch (panic_choice) {
             case 1:
@@ -177,19 +179,58 @@ public:
     }
 
     bool houseChoice(int house_choice, Character custom_character) {
+        bool bookshelf_breaker;
         switch (house_choice) {
             case 1:
                 std::cout << "You walk up the stairs, seeing one door open and many others closed. You wander into the open door \n"
                              "and see a beautiful four post bed, and very lage wardrobe... \n"
-                             "This must be the Duchess's room";
+                             "This must be the Duchess's room \n";
+                std::cout << "You probably shouldn't be in here. You turn and leave. \n";
                 break;
             case 2:
                 std::cout << "You walk through the doorway, into a beautiful room with a lit fireplace. Above the fireplace is a stuffed bears head \n"
                              "All around the fire you see some small chairs with a coffee table in the middle. \n"
                              "Tucked away to the side, is a massive red throne style chair sitting in front of the biggest bookshelves you have ever seen \n";
-                // add an option to peruse the bookshelves and take a book
-                house_breaker = false;
-                break;
+
+                while (!bookshelf_breaker) {
+                    std::cout << "You walk over to the shelves and peruse the titles:\n"
+                                 "- The history of Wonderland.\n"
+                                 "- Family Tree of the Queen of Hearts.\n"
+                                 "- The rat, the bat, and the fat old Cheshire Cat.\n";
+
+                    std::cout << "Would you like to grab one and read it? (y/n)\n";
+                    std::string userChoice;
+
+                    // Get the user's input for reading books
+                    std::getline(std::cin, userChoice);
+
+                    // Convert the user's input to lowercase
+                    std::transform(userChoice.begin(), userChoice.end(), userChoice.begin(), ::tolower);
+
+                    // Check if the user wants to read a book
+                    if (userChoice == "y" || userChoice == "yes") {
+                        std::cout << "Which title would you like to read?\n"
+                                     "1. The history of Wonderland.\n"
+                                     "2. Family Tree of the Queen of Hearts.\n"
+                                     "3. The rat, the bat, and the fat old Cheshire Cat.\n";
+
+                        auto book_input = getUserInput(custom_character);
+                        std::istringstream iss(book_input);
+                        int book;
+                        if (iss >> book) { // Attempt to read an integer from the input
+                            bookshelf_breaker = book_choice(book, custom_character);
+                        }
+                    } else if (userChoice == "n" || userChoice == "no") {
+                        // If the user doesn't want to read a book, break out of the loop
+                        break;
+                    } else {
+                        // Handle invalid input
+                        std::cout << "Invalid choice. Please enter 'y' or 'n'.\n";
+                    }
+                }
+
+// Continue with the rest of your code...
+
             case 3:
                 std::cout << "You slowly approach the door, and gently open it... \n"
                              "Inside, you smell a pot boiling, likely some sort of soup \n"
@@ -200,10 +241,65 @@ public:
             case 4:
                 std::cout << "You walk towards the door, and slowly open it. Looking out into a beautiful large garden, with a small table and chairs set up. \n"
                              "Every chair is empty, but food is on the table and tea looks to be served. \n"
-                             "As you take a step out the door to investigate further, the rabbit jumps out in front of you!";
+                             "As you take a step out the door to investigate further, the rabbit jumps out in front of you! \n";
+                rabbit.talk("Hold on hold on hold on! You can't be out here no not yet what are you doing please turn around \n");
+                custom_character.talk("I have a letter addressed to the Duchess, I am looking for her.\n");
+                rabbit.talk("Oh my she is in the kitchen, please deliver it to her \n");
+                std::cout << "You turn and head back towards the kitchen. \n";
                 break;
         }
         return house_breaker;
+    }
+
+    bool bookChoice(int book, Character custom_character) {
+        bool book_choice_breaker;
+        Item history_book("The history of Wonderland", "A book explaining the history of wonderland", 1);
+        switch (book) {
+            case 1:
+                std::cout << "You pull out the book which is covered in dust. Clearly it has not been read in a long time. You slowly open the book \n"
+                             "the book binding cracks, and the pages smell slightly of must . \n ";
+                textFormatter::printItalic("I don't think anyone would miss this, just going to borrow it so I can figure out where I am.\n");
+                custom_character.addItemToInventory(history_book);
+                break;
+            case 2:
+                std::cout << "You pull this one from the shelves, but it has very little dust on it, it seems to be looked at quite frequently. \n"
+                             "You open it up, and see that it's all pages and pages about each member of the Queen of Hearts family tree. \n"
+                             "Nothing of value in this book so you return it to the shelf... \n";
+                book_choice_breaker = false;
+                break;
+            case 3:
+                std::cout << "You pull the book from the shelf, with no real dust, and open it up. This book is full of rhymes and limericks as well as vivid pictures on every page. \n"
+                             "This must be a children's book of some sort. \n"
+                             "After skimming it with a smile, you close the book and return it to the shelf. \n";
+                book_choice_breaker = false;
+                break;
+        }
+        return book_choice_breaker;
+    }
+
+    bool kitchenChoice(int kitchen, Character custom_character) {
+        bool kitchen_choice_breaker;
+        Item Soup("Soup", "Bowl of soup, heavy on the pepper", 0);
+        Item Soup_bread("Soup and Bread", "Bowl of soup and bread, good for later", 1);
+
+        switch (kitchen) {
+            case 1:
+                custom_character.talk("Thank you very much! I would love some food. I'll have a bit now and same some for later. \n");
+                custom_character.addItemToInventory(Soup);
+                kitchen_choice_breaker = true;
+                break;
+            case 2:
+                custom_character.talk("Thank you very much for the offer, but I am not overly hungry.\n");
+                kitchen_choice_breaker = true;
+                break;
+            case 3:
+                custom_character.talk(" Oh yes please thank you so much, I am ever so starved. May I have seconds and thirds as well? \n");
+                std::cout << "The cook nods. \n";
+                custom_character.addItemToInventory(Soup_bread);
+                kitchen_choice_breaker = true;
+                break;
+        }
+        return kitchen_choice_breaker;
     }
 
 

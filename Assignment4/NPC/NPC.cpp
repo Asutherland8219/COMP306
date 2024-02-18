@@ -23,6 +23,7 @@ void NPC::talk(const std::string& dialogue) const {
 
 WhiteRabbit::WhiteRabbit() : NPC("White Rabbit") {}
 FishFootman::FishFootman() : NPC("Fish Footman") {}
-Dutchess::Dutchess() : NPC("Dutchess") {}
-CheshireCat::CheshireCat() : NPC("Cheshire Cat")
+Duchess::Duchess() : NPC("Duchess") {}
+CheshireCat::CheshireCat() : NPC("Cheshire Cat") {}
+Cook::Cook() : NPC("Cook") {}
 
