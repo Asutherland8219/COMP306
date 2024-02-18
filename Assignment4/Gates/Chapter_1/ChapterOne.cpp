@@ -7,11 +7,7 @@
  */
 
 #include <iostream>
-#include "../../Inventory/Inventory.h"
-#include "../../Character/Character.h"
 #include <sstream>
-#include "../../UniversalFunctions/textFormatting.cpp"
-#include "../../NPC/NPC.h"
 
 class ChapterOneGates {
 private:
@@ -37,7 +33,7 @@ public:
                 std::cout << "You start to get dizzy. Thinking to yourself `Is this what a panic attack feels like`.\n";
                 std::cout << "Because of the dizzyness, you decide to sit down. \n";
                 std::cout << "On the way down you lose your balance and drop to the floor...\n";
-                std::cout << "THUNK! \n The whole building shakes when you sit on the floor.\n";
+                std::cout << "THUNK! \nThe whole building shakes when you sit on the floor.\n";
                 std::cout << "Slowly, you regain your orientation and take a few deep breaths...";
                 break;
             case 3:
@@ -55,6 +51,7 @@ public:
                     int bottle_choice;
                     if (iss >> bottle_choice) {
                         ChapterOneGates::bottle = inventoryBottleChoice(bottle_choice, custom_character);
+                        std::cout << "After looking around, you decide nothing else of use is around and go for the key. \n";
                         panicChoice(1, custom_character);
                     }
 
@@ -90,10 +87,12 @@ public:
                 break;
             case 2:
                 std::cout << "The rabbit slows down and turns to face you, tilting it's head with an inquisitive look \n";
+                rabbit_breaker = true;
                 break;
             case 3:
                 std::cout << "The rabbit jumps and lets out a yelp, indicating that you have startled the creature, and scurries behind a rock."
                              "After a while, he slowly peeks out his head. \n";
+                rabbit_breaker = true;
                 break;
         }
         return rabbit_breaker;
@@ -105,7 +104,7 @@ public:
 
         switch (rabbit_item_choice) {
             case 1:
-                std::cout << "You leave all the items as they don't seem to be of use";
+                std::cout << "You leave all the items as they don't seem to be of use \n";
                 rabbit_breaker = false;
                 break;
             case 2:
@@ -130,11 +129,13 @@ public:
 
         switch (fan_choice) {
             case 1:
-                std::cout << "You pickup the fan, and add it to your inventory. It could be of use later";
+                std::cout << "You pickup the fan, and add it to your inventory. It could be of use later \n";
                 custom_character.addItemToInventory(fan);
+                fan_breaker = true;
                 break;
             case 2:
                 std::cout << "You ignore the fan, thinking it could only be trouble later on. \n";
+                fan_breaker = true;
                 break;
         }
         return fan_breaker;
@@ -144,16 +145,19 @@ public:
         switch (embankment_choice) {
             case 1:
                 std::cout << "You try and speak to the animals... \n";
-                textFormatter::printItalic("Hello little animals, do you prehaps speak like the rabbit? \n");
+                custom_character.talk("Hello little animals, do you perhaps speak like the rabbit? \n");
                 std::cout << "They all just stare at you, probably thinking what is wrong with this person. \n";
+                embankment_breaker = true;
                 break;
             case 2:
-                textFormatter::printItalic("Shoo animals! Get out of here! Shoo! Shoo! \n");
+                custom_character.talk("Shoo animals! Get out of here! Shoo! Shoo! \n");
                 std::cout << " They all stare at you, then slowly decide to go there separate ways \n";
+                embankment_breaker = true;
                 break;
             case 3:
-                textFormatter::printItalic("Oh these animals seem harmless, perhaps they themselves are also stuck. \n");
+                custom_character.talk("Oh these animals seem harmless, perhaps they themselves are also stuck. \n");
                 std::cout << "You leave them be, instead looking for something useful. \n";
+                embankment_breaker = true;
                 break;
         }
         return embankment_breaker;
@@ -218,7 +222,7 @@ public:
                         std::istringstream iss(book_input);
                         int book;
                         if (iss >> book) { // Attempt to read an integer from the input
-                            bookshelf_breaker = book_choice(book, custom_character);
+                            bookshelf_breaker = bookChoice(book, custom_character);
                         }
                     } else if (userChoice == "n" || userChoice == "no") {
                         // If the user doesn't want to read a book, break out of the loop
@@ -227,6 +231,7 @@ public:
                         // Handle invalid input
                         std::cout << "Invalid choice. Please enter 'y' or 'n'.\n";
                     }
+                    house_breaker = false;
                 }
 
 // Continue with the rest of your code...
@@ -236,7 +241,7 @@ public:
                              "Inside, you smell a pot boiling, likely some sort of soup \n"
                              "You see a man wearing a chefs hat, the cook, and another woman dressed in very gaudy attire... \n"
                              "She is also quite raucous; directing some crass comments towards the cook.";
-                house_breaker = false;
+                house_breaker = true;
                 break;
             case 4:
                 std::cout << "You walk towards the door, and slowly open it. Looking out into a beautiful large garden, with a small table and chairs set up. \n"
@@ -246,6 +251,7 @@ public:
                 custom_character.talk("I have a letter addressed to the Duchess, I am looking for her.\n");
                 rabbit.talk("Oh my she is in the kitchen, please deliver it to her \n");
                 std::cout << "You turn and head back towards the kitchen. \n";
+                house_breaker = false;
                 break;
         }
         return house_breaker;

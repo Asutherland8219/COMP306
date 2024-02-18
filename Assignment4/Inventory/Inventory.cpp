@@ -19,7 +19,20 @@ std::vector<Item> Inventory::items;
 
 // Method to add an item to the inventory
 void Inventory::addItem(const Item& newItem) {
-    items.push_back(newItem);
+    // Check if the item already exists in the inventory
+    auto it = std::find_if(items.begin(), items.end(),
+                           [&newItem](const Item& item) {
+                               return item.getName() == newItem.getName();
+                           });
+
+    if (it == items.end()) {
+        // Item not found in the inventory, add it
+        items.push_back(newItem);
+        std::cout << "Item added: " << newItem.getName() << "\n";
+    } else {
+        // Item already exists, do not add duplicate
+        std::cout << "Item already exists in the inventory: " << newItem.getName() << "\n";
+    }
 }
 
 // Method to display the inventory

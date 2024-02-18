@@ -17,7 +17,6 @@
 #include <iostream>
 #include <limits>
 #include "../UniversalFunctions/textFormatting.cpp"
-
 // Display character details
 
 void Character::displayCharacter() const {
@@ -114,7 +113,7 @@ void Character::dropItem(const std::string &item_name) {
 }
 
 Item * Character::getItem(const std::string &item_name) {
-    Character::inventory.getInventoryItem(item_name);
+     return const_cast<Item *>(Character::inventory.getInventoryItem(item_name));
 }
 
 

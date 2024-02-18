@@ -44,9 +44,11 @@ void Quests::addQuest(const std::string& description) {
 
 void Quests::completeLastQuestObjective() {
     if (!quests.empty()) {
-        quests.back().completeObjective();  // Complete the last objective of the last quest
+        quests.back().completeObjective();
+        // Complete the last objective of the last quest
     }
 }
+
 
 void Quest::displayQuest() const {
     std::cout << "{" << description << ": [";
