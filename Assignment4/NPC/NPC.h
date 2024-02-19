@@ -43,6 +43,46 @@ class NPC {
         Cook();
     };
 
+    class MarchHare : public NPC {
+    public:
+        MarchHare();
+    };
+
+    class MadHatter : public NPC {
+    public:
+        MadHatter();
+    };
+
+    class Five : public NPC {
+    public:
+        Five();
+    };
+
+    class Seven : public NPC {
+    public :
+        Seven();
+    };
+
+    class Queen : public NPC {
+    public:
+        Queen();
+    };
+
+    class Two : public NPC {
+    public:
+        Two();
+    };
+
+    class Soldiers : public NPC {
+    public:
+        Soldiers();
+    };
+
+    class King : public NPC {
+    public:
+        King();
+    };
+
 
 
 #endif //COMP306_NPC_H

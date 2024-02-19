@@ -12,7 +12,8 @@ add_subdirectory(googletest)
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
 # Define the test executable
-add_executable(Tests Base/TestFull.cpp)
+add_executable(Tests Base/TestFull.cpp
+        ../Sections/Tea_party.cpp)
 
 # Link with Google Test
 target_link_libraries(Tests gtest gtest_main)

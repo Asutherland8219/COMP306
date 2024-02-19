@@ -4,7 +4,7 @@
 
 #include "Character/CharacterBuild.cpp"
 #include "Sections/Intro.cpp"
-#include "Sections/Checkpoint1.cpp"
+#include "Sections/Welcome_to_wonderland.cpp"
 #include "NPC/NPC.cpp"
 
 int main() {

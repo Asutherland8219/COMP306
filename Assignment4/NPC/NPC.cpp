@@ -26,4 +26,14 @@ FishFootman::FishFootman() : NPC("Fish Footman") {}
 Duchess::Duchess() : NPC("Duchess") {}
 CheshireCat::CheshireCat() : NPC("Cheshire Cat") {}
 Cook::Cook() : NPC("Cook") {}
+MarchHare::MarchHare() : NPC("March Hare") {}
+MadHatter::MadHatter() : NPC("Mad Hatter"){}
+Five::Five() : NPC("Five") {}
+Seven::Seven() : NPC("Seven") {}
+Queen::Queen() : NPC("Queen") {}
+King::King() : NPC("King") {}
+Two::Two() : NPC("Two") {}
+Soldiers::Soldiers() : NPC("Soldiers") {}
+
+
 
