@@ -5,6 +5,7 @@
 #include "Character/CharacterBuild.cpp"
 #include "Sections/Intro.cpp"
 #include "Sections/Welcome_to_wonderland.cpp"
+#include "Sections/Tea_party.cpp"
 #include "NPC/NPC.cpp"
 
 int main() {
@@ -24,6 +25,8 @@ int main() {
     Checkpoint1 section1;
     section1.Chapter1(test_character);
     test_character.listInventory();
+    Checkpoint2 section2;
+    section2.Chapter2(test_character);
 
     // checkpoint 2
 
