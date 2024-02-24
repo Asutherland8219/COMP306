@@ -75,7 +75,7 @@ void Inventory::dropItem(const std::string& itemName) {
 }
 
 // Implementation of getInventoryItem function
-const Item* Inventory::getInventoryItem(const std::string& itemName) const {
+Item *const Inventory::getInventoryItem(const std::string& itemName) const {
     auto it = std::find_if(items.begin(), items.end(),
                            [&itemName](const Item& item) {
                                return item.getName() == itemName;
@@ -83,13 +83,16 @@ const Item* Inventory::getInventoryItem(const std::string& itemName) const {
 
     // Check if the item was found
     if (it != items.end()) {
+        // Return a pointer to the found item
         return &(*it);
     } else {
+        // Return nullptr if the item was not found
         return nullptr;
     }
 }
 
-void Inventory::updateItem(const std::string& oldName, const Item& updatedItem) {
+
+void Inventory::updateItem(const std::string& oldName, const Item& updatedItem) const {
     auto it = std::find_if(items.begin(), items.end(),[&oldName](const Item& item) {
                                return item.getName() == oldName;
                            });

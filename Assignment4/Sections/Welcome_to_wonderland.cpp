@@ -3,8 +3,7 @@
 //
 #include <iostream>
 #include <string>
-#include "../Character/Character.h"
-#include "../NPC/NPC.h"
+
 #include "../Gates/Chapter_1/ChapterOne.cpp"
 #include <sstream>
 #include "../UniversalFunctions/clearFunctions.cpp"

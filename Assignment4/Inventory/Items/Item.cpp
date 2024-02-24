@@ -20,3 +20,12 @@ std::string Item::getDescription() const {
 int Item::getValue() const {
     return value;
 }
+
+// Setters
+void Item::setName(const std::string& newName) {
+    name  = newName;
+}
+
+void Item::setDescription(const std::string& newDescription) {
+    description = newDescription;
+}

@@ -16,8 +16,12 @@ public:
     std::string getName() const;
     std::string getDescription() const;
     int getValue() const;
-
+    void setName(const std::string& newName);
+    void setDescription(const std::string& newDescription);
     std::string name;
+
+
+
 private:
     std::string description;
     int value;

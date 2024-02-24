@@ -5,6 +5,9 @@
 #include <iostream>
 #include <string>
 #include "../Gates/Chapter_2/ChapterTwo.cpp"
+#include "../Character/Character.h"
+#include "../NPC/NPC.h"
+#include "../UniversalFunctions/userInput.cpp"
 
 class Checkpoint2 {
 private:
@@ -28,6 +31,11 @@ public:
         Soldiers soldiers;
         King king;
         WhiteRabbit rabbit;
+        CheshireCat cheshirecat;
+
+        // Items
+        Item red_mushroom("Red Mushroom", "A mushroom with a red cap and yellow spots", 0);
+        Item blue_mushroom("Blue Mushroom", "A mushroom with a blue cap and white spots", 0);
 
         std::cout
                 << "There was a table set out under a tree in front of the house, and the March Hare and the Hatter were having tea at it: a Dormouse was sitting between them, fast asleep, \n"
@@ -84,10 +92,16 @@ public:
 
         std::cout << "He turned and glared at the March Hare";
         mad_hatter.talk("I told you butter wouldn't suit the works!");
+
+        // grab the mushrooms
         std::cout
                 << "While he was turned to talk and argue with the, you peruse the table for anything that might be useful on the table...\n";
         std::cout
                 << "You see two mushrooms, one blue and one red. You grab a piece of both and slip them into your pocket.\n";
+        // add the mushrooms
+        Character::addItemToInventory(red_mushroom);
+        Character::addItemToInventory(blue_mushroom);
+
         march_hare.talk("It was the best butter");
 
         mad_hatter.talk(
@@ -118,14 +132,34 @@ public:
             }
         }
 
-
-        // talk to the cook, asking about the mushrooms
-
-
         std::cout
-                << "You stop for a moment and think, `where to go now? I suppose I should try and reach the Queen, to see if she knows how to leave.`";
+                << "You stop for a moment and think, `where to go now? I suppose I should try and reach the Queen, to see if she knows how to leave Wonderland.`";
 
         // add attempt to call to the cat, seeing if it can help you
+        std::cout << "A thought crosses your mind, `what if the cat knows anything helpful, it disappeared before I had a chance to talk to it`";
+
+        custom_character.talk("Mr kitty, hello can you hear me? I may not be able to see you but maybe you are still listening. Pspspspsps here kitty kitty.");
+
+        cheshirecat.talk("I do not appreciate these mundane callings. I am no ordinary feline you know. Additionally, my name is Cheshire Cat, not kitty kitty...");
+
+        std::cout << "You hear the cat talking but don't see him yet. \n"
+                     "Suddenly, you turn to face the living room area and see a shape slowly appearing in the doorway. First you see the sharp teeth and two big eyes. \n"
+                     "This time though, they do not look friendly and instead look quite perturbed and disgruntled at your remarks/\n";
+
+        while (!cat_breaker) {
+            std::cout << std::endl;
+            std::cout << "What would you like to do?\n";
+            std::cout << "1. Apologize profusely, hoping to get back on the cats good side.\n";
+            std::cout << "2. Apologize, and quickly ask a follow up question, hoping to distract the cat into answering. \n";
+            std::cout << "3. Double down, mock the cat for being offended. \n";
+
+            auto input2_ch2 = getUserInput(custom_character);
+            std::istringstream iss(input2_ch2);
+            int cat;
+            if (iss >> cat) { // Attempt to read an integer from the input
+                cat_breaker = ch_two_gates.catChoice(cat, custom_character);
+            }
+        }
 
         std::cout << "You return back to the room with the tiny door. Hoping to see something has changed. \n"
                      "Unfortunately, once you get there, you see the large table and the small locked door. ";
