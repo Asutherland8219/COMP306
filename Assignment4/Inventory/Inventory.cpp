@@ -88,3 +88,20 @@ const Item* Inventory::getInventoryItem(const std::string& itemName) const {
         return nullptr;
     }
 }
+
+void Inventory::updateItem(const std::string& oldName, const Item& updatedItem) {
+    auto it = std::find_if(items.begin(), items.end(),[&oldName](const Item& item) {
+                               return item.getName() == oldName;
+                           });
+
+    if (it != items.end()) {
+        // Item found, update it
+        std::cout << "Item Updated: " << oldName << " -> " << updatedItem.getName() << "\n";
+        // Update both the name and description
+        it->setName(updatedItem.getName());
+        it->setDescription(updatedItem.getDescription());
+    } else {
+        // Item not found, raise a prompt indicating that it's not in the inventory
+        std::cout << "Item not found in the inventory: " << oldName << "\n";
+    }
+}
