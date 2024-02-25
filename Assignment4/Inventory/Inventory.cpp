@@ -56,7 +56,7 @@ void Inventory::_displayInventory() const {
 }
 
 // Implementation of dropItem function
-void Inventory::dropItem(const std::string& itemName) {
+void Inventory::dropItem(const std::string& itemName) const {
     // Find the item based on the string given
     auto it = std::find_if(items.begin(), items.end(),
                            [&itemName](const Item& item) {

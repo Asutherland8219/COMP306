@@ -8,6 +8,7 @@
 #include "../Character/Character.h"
 #include "../NPC/NPC.h"
 #include "../UniversalFunctions/userInput.cpp"
+#include <unordered_map>
 
 class Checkpoint2 {
 private:
@@ -135,7 +136,6 @@ public:
         std::cout
                 << "You stop for a moment and think, `where to go now? I suppose I should try and reach the Queen, to see if she knows how to leave Wonderland.`";
 
-        // add attempt to call to the cat, seeing if it can help you
         std::cout << "A thought crosses your mind, `what if the cat knows anything helpful, it disappeared before I had a chance to talk to it`";
 
         custom_character.talk("Mr kitty, hello can you hear me? I may not be able to see you but maybe you are still listening. Pspspspsps here kitty kitty.");
@@ -164,12 +164,38 @@ public:
         std::cout << "You return back to the room with the tiny door. Hoping to see something has changed. \n"
                      "Unfortunately, once you get there, you see the large table and the small locked door. ";
 
-        // Add inventory check for Fan to shrink, red mushroom to grow, blue mushroom to shrink
-        // if fan, use fan, if red mushroom grow large get key then use blue mushroom or fan to shrink
-        // if no items, simply run up and kick the door repeatedly yelling for help... it magically opens
+        std::cout << "Perhaps now would be a good time to look at everything you have collected so far. There might be something of use. \n";
 
-        // Assuming you have characters named Five, Seven, and custom_character
-// Use Five.talk, Seven.talk, and custom_character.talk for their respective lines
+        std::vector<std::string> possible_items = {"Blue Mushroom", "Fan", "Shrinking Fan", "Red Mushroom", "Growing Mushroom", "Shrinking Mushroom", "Cook's Cake"};
+
+        std::unordered_map<int, std::string> inventoryMap;
+        // Loop over the possible_items list
+        while (!small_door_breaker) {
+
+            std::cout << "What would you like to do?\n";
+            for (int i = 0; i < possible_items.size(); ++i) {
+                const std::string &itemName = possible_items[i];
+
+                // Check if the item exists in the character's inventory
+                bool itemExists = checkInventory(itemName, custom_character);
+
+
+                // Output menu option based on item existence
+                std::cout << i + 1 << ". ";
+                if (itemExists) {
+                    std::cout << "Use " << itemName;
+                    inventoryMap[i + 1] = itemName;
+                    std::cout << std::endl;
+                }
+            }
+
+            auto input3_ch2 = getUserInput(custom_character);
+            std::istringstream iss(input3_ch2);
+            int fan;
+            if (iss >> fan) { // Attempt to read an integer from the input
+                small_door_breaker = ch_two_gates.fanChoice(fan, custom_character, inventoryMap);
+            }
+    }
 
         std::cout
                 << "A large rose-tree stood near the entrance of the garden: the roses growing on it were white, but there were three gardeners at it, busily painting them red. \n"
@@ -286,6 +312,10 @@ public:
         custom_character.talk("HAHAHAHAHAHAHAHAHAHAHAHAH you're kidding right? That is hilarious!");
 
         rabbit.talk("Oh, hush! ; The queen will hear you! You see, she came rather late, and the queen said—");
+
+        queen.talk("GET TO YOUR PLACES!");
+
+        std::cout << "And so, the game begins... \n";
 
 
     return  custom_character;

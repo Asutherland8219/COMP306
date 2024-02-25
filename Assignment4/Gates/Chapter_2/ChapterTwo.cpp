@@ -7,12 +7,15 @@
 #include "../../Inventory/Items/Item.h"
 #include "../../NPC/NPC.h"
 #include "../../Character/Character.h"
+#include "../../UniversalFunctions/checkFunctions.cpp"
+#include <unordered_map>
 
 class ChapterTwoGates {
 private:
 public:
     bool cook_breaker;
     bool cat_breaker;
+    bool fan_breaker;
 
     bool cookChoice(int cook_choice, const Character& custom_character) {
         Cook cook;
@@ -68,24 +71,159 @@ public:
     }
 
     bool catChoice(int cat_choice, const Character& custom_character) {
+        CheshireCat cheshirecat;
         switch (cat_choice) {
             case 1:
-                std::cout
-                        << "You flash him a friendly smile in return. He keeps walking towards the kitchen, unbothered "
-                           "from getting chewed out by the Queen earlier. \n";
+                custom_character.talk("I am so sorry Mr. Cheshire Cat. I did not mean to offend, I just had no idea how to get your attention.");
+                cheshirecat.talk("Oh hush you bore me with your niceties."
+                                 "If you really want to leave here, go back to the small door.");
+                std::cout << "He disappears. \n";
                 cat_breaker = true;
                 break;
             case 2:
-                std::cout << "You smile back at him but before he goes you get his attention...\n";
+                custom_character.talk("Apologies Mr. Cheshire Cat, while I have you attention, do you know how I leave Wonderland?");
+                std::cout << "He throws a quick grin your way. Knowing you just deflecting the conversation. \n";
+                cheshirecat.talk("Why of course dear I know how to escape. But I don't think I shall tell you for what is the fun in that? \n"
+                                 "I can and will however direct you in the right direction."
+                                 "Remember where you started as it will be the key to moving forward.");
+                std::cout << "He flashes another toothy grin, and starts to disappear... \n";
+
+                if (!checkInventory("Red Mushroom", custom_character)) {
+                    custom_character.talk("Wait!! I have these mushrooms, can you tell me anything about them?");
+                    cheshirecat.talk("Ha. Yes one of them is to grow, the other is to shrink. I won't tell you which is which.");
+                    std::cout << "He winks at you and is gone from sight.\n";
+                }
                 cat_breaker = true;
                 break;
             case 3:
-                std::cout << "You grab the cooks attention, making him stop in his tracks to talk.\n";
+                std::cout << "You smile at the cat and continue. \n";
+                custom_character.talk("Don't be such a prude, I think you need a little catnip to loosen up.");
+                cheshirecat.talk("Ou I like your attitude, you have some serious spunk, the Queen is gonna love this.");
+                cheshirecat.talk("You called me over here, so what do you want?");
+                custom_character.talk("Straight to the point, I like it.");
+                if (!checkInventory("Red Mushroom", custom_character)) {
+                    custom_character.talk("I have these mushrooms, can you tell me anything about them?");
+                    cheshirecat.talk("Ha. Yes the red is to grow, the blue is to shrink. Is that all?");
+                    custom_character.talk("Do you have a litter box or do you just go wherever you please around here?");
+                    cheshirecat.talk("HA That is a good one. If that is all I'll be on my way. See you at the croquet game.");
+                    std::cout << "The cat disappears from sight";
+                }
+                else {
+                    custom_character.talk("Do you how to escape from here? From Wonderland?");
+                    cheshirecat.talk("Of course, go through the small door earlier. Then you'll have some fun and be on your way");
+                    std::cout << "He winks at you and begins to disappear \n";
+                    custom_character.talk("One more question; Do you know the muffin man? Who lives on Drury lane?");
+                    cheshirecat.talk("hahaha");
+                    std::cout << "He cackles as he disappears out of sight";
+                }
                 cat_breaker = true;
                 break;
         }
         return cat_breaker;
     }
+
+    bool fanChoice(int fan_choice, const Character& custom_character, std::unordered_map<int, std::string> inventory_map) {
+        std::vector<std::string> shrinking_items = {"Blue Mushroom", "Fan", "Shrinking Fan", "Shrinking Mushroom"};
+        std::vector<std::string> growing_items = {"Red Mushroom", "Growing Mushroom","Cook's Cake"};
+        switch (fan_choice) {
+            case 1:
+            case 2:
+            case 3:
+                // Check if the selected choice exists in the inventory map
+                if (inventory_map.find(fan_choice) != inventory_map.end()) {
+                    // Get the item name based on the user's selection
+                    const std::string &selectedItem = inventory_map.at(fan_choice);
+
+                    // Get the corresponding item from the inventory
+                    const Item *selectedInventoryItem = custom_character.inventory.getInventoryItem(selectedItem);
+
+                    // Perform actions based on the selected item
+                    if (selectedInventoryItem) {
+                        // Example: Display information about the selected item
+                        std::cout << "Selected Item: " << selectedItem << std::endl;
+                        std::cout << "Description: " << selectedInventoryItem->getDescription() << std::endl;
+
+                        if (std::find(shrinking_items.begin(), shrinking_items.end(), selectedItem) !=
+                            shrinking_items.end()) {
+                            // Additional actions for shrinking items
+                            std::cout << "You use the item and suddenly start getting smaller... \n";
+                            custom_character.inventory.dropItem(selectedInventoryItem->name);
+                            custom_character.talk("Perfect, now I can fit through the door.");
+                            std::cout
+                                    << "You walk over to the door, but wait, it's still locked, and you don't have key... \n";
+                            custom_character.talk("no no no I can't get in! It's locked!!");
+                            std::cout
+                                    << "You run up to the door and start banging on it over and over again, hoping someone will answer \n"
+                                       "After a few minutes of no response, in your frantic rage, you twist the door knob...";
+                            std::cout << "To your surprise, it opens with ease...";
+                            custom_character.talk(
+                                    "What the heck!? Was the door unlocked all along and the key was just for show? or did I bang the lock loose?");
+                            std::cout << "You don't waste anytime dwelling on this, and walk through the door. \n";
+                        } else if (std::find(growing_items.begin(), growing_items.end(), selectedItem) !=
+                                   growing_items.end()) {
+                            // Additional actions for growing items
+                            std::cout
+                                    << "You grow larger and larger, till you are big enough to reach the table and grab the key.\n";
+                            std::cout
+                                    << "Once you have the key, you return to the door, but are much too large to enter...\n";
+
+                            bool hasShrinkingItem = false;
+                            std::string selectedShrinkingItem;
+                            for (const std::string &shrinkingItem: shrinking_items) {
+                                if (custom_character.inventory.getInventoryItem(shrinkingItem)) {
+                                    hasShrinkingItem = true;
+                                    break;
+                                }
+                            }
+
+                            if (hasShrinkingItem) {
+                                std::cout << "Choose another item to use:" << std::endl;
+                                for (int i = 0; i < shrinking_items.size(); ++i) {
+                                    std::cout << i + 1 << ". " << shrinking_items[i] << std::endl;
+                                }
+
+                                int shrinkingChoice;
+                                std::cout << "Enter the number corresponding to your choice: ";
+                                std::cin >> shrinkingChoice;
+
+                                // Validate the user's choice
+                                if (shrinkingChoice >= 1 && shrinkingChoice <= shrinking_items.size()) {
+                                    selectedShrinkingItem = shrinking_items[shrinkingChoice - 1];
+                                    hasShrinkingItem = true;
+
+
+                                    // Additional actions for having a Shrinking item along with Growing Mushroom
+                                    std::cout << "You have chosen to use: " << selectedShrinkingItem << std::endl;
+                                    custom_character.inventory.dropItem(selectedShrinkingItem);
+
+                                    std::cout
+                                            << "You start growing smaller now, small enough to reach the door and unlock it. \n"
+                                               "Without wasting any time, you walk through the door... \n";
+
+                                }
+                            } else {
+                                std::cout
+                                        << "You are too large to fit through the door. With nothing to lose, you pull your leg back and kick the door with all of your might. \n"
+                                           "To your surprise the door breaks off... \n"
+                                           "Because of the large exertion of force, you start to sweat profusely and notice that you are shrinking back to normal size, \n"
+                                           "Though still too large to enter the door. \n";
+                                std::cout
+                                        << "After a few minutes of waiting, you see an item fly through the door towards you. It is a small cupcake, in the same color way as the Cheshire Cat; \n"
+                                           "In the distance, you hear a laugh almost as if it is fading away. \n"
+                                           "Without a thought, you eat the cupcake, because you are both hungry and curious of its effects \n"
+                                           "You notice after finishing it, the door getting larger and larger, but that is not the case, as in fact, you are shrinking! \n"
+                                           "Now large enough to make it through the door, you walk through, hoping there's some sort of respite on the other side... \n";
+                            }
+                        };
+
+                    }
+                }
+                fan_breaker = true;
+        }
+        return fan_breaker;
+    }
+
+
 
 
 
