@@ -16,6 +16,8 @@ public:
     bool cook_breaker;
     bool cat_breaker;
     bool fan_breaker;
+    bool gardener_breaker;
+    bool gardener_save_breaker;
 
     bool cookChoice(int cook_choice, const Character& custom_character) {
         Cook cook;
@@ -222,6 +224,65 @@ public:
         }
         return fan_breaker;
     }
+
+    bool gardenerIntroChoice(int gardener_choice, Character custom_character) {
+        Item painted_flower("Painted Flower", "A flower, originally white that was painted red", 1);
+        switch (gardener_choice) {
+            case 1:
+                custom_character.talk("Hello Gentleman? Gentlecards? Gentlethings? Anyways, may I ask what you are doing?");
+                std::cout << "After asking, you walk over and pluck one of the painted flowers from the bush";
+                Character::addItemToInventory(painted_flower);
+                gardener_breaker = true;
+                break;
+            case 2:
+                custom_character.talk("What the HELL are you doing to those flowers??");
+                gardener_breaker = true;
+                break;
+            case 3:
+                std::cout << "You point to the bucket of paint, then to the flowers, and then give the gardeners a puzzled look. \n";
+                gardener_breaker = true;
+        }
+        return gardener_breaker;
+
+    }
+
+    bool gardenerSaveChoice(int gardener_save_choice, Character custom_character) {
+        Soldiers soldiers;
+        switch (gardener_save_choice) {
+            case 1:
+                custom_character.talk("Listen, you all should probably run. I'll distract the soldiers.");
+                std::cout << "You pretend to get dizzy and faint. When you fall down, the soldiers run to you offering aid \n"
+                             "In the background, you can hear the Gardeners running away. \n";
+                soldiers.talk("Wait.. Where did they go? Oh crap what are we gonna do? The Queen will have our heads if we don't behead them.");
+                custom_character.talk("Don't worry about them, just tell the Queen you beheaded them. She won't know the difference.");
+                gardener_save_breaker = true;
+                break;
+            case 2:
+                std::cout << "You grab the gardeners and quickly shove them into some nearby pots. Telling them to be quiet. \n";
+                soldiers.talk("Where did they go? They were just here I swear. The Queen will have our head if we don't behead them.");
+                custom_character.talk("Don't worry about them, just tell the Queen you beheaded them. She won't know the difference.");
+                gardener_save_breaker = true;
+                break;
+            case 3:
+                custom_character.talk("Listen, I have an idea, any chance y'all can hide your heads? Tuck it in like a turtle?");
+                std::cout << "The Gardeners look puzzled, but look at each other than nod. \n";
+                custom_character.talk("Great, hide your head and lie down. Don't make a sound and leave the rest to me.");
+                std::cout << "The Gardeners quickly hide their heads, and lie down on the ground. You grab some berries from a nearby bush and splatter them"
+                             "around the head. The soldiers approach you shortly after. \n";
+                custom_character.talk("Hello Officers, you can report to the Queen they are beheaded");
+                std::cout << "The Soldiers look at you, confused but also terrified. \n";
+                soldiers.talk("You don't have a sword or axe, how did you manage to behead them?");
+                custom_character.talk("I ripped their heads off, and threw them in the bush over there.");
+                std::cout << "You point to the bush, you turn back to face the soldier and show them your red stained hands and flash a toothy grin. \n"
+                             "One of the soldiers, turns green in the face and turns to vomit, the other responds to you with a tremble, also taking a step back in the process.";
+                soldiers.talk("Uhh oh um yes okay that works alright thank you very much have a nice day goodbye!");
+                std::cout << "The Soldiers trip over each-other trying to run away as fast as possible to return to the procession.";
+                gardener_save_breaker = true;
+        }
+        return gardener_save_breaker;
+
+    }
+
 
 
 

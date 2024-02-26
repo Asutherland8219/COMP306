@@ -57,6 +57,9 @@ public:
         custom_character.talk(
                 "You called me over! Did you not want me to sit? I didn't know it was your table, it’s laid for a great many more than three.");
 
+        // print break
+        getUserInput(custom_character, true);
+
         mad_hatter.talk("Your hair wants cutting");
 
         std::cout << "He had been watching you inquisitively during your conversation with the March Hare \n";
@@ -86,6 +89,9 @@ public:
         mad_hatter.talk("What day of the month is it?");
         std::cout
                 << "he turned to you and he had taken his watch out of his pocket, and was looking at it uneasily, shaking it every now and then, and holding it to his ear. \n";
+
+        // print break
+        getUserInput(custom_character, true);
 
         custom_character.talk("From where I cam from, The fourth.");
 
@@ -125,13 +131,16 @@ public:
             std::cout << "2. Stop him and ask some questions; perhaps he knows something about the mushrooms. \n";
             std::cout << "3. Apologize for not standing up for him earlier. \n";
 
-            auto input1_ch2 = getUserInput(custom_character);
+            auto input1_ch2 = getUserInput(custom_character, false);
             std::istringstream iss(input1_ch2);
             int cook;
             if (iss >> cook) { // Attempt to read an integer from the input
                 cook_breaker = ch_two_gates.cookChoice(cook, custom_character);
             }
         }
+
+        // print break
+        getUserInput(custom_character, true);
 
         std::cout
                 << "You stop for a moment and think, `where to go now? I suppose I should try and reach the Queen, to see if she knows how to leave Wonderland.`";
@@ -153,13 +162,16 @@ public:
             std::cout << "2. Apologize, and quickly ask a follow up question, hoping to distract the cat into answering. \n";
             std::cout << "3. Double down, mock the cat for being offended. \n";
 
-            auto input2_ch2 = getUserInput(custom_character);
+            auto input2_ch2 = getUserInput(custom_character, false);
             std::istringstream iss(input2_ch2);
             int cat;
             if (iss >> cat) { // Attempt to read an integer from the input
                 cat_breaker = ch_two_gates.catChoice(cat, custom_character);
             }
         }
+
+        // print break
+        getUserInput(custom_character, true);
 
         std::cout << "You return back to the room with the tiny door. Hoping to see something has changed. \n"
                      "Unfortunately, once you get there, you see the large table and the small locked door. ";
@@ -189,7 +201,7 @@ public:
                 }
             }
 
-            auto input3_ch2 = getUserInput(custom_character);
+            auto input3_ch2 = getUserInput(custom_character, false);
             std::istringstream iss(input3_ch2);
             int fan;
             if (iss >> fan) { // Attempt to read an integer from the input
@@ -215,11 +227,23 @@ public:
                 << "he turned as he was speaking and spotted you standing there. Once he saw you and stopped talking the others turned and looked at you as well... \n"
                    "Suddenly they started bowing towards you. \n";
 
-        // Insert talking sequence asking questions.
+        // print break
+        getUserInput(custom_character, true);
 
+        while (!gardener_breaker) {
+            std::cout << std::endl;
+            std::cout << "What would you like to do?\n";
+            std::cout << "1. Greet the gardeners (the cards?) with a friendly grin. Politely ask what they are doing.\n";
+            std::cout << "2. Say `What the HELL are you doing?\n";
+            std::cout << "3. Say nothing, but just point at the paint can and the bushes, looking puzzled. \n";
 
-        // Assuming you have characters named Two, custom_character, Queen, King, Knave, and soldiers
-// Use Two.talk, custom_character.talk, Queen.talk, King.talk, Knave.talk, soldiers.talk for their respective lines
+            auto input4_ch2 = getUserInput(custom_character, false);
+            std::istringstream iss(input4_ch2);
+            int gardener;
+            if (iss >> gardener) { // Attempt to read an integer from the input
+                gardener_breaker = ch_two_gates.gardenerIntroChoice(gardener, custom_character);
+            }
+        }
 
         std::cout << "Five and Seven said nothing, but looked at Two. \n";
         two.talk(
@@ -240,6 +264,9 @@ public:
         custom_character.talk(response);
         queen.talk("And who are these?");
         std::cout << "She pointed to the three gardeners bowing down on the ground. \n";
+
+        // print break
+        getUserInput(custom_character, true);
 
         // Use lowercase names and replace Alice with custom_character
         custom_character.talk("How should I know?; It’s no business of mine.");
@@ -271,10 +298,25 @@ public:
 
         custom_character.talk("You shan’t be beheaded!");
 
-        //and she put them into a large flower-pot that stood near.");
+        // print break
+        getUserInput(custom_character, true);
 
-// Assuming you have characters named queen, custom_character, and soldiers
-// Use lowercase names and replace Alice with custom_character
+        //and she put them into a large flower-pot that stood near.");
+        while (!gardener_save_breaker) {
+            std::cout << std::endl;
+            std::cout << "What would you like to do?\n";
+            std::cout << "1. Tell the Gardeners to run. \n";
+            std::cout << "2. Grab the Gardeners, and shove them in a nearby pot. \n";
+            std::cout << "3. Ask the Gardeners if he can hide his head. \n";
+
+            auto input5_ch2 = getUserInput(custom_character, false);
+            std::istringstream iss(input5_ch2);
+            int gardener_save;
+            if (iss >> gardener_save) { // Attempt to read an integer from the input
+                gardener_save_breaker = ch_two_gates.gardenerSaveChoice(gardener_save, custom_character);
+            }
+        }
+
         queen.talk("Are their heads off?");
 
         soldiers.talk("Their heads are gone, if it please your majesty!");
@@ -300,6 +342,9 @@ public:
         std::cout
                 << "He looked anxiously over his shoulder as he spoke, and then raised himself upon tiptoe, put his mouth close to her ear, and whispered :";
         rabbit.talk("She's under sentence of execution.");
+
+        // print break
+        getUserInput(custom_character, true);
 
         custom_character.talk("What for?");
 
