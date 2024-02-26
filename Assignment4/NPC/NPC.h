@@ -83,6 +83,20 @@ class NPC {
         King();
     };
 
+    class Mouse : public NPC {
+    public:
+        Mouse();
+    };
+
+    class Mother : public NPC {
+    public:
+        Mother();
+    };
+
+    class Nurse : public NPC {
+        Nurse();
+    };
+
 
 
 #endif //COMP306_NPC_H

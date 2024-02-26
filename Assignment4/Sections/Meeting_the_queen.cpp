@@ -31,6 +31,7 @@ public:
     King king;
     WhiteRabbit rabbit;
     CheshireCat cheshirecat;
+    Duchess duchess;
 
     Character Chapter3(Character custom_character) {
     std::cout << "People began running about in all directions, tumbling up against each other; however, they got settled down in a minute or two, and the game began. \n "
@@ -92,7 +93,7 @@ public:
 
     // talk to the duchess, if correct path, she gives you article of clothing to wear
 
-    std::cout << "You set out with your troupe; the Duchess, the Mad Hatter and somewhere in the midst, though not in sight is the Cheshire Cat. \n";
+    std::cout << "You set out with your troupe; the Duchess, the Mad Hatter, the March Hare and somewhere in the midst, though not in sight, is the Cheshire Cat. \n";
 
     std::cout << "You are on your way to the large Castle, finally, with hopes to put an end to this wonderful adventure. \n";
 

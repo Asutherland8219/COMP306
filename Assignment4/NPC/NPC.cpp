@@ -34,6 +34,9 @@ Queen::Queen() : NPC("Queen") {}
 King::King() : NPC("King") {}
 Two::Two() : NPC("Two") {}
 Soldiers::Soldiers() : NPC("Soldiers") {}
+Mouse::Mouse() : NPC("Dormouse") {}
+Mother::Mother() : NPC("Mother") {}
+Nurse::Nurse() : NPC("Nurse") {}
 
 
 

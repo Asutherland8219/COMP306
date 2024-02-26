@@ -14,6 +14,8 @@
 #include <sstream>
 #include <vector>
 #include <algorithm>
+#include <limits>
+
 
 bool isInt(const std::string &str) {
     std::istringstream iss(str);
@@ -21,11 +23,23 @@ bool isInt(const std::string &str) {
     return iss >> temp && iss.eof();
 }
 
-std::string getUserInput(Character custom_character) {
+std::string getUserInput(Character custom_character, bool input_break) {
     std::string input;
 
     while (true) {
         std::getline(std::cin, input);
+
+        // A check for input break, this breaks up the text in the terminal, allowing the user to read before continuing
+        if (input_break) {
+            std::cout << "Please press enter to continue...\n";
+            // Clear the input buffer to discard any remaining characters
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+            // Wait for the user to press Enter
+            std::getline(std::cin, input);
+
+            break;
+        }
 
         if (isInt(input)) {
             int numericValue = std::stoi(input);
@@ -67,8 +81,5 @@ std::string getUserInput(Character custom_character) {
             break;
         }
     }
-
-    // Continue with the rest of your program logic
-    // ...
     return input;
 }
