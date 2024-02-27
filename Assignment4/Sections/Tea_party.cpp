@@ -8,6 +8,7 @@
 #include "../Character/Character.h"
 #include "../NPC/NPC.h"
 #include "../UniversalFunctions/userInput.cpp"
+#include "../UniversalFunctions/textFormatting.cpp"
 #include <unordered_map>
 
 class Checkpoint2 {
@@ -361,6 +362,8 @@ public:
         queen.talk("GET TO YOUR PLACES!");
 
         std::cout << "And so, the game begins... \n";
+
+        textFormatter::printBoldItalic("END CHAPTER 1");
 
 
     return  custom_character;

@@ -45,7 +45,7 @@ public:
                     std::cout << "1. Add the bottle to your inventory. \n";
                     std::cout << "2. Discard the bottle. \n";
 
-                    auto input_bottle = getUserInput(custom_character);
+                    auto input_bottle = getUserInput(custom_character, false);
                     std::istringstream iss(input_bottle);
 
                     int bottle_choice;
@@ -218,7 +218,7 @@ public:
                                      "2. Family Tree of the Queen of Hearts.\n"
                                      "3. The rat, the bat, and the fat old Cheshire Cat.\n";
 
-                        auto book_input = getUserInput(custom_character);
+                        auto book_input = getUserInput(custom_character,false);
                         std::istringstream iss(book_input);
                         int book;
                         if (iss >> book) { // Attempt to read an integer from the input

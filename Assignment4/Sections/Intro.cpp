@@ -51,7 +51,7 @@ public:
 
             // input check
             int choice;
-            auto input_well = getUserInput(custom_character);
+            auto input_well = getUserInput(custom_character, false);
             std::istringstream iss(input_well);
             if (iss >> choice) {
                 well_breaker = int_choice.wellChoice(choice);
@@ -73,7 +73,7 @@ public:
             std::cout << "1. Check yourself for injuries\n";
             std::cout << "2. Lay down and rest (You don't know what just happened)\n";
 
-            auto input_land = getUserInput(custom_character);
+            auto input_land = getUserInput(custom_character, false);
             std::istringstream iss(input_land);
             int land_choice;
 
@@ -106,7 +106,7 @@ public:
             std::cout << "3. Leave \n";
 
             int hallway_choice;
-            auto input_hall = getUserInput(custom_character);
+            auto input_hall = getUserInput(custom_character, false);
             std::istringstream iss(input_hall);
 
             if (iss >> hallway_choice)
@@ -131,7 +131,7 @@ public:
 
             int drink_choice;;
 
-            auto input_drink = getUserInput(custom_character);
+            auto input_drink = getUserInput(custom_character, false);
             std::istringstream iss(input_drink);
             if (iss >> drink_choice) {
                 drink_breaker = int_choice.drinkChoice(drink_choice);
@@ -155,13 +155,15 @@ public:
             std::cout << "3. Yell for help. \n";
             int table_choice;
 
-            auto input_table = getUserInput(custom_character);
+            auto input_table = getUserInput(custom_character, false);
             std::istringstream iss(input_table);
             if (iss >> table_choice) {
                 table_breaker = int_choice.tableChoice(table_choice);
             }
         }
         std::cout << "and now your adventure REALLY begins...";
+
+        textFormatter::printBoldItalic("END INTRO");
     }
 
 };

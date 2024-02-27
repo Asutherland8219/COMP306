@@ -3,11 +3,12 @@
 //
 #include <iostream>
 #include <string>
-#include "../Gates/Chapter_2/ChapterTwo.cpp"
 #include "../Character/Character.h"
 #include "../NPC/NPC.h"
 #include "../UniversalFunctions/userInput.cpp"
+#include "../UniversalFunctions/textFormatting.cpp"
 #include <unordered_map>
+#include "../Gates/Chapter_3/ChapterThree.cpp"
 
 
 class Checkpoint3 {
@@ -19,6 +20,8 @@ private:
     bool gardener_breaker;
     bool queen_breaker;
     bool gardener_save_breaker;
+    bool duchess_intro_breaker;
+    bool duchess_house_breaker;
 
 public:
     MarchHare march_hare;
@@ -34,6 +37,8 @@ public:
     Duchess duchess;
 
     Character Chapter3(Character custom_character) {
+        ChapterThreeGates ch_three_gates;
+
     std::cout << "People began running about in all directions, tumbling up against each other; however, they got settled down in a minute or two, and the game began. \n "
                  "You have never seen such a curious croquet-ground in her life; it was all ridges and furrows; \n"
                  "the balls were live hedgehogs, the mallets live flamingoes, and the soldiers had to double themselves up and to stand on their hands and feet, to make the arches. \n";
@@ -41,6 +46,10 @@ public:
                  " and in a very short time the Queen was in a furious passion, and went stamping about, and shouting \n";
     queen.talk("Off with his head!");
     queen.talk("Off with her head!");
+
+    // print break
+    getUserInput(custom_character, true);
+
     std::cout << "This was repeated every few minutes. It seems the Queen is very disagreeable. It is a miracle anyone here is left alive!\n"
                  "You start to feel uneasy and nervous. You look around hoping for a way to escape... \n";
     std::cout << "In the corner of your eye, you see a shape forming on a tree branch. As usual the first thing you see is the large toothy grin...";
@@ -48,6 +57,9 @@ public:
     custom_character.talk("I don't think they play fairly. and they all quarrel so dreadfully one can’t hear oneself speak—and they don’t seem to have any rules in particular; \n"
                           "at least, if there are, nobody attends to them—and you’ve no idea how confusing it is all the things being alive;\n"
                           " for instance, there’s the arch I’ve got to go through next walking about at the other end of the ground—and I should have croqueted the Queen’s hedgehog just now, only it ran away when it saw mine coming!");
+    // print break
+    getUserInput(custom_character, true);
+
     cheshirecat.talk("Oh well it sounds like you are really enjoying yourself. How do you like the Queen?");
     custom_character.talk("Not at all, she's so extremely --");
     std::cout << "As you are finishing your sentence, the Queen turns and walks towards you\n";
@@ -59,6 +71,10 @@ public:
     king.talk("I don’t like the look of it at all, however, it may kiss my hand if it likes.");
     cheshirecat.talk("I'd rather not.");
     king.talk("Don’t be impertinent , and don’t look at me like that!");
+
+    // print break
+    getUserInput(custom_character, true);
+
     std::cout << "The cat was eying the king up and down. Almost as if looking at a meal\n";
     custom_character.talk("A cat may look at a king; I've read that in some book, but I don’t remember where.");
     king.talk("Well, it must be removed");
@@ -68,6 +84,10 @@ public:
     queen.talk("Off with his head!");
     king.talk("I'll fetch the executioner myself");
     std::cout << "He hurried off to fetch the executioner\n";
+
+    // print break
+    getUserInput(custom_character, true);
+
     std::cout << "You turn around and head back to the game, as it was your turn, or at least as close as it could be to your turn in this chaos \n";
     std::cout << "After playing your turn and hitting your `hedgehog` ; you turned back around to check on the Cheshire Cat\n"
                  "As soon as you start to approach, you notice a large gathering of people and hear the Queen, the King and the Executioner all arguing. \n"
@@ -81,9 +101,30 @@ public:
                  "Once he is gone, everyone is running around frantically trying to find him. \n"
                  "The Executioner returned with the Duchess and joined the madness. \n";
 
+    // print break
+    getUserInput(custom_character, true);
+
     // talk with the duchess
 
-    // after talking with her, and resting for a bit
+    while (!duchess_intro_breaker) {
+            std::cout << std::endl;
+            std::cout << "What would you like to do?\n";
+            std::cout << "1. Talk do the Duchess, ask her some questions. \n";
+            std::cout << "2. Grab the Duchess while everyone is freaking out and slip away. \n";
+            std::cout << "3. Scorn the Duchess for being captured.  \n";
+
+            auto input1_ch3 = getUserInput(custom_character, false);
+            std::istringstream iss(input1_ch3);
+            int duchess_intro;
+            if (iss >> duchess_intro) { // Attempt to read an integer from the input
+                gardener_save_breaker = ch_three_gates.duchessIntroChoice(duchess_intro, custom_character);
+            }
+        }
+
+    // print break
+    getUserInput(custom_character, true);
+
+
     std::cout << "In exchange for your help, the Duchess has offered to let you rest overnight at her house. At this point, you have had a very long day, \n"
                  "Not to mention, the day has been full of adventure. Perhaps a rest is in need. \n";
 
@@ -91,11 +132,29 @@ public:
     std::cout << "You almost feel like you never slept, and are awoken by yelling and panic from the Duchess...\n";
     duchess.talk("Oh dear we need to get going come come lets go lets go!!");
 
-    // talk to the duchess, if correct path, she gives you article of clothing to wear
+    // print break
+    getUserInput(custom_character, true);
+
+    while (!duchess_house_breaker) {
+        std::cout << std::endl;
+        std::cout << "What would you like to do?\n";
+        std::cout << "1. Ask the duchess where we are going? \n";
+        std::cout << "2. Grumble, roll over and say you don't want to go.\n";
+        std::cout << "3. Jump out of bed and get ready, no questions asked.\n";
+
+        auto input1_ch3 = getUserInput(custom_character, false);
+        std::istringstream iss(input1_ch3);
+        int duchess_house;
+        if (iss >> duchess_house) { // Attempt to read an integer from the input
+            duchess_house_breaker = ch_three_gates.duchessIntroChoice(duchess_house, custom_character);
+        }
+    }
 
     std::cout << "You set out with your troupe; the Duchess, the Mad Hatter, the March Hare and somewhere in the midst, though not in sight, is the Cheshire Cat. \n";
 
     std::cout << "You are on your way to the large Castle, finally, with hopes to put an end to this wonderful adventure. \n";
+
+    textFormatter::printBoldItalic("END CHAPTER 2");
 
     // end meeting the queen.
 

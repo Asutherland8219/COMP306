@@ -7,6 +7,7 @@
 #include "../Character/Character.h"
 #include "../NPC/NPC.h"
 #include "../UniversalFunctions/userInput.cpp"
+#include "../UniversalFunctions/textFormatting.cpp"
 #include <unordered_map>
 
 
@@ -38,6 +39,9 @@ public:
                      "You arrive again, at a large set of doors. Once arriving, the duchess, instead of asking, simply coughs multiple times to get the Hare and Mad Hatters attention \n"
                      "You notice them not paying any attention \n";
 
+        // print break
+        getUserInput(custom_character, true);
+
         // Add choices between kicking them, yelling at them, doing it yourself etc
 
         std::cout << "Once the doors open, you see the King and Queen, sat on their throne, with a great crowd assembled around them. \n"
@@ -54,6 +58,10 @@ public:
                     "The Knave of Hearts, he stole those tarts,\n"
                     "    And took them quite away!");
         king.talk("Consider your verdict");
+
+        // print break
+        getUserInput(custom_character, true);
+
         rabbit.talk("Not yet, Not yet!");
         std::cout << "The rabbit looked terrified as he interrupted the king. But he continued... \n";
         rabbit.talk("There's a great deal to come before that!");
@@ -72,6 +80,11 @@ public:
         king.talk("Take off your hat, Mad Hatter");
         mad_hatter.talk("It isn't mine");
         king.talk("STOLEN! A THIEF!");
+
+        // print break
+        getUserInput(custom_character, true);
+
+
         mad_hatter.talk("I keep them to sell, I've none of my own. I am a hatter");
         std::cout << "Here the Queen put on her spectacles, and began staring at the Hatter, who turned pale and fidgeted.\n";
         king.talk("Give your evidence, and don't be nervous, or I'll have you executed on the spot.");
@@ -89,6 +102,10 @@ public:
         mad_hatter.talk("You did!");
         march_hare.talk("I deny it!");
         king.talk("He denies it, leave out that part");
+
+        // print break
+        getUserInput(custom_character, true);
+
         std::cout << "The tremble in the Mad Hatters voice got progressively worse as he kept speaking.\n";
         king.talk("You're a very poor speaker,");
         std::cout << "One of the jurors, a guinea pig, cheered at this remark.";
@@ -106,6 +123,10 @@ public:
         std::cout << "The next witness, was the Duchess' Cook. He looked at you and smiled before approaching.\n";
         king.talk("Give your evidence");
         cook.talk("Shan't");
+
+        // print break
+        getUserInput(custom_character, true);
+
         std::cout << "The King turned to look at the White Rabbit with an angry glare.\n";
         rabbit.talk("Your Majesty mush cross examine this witness.");
         std::cout << "The King took a deep breath and let out a sigh \n";
@@ -120,6 +141,9 @@ public:
         king.talk("Really my dear, you must cross-examine the next witness. It quite makes my forehead ache!");
         std::cout << "The Rabbit fumbled with the list and then yelled out: \n";
 
+        // print break
+        getUserInput(custom_character, true);
+
         std::string response = "The next witness is " + custom_character.name + "!";
         rabbit.talk(response);
 
@@ -128,6 +152,8 @@ public:
         king.talk("What do you know about this business?");
 
         // Add section about discussion in court
+
+        textFormatter::printBoldItalic("END CHAPTER 3/FINALE");
 
 
 

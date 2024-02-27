@@ -6,6 +6,8 @@
 #include "Sections/Intro.cpp"
 #include "Sections/Welcome_to_wonderland.cpp"
 #include "Sections/Tea_party.cpp"
+#include "Sections/Meeting_the_queen.cpp"
+#include "Sections/Finale.cpp"
 #include "NPC/NPC.cpp"
 
 
