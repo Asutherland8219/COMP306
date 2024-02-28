@@ -2,12 +2,6 @@
 // Created by asuth on 12/13/2023.
 //
 #include <iostream>
-#include <string>
-#include "../Character/Character.h"
-#include "../NPC/NPC.h"
-#include "../UniversalFunctions/userInput.cpp"
-#include "../UniversalFunctions/textFormatting.cpp"
-#include <unordered_map>
 #include "../Gates/Chapter_3/ChapterThree.cpp"
 
 
@@ -157,6 +151,8 @@ public:
     textFormatter::printBoldItalic("END CHAPTER 2");
 
     // end meeting the queen.
+
+    return custom_character;
 
 
 

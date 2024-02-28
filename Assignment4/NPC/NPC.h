@@ -94,6 +94,7 @@ class NPC {
     };
 
     class Nurse : public NPC {
+    public:
         Nurse();
     };
 

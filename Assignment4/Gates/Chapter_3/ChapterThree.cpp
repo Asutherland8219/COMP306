@@ -3,19 +3,12 @@
 //
 
 #include <iostream>
-#include <sstream>
-#include "../../Inventory/Items/Item.h"
-#include "../../NPC/NPC.h"
-#include "../../Character/Character.h"
-#include "../../UniversalFunctions/checkFunctions.cpp"
-#include <unordered_map>
-
 
 class ChapterThreeGates {
 private:
 public:
-    bool duchess_intro_choice;
-    bool duchess_house_choice;
+    bool duchess_intro_choice{};
+    bool duchess_house_choice{};
     Duchess duchess;
 
     bool duchessIntroChoice(int duchess_intro, Character custom_character) {

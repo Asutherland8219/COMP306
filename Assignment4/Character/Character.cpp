@@ -12,10 +12,8 @@
 */
 
 #include "Character.h"
-#include "../Quests/Quest.h"
 #include "../Quests/Quest.cpp"
 #include <iostream>
-#include <limits>
 #include "../UniversalFunctions/textFormatting.cpp"
 // Display character details
 
@@ -102,6 +100,7 @@ void Character::talk(const std::string& dialogue) const {
     std::cout << name << ": ";
     textFormatter::printItalic(dialogue);
     std::cout << std::endl;
+    std::cout << "\n";
 }
 
 void Character::listInventory() {

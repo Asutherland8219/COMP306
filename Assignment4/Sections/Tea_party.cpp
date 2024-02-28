@@ -7,8 +7,6 @@
 #include "../Gates/Chapter_2/ChapterTwo.cpp"
 #include "../Character/Character.h"
 #include "../NPC/NPC.h"
-#include "../UniversalFunctions/userInput.cpp"
-#include "../UniversalFunctions/textFormatting.cpp"
 #include <unordered_map>
 
 class Checkpoint2 {
@@ -23,7 +21,7 @@ private:
 
 public:
     Character Chapter2(Character custom_character) {
-        ChapterTwoGates ch_two_gates;
+        ChapterTwoGates ch_two_gates{};
         MarchHare march_hare;
         MadHatter mad_hatter;
         Five five;

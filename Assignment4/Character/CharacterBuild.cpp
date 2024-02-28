@@ -8,12 +8,12 @@
  Includes a test character build to run quick test function in character building. This is used to quickly create a
  default character to pass into each chapter and makes for faster testing.
  */
-#include "Character.h"
 #include "Character.cpp"
 #include "../Inventory/Inventory.cpp"
 #include "../Inventory/Items/Item.cpp"
-#include <iostream>
 #include <string>
+#include <limits>
+#include <algorithm>
 
 
 class CharacterBuild {

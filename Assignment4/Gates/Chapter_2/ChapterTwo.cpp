@@ -2,12 +2,6 @@
 // Created by asuth on 2/18/2024.
 //
 
-#include <iostream>
-#include <sstream>
-#include "../../Inventory/Items/Item.h"
-#include "../../NPC/NPC.h"
-#include "../../Character/Character.h"
-#include "../../UniversalFunctions/checkFunctions.cpp"
 #include <unordered_map>
 
 class ChapterTwoGates {

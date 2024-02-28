@@ -9,13 +9,11 @@
  * Exit the program
 */
 
-#include "../Character/Character.h"
 #include <iostream>
 #include <sstream>
 #include <vector>
 #include <algorithm>
 #include <limits>
-
 
 bool isInt(const std::string &str) {
     std::istringstream iss(str);
@@ -27,18 +25,14 @@ std::string getUserInput(Character custom_character, bool input_break) {
     std::string input;
 
     while (true) {
-        std::getline(std::cin, input);
-
-        // A check for input break, this breaks up the text in the terminal, allowing the user to read before continuing
         if (input_break) {
             std::cout << "Please press enter to continue...\n";
             // Clear the input buffer to discard any remaining characters
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-
-            // Wait for the user to press Enter
-            std::getline(std::cin, input);
-
             break;
+
+        } else {
+            std::getline(std::cin, input);
         }
 
         if (isInt(input)) {
@@ -52,7 +46,7 @@ std::string getUserInput(Character custom_character, bool input_break) {
         // Remove newline character from the input
         input.erase(std::remove(input.begin(), input.end(), '\n'), input.end());
 
-        std::vector<std::string> validInputs = {"i", "q", "r", "x", "h", "help",};
+        std::vector<std::string> validInputs = {"i", "q", "r", "x", "h", "help"};
 
         if (std::find(validInputs.begin(), validInputs.end(), input) == validInputs.end() and !input.empty()) {
             // If the input is not found in the list of valid inputs, handle the error

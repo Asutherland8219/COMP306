@@ -25,10 +25,10 @@ int main() {
 
 
     test_character.listInventory();
-    Checkpoint1 section1;
+    Checkpoint1 section1{};
     section1.Chapter1(test_character);
     test_character.listInventory();
-    Checkpoint2 section2;
+    Checkpoint2 section2{};
     section2.Chapter2(test_character);
 
     // checkpoint 2

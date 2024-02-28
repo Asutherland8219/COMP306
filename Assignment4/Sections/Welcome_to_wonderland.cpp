@@ -18,17 +18,18 @@ private:
     bool embankment_breaker;
     bool glove_breaker;
     bool house_breaker;
+    // Init the npcs
+    NPC rabbit = WhiteRabbit();
+    NPC fishman = FishFootman();
+    NPC duchess = Duchess();
+    NPC cheshirecat = CheshireCat();
+    NPC cook = Cook();
 
 public:
     Character Chapter1(Character custom_character) {
         ChapterOneGates ch_one_gates;
 
-        // Init the npcs
-        NPC rabbit = WhiteRabbit();
-        NPC fishman = FishFootman();
-        NPC duchess = Duchess();
-        NPC cheshirecat = CheshireCat();
-        NPC cook = Cook();
+
 
         // Items
         Item letter("Letter", "A letter addressed to the Duchess", 1);
@@ -82,9 +83,9 @@ public:
 
             auto input2 = getUserInput(custom_character, false);
             std::istringstream iss(input2);
-            int rabbit;
-            if (iss >> rabbit) { // Attempt to read an integer from the input
-                rabbit_breaker = ch_one_gates.rabbitChoice(rabbit, custom_character);
+            int rabbit_choice;
+            if (iss >> rabbit_choice) { // Attempt to read an integer from the input
+                rabbit_breaker = ch_one_gates.rabbitChoice(rabbit_choice, custom_character);
 
                 if (!rabbit_breaker) {
                     panic_breaker = false;
@@ -223,8 +224,7 @@ public:
                 }
             } else {
                 std::cout << "The rabbit sees you and calls out to you.\n";
-                rabbit.talk(
-                        " Why, Mary Ann, what are you doing out here? Run home this moment, and fetch me a pair of gloves");
+                rabbit.talk(" Why, Mary Ann, what are you doing out here? Run home this moment, and fetch me a pair of gloves");
                 std::cout << "Startled from him responding, you run towards a house you see in the distance... \n"
                              "Upon arrival, you look around the entrance for the gloves. You think to yourself `If I had gloves ,they would be in my wardrobe' \n"
                              "You run upstairs, and find the wardrobe. Opening it up, you find a full set of tuxedos, gloves and fans. \n"

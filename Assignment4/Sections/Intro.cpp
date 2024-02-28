@@ -4,13 +4,10 @@
 
 
 #include <iostream>
-#include <string>
-#include "../Character/Character.h"
 #include "../NPC/NPC.h"
 #include "../Gates/Intro/intro_choices.cpp"
-#include "../Gates/Intro/intro_choices.h"
 #include "../UniversalFunctions/userInput.cpp"
-#include <sstream>
+
 
 class Intro {
 private:

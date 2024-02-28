@@ -6,8 +6,7 @@
  Logic Gates regarding the first chapter, handled in Checkpoint1. Includes modification to inventory and choices matrix
  */
 
-#include <iostream>
-#include <sstream>
+#include "../../NPC/NPC.h"
 
 class ChapterOneGates {
 private:
@@ -21,7 +20,7 @@ public:
     bool glove_breaker;
     bool house_breaker;
     // Carry over the originally created character to modify inventory
-    NPC rabbit = WhiteRabbit();
+    ;
     bool panicChoice(int panic_choice, const Character& custom_character) {
         switch (panic_choice) {
             case 1:
@@ -164,11 +163,11 @@ public:
     }
 
     bool gloveChoice(int glove_choice, Character custom_character) {
-        Item* glove = custom_character.getItem("Gloves");
+        Item glove = *custom_character.inventory.getInventoryItem("Gloves");
         switch (glove_choice) {
             case 1:
                 textFormatter::printItalic("Hello Mr Rabbit, are these the gloves you are looking for? \n");
-                custom_character.dropItem(glove->name);
+                custom_character.dropItem(glove.name);
                 break;
             case 2:
                 textFormatter::printItalic("I am sorry Mr. Rabbit! I have not seen your gloves! \n");
@@ -184,6 +183,7 @@ public:
 
     bool houseChoice(int house_choice, Character custom_character) {
         bool bookshelf_breaker;
+        WhiteRabbit rabbit;
         switch (house_choice) {
             case 1:
                 std::cout << "You walk up the stairs, seeing one door open and many others closed. You wander into the open door \n"

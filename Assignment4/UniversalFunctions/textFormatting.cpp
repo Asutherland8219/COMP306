@@ -1,7 +1,6 @@
 //
 // Created by asuth on 2/17/2024.
 //
-#include <iostream>
 
 // ANSI codes
 #define BOLD "\033[1m"

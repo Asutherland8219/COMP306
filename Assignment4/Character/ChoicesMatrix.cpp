@@ -13,7 +13,7 @@
 #include "../Gates/Chapter_2/ChapterTwo.cpp"
 #include "../Character/Character.h"
 #include "../NPC/NPC.h"
-#include "../UniversalFunctions/userInput.cpp"
+#include "../UniversalFunctions/userInput.h"
 #include <unordered_map>
 
 

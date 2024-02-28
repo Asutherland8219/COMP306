@@ -1,15 +1,6 @@
 //
 // Created by asuth on 12/13/2023.
 //
-#include <iostream>
-#include <string>
-#include "../Gates/Chapter_2/ChapterTwo.cpp"
-#include "../Character/Character.h"
-#include "../NPC/NPC.h"
-#include "../UniversalFunctions/userInput.cpp"
-#include "../UniversalFunctions/textFormatting.cpp"
-#include <unordered_map>
-
 
 // Start ch.11, Who stole the tarts
 

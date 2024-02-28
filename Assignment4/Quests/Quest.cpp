@@ -13,7 +13,6 @@
  */
 
 #include "Quest.h"
-#include <algorithm>
 
 // Quest class implementation
 

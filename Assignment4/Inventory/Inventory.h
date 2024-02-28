@@ -8,6 +8,7 @@
 
 #include <vector>
 #include "Items/Item.h" // Include the header for the Item class
+#include <algorithm>
 
 class Inventory {
 public:

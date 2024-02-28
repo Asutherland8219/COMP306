@@ -2,8 +2,6 @@
 // Created by asuth on 2/17/2024.
 //
 
-#include <algorithm>
-#include <iostream>
 
 // Function to check if an item exists in the inventory
 bool checkInventory(const std::string& itemName, const Character& character) {

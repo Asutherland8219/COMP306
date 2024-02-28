@@ -17,8 +17,10 @@ NPC::NPC(const std::string& npcName) : name(npcName) {}
 void NPC::talk(const std::string& dialogue) const {
     // add output padding for better readability
     std::cout << std::endl;
-    std::cout << name << ": `" << dialogue << "`" << std::endl;
+    std::cout << name << ": ";
+    textFormatter::printItalic(dialogue);
     std::cout << std::endl;
+    std::cout << "\n";
 }
 
 WhiteRabbit::WhiteRabbit() : NPC("White Rabbit") {}
