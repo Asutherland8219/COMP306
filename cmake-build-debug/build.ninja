@@ -131,19 +131,26 @@ build install/strip: phony CMakeFiles/install/strip.util
 
 build cmake_object_order_depends_target_Tests: phony || cmake_object_order_depends_target_gtest cmake_object_order_depends_target_gtest_main
 
-build Assignment4/Tests/CMakeFiles/Tests.dir/Base/TestFull.cpp.obj: CXX_COMPILER__Tests_unscanned_Debug C$:/Users/asuth/COMP306/Assignment4/Tests/Base/TestFull.cpp || cmake_object_order_depends_target_Tests
-  DEP_FILE = Assignment4\Tests\CMakeFiles\Tests.dir\Base\TestFull.cpp.obj.d
+build Assignment4/Tests/CMakeFiles/Tests.dir/Gtest/Base/TestFull.cpp.obj: CXX_COMPILER__Tests_unscanned_Debug C$:/Users/asuth/COMP306/Assignment4/Tests/Gtest/Base/TestFull.cpp || cmake_object_order_depends_target_Tests
+  DEP_FILE = Assignment4\Tests\CMakeFiles\Tests.dir\Gtest\Base\TestFull.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -isystem C:/Users/asuth/COMP306/Assignment4/Tests/googletest/googletest/include -isystem C:/Users/asuth/COMP306/Assignment4/Tests/googletest/googletest
+  INCLUDES = -isystem C:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googletest/include -isystem C:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googletest
   OBJECT_DIR = Assignment4\Tests\CMakeFiles\Tests.dir
-  OBJECT_FILE_DIR = Assignment4\Tests\CMakeFiles\Tests.dir\Base
+  OBJECT_FILE_DIR = Assignment4\Tests\CMakeFiles\Tests.dir\Gtest\Base
 
 build Assignment4/Tests/CMakeFiles/Tests.dir/__/Sections/Tea_party.cpp.obj: CXX_COMPILER__Tests_unscanned_Debug C$:/Users/asuth/COMP306/Assignment4/Sections/Tea_party.cpp || cmake_object_order_depends_target_Tests
   DEP_FILE = Assignment4\Tests\CMakeFiles\Tests.dir\__\Sections\Tea_party.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -isystem C:/Users/asuth/COMP306/Assignment4/Tests/googletest/googletest/include -isystem C:/Users/asuth/COMP306/Assignment4/Tests/googletest/googletest
+  INCLUDES = -isystem C:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googletest/include -isystem C:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googletest
   OBJECT_DIR = Assignment4\Tests\CMakeFiles\Tests.dir
   OBJECT_FILE_DIR = Assignment4\Tests\CMakeFiles\Tests.dir\__\Sections
+
+build Assignment4/Tests/CMakeFiles/Tests.dir/__/Gates/Intro/intro_choices.cpp.obj: CXX_COMPILER__Tests_unscanned_Debug C$:/Users/asuth/COMP306/Assignment4/Gates/Intro/intro_choices.cpp || cmake_object_order_depends_target_Tests
+  DEP_FILE = Assignment4\Tests\CMakeFiles\Tests.dir\__\Gates\Intro\intro_choices.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -isystem C:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googletest/include -isystem C:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googletest
+  OBJECT_DIR = Assignment4\Tests\CMakeFiles\Tests.dir
+  OBJECT_FILE_DIR = Assignment4\Tests\CMakeFiles\Tests.dir\__\Gates\Intro
 
 
 # =============================================================================
@@ -153,7 +160,7 @@ build Assignment4/Tests/CMakeFiles/Tests.dir/__/Sections/Tea_party.cpp.obj: CXX_
 #############################################
 # Link the executable Assignment4\Tests\Tests.exe
 
-build Assignment4/Tests/Tests.exe: CXX_EXECUTABLE_LINKER__Tests_Debug Assignment4/Tests/CMakeFiles/Tests.dir/Base/TestFull.cpp.obj Assignment4/Tests/CMakeFiles/Tests.dir/__/Sections/Tea_party.cpp.obj | lib/libgtest.a lib/libgtest_main.a lib/libgtest.a || lib/libgtest.a lib/libgtest_main.a
+build Assignment4/Tests/Tests.exe: CXX_EXECUTABLE_LINKER__Tests_Debug Assignment4/Tests/CMakeFiles/Tests.dir/Gtest/Base/TestFull.cpp.obj Assignment4/Tests/CMakeFiles/Tests.dir/__/Sections/Tea_party.cpp.obj Assignment4/Tests/CMakeFiles/Tests.dir/__/Gates/Intro/intro_choices.cpp.obj | lib/libgtest.a lib/libgtest_main.a lib/libgtest.a || lib/libgtest.a lib/libgtest_main.a
   FLAGS = -g
   LINK_LIBRARIES = lib/libgtest.a  lib/libgtest_main.a  lib/libgtest.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = Assignment4\Tests\CMakeFiles\Tests.dir
@@ -249,82 +256,82 @@ build Assignment4/Tests/install/strip: phony Assignment4/Tests/CMakeFiles/instal
 #############################################
 # Utility command for test
 
-build Assignment4/Tests/googletest/CMakeFiles/test.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\asuth\COMP306\cmake-build-debug\Assignment4\Tests\googletest && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\ctest.exe" --force-new-ctest-process "
+build Assignment4/Tests/gtest/googletest/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\asuth\COMP306\cmake-build-debug\Assignment4\Tests\gtest\googletest && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\ctest.exe" --force-new-ctest-process "
   DESC = Running tests...
   pool = console
   restat = 1
 
-build Assignment4/Tests/googletest/test: phony Assignment4/Tests/googletest/CMakeFiles/test.util
+build Assignment4/Tests/gtest/googletest/test: phony Assignment4/Tests/gtest/googletest/CMakeFiles/test.util
 
 
 #############################################
 # Utility command for edit_cache
 
-build Assignment4/Tests/googletest/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\asuth\COMP306\cmake-build-debug\Assignment4\Tests\googletest && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+build Assignment4/Tests/gtest/googletest/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\asuth\COMP306\cmake-build-debug\Assignment4\Tests\gtest\googletest && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
-build Assignment4/Tests/googletest/edit_cache: phony Assignment4/Tests/googletest/CMakeFiles/edit_cache.util
+build Assignment4/Tests/gtest/googletest/edit_cache: phony Assignment4/Tests/gtest/googletest/CMakeFiles/edit_cache.util
 
 
 #############################################
 # Utility command for rebuild_cache
 
-build Assignment4/Tests/googletest/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\asuth\COMP306\cmake-build-debug\Assignment4\Tests\googletest && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\asuth\COMP306 -BC:\Users\asuth\COMP306\cmake-build-debug"
+build Assignment4/Tests/gtest/googletest/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\asuth\COMP306\cmake-build-debug\Assignment4\Tests\gtest\googletest && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\asuth\COMP306 -BC:\Users\asuth\COMP306\cmake-build-debug"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
 
-build Assignment4/Tests/googletest/rebuild_cache: phony Assignment4/Tests/googletest/CMakeFiles/rebuild_cache.util
+build Assignment4/Tests/gtest/googletest/rebuild_cache: phony Assignment4/Tests/gtest/googletest/CMakeFiles/rebuild_cache.util
 
 
 #############################################
 # Utility command for list_install_components
 
-build Assignment4/Tests/googletest/list_install_components: phony
+build Assignment4/Tests/gtest/googletest/list_install_components: phony
 
 
 #############################################
 # Utility command for install
 
-build Assignment4/Tests/googletest/CMakeFiles/install.util: CUSTOM_COMMAND Assignment4/Tests/googletest/all
-  COMMAND = cmd.exe /C "cd /D C:\Users\asuth\COMP306\cmake-build-debug\Assignment4\Tests\googletest && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -P cmake_install.cmake"
+build Assignment4/Tests/gtest/googletest/CMakeFiles/install.util: CUSTOM_COMMAND Assignment4/Tests/gtest/googletest/all
+  COMMAND = cmd.exe /C "cd /D C:\Users\asuth\COMP306\cmake-build-debug\Assignment4\Tests\gtest\googletest && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -P cmake_install.cmake"
   DESC = Install the project...
   pool = console
   restat = 1
 
-build Assignment4/Tests/googletest/install: phony Assignment4/Tests/googletest/CMakeFiles/install.util
+build Assignment4/Tests/gtest/googletest/install: phony Assignment4/Tests/gtest/googletest/CMakeFiles/install.util
 
 
 #############################################
 # Utility command for install/local
 
-build Assignment4/Tests/googletest/CMakeFiles/install/local.util: CUSTOM_COMMAND Assignment4/Tests/googletest/all
-  COMMAND = cmd.exe /C "cd /D C:\Users\asuth\COMP306\cmake-build-debug\Assignment4\Tests\googletest && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+build Assignment4/Tests/gtest/googletest/CMakeFiles/install/local.util: CUSTOM_COMMAND Assignment4/Tests/gtest/googletest/all
+  COMMAND = cmd.exe /C "cd /D C:\Users\asuth\COMP306\cmake-build-debug\Assignment4\Tests\gtest\googletest && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
   DESC = Installing only the local directory...
   pool = console
   restat = 1
 
-build Assignment4/Tests/googletest/install/local: phony Assignment4/Tests/googletest/CMakeFiles/install/local.util
+build Assignment4/Tests/gtest/googletest/install/local: phony Assignment4/Tests/gtest/googletest/CMakeFiles/install/local.util
 
 
 #############################################
 # Utility command for install/strip
 
-build Assignment4/Tests/googletest/CMakeFiles/install/strip.util: CUSTOM_COMMAND Assignment4/Tests/googletest/all
-  COMMAND = cmd.exe /C "cd /D C:\Users\asuth\COMP306\cmake-build-debug\Assignment4\Tests\googletest && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+build Assignment4/Tests/gtest/googletest/CMakeFiles/install/strip.util: CUSTOM_COMMAND Assignment4/Tests/gtest/googletest/all
+  COMMAND = cmd.exe /C "cd /D C:\Users\asuth\COMP306\cmake-build-debug\Assignment4\Tests\gtest\googletest && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
   DESC = Installing the project stripped...
   pool = console
   restat = 1
 
-build Assignment4/Tests/googletest/install/strip: phony Assignment4/Tests/googletest/CMakeFiles/install/strip.util
+build Assignment4/Tests/gtest/googletest/install/strip: phony Assignment4/Tests/gtest/googletest/CMakeFiles/install/strip.util
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
-# C:/Users/asuth/COMP306/Assignment4/Tests/googletest/CMakeLists.txt
+# C:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/CMakeLists.txt
 # =============================================================================
 
 # =============================================================================
@@ -336,12 +343,12 @@ build Assignment4/Tests/googletest/install/strip: phony Assignment4/Tests/google
 
 build cmake_object_order_depends_target_gmock: phony || cmake_object_order_depends_target_gtest
 
-build Assignment4/Tests/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj: CXX_COMPILER__gmock_unscanned_Debug C$:/Users/asuth/COMP306/Assignment4/Tests/googletest/googlemock/src/gmock-all.cc || cmake_object_order_depends_target_gmock
-  DEP_FILE = Assignment4\Tests\googletest\googlemock\CMakeFiles\gmock.dir\src\gmock-all.cc.obj.d
+build Assignment4/Tests/gtest/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj: CXX_COMPILER__gmock_unscanned_Debug C$:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googlemock/src/gmock-all.cc || cmake_object_order_depends_target_gmock
+  DEP_FILE = Assignment4\Tests\gtest\googletest\googlemock\CMakeFiles\gmock.dir\src\gmock-all.cc.obj.d
   FLAGS = -g -fdiagnostics-color=always -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers
-  INCLUDES = -IC:/Users/asuth/COMP306/Assignment4/Tests/googletest/googlemock/include -IC:/Users/asuth/COMP306/Assignment4/Tests/googletest/googlemock -isystem C:/Users/asuth/COMP306/Assignment4/Tests/googletest/googletest/include -isystem C:/Users/asuth/COMP306/Assignment4/Tests/googletest/googletest
-  OBJECT_DIR = Assignment4\Tests\googletest\googlemock\CMakeFiles\gmock.dir
-  OBJECT_FILE_DIR = Assignment4\Tests\googletest\googlemock\CMakeFiles\gmock.dir\src
+  INCLUDES = -IC:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googlemock/include -IC:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googlemock -isystem C:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googletest/include -isystem C:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googletest
+  OBJECT_DIR = Assignment4\Tests\gtest\googletest\googlemock\CMakeFiles\gmock.dir
+  OBJECT_FILE_DIR = Assignment4\Tests\gtest\googletest\googlemock\CMakeFiles\gmock.dir\src
 
 
 # =============================================================================
@@ -351,9 +358,9 @@ build Assignment4/Tests/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all
 #############################################
 # Link the static library lib\libgmock.a
 
-build lib/libgmock.a: CXX_STATIC_LIBRARY_LINKER__gmock_Debug Assignment4/Tests/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj || lib/libgtest.a
+build lib/libgmock.a: CXX_STATIC_LIBRARY_LINKER__gmock_Debug Assignment4/Tests/gtest/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj || lib/libgtest.a
   LANGUAGE_COMPILE_FLAGS = -g
-  OBJECT_DIR = Assignment4\Tests\googletest\googlemock\CMakeFiles\gmock.dir
+  OBJECT_DIR = Assignment4\Tests\gtest\googletest\googlemock\CMakeFiles\gmock.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
   TARGET_FILE = lib\libgmock.a
@@ -368,12 +375,12 @@ build lib/libgmock.a: CXX_STATIC_LIBRARY_LINKER__gmock_Debug Assignment4/Tests/g
 
 build cmake_object_order_depends_target_gmock_main: phony || cmake_object_order_depends_target_gmock cmake_object_order_depends_target_gtest
 
-build Assignment4/Tests/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.obj: CXX_COMPILER__gmock_main_unscanned_Debug C$:/Users/asuth/COMP306/Assignment4/Tests/googletest/googlemock/src/gmock_main.cc || cmake_object_order_depends_target_gmock_main
-  DEP_FILE = Assignment4\Tests\googletest\googlemock\CMakeFiles\gmock_main.dir\src\gmock_main.cc.obj.d
+build Assignment4/Tests/gtest/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.obj: CXX_COMPILER__gmock_main_unscanned_Debug C$:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googlemock/src/gmock_main.cc || cmake_object_order_depends_target_gmock_main
+  DEP_FILE = Assignment4\Tests\gtest\googletest\googlemock\CMakeFiles\gmock_main.dir\src\gmock_main.cc.obj.d
   FLAGS = -g -fdiagnostics-color=always -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers
-  INCLUDES = -isystem C:/Users/asuth/COMP306/Assignment4/Tests/googletest/googlemock/include -isystem C:/Users/asuth/COMP306/Assignment4/Tests/googletest/googlemock -isystem C:/Users/asuth/COMP306/Assignment4/Tests/googletest/googletest/include -isystem C:/Users/asuth/COMP306/Assignment4/Tests/googletest/googletest
-  OBJECT_DIR = Assignment4\Tests\googletest\googlemock\CMakeFiles\gmock_main.dir
-  OBJECT_FILE_DIR = Assignment4\Tests\googletest\googlemock\CMakeFiles\gmock_main.dir\src
+  INCLUDES = -isystem C:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googlemock/include -isystem C:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googlemock -isystem C:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googletest/include -isystem C:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googletest
+  OBJECT_DIR = Assignment4\Tests\gtest\googletest\googlemock\CMakeFiles\gmock_main.dir
+  OBJECT_FILE_DIR = Assignment4\Tests\gtest\googletest\googlemock\CMakeFiles\gmock_main.dir\src
 
 
 # =============================================================================
@@ -383,9 +390,9 @@ build Assignment4/Tests/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmoc
 #############################################
 # Link the static library lib\libgmock_main.a
 
-build lib/libgmock_main.a: CXX_STATIC_LIBRARY_LINKER__gmock_main_Debug Assignment4/Tests/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.obj || lib/libgmock.a lib/libgtest.a
+build lib/libgmock_main.a: CXX_STATIC_LIBRARY_LINKER__gmock_main_Debug Assignment4/Tests/gtest/googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.obj || lib/libgmock.a lib/libgtest.a
   LANGUAGE_COMPILE_FLAGS = -g
-  OBJECT_DIR = Assignment4\Tests\googletest\googlemock\CMakeFiles\gmock_main.dir
+  OBJECT_DIR = Assignment4\Tests\gtest\googletest\googlemock\CMakeFiles\gmock_main.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
   TARGET_FILE = lib\libgmock_main.a
@@ -395,82 +402,82 @@ build lib/libgmock_main.a: CXX_STATIC_LIBRARY_LINKER__gmock_main_Debug Assignmen
 #############################################
 # Utility command for test
 
-build Assignment4/Tests/googletest/googlemock/CMakeFiles/test.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\asuth\COMP306\cmake-build-debug\Assignment4\Tests\googletest\googlemock && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\ctest.exe" --force-new-ctest-process "
+build Assignment4/Tests/gtest/googletest/googlemock/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\asuth\COMP306\cmake-build-debug\Assignment4\Tests\gtest\googletest\googlemock && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\ctest.exe" --force-new-ctest-process "
   DESC = Running tests...
   pool = console
   restat = 1
 
-build Assignment4/Tests/googletest/googlemock/test: phony Assignment4/Tests/googletest/googlemock/CMakeFiles/test.util
+build Assignment4/Tests/gtest/googletest/googlemock/test: phony Assignment4/Tests/gtest/googletest/googlemock/CMakeFiles/test.util
 
 
 #############################################
 # Utility command for edit_cache
 
-build Assignment4/Tests/googletest/googlemock/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\asuth\COMP306\cmake-build-debug\Assignment4\Tests\googletest\googlemock && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+build Assignment4/Tests/gtest/googletest/googlemock/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\asuth\COMP306\cmake-build-debug\Assignment4\Tests\gtest\googletest\googlemock && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
-build Assignment4/Tests/googletest/googlemock/edit_cache: phony Assignment4/Tests/googletest/googlemock/CMakeFiles/edit_cache.util
+build Assignment4/Tests/gtest/googletest/googlemock/edit_cache: phony Assignment4/Tests/gtest/googletest/googlemock/CMakeFiles/edit_cache.util
 
 
 #############################################
 # Utility command for rebuild_cache
 
-build Assignment4/Tests/googletest/googlemock/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\asuth\COMP306\cmake-build-debug\Assignment4\Tests\googletest\googlemock && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\asuth\COMP306 -BC:\Users\asuth\COMP306\cmake-build-debug"
+build Assignment4/Tests/gtest/googletest/googlemock/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\asuth\COMP306\cmake-build-debug\Assignment4\Tests\gtest\googletest\googlemock && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\asuth\COMP306 -BC:\Users\asuth\COMP306\cmake-build-debug"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
 
-build Assignment4/Tests/googletest/googlemock/rebuild_cache: phony Assignment4/Tests/googletest/googlemock/CMakeFiles/rebuild_cache.util
+build Assignment4/Tests/gtest/googletest/googlemock/rebuild_cache: phony Assignment4/Tests/gtest/googletest/googlemock/CMakeFiles/rebuild_cache.util
 
 
 #############################################
 # Utility command for list_install_components
 
-build Assignment4/Tests/googletest/googlemock/list_install_components: phony
+build Assignment4/Tests/gtest/googletest/googlemock/list_install_components: phony
 
 
 #############################################
 # Utility command for install
 
-build Assignment4/Tests/googletest/googlemock/CMakeFiles/install.util: CUSTOM_COMMAND Assignment4/Tests/googletest/googlemock/all
-  COMMAND = cmd.exe /C "cd /D C:\Users\asuth\COMP306\cmake-build-debug\Assignment4\Tests\googletest\googlemock && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -P cmake_install.cmake"
+build Assignment4/Tests/gtest/googletest/googlemock/CMakeFiles/install.util: CUSTOM_COMMAND Assignment4/Tests/gtest/googletest/googlemock/all
+  COMMAND = cmd.exe /C "cd /D C:\Users\asuth\COMP306\cmake-build-debug\Assignment4\Tests\gtest\googletest\googlemock && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -P cmake_install.cmake"
   DESC = Install the project...
   pool = console
   restat = 1
 
-build Assignment4/Tests/googletest/googlemock/install: phony Assignment4/Tests/googletest/googlemock/CMakeFiles/install.util
+build Assignment4/Tests/gtest/googletest/googlemock/install: phony Assignment4/Tests/gtest/googletest/googlemock/CMakeFiles/install.util
 
 
 #############################################
 # Utility command for install/local
 
-build Assignment4/Tests/googletest/googlemock/CMakeFiles/install/local.util: CUSTOM_COMMAND Assignment4/Tests/googletest/googlemock/all
-  COMMAND = cmd.exe /C "cd /D C:\Users\asuth\COMP306\cmake-build-debug\Assignment4\Tests\googletest\googlemock && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+build Assignment4/Tests/gtest/googletest/googlemock/CMakeFiles/install/local.util: CUSTOM_COMMAND Assignment4/Tests/gtest/googletest/googlemock/all
+  COMMAND = cmd.exe /C "cd /D C:\Users\asuth\COMP306\cmake-build-debug\Assignment4\Tests\gtest\googletest\googlemock && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
   DESC = Installing only the local directory...
   pool = console
   restat = 1
 
-build Assignment4/Tests/googletest/googlemock/install/local: phony Assignment4/Tests/googletest/googlemock/CMakeFiles/install/local.util
+build Assignment4/Tests/gtest/googletest/googlemock/install/local: phony Assignment4/Tests/gtest/googletest/googlemock/CMakeFiles/install/local.util
 
 
 #############################################
 # Utility command for install/strip
 
-build Assignment4/Tests/googletest/googlemock/CMakeFiles/install/strip.util: CUSTOM_COMMAND Assignment4/Tests/googletest/googlemock/all
-  COMMAND = cmd.exe /C "cd /D C:\Users\asuth\COMP306\cmake-build-debug\Assignment4\Tests\googletest\googlemock && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+build Assignment4/Tests/gtest/googletest/googlemock/CMakeFiles/install/strip.util: CUSTOM_COMMAND Assignment4/Tests/gtest/googletest/googlemock/all
+  COMMAND = cmd.exe /C "cd /D C:\Users\asuth\COMP306\cmake-build-debug\Assignment4\Tests\gtest\googletest\googlemock && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
   DESC = Installing the project stripped...
   pool = console
   restat = 1
 
-build Assignment4/Tests/googletest/googlemock/install/strip: phony Assignment4/Tests/googletest/googlemock/CMakeFiles/install/strip.util
+build Assignment4/Tests/gtest/googletest/googlemock/install/strip: phony Assignment4/Tests/gtest/googletest/googlemock/CMakeFiles/install/strip.util
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
-# C:/Users/asuth/COMP306/Assignment4/Tests/googletest/googlemock/CMakeLists.txt
+# C:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googlemock/CMakeLists.txt
 # =============================================================================
 
 # =============================================================================
@@ -480,14 +487,14 @@ build Assignment4/Tests/googletest/googlemock/install/strip: phony Assignment4/T
 #############################################
 # Order-only phony target for gtest
 
-build cmake_object_order_depends_target_gtest: phony || Assignment4/Tests/googletest/googletest/CMakeFiles/gtest.dir
+build cmake_object_order_depends_target_gtest: phony || Assignment4/Tests/gtest/googletest/googletest/CMakeFiles/gtest.dir
 
-build Assignment4/Tests/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj: CXX_COMPILER__gtest_unscanned_Debug C$:/Users/asuth/COMP306/Assignment4/Tests/googletest/googletest/src/gtest-all.cc || cmake_object_order_depends_target_gtest
-  DEP_FILE = Assignment4\Tests\googletest\googletest\CMakeFiles\gtest.dir\src\gtest-all.cc.obj.d
+build Assignment4/Tests/gtest/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj: CXX_COMPILER__gtest_unscanned_Debug C$:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googletest/src/gtest-all.cc || cmake_object_order_depends_target_gtest
+  DEP_FILE = Assignment4\Tests\gtest\googletest\googletest\CMakeFiles\gtest.dir\src\gtest-all.cc.obj.d
   FLAGS = -g -fdiagnostics-color=always -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers
-  INCLUDES = -IC:/Users/asuth/COMP306/Assignment4/Tests/googletest/googletest/include -IC:/Users/asuth/COMP306/Assignment4/Tests/googletest/googletest
-  OBJECT_DIR = Assignment4\Tests\googletest\googletest\CMakeFiles\gtest.dir
-  OBJECT_FILE_DIR = Assignment4\Tests\googletest\googletest\CMakeFiles\gtest.dir\src
+  INCLUDES = -IC:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googletest/include -IC:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googletest
+  OBJECT_DIR = Assignment4\Tests\gtest\googletest\googletest\CMakeFiles\gtest.dir
+  OBJECT_FILE_DIR = Assignment4\Tests\gtest\googletest\googletest\CMakeFiles\gtest.dir\src
 
 
 # =============================================================================
@@ -497,9 +504,9 @@ build Assignment4/Tests/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all
 #############################################
 # Link the static library lib\libgtest.a
 
-build lib/libgtest.a: CXX_STATIC_LIBRARY_LINKER__gtest_Debug Assignment4/Tests/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj
+build lib/libgtest.a: CXX_STATIC_LIBRARY_LINKER__gtest_Debug Assignment4/Tests/gtest/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj
   LANGUAGE_COMPILE_FLAGS = -g
-  OBJECT_DIR = Assignment4\Tests\googletest\googletest\CMakeFiles\gtest.dir
+  OBJECT_DIR = Assignment4\Tests\gtest\googletest\googletest\CMakeFiles\gtest.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
   TARGET_FILE = lib\libgtest.a
@@ -514,12 +521,12 @@ build lib/libgtest.a: CXX_STATIC_LIBRARY_LINKER__gtest_Debug Assignment4/Tests/g
 
 build cmake_object_order_depends_target_gtest_main: phony || cmake_object_order_depends_target_gtest
 
-build Assignment4/Tests/googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj: CXX_COMPILER__gtest_main_unscanned_Debug C$:/Users/asuth/COMP306/Assignment4/Tests/googletest/googletest/src/gtest_main.cc || cmake_object_order_depends_target_gtest_main
-  DEP_FILE = Assignment4\Tests\googletest\googletest\CMakeFiles\gtest_main.dir\src\gtest_main.cc.obj.d
+build Assignment4/Tests/gtest/googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj: CXX_COMPILER__gtest_main_unscanned_Debug C$:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googletest/src/gtest_main.cc || cmake_object_order_depends_target_gtest_main
+  DEP_FILE = Assignment4\Tests\gtest\googletest\googletest\CMakeFiles\gtest_main.dir\src\gtest_main.cc.obj.d
   FLAGS = -g -fdiagnostics-color=always -Wall -Wshadow -Wundef -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers
-  INCLUDES = -isystem C:/Users/asuth/COMP306/Assignment4/Tests/googletest/googletest/include -isystem C:/Users/asuth/COMP306/Assignment4/Tests/googletest/googletest
-  OBJECT_DIR = Assignment4\Tests\googletest\googletest\CMakeFiles\gtest_main.dir
-  OBJECT_FILE_DIR = Assignment4\Tests\googletest\googletest\CMakeFiles\gtest_main.dir\src
+  INCLUDES = -isystem C:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googletest/include -isystem C:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googletest
+  OBJECT_DIR = Assignment4\Tests\gtest\googletest\googletest\CMakeFiles\gtest_main.dir
+  OBJECT_FILE_DIR = Assignment4\Tests\gtest\googletest\googletest\CMakeFiles\gtest_main.dir\src
 
 
 # =============================================================================
@@ -529,9 +536,9 @@ build Assignment4/Tests/googletest/googletest/CMakeFiles/gtest_main.dir/src/gtes
 #############################################
 # Link the static library lib\libgtest_main.a
 
-build lib/libgtest_main.a: CXX_STATIC_LIBRARY_LINKER__gtest_main_Debug Assignment4/Tests/googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj || lib/libgtest.a
+build lib/libgtest_main.a: CXX_STATIC_LIBRARY_LINKER__gtest_main_Debug Assignment4/Tests/gtest/googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj || lib/libgtest.a
   LANGUAGE_COMPILE_FLAGS = -g
-  OBJECT_DIR = Assignment4\Tests\googletest\googletest\CMakeFiles\gtest_main.dir
+  OBJECT_DIR = Assignment4\Tests\gtest\googletest\googletest\CMakeFiles\gtest_main.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
   TARGET_FILE = lib\libgtest_main.a
@@ -541,78 +548,78 @@ build lib/libgtest_main.a: CXX_STATIC_LIBRARY_LINKER__gtest_main_Debug Assignmen
 #############################################
 # Utility command for test
 
-build Assignment4/Tests/googletest/googletest/CMakeFiles/test.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\asuth\COMP306\cmake-build-debug\Assignment4\Tests\googletest\googletest && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\ctest.exe" --force-new-ctest-process "
+build Assignment4/Tests/gtest/googletest/googletest/CMakeFiles/test.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\asuth\COMP306\cmake-build-debug\Assignment4\Tests\gtest\googletest\googletest && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\ctest.exe" --force-new-ctest-process "
   DESC = Running tests...
   pool = console
   restat = 1
 
-build Assignment4/Tests/googletest/googletest/test: phony Assignment4/Tests/googletest/googletest/CMakeFiles/test.util
+build Assignment4/Tests/gtest/googletest/googletest/test: phony Assignment4/Tests/gtest/googletest/googletest/CMakeFiles/test.util
 
 
 #############################################
 # Utility command for edit_cache
 
-build Assignment4/Tests/googletest/googletest/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\asuth\COMP306\cmake-build-debug\Assignment4\Tests\googletest\googletest && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+build Assignment4/Tests/gtest/googletest/googletest/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\asuth\COMP306\cmake-build-debug\Assignment4\Tests\gtest\googletest\googletest && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
   DESC = No interactive CMake dialog available...
   restat = 1
 
-build Assignment4/Tests/googletest/googletest/edit_cache: phony Assignment4/Tests/googletest/googletest/CMakeFiles/edit_cache.util
+build Assignment4/Tests/gtest/googletest/googletest/edit_cache: phony Assignment4/Tests/gtest/googletest/googletest/CMakeFiles/edit_cache.util
 
 
 #############################################
 # Utility command for rebuild_cache
 
-build Assignment4/Tests/googletest/googletest/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D C:\Users\asuth\COMP306\cmake-build-debug\Assignment4\Tests\googletest\googletest && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\asuth\COMP306 -BC:\Users\asuth\COMP306\cmake-build-debug"
+build Assignment4/Tests/gtest/googletest/googletest/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D C:\Users\asuth\COMP306\cmake-build-debug\Assignment4\Tests\gtest\googletest\googletest && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\asuth\COMP306 -BC:\Users\asuth\COMP306\cmake-build-debug"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
 
-build Assignment4/Tests/googletest/googletest/rebuild_cache: phony Assignment4/Tests/googletest/googletest/CMakeFiles/rebuild_cache.util
+build Assignment4/Tests/gtest/googletest/googletest/rebuild_cache: phony Assignment4/Tests/gtest/googletest/googletest/CMakeFiles/rebuild_cache.util
 
 
 #############################################
 # Utility command for list_install_components
 
-build Assignment4/Tests/googletest/googletest/list_install_components: phony
+build Assignment4/Tests/gtest/googletest/googletest/list_install_components: phony
 
 
 #############################################
 # Utility command for install
 
-build Assignment4/Tests/googletest/googletest/CMakeFiles/install.util: CUSTOM_COMMAND Assignment4/Tests/googletest/googletest/all
-  COMMAND = cmd.exe /C "cd /D C:\Users\asuth\COMP306\cmake-build-debug\Assignment4\Tests\googletest\googletest && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -P cmake_install.cmake"
+build Assignment4/Tests/gtest/googletest/googletest/CMakeFiles/install.util: CUSTOM_COMMAND Assignment4/Tests/gtest/googletest/googletest/all
+  COMMAND = cmd.exe /C "cd /D C:\Users\asuth\COMP306\cmake-build-debug\Assignment4\Tests\gtest\googletest\googletest && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -P cmake_install.cmake"
   DESC = Install the project...
   pool = console
   restat = 1
 
-build Assignment4/Tests/googletest/googletest/install: phony Assignment4/Tests/googletest/googletest/CMakeFiles/install.util
+build Assignment4/Tests/gtest/googletest/googletest/install: phony Assignment4/Tests/gtest/googletest/googletest/CMakeFiles/install.util
 
 
 #############################################
 # Utility command for install/local
 
-build Assignment4/Tests/googletest/googletest/CMakeFiles/install/local.util: CUSTOM_COMMAND Assignment4/Tests/googletest/googletest/all
-  COMMAND = cmd.exe /C "cd /D C:\Users\asuth\COMP306\cmake-build-debug\Assignment4\Tests\googletest\googletest && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+build Assignment4/Tests/gtest/googletest/googletest/CMakeFiles/install/local.util: CUSTOM_COMMAND Assignment4/Tests/gtest/googletest/googletest/all
+  COMMAND = cmd.exe /C "cd /D C:\Users\asuth\COMP306\cmake-build-debug\Assignment4\Tests\gtest\googletest\googletest && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
   DESC = Installing only the local directory...
   pool = console
   restat = 1
 
-build Assignment4/Tests/googletest/googletest/install/local: phony Assignment4/Tests/googletest/googletest/CMakeFiles/install/local.util
+build Assignment4/Tests/gtest/googletest/googletest/install/local: phony Assignment4/Tests/gtest/googletest/googletest/CMakeFiles/install/local.util
 
 
 #############################################
 # Utility command for install/strip
 
-build Assignment4/Tests/googletest/googletest/CMakeFiles/install/strip.util: CUSTOM_COMMAND Assignment4/Tests/googletest/googletest/all
-  COMMAND = cmd.exe /C "cd /D C:\Users\asuth\COMP306\cmake-build-debug\Assignment4\Tests\googletest\googletest && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+build Assignment4/Tests/gtest/googletest/googletest/CMakeFiles/install/strip.util: CUSTOM_COMMAND Assignment4/Tests/gtest/googletest/googletest/all
+  COMMAND = cmd.exe /C "cd /D C:\Users\asuth\COMP306\cmake-build-debug\Assignment4\Tests\gtest\googletest\googletest && "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
   DESC = Installing the project stripped...
   pool = console
   restat = 1
 
-build Assignment4/Tests/googletest/googletest/install/strip: phony Assignment4/Tests/googletest/googletest/CMakeFiles/install/strip.util
+build Assignment4/Tests/gtest/googletest/googletest/install/strip: phony Assignment4/Tests/gtest/googletest/googletest/CMakeFiles/install/strip.util
 
 # =============================================================================
 # Target aliases.
@@ -652,28 +659,28 @@ build all: phony Assignment4/Tests/all
 #############################################
 # Folder: C:/Users/asuth/COMP306/cmake-build-debug/Assignment4/Tests
 
-build Assignment4/Tests/all: phony Assignment4/Tests/Tests.exe Assignment4/Tests/googletest/all
+build Assignment4/Tests/all: phony Assignment4/Tests/Tests.exe Assignment4/Tests/gtest/googletest/all
 
 # =============================================================================
 
 #############################################
-# Folder: C:/Users/asuth/COMP306/cmake-build-debug/Assignment4/Tests/googletest
+# Folder: C:/Users/asuth/COMP306/cmake-build-debug/Assignment4/Tests/gtest/googletest
 
-build Assignment4/Tests/googletest/all: phony Assignment4/Tests/googletest/googlemock/all
-
-# =============================================================================
-
-#############################################
-# Folder: C:/Users/asuth/COMP306/cmake-build-debug/Assignment4/Tests/googletest/googlemock
-
-build Assignment4/Tests/googletest/googlemock/all: phony lib/libgmock.a lib/libgmock_main.a Assignment4/Tests/googletest/googletest/all
+build Assignment4/Tests/gtest/googletest/all: phony Assignment4/Tests/gtest/googletest/googlemock/all
 
 # =============================================================================
 
 #############################################
-# Folder: C:/Users/asuth/COMP306/cmake-build-debug/Assignment4/Tests/googletest/googletest
+# Folder: C:/Users/asuth/COMP306/cmake-build-debug/Assignment4/Tests/gtest/googletest/googlemock
 
-build Assignment4/Tests/googletest/googletest/all: phony lib/libgtest.a lib/libgtest_main.a
+build Assignment4/Tests/gtest/googletest/googlemock/all: phony lib/libgmock.a lib/libgmock_main.a Assignment4/Tests/gtest/googletest/googletest/all
+
+# =============================================================================
+
+#############################################
+# Folder: C:/Users/asuth/COMP306/cmake-build-debug/Assignment4/Tests/gtest/googletest/googletest
+
+build Assignment4/Tests/gtest/googletest/googletest/all: phony lib/libgtest.a lib/libgtest_main.a
 
 # =============================================================================
 # Built-in targets
@@ -682,14 +689,14 @@ build Assignment4/Tests/googletest/googletest/all: phony lib/libgtest.a lib/libg
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDependentOption.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakePackageConfigHelpers.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/GNUInstallDirs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/WriteBasicConfigVersionFile.cmake C$:/Users/asuth/COMP306/Assignment4/Tests/CMakeLists.txt C$:/Users/asuth/COMP306/Assignment4/Tests/googletest/CMakeLists.txt C$:/Users/asuth/COMP306/Assignment4/Tests/googletest/googlemock/CMakeLists.txt C$:/Users/asuth/COMP306/Assignment4/Tests/googletest/googlemock/cmake/gmock.pc.in C$:/Users/asuth/COMP306/Assignment4/Tests/googletest/googlemock/cmake/gmock_main.pc.in C$:/Users/asuth/COMP306/Assignment4/Tests/googletest/googletest/CMakeLists.txt C$:/Users/asuth/COMP306/Assignment4/Tests/googletest/googletest/cmake/Config.cmake.in C$:/Users/asuth/COMP306/Assignment4/Tests/googletest/googletest/cmake/gtest.pc.in C$:/Users/asuth/COMP306/Assignment4/Tests/googletest/googletest/cmake/gtest_main.pc.in C$:/Users/asuth/COMP306/Assignment4/Tests/googletest/googletest/cmake/internal_utils.cmake C$:/Users/asuth/COMP306/CMakeLists.txt CMakeCache.txt CMakeFiles/3.27.8/CMakeCCompiler.cmake CMakeFiles/3.27.8/CMakeCXXCompiler.cmake CMakeFiles/3.27.8/CMakeRCCompiler.cmake CMakeFiles/3.27.8/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDependentOption.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakePackageConfigHelpers.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/GNUInstallDirs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/WriteBasicConfigVersionFile.cmake C$:/Users/asuth/COMP306/Assignment4/Tests/CMakeLists.txt C$:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/CMakeLists.txt C$:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googlemock/CMakeLists.txt C$:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googlemock/cmake/gmock.pc.in C$:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googlemock/cmake/gmock_main.pc.in C$:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googletest/CMakeLists.txt C$:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googletest/cmake/Config.cmake.in C$:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googletest/cmake/gtest.pc.in C$:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googletest/cmake/gtest_main.pc.in C$:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googletest/cmake/internal_utils.cmake C$:/Users/asuth/COMP306/CMakeLists.txt CMakeCache.txt CMakeFiles/3.27.8/CMakeCCompiler.cmake CMakeFiles/3.27.8/CMakeCXXCompiler.cmake CMakeFiles/3.27.8/CMakeRCCompiler.cmake CMakeFiles/3.27.8/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDependentOption.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakePackageConfigHelpers.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/GNUInstallDirs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/WriteBasicConfigVersionFile.cmake C$:/Users/asuth/COMP306/Assignment4/Tests/CMakeLists.txt C$:/Users/asuth/COMP306/Assignment4/Tests/googletest/CMakeLists.txt C$:/Users/asuth/COMP306/Assignment4/Tests/googletest/googlemock/CMakeLists.txt C$:/Users/asuth/COMP306/Assignment4/Tests/googletest/googlemock/cmake/gmock.pc.in C$:/Users/asuth/COMP306/Assignment4/Tests/googletest/googlemock/cmake/gmock_main.pc.in C$:/Users/asuth/COMP306/Assignment4/Tests/googletest/googletest/CMakeLists.txt C$:/Users/asuth/COMP306/Assignment4/Tests/googletest/googletest/cmake/Config.cmake.in C$:/Users/asuth/COMP306/Assignment4/Tests/googletest/googletest/cmake/gtest.pc.in C$:/Users/asuth/COMP306/Assignment4/Tests/googletest/googletest/cmake/gtest_main.pc.in C$:/Users/asuth/COMP306/Assignment4/Tests/googletest/googletest/cmake/internal_utils.cmake C$:/Users/asuth/COMP306/CMakeLists.txt CMakeCache.txt CMakeFiles/3.27.8/CMakeCCompiler.cmake CMakeFiles/3.27.8/CMakeCXXCompiler.cmake CMakeFiles/3.27.8/CMakeRCCompiler.cmake CMakeFiles/3.27.8/CMakeSystem.cmake: phony
+build C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeDependentOption.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakePackageConfigHelpers.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/GNUInstallDirs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/WriteBasicConfigVersionFile.cmake C$:/Users/asuth/COMP306/Assignment4/Tests/CMakeLists.txt C$:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/CMakeLists.txt C$:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googlemock/CMakeLists.txt C$:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googlemock/cmake/gmock.pc.in C$:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googlemock/cmake/gmock_main.pc.in C$:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googletest/CMakeLists.txt C$:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googletest/cmake/Config.cmake.in C$:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googletest/cmake/gtest.pc.in C$:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googletest/cmake/gtest_main.pc.in C$:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googletest/cmake/internal_utils.cmake C$:/Users/asuth/COMP306/CMakeLists.txt CMakeCache.txt CMakeFiles/3.27.8/CMakeCCompiler.cmake CMakeFiles/3.27.8/CMakeCXXCompiler.cmake CMakeFiles/3.27.8/CMakeRCCompiler.cmake CMakeFiles/3.27.8/CMakeSystem.cmake: phony
 
 
 #############################################

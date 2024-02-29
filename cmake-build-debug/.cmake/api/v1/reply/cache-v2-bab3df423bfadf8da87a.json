@@ -1658,7 +1658,7 @@
 			"value" : "C:/Users/asuth/COMP306"
 		},
 		{
-			"name" : "YourProjectName_BINARY_DIR",
+			"name" : "Wonderland_BINARY_DIR",
 			"properties" : 
 			[
 				{
@@ -1670,7 +1670,7 @@
 			"value" : "C:/Users/asuth/COMP306/cmake-build-debug/Assignment4/Tests"
 		},
 		{
-			"name" : "YourProjectName_IS_TOP_LEVEL",
+			"name" : "Wonderland_IS_TOP_LEVEL",
 			"properties" : 
 			[
 				{
@@ -1682,7 +1682,7 @@
 			"value" : "OFF"
 		},
 		{
-			"name" : "YourProjectName_SOURCE_DIR",
+			"name" : "Wonderland_SOURCE_DIR",
 			"properties" : 
 			[
 				{
@@ -1692,6 +1692,42 @@
 			],
 			"type" : "STATIC",
 			"value" : "C:/Users/asuth/COMP306/Assignment4/Tests"
+		},
+		{
+			"name" : "YourProjectName_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "C:/Users/asuth/COMP306/cmake-build-debug"
+		},
+		{
+			"name" : "YourProjectName_IS_TOP_LEVEL",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "ON"
+		},
+		{
+			"name" : "YourProjectName_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "C:/Users/asuth/COMP306"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",
@@ -1739,7 +1775,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/asuth/COMP306/cmake-build-debug/Assignment4/Tests/googletest/googletest/generated"
+			"value" : "C:/Users/asuth/COMP306/cmake-build-debug/Assignment4/Tests/gtest/googletest/googletest/generated"
 		},
 		{
 			"name" : "gmock_BINARY_DIR",
@@ -1751,7 +1787,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/asuth/COMP306/cmake-build-debug/Assignment4/Tests/googletest/googlemock"
+			"value" : "C:/Users/asuth/COMP306/cmake-build-debug/Assignment4/Tests/gtest/googletest/googlemock"
 		},
 		{
 			"name" : "gmock_IS_TOP_LEVEL",
@@ -1775,7 +1811,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/asuth/COMP306/Assignment4/Tests/googletest/googlemock"
+			"value" : "C:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googlemock"
 		},
 		{
 			"name" : "gmock_build_tests",
@@ -1803,7 +1839,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/asuth/COMP306/cmake-build-debug/Assignment4/Tests/googletest"
+			"value" : "C:/Users/asuth/COMP306/cmake-build-debug/Assignment4/Tests/gtest/googletest"
 		},
 		{
 			"name" : "googletest-distribution_IS_TOP_LEVEL",
@@ -1827,7 +1863,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/asuth/COMP306/Assignment4/Tests/googletest"
+			"value" : "C:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest"
 		},
 		{
 			"name" : "gtest_BINARY_DIR",
@@ -1839,7 +1875,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/asuth/COMP306/cmake-build-debug/Assignment4/Tests/googletest/googletest"
+			"value" : "C:/Users/asuth/COMP306/cmake-build-debug/Assignment4/Tests/gtest/googletest/googletest"
 		},
 		{
 			"name" : "gtest_IS_TOP_LEVEL",
@@ -1863,7 +1899,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/asuth/COMP306/Assignment4/Tests/googletest/googletest"
+			"value" : "C:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googletest"
 		},
 		{
 			"name" : "gtest_build_samples",

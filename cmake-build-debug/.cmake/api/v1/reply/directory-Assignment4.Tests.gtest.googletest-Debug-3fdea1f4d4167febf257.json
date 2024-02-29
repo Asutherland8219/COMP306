@@ -8,7 +8,7 @@
 	"installers" : [],
 	"paths" : 
 	{
-		"build" : "Assignment4/Tests/googletest",
-		"source" : "Assignment4/Tests/googletest"
+		"build" : "Assignment4/Tests/gtest/googletest",
+		"source" : "Assignment4/Tests/Gtest/googletest"
 	}
 }

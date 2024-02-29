@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/asuth/COMP306/Assignment4/Tests/gtest/googletest
+# Install script for directory: C:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

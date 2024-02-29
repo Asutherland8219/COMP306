@@ -2,25 +2,19 @@
 // Created by asuth on 12/13/2023.
 //
 
-#include <iostream>
-#include <string>
-#include "../Gates/Chapter_2/ChapterTwo.cpp"
-#include "../Character/Character.h"
-#include "../NPC/NPC.h"
-#include <unordered_map>
 
-class Checkpoint2 {
-private:
-    // gate breakers
-    bool cook_breaker;
-    bool cat_breaker;
-    bool small_door_breaker;
-    bool gardener_breaker;
-    bool queen_breaker;
-    bool gardener_save_breaker;
+#include "Tea_party.h"
 
-public:
-    Character Chapter2(Character custom_character) {
+
+// gate breakers
+bool cook_breaker;
+bool cat_breaker;
+bool small_door_breaker;
+bool gardener_breaker;
+bool queen_breaker;
+bool gardener_save_breaker;
+
+Character Checkpoint2::Chapter2(Character custom_character) {
         ChapterTwoGates ch_two_gates{};
         MarchHare march_hare;
         MadHatter mad_hatter;
@@ -45,16 +39,16 @@ public:
         march_hare.talk("Have some wine");
 
         std::cout << "You looked all round the table, but there was nothing on it but tea. \n";
-        custom_character.talk("I don’t see any wine");
+        custom_character.talk("I don't see any wine");
 
-        march_hare.talk("There isn’t any");
+        march_hare.talk("There isn't any");
 
         custom_character.talk("Then it wasn't very civil of you to offer it");
 
         march_hare.talk("It wasn't very civil of you to sit down without being invited");
 
         custom_character.talk(
-                "You called me over! Did you not want me to sit? I didn't know it was your table, it’s laid for a great many more than three.");
+                "You called me over! Did you not want me to sit? I didn't know it was your table, it's laid for a great many more than three.");
 
         // print break
         getUserInput(custom_character, true);
@@ -366,11 +360,4 @@ public:
 
     return  custom_character;
 
-
-
-
-
-
-
     };
-};

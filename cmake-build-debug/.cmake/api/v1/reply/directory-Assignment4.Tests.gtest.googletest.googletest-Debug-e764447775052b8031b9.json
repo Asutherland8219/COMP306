@@ -8,8 +8,8 @@
 		],
 		"files" : 
 		[
-			"Assignment4/Tests/googletest/googletest/CMakeLists.txt",
-			"Assignment4/Tests/googletest/googletest/cmake/internal_utils.cmake"
+			"Assignment4/Tests/Gtest/googletest/googletest/CMakeLists.txt",
+			"Assignment4/Tests/Gtest/googletest/googletest/cmake/internal_utils.cmake"
 		],
 		"nodes" : 
 		[
@@ -70,25 +70,25 @@
 			"exportTargets" : 
 			[
 				{
-					"id" : "gtest::@60c652528aa5c8174249",
+					"id" : "gtest::@2d214c3428715d85fed8",
 					"index" : 3
 				},
 				{
-					"id" : "gtest_main::@60c652528aa5c8174249",
+					"id" : "gtest_main::@2d214c3428715d85fed8",
 					"index" : 4
 				},
 				{
-					"id" : "gmock::@23cff570a12c68a5ba93",
+					"id" : "gmock::@acaaeac88de4439f35f3",
 					"index" : 1
 				},
 				{
-					"id" : "gmock_main::@23cff570a12c68a5ba93",
+					"id" : "gmock_main::@acaaeac88de4439f35f3",
 					"index" : 2
 				}
 			],
 			"paths" : 
 			[
-				"Assignment4/Tests/googletest/googletest/CMakeFiles/Export/0c08b8e77dd885bfe55a19a9659d9fc1/GTestTargets.cmake"
+				"Assignment4/Tests/gtest/googletest/googletest/CMakeFiles/Export/0c08b8e77dd885bfe55a19a9659d9fc1/GTestTargets.cmake"
 			],
 			"type" : "export"
 		},
@@ -98,8 +98,8 @@
 			"destination" : "lib/cmake/GTest",
 			"paths" : 
 			[
-				"cmake-build-debug/Assignment4/Tests/googletest/googletest/generated/GTestConfigVersion.cmake",
-				"cmake-build-debug/Assignment4/Tests/googletest/googletest/generated/GTestConfig.cmake"
+				"cmake-build-debug/Assignment4/Tests/gtest/googletest/googletest/generated/GTestConfigVersion.cmake",
+				"cmake-build-debug/Assignment4/Tests/gtest/googletest/googletest/generated/GTestConfig.cmake"
 			],
 			"type" : "file"
 		},
@@ -110,7 +110,7 @@
 			"paths" : 
 			[
 				{
-					"from" : "Assignment4/Tests/googletest/googletest/include",
+					"from" : "Assignment4/Tests/Gtest/googletest/googletest/include",
 					"to" : "."
 				}
 			],
@@ -124,7 +124,7 @@
 			[
 				"lib/libgtest.a"
 			],
-			"targetId" : "gtest::@60c652528aa5c8174249",
+			"targetId" : "gtest::@2d214c3428715d85fed8",
 			"targetIndex" : 3,
 			"type" : "target"
 		},
@@ -136,7 +136,7 @@
 			[
 				"lib/libgtest_main.a"
 			],
-			"targetId" : "gtest_main::@60c652528aa5c8174249",
+			"targetId" : "gtest_main::@2d214c3428715d85fed8",
 			"targetIndex" : 4,
 			"type" : "target"
 		},
@@ -146,7 +146,7 @@
 			"destination" : "lib/pkgconfig",
 			"paths" : 
 			[
-				"cmake-build-debug/Assignment4/Tests/googletest/googletest/generated/gtest.pc"
+				"cmake-build-debug/Assignment4/Tests/gtest/googletest/googletest/generated/gtest.pc"
 			],
 			"type" : "file"
 		},
@@ -156,14 +156,14 @@
 			"destination" : "lib/pkgconfig",
 			"paths" : 
 			[
-				"cmake-build-debug/Assignment4/Tests/googletest/googletest/generated/gtest_main.pc"
+				"cmake-build-debug/Assignment4/Tests/gtest/googletest/googletest/generated/gtest_main.pc"
 			],
 			"type" : "file"
 		}
 	],
 	"paths" : 
 	{
-		"build" : "Assignment4/Tests/googletest/googletest",
-		"source" : "Assignment4/Tests/googletest/googletest"
+		"build" : "Assignment4/Tests/gtest/googletest/googletest",
+		"source" : "Assignment4/Tests/Gtest/googletest/googletest"
 	}
 }

@@ -3,22 +3,20 @@
 //
 
 
-#include <iostream>
-#include "../NPC/NPC.h"
-#include "../Gates/Intro/intro_choices.cpp"
-#include "../UniversalFunctions/userInput.cpp"
+#include "Intro.h"
+#include "../UniversalFunctions/userInput.h"
 
 
-class Intro {
-private:
-    bool well_breaker;
-    bool hall_breaker;
-    bool drink_breaker;
-    bool table_breaker;
-    bool land_breaker;
-public:
-    void startAliceInWonderland(Character custom_character) {
-        introChoices int_choice = {};
+bool introChoices::intro_well_breaker;
+bool introChoices::intro_hall_breaker;
+bool introChoices::intro_drink_breaker;
+bool introChoices::intro_table_breaker;
+bool introChoices::intro_land_breaker;
+
+
+
+void Intro::startAliceInWonderland(Character custom_character) {
+        introChoices intro_choices{};
         std::cout
                 << "The sun was shining on a beautiful summer day. The dew on the ground reflecting the sunlight while the deer and other fauna scamper around the forest. \n";
         std::cout
@@ -51,7 +49,7 @@ public:
             auto input_well = getUserInput(custom_character, false);
             std::istringstream iss(input_well);
             if (iss >> choice) {
-                well_breaker = int_choice.wellChoice(choice);
+                well_breaker = intro_choices.wellChoice(choice);
             }
         }
 
@@ -75,7 +73,7 @@ public:
             int land_choice;
 
             if (iss >> land_choice) {
-                land_breaker = int_choice.landChoice(land_choice);
+                land_breaker = intro_choices.landChoice(land_choice);
             }
         }
 
@@ -107,7 +105,7 @@ public:
             std::istringstream iss(input_hall);
 
             if (iss >> hallway_choice)
-                hall_breaker = int_choice.hallwayChoice(hallway_choice);
+                hall_breaker = intro_choices.hallwayChoice(hallway_choice);
         }
 
         std::cout << "You return to the table where you were before but this time something else catches your eye.\n";
@@ -131,7 +129,7 @@ public:
             auto input_drink = getUserInput(custom_character, false);
             std::istringstream iss(input_drink);
             if (iss >> drink_choice) {
-                drink_breaker = int_choice.drinkChoice(drink_choice);
+                drink_breaker = intro_choices.drinkChoice(drink_choice);
             }
         }
 
@@ -155,7 +153,7 @@ public:
             auto input_table = getUserInput(custom_character, false);
             std::istringstream iss(input_table);
             if (iss >> table_choice) {
-                table_breaker = int_choice.tableChoice(table_choice);
+                table_breaker = intro_choices.tableChoice(table_choice);
             }
         }
         std::cout << "and now your adventure REALLY begins...";
@@ -163,4 +161,3 @@ public:
         textFormatter::printBoldItalic("END INTRO");
     }
 
-};

@@ -4,33 +4,13 @@
 #include <iostream>
 #include <string>
 
-#include "../Gates/Chapter_1/ChapterOne.cpp"
 #include <sstream>
 #include "../UniversalFunctions/clearFunctions.cpp"
 #include "../UniversalFunctions/checkFunctions.cpp"
+#include "Welcome_to_wonderland.h"
 
-class Checkpoint1 {
-private:
-    bool panic_breaker;
-    bool rabbit_breaker;
-    bool rabbit_item_breaker;
-    bool fan_item_breaker;
-    bool embankment_breaker;
-    bool glove_breaker;
-    bool house_breaker;
-    // Init the npcs
-    NPC rabbit = WhiteRabbit();
-    NPC fishman = FishFootman();
-    NPC duchess = Duchess();
-    NPC cheshirecat = CheshireCat();
-    NPC cook = Cook();
-
-public:
-    Character Chapter1(Character custom_character) {
+Character Checkpoint1::Chapter1(Character custom_character) {
         ChapterOneGates ch_one_gates;
-
-
-
         // Items
         Item letter("Letter", "A letter addressed to the Duchess", 1);
 
@@ -77,8 +57,7 @@ public:
             std::cout << std::endl;
             std::cout << "What would you like to do?\n";
             std::cout << "1. Watch silently as the rabbit passes you by. \n";
-            std::cout
-                    << "2. Get it's attention : 'Hello good sir, mr rabbit, can you understand me? I am in need of some assistance.'\n";
+            std::cout<< "2. Get it's attention : 'Hello good sir, mr rabbit, can you understand me? I am in need of some assistance.'\n";
             std::cout << "3. Get it's attention : `HEY YOU BUNNY MAN HELP ME' \n";
 
             auto input2 = getUserInput(custom_character, false);
@@ -388,5 +367,3 @@ public:
         }
         return custom_character;
     }
-
-};

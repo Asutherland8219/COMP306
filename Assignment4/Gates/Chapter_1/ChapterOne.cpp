@@ -6,22 +6,19 @@
  Logic Gates regarding the first chapter, handled in Checkpoint1. Includes modification to inventory and choices matrix
  */
 
-#include "../../NPC/NPC.h"
+#include "ChapterOne.h"
+bool ChapterOneGates::bottle;
+bool ChapterOneGates::panic_breaker;
+bool ChapterOneGates::house_breaker;
+bool ChapterOneGates::glove_breaker;
+bool ChapterOneGates::embankment_breaker;
+bool ChapterOneGates::fan_breaker;
+bool ChapterOneGates::rabbit_breaker;
+bool ChapterOneGates::bottle_inventory;
 
-class ChapterOneGates {
-private:
-    bool bottle;
-    bool bottle_inventory;
-public:
-    bool panic_breaker;
-    bool rabbit_breaker;
-    bool fan_breaker;
-    bool embankment_breaker;
-    bool glove_breaker;
-    bool house_breaker;
     // Carry over the originally created character to modify inventory
     ;
-    bool panicChoice(int panic_choice, const Character& custom_character) {
+    bool ChapterOneGates::panicChoice(int panic_choice, const Character& custom_character) {
         switch (panic_choice) {
             case 1:
                 std::cout << "You grab the key, without a second thought, and rush towards the door. \n";
@@ -49,7 +46,7 @@ public:
 
                     int bottle_choice;
                     if (iss >> bottle_choice) {
-                        ChapterOneGates::bottle = inventoryBottleChoice(bottle_choice, custom_character);
+                        bottle = inventoryBottleChoice(bottle_choice, custom_character);
                         std::cout << "After looking around, you decide nothing else of use is around and go for the key. \n";
                         panicChoice(1, custom_character);
                     }
@@ -59,7 +56,7 @@ public:
         }
         return panic_breaker;
     }
-    bool inventoryBottleChoice(int bottle_choice, const Character& custom_character) {
+    bool ChapterOneGates::inventoryBottleChoice(int bottle_choice, const Character& custom_character) {
         Item empty_bottle("Empty Bottle", "An empty bottle; previously a shrinking potion", 1);
         switch(bottle_choice) {
             case 1:
@@ -72,7 +69,7 @@ public:
         bottle_inventory = true;
         return bottle_inventory;
     }
-    bool rabbitChoice(int rabbit_choice, const Character& custom_character) {
+    bool ChapterOneGates::rabbitChoice(int rabbit_choice, const Character& custom_character) {
         switch (rabbit_choice) {
             case 1:
                 std::cout << "You watch as the rabbit goes by, too nervous to say anything...\n"
@@ -97,7 +94,7 @@ public:
         return rabbit_breaker;
     }
 
-    bool rabbitItemChoice(int rabbit_item_choice, const Character& custom_character) {
+    bool ChapterOneGates::rabbitItemChoice(int rabbit_item_choice, const Character& custom_character) {
         Item fan("Paper Fan" , "A basic paper fan, used to stay cool during hot weather.", 2);
         Item gloves("Gloves", "White gloves. Meant for formal attire.", 3);
 
@@ -108,28 +105,28 @@ public:
                 break;
             case 2:
                 std::cout << "You grab the gloves but they are too large to put on. \n";
-                custom_character.addItemToInventory(gloves);
+                Character::addItemToInventory(gloves);
                 break;
             case 3:
                 std::cout << "You grab the fan, as it could come of use later. \n";
-                custom_character.addItemToInventory(fan);
+                Character::addItemToInventory(fan);
                 break;
             case 4:
                 std::cout << "You grab both items, adding them to your inventory. \n";
-                custom_character.addItemToInventory(fan);
-                custom_character.addItemToInventory(gloves);
+                Character::addItemToInventory(fan);
+                Character::addItemToInventory(gloves);
                 break;
         }
         return rabbit_breaker;
     }
 
-    bool fanChoice(int fan_choice, const Character& custom_character) {
+    bool ChapterOneGates::fanChoice(int fan_choice, const Character& custom_character) {
         Item fan(" Shrinking Paper Fan" , "A fan, that seemingly shrinks the user.", 1);
 
         switch (fan_choice) {
             case 1:
                 std::cout << "You pickup the fan, and add it to your inventory. It could be of use later \n";
-                custom_character.addItemToInventory(fan);
+                Character::addItemToInventory(fan);
                 fan_breaker = true;
                 break;
             case 2:
@@ -140,7 +137,7 @@ public:
         return fan_breaker;
     }
 
-    bool embankmentChoice(int embankment_choice, const Character& custom_character) {
+    bool ChapterOneGates::embankmentChoice(int embankment_choice, const Character& custom_character) {
         switch (embankment_choice) {
             case 1:
                 std::cout << "You try and speak to the animals... \n";
@@ -162,7 +159,7 @@ public:
         return embankment_breaker;
     }
 
-    bool gloveChoice(int glove_choice, Character custom_character) {
+    bool ChapterOneGates::gloveChoice(int glove_choice, Character custom_character) {
         Item glove = *custom_character.inventory.getInventoryItem("Gloves");
         switch (glove_choice) {
             case 1:
@@ -181,7 +178,7 @@ public:
         return glove_breaker;
     }
 
-    bool houseChoice(int house_choice, Character custom_character) {
+    bool ChapterOneGates::houseChoice(int house_choice, Character custom_character) {
         bool bookshelf_breaker;
         WhiteRabbit rabbit;
         switch (house_choice) {
@@ -257,7 +254,7 @@ public:
         return house_breaker;
     }
 
-    bool bookChoice(int book, Character custom_character) {
+    bool ChapterOneGates::bookChoice(int book, Character custom_character) {
         bool book_choice_breaker;
         Item history_book("The history of Wonderland", "A book explaining the history of wonderland", 1);
         switch (book) {
@@ -265,7 +262,7 @@ public:
                 std::cout << "You pull out the book which is covered in dust. Clearly it has not been read in a long time. You slowly open the book \n"
                              "the book binding cracks, and the pages smell slightly of must . \n ";
                 textFormatter::printItalic("I don't think anyone would miss this, just going to borrow it so I can figure out where I am.\n");
-                custom_character.addItemToInventory(history_book);
+                Character::addItemToInventory(history_book);
                 break;
             case 2:
                 std::cout << "You pull this one from the shelves, but it has very little dust on it, it seems to be looked at quite frequently. \n"
@@ -283,7 +280,7 @@ public:
         return book_choice_breaker;
     }
 
-    bool kitchenChoice(int kitchen, Character custom_character) {
+    bool ChapterOneGates::kitchenChoice(int kitchen, Character custom_character) {
         bool kitchen_choice_breaker;
         Item Soup("Soup", "Bowl of soup, heavy on the pepper", 0);
         Item Soup_bread("Soup and Bread", "Bowl of soup and bread, good for later", 1);
@@ -291,7 +288,7 @@ public:
         switch (kitchen) {
             case 1:
                 custom_character.talk("Thank you very much! I would love some food. I'll have a bit now and same some for later. \n");
-                custom_character.addItemToInventory(Soup);
+                Character::addItemToInventory(Soup);
                 kitchen_choice_breaker = true;
                 break;
             case 2:
@@ -301,15 +298,11 @@ public:
             case 3:
                 custom_character.talk(" Oh yes please thank you so much, I am ever so starved. May I have seconds and thirds as well? \n");
                 std::cout << "The cook nods. \n";
-                custom_character.addItemToInventory(Soup_bread);
+                Character::addItemToInventory(Soup_bread);
                 kitchen_choice_breaker = true;
                 break;
         }
         return kitchen_choice_breaker;
     }
 
-
-
-
-};
 

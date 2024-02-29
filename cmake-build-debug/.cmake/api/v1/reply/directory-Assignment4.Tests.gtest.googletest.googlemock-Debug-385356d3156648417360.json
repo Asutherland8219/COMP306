@@ -8,8 +8,8 @@
 		],
 		"files" : 
 		[
-			"Assignment4/Tests/googletest/googletest/cmake/internal_utils.cmake",
-			"Assignment4/Tests/googletest/googlemock/CMakeLists.txt"
+			"Assignment4/Tests/Gtest/googletest/googletest/cmake/internal_utils.cmake",
+			"Assignment4/Tests/Gtest/googletest/googlemock/CMakeLists.txt"
 		],
 		"nodes" : 
 		[
@@ -57,7 +57,7 @@
 			"paths" : 
 			[
 				{
-					"from" : "Assignment4/Tests/googletest/googlemock/include",
+					"from" : "Assignment4/Tests/Gtest/googletest/googlemock/include",
 					"to" : "."
 				}
 			],
@@ -71,7 +71,7 @@
 			[
 				"lib/libgmock.a"
 			],
-			"targetId" : "gmock::@23cff570a12c68a5ba93",
+			"targetId" : "gmock::@acaaeac88de4439f35f3",
 			"targetIndex" : 1,
 			"type" : "target"
 		},
@@ -83,7 +83,7 @@
 			[
 				"lib/libgmock_main.a"
 			],
-			"targetId" : "gmock_main::@23cff570a12c68a5ba93",
+			"targetId" : "gmock_main::@acaaeac88de4439f35f3",
 			"targetIndex" : 2,
 			"type" : "target"
 		},
@@ -93,7 +93,7 @@
 			"destination" : "lib/pkgconfig",
 			"paths" : 
 			[
-				"cmake-build-debug/Assignment4/Tests/googletest/googletest/generated/gmock.pc"
+				"cmake-build-debug/Assignment4/Tests/gtest/googletest/googletest/generated/gmock.pc"
 			],
 			"type" : "file"
 		},
@@ -103,14 +103,14 @@
 			"destination" : "lib/pkgconfig",
 			"paths" : 
 			[
-				"cmake-build-debug/Assignment4/Tests/googletest/googletest/generated/gmock_main.pc"
+				"cmake-build-debug/Assignment4/Tests/gtest/googletest/googletest/generated/gmock_main.pc"
 			],
 			"type" : "file"
 		}
 	],
 	"paths" : 
 	{
-		"build" : "Assignment4/Tests/googletest/googlemock",
-		"source" : "Assignment4/Tests/googletest/googlemock"
+		"build" : "Assignment4/Tests/gtest/googletest/googlemock",
+		"source" : "Assignment4/Tests/Gtest/googletest/googlemock"
 	}
 }

@@ -3,17 +3,16 @@
 //
 
 #include <unordered_map>
+#include "ChapterTwo.h"
 
-class ChapterTwoGates {
-private:
-public:
-    bool cook_breaker;
-    bool cat_breaker;
-    bool fan_breaker;
-    bool gardener_breaker;
-    bool gardener_save_breaker;
 
-    bool cookChoice(int cook_choice, const Character& custom_character) {
+    bool ChapterTwoGates::cook_breaker;
+    bool ChapterTwoGates::cat_breaker;
+    bool ChapterTwoGates::fan_breaker;
+    bool ChapterTwoGates::gardener_breaker;
+    bool ChapterTwoGates::gardener_save_breaker;
+
+    bool ChapterTwoGates::cookChoice(int cook_choice, const Character& custom_character) {
         Cook cook;
         Item shrinking_mushroom("Shrinking Mushroom", "A mushroom that makes you smaller.", 1);
         Item growing_mushroom("Growing Mushroom", "A mushroom that makes you larger.", 1);
@@ -66,7 +65,7 @@ public:
         return cook_breaker;
     }
 
-    bool catChoice(int cat_choice, const Character& custom_character) {
+    bool ChapterTwoGates::catChoice(int cat_choice, const Character& custom_character) {
         CheshireCat cheshirecat;
         switch (cat_choice) {
             case 1:
@@ -118,7 +117,7 @@ public:
         return cat_breaker;
     }
 
-    bool fanChoice(int fan_choice, const Character& custom_character, std::unordered_map<int, std::string> inventory_map) {
+    bool ChapterTwoGates::fanChoice(int fan_choice, const Character& custom_character, std::unordered_map<int, std::string> inventory_map) {
         std::vector<std::string> shrinking_items = {"Blue Mushroom", "Fan", "Shrinking Fan", "Shrinking Mushroom"};
         std::vector<std::string> growing_items = {"Red Mushroom", "Growing Mushroom","Cook's Cake"};
         switch (fan_choice) {
@@ -219,7 +218,7 @@ public:
         return fan_breaker;
     }
 
-    bool gardenerIntroChoice(int gardener_choice, Character custom_character) {
+    bool ChapterTwoGates::gardenerIntroChoice(int gardener_choice, Character custom_character) {
         Item painted_flower("Painted Flower", "A flower, originally white that was painted red", 1);
         switch (gardener_choice) {
             case 1:
@@ -240,7 +239,7 @@ public:
 
     }
 
-    bool gardenerSaveChoice(int gardener_save_choice, Character custom_character) {
+    bool ChapterTwoGates::gardenerSaveChoice(int gardener_save_choice, Character custom_character) {
         Soldiers soldiers;
         switch (gardener_save_choice) {
             case 1:
@@ -276,10 +275,3 @@ public:
         return gardener_save_breaker;
 
     }
-
-
-
-
-
-
-};

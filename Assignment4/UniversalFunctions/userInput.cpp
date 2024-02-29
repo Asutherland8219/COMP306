@@ -14,6 +14,8 @@
 #include <vector>
 #include <algorithm>
 #include <limits>
+#include "../Character/Character.h"
+#include "userInput.h"
 
 bool isInt(const std::string &str) {
     std::istringstream iss(str);

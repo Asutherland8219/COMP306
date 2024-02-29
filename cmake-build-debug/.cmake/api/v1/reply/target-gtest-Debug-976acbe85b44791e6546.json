@@ -20,8 +20,8 @@
 		],
 		"files" : 
 		[
-			"Assignment4/Tests/googletest/googletest/cmake/internal_utils.cmake",
-			"Assignment4/Tests/googletest/googletest/CMakeLists.txt"
+			"Assignment4/Tests/Gtest/googletest/googletest/cmake/internal_utils.cmake",
+			"Assignment4/Tests/Gtest/googletest/googletest/CMakeLists.txt"
 		],
 		"nodes" : 
 		[
@@ -82,11 +82,11 @@
 			[
 				{
 					"backtrace" : 6,
-					"path" : "C:/Users/asuth/COMP306/Assignment4/Tests/googletest/googletest/include"
+					"path" : "C:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googletest/include"
 				},
 				{
 					"backtrace" : 6,
-					"path" : "C:/Users/asuth/COMP306/Assignment4/Tests/googletest/googletest"
+					"path" : "C:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googletest"
 				}
 			],
 			"language" : "CXX",
@@ -96,7 +96,7 @@
 			]
 		}
 	],
-	"id" : "gtest::@60c652528aa5c8174249",
+	"id" : "gtest::@2d214c3428715d85fed8",
 	"install" : 
 	{
 		"destinations" : 
@@ -115,8 +115,8 @@
 	"nameOnDisk" : "libgtest.a",
 	"paths" : 
 	{
-		"build" : "Assignment4/Tests/googletest/googletest",
-		"source" : "Assignment4/Tests/googletest/googletest"
+		"build" : "Assignment4/Tests/gtest/googletest/googletest",
+		"source" : "Assignment4/Tests/Gtest/googletest/googletest"
 	},
 	"sourceGroups" : 
 	[
@@ -133,7 +133,7 @@
 		{
 			"backtrace" : 3,
 			"compileGroupIndex" : 0,
-			"path" : "Assignment4/Tests/googletest/googletest/src/gtest-all.cc",
+			"path" : "Assignment4/Tests/Gtest/googletest/googletest/src/gtest-all.cc",
 			"sourceGroupIndex" : 0
 		}
 	],

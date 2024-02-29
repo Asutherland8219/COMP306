@@ -154,7 +154,7 @@
 			"path" : "Assignment4/Tests/CMakeLists.txt"
 		},
 		{
-			"path" : "Assignment4/Tests/googletest/CMakeLists.txt"
+			"path" : "Assignment4/Tests/Gtest/googletest/CMakeLists.txt"
 		},
 		{
 			"isCMake" : true,
@@ -167,19 +167,19 @@
 			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/GNUInstallDirs.cmake"
 		},
 		{
-			"path" : "Assignment4/Tests/googletest/googlemock/CMakeLists.txt"
+			"path" : "Assignment4/Tests/Gtest/googletest/googlemock/CMakeLists.txt"
 		},
 		{
-			"path" : "Assignment4/Tests/googletest/googlemock/cmake/gmock.pc.in"
+			"path" : "Assignment4/Tests/Gtest/googletest/googlemock/cmake/gmock.pc.in"
 		},
 		{
-			"path" : "Assignment4/Tests/googletest/googlemock/cmake/gmock_main.pc.in"
+			"path" : "Assignment4/Tests/Gtest/googletest/googlemock/cmake/gmock_main.pc.in"
 		},
 		{
-			"path" : "Assignment4/Tests/googletest/googletest/CMakeLists.txt"
+			"path" : "Assignment4/Tests/Gtest/googletest/googletest/CMakeLists.txt"
 		},
 		{
-			"path" : "Assignment4/Tests/googletest/googletest/cmake/internal_utils.cmake"
+			"path" : "Assignment4/Tests/Gtest/googletest/googletest/cmake/internal_utils.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -197,13 +197,13 @@
 			"path" : "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.27/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in"
 		},
 		{
-			"path" : "Assignment4/Tests/googletest/googletest/cmake/Config.cmake.in"
+			"path" : "Assignment4/Tests/Gtest/googletest/googletest/cmake/Config.cmake.in"
 		},
 		{
-			"path" : "Assignment4/Tests/googletest/googletest/cmake/gtest.pc.in"
+			"path" : "Assignment4/Tests/Gtest/googletest/googletest/cmake/gtest.pc.in"
 		},
 		{
-			"path" : "Assignment4/Tests/googletest/googletest/cmake/gtest_main.pc.in"
+			"path" : "Assignment4/Tests/Gtest/googletest/googletest/cmake/gtest_main.pc.in"
 		}
 	],
 	"kind" : "cmakeFiles",

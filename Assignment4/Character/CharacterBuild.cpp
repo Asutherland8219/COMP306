@@ -8,17 +8,16 @@
  Includes a test character build to run quick test function in character building. This is used to quickly create a
  default character to pass into each chapter and makes for faster testing.
  */
-#include "Character.cpp"
-#include "../Inventory/Inventory.cpp"
-#include "../Inventory/Items/Item.cpp"
+#include "Character.h"
 #include <string>
 #include <limits>
 #include <algorithm>
+#include "CharacterBuild.h"
 
 
-class CharacterBuild {
-public:
-    static Character character_build() {
+
+
+Character CharacterBuild::character_build() {
         std::cout << "Welcome to the Adventure Game!" << std::endl;
         std::cout << "Let's start by creating your character. Menu functions are not available at this point." << std::endl;
 
@@ -69,7 +68,7 @@ public:
     }
 
     // test character build
-    static Character test_character_build(){
+     Character CharacterBuild::test_character_build(){
         std::string name = "John Smith";
         std::string hair_color = "white";
         std::string eye_color = "red";
@@ -82,5 +81,5 @@ public:
         default_character.completeLastQuestObjective();
     return default_character;
     };
-};
+
 
