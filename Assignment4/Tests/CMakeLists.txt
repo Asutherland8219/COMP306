@@ -15,7 +15,8 @@ include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 add_executable(Tests Gtest/Base/TestFull.cpp
         ../Sections/Tea_party.cpp
         ../Character/CharacterBuild.h
-        ../Gates/Intro/intro_choices.cpp)
+        ../Gates/Intro/intro_choices.cpp
+        ../Gates/Finale/TheEnd.cpp)
 
 # Link with Google Test
 target_link_libraries(Tests gtest gtest_main)

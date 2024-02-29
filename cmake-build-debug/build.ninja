@@ -152,6 +152,13 @@ build Assignment4/Tests/CMakeFiles/Tests.dir/__/Gates/Intro/intro_choices.cpp.ob
   OBJECT_DIR = Assignment4\Tests\CMakeFiles\Tests.dir
   OBJECT_FILE_DIR = Assignment4\Tests\CMakeFiles\Tests.dir\__\Gates\Intro
 
+build Assignment4/Tests/CMakeFiles/Tests.dir/__/Gates/Finale/TheEnd.cpp.obj: CXX_COMPILER__Tests_unscanned_Debug C$:/Users/asuth/COMP306/Assignment4/Gates/Finale/TheEnd.cpp || cmake_object_order_depends_target_Tests
+  DEP_FILE = Assignment4\Tests\CMakeFiles\Tests.dir\__\Gates\Finale\TheEnd.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -isystem C:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googletest/include -isystem C:/Users/asuth/COMP306/Assignment4/Tests/Gtest/googletest/googletest
+  OBJECT_DIR = Assignment4\Tests\CMakeFiles\Tests.dir
+  OBJECT_FILE_DIR = Assignment4\Tests\CMakeFiles\Tests.dir\__\Gates\Finale
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Tests
@@ -160,7 +167,7 @@ build Assignment4/Tests/CMakeFiles/Tests.dir/__/Gates/Intro/intro_choices.cpp.ob
 #############################################
 # Link the executable Assignment4\Tests\Tests.exe
 
-build Assignment4/Tests/Tests.exe: CXX_EXECUTABLE_LINKER__Tests_Debug Assignment4/Tests/CMakeFiles/Tests.dir/Gtest/Base/TestFull.cpp.obj Assignment4/Tests/CMakeFiles/Tests.dir/__/Sections/Tea_party.cpp.obj Assignment4/Tests/CMakeFiles/Tests.dir/__/Gates/Intro/intro_choices.cpp.obj | lib/libgtest.a lib/libgtest_main.a lib/libgtest.a || lib/libgtest.a lib/libgtest_main.a
+build Assignment4/Tests/Tests.exe: CXX_EXECUTABLE_LINKER__Tests_Debug Assignment4/Tests/CMakeFiles/Tests.dir/Gtest/Base/TestFull.cpp.obj Assignment4/Tests/CMakeFiles/Tests.dir/__/Sections/Tea_party.cpp.obj Assignment4/Tests/CMakeFiles/Tests.dir/__/Gates/Intro/intro_choices.cpp.obj Assignment4/Tests/CMakeFiles/Tests.dir/__/Gates/Finale/TheEnd.cpp.obj | lib/libgtest.a lib/libgtest_main.a lib/libgtest.a || lib/libgtest.a lib/libgtest_main.a
   FLAGS = -g
   LINK_LIBRARIES = lib/libgtest.a  lib/libgtest_main.a  lib/libgtest.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = Assignment4\Tests\CMakeFiles\Tests.dir

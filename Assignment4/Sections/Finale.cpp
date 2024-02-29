@@ -4,24 +4,13 @@
 
 // Start ch.11, Who stole the tarts
 
-class Finale {
-private:
-public:
-    MarchHare march_hare;
-    MadHatter mad_hatter;
-    Five five;
-    Seven seven;
-    Two two;
-    Queen queen;
-    Soldiers soldiers;
-    King king;
-    WhiteRabbit rabbit;
-    CheshireCat cheshirecat;
-    Duchess duchess;
-    Cook cook;
-    Mouse mouse;
+#include "Finale.h"
+#include "../Gates/Finale/TheEnd.h"
 
-    Character TheEnd(Character custom_character) {
+    bool Finale::attention_breaker;
+    bool Finale::court_breaker;
+
+    Character Finale::TheEnd(Character custom_character) {
         std::cout << "You arrive at the castle, and are in total shock and awe at the large gates. \n";
         custom_character.talk("my oh my these doors are huge");
         duchess.talk("Yes the Queen is known for being extravagant. These may be a a bit over the top.");
@@ -33,7 +22,23 @@ public:
         // print break
         getUserInput(custom_character, true);
 
-        // Add choices between kicking them, yelling at them, doing it yourself etc
+        while (!attention_breaker) {
+            std::cout << std::endl;
+            std::cout << "What would you like to do?\n";
+            std::cout << "1. Kick them both to get their attention \n";
+            std::cout << "2. Flick them in the ears.\n";
+            std::cout << "3. Don't warn them, instead tell the Queen they aren't listening.\n";
+
+            auto input1_ch4 = getUserInput(custom_character, false);
+            std::istringstream iss(input1_ch4);
+            int attention_choice;
+            if (iss >> attention_choice) { // Attempt to read an integer from the input
+                attention_breaker = ChapterFourGates::attentionChoice(attention_choice, custom_character);
+            }
+        }
+
+        // print break
+        getUserInput(custom_character, true);
 
         std::cout << "Once the doors open, you see the King and Queen, sat on their throne, with a great crowd assembled around them. \n"
                      "all sorts of little birds and beasts, as well as the whole pack of cards: the Knave was standing before them, in chains, with a soldier on each side to guard him;\n "
@@ -143,28 +148,22 @@ public:
         king.talk("What do you know about this business?");
 
         // Add section about discussion in court
+        while (!court_breaker) {
+            std::cout << std::endl;
+            std::cout << "What would you like to do?\n";
+            std::cout << "1. Deny, Deny, Deny \n";
+            std::cout << "2. Plead the 5th \n";
+            std::cout << "3. Tell them what you know \n";
+
+            auto input2_ch4 = getUserInput(custom_character, false);
+            std::istringstream iss(input2_ch4);
+            int court_choice;
+            if (iss >> court_choice) { // Attempt to read an integer from the input
+                court_breaker = ChapterFourGates::courtChoice(court_choice, custom_character);
+            }
+        }
+
 
         textFormatter::printBoldItalic("END CHAPTER 3/FINALE");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         return custom_character;
     }
-};

@@ -3,15 +3,13 @@
 //
 
 #include <iostream>
+#include "ChapterThree.h"
 
-class ChapterThreeGates {
-private:
-public:
-    bool duchess_intro_choice{};
-    bool duchess_house_choice{};
-    Duchess duchess;
+     bool ChapterThreeGates::duchess_intro_choice;
+     bool ChapterThreeGates::duchess_house_choice;
 
-    bool duchessIntroChoice(int duchess_intro, Character custom_character) {
+
+    bool ChapterThreeGates::duchessIntroChoice(int duchess_intro, Character custom_character) {
         switch (duchess_intro) {
             case 1:
                 custom_character.talk("Hello Duchess, good to see you again, if you even remember who I am.");
@@ -47,7 +45,7 @@ public:
         return duchess_intro_choice;
     }
 
-    bool duchessHouseChoice(int duchess_house, Character custom_character) {
+    bool ChapterThreeGates::duchessHouseChoice(int duchess_house, Character custom_character) {
         Item amethyst_ring("Amethyst Signet Ring", "A gold ring, bedazzled with purple emeralds ", 1);
         switch (duchess_house) {
             case 1:
@@ -102,6 +100,3 @@ public:
         return duchess_intro_choice;
     }
 
-
-
-};
