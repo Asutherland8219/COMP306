@@ -7,10 +7,11 @@
 #include "Sections/Welcome_to_wonderland.cpp"
 #include "Sections/Tea_party.cpp"
 #include "Sections/Meeting_the_queen.cpp"
-#include "Sections/Finale.cpp"
 #include "NPC/NPC.cpp"
 #include "Tests/LocalTests/IntroTest.cpp"
 #include "UniversalFunctions/userInput.cpp"
+#include "Sections/Finale.cpp"
+
 
 
 void Wonderland_test();
@@ -53,7 +54,7 @@ int main() {
 void Wonderland_test() {
 //    runFullSequenceTest();
 //    runNeutralPathTest();
-    runExplorerPathTest();
+    Character test_char = runExplorerPathTest();
 
 }
 

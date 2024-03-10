@@ -3,14 +3,11 @@
 
 #include "../../Character/Character.h"
 #include "../../NPC/NPC.h"
-#include "../../UniversalFunctions/userInput.h"
 
 class ChapterFourGates {
-private:
+public:
     static bool attention_breaker;
     static bool court_breaker;
-
-public:
     static King king;
     static WhiteRabbit rabbit;
     static Queen queen;

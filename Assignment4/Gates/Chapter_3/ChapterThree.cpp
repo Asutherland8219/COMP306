@@ -4,12 +4,9 @@
 
 #include <iostream>
 #include "ChapterThree.h"
-
-     bool ChapterThreeGates::duchess_intro_choice;
-     bool ChapterThreeGates::duchess_house_choice;
-
-
+Duchess duchess;
     bool ChapterThreeGates::duchessIntroChoice(int duchess_intro, Character custom_character) {
+
         switch (duchess_intro) {
             case 1:
                 custom_character.talk("Hello Duchess, good to see you again, if you even remember who I am.");

@@ -107,6 +107,10 @@ void Character::listInventory() {
     return Character::inventory.displayInventory();
 }
 
+std::vector<Item> Character::getInventory() const {
+    return Character::inventory._displayInventory();
+}
+
 void Character::dropItem(const std::string &item_name) {
     Character::inventory.dropItem(item_name);
 }

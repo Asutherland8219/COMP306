@@ -8,6 +8,7 @@
 #include <iostream>
 #include "../NPC/NPC.h"
 #include "../Character/Character.h"
+#include "../Gates/Finale/TheEnd.cpp"
 
 class Finale {
 private:

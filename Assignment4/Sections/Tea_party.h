@@ -13,12 +13,12 @@
 class Checkpoint2 {
 private:
     // gate breakers
-    bool cook_breaker;
-    bool cat_breaker;
-    bool small_door_breaker;
-    bool gardener_breaker;
-    bool queen_breaker;
-    bool gardener_save_breaker;
+    static bool cook_breaker;
+    static bool cat_breaker;
+    static bool small_door_breaker;
+    static bool gardener_breaker;
+    static bool queen_breaker;
+    static bool gardener_save_breaker;
 
 public:
     Character Chapter2(Character custom_character);

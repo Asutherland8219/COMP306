@@ -8,45 +8,39 @@
     For example, a matrix of all 0's is default, while a matrix of 1 or 2's would result in a normal/optimal outcome etc..
 */
 
-#include <vector>
-#include <iostream>
-#include "../Gates/Chapter_2/ChapterTwo.cpp"
-#include "../Character/Character.h"
-#include "../NPC/NPC.h"
-#include "../UniversalFunctions/userInput.h"
-#include <unordered_map>
+#include "FinaleChoices.h"
 
-
-class CharacterMatrix {
-private:
-    std::vector<std::vector<int>> matrix;
-
-public:
-    // Default constructor to initialize the matrix as 3x3 with zeros
-    CharacterMatrix() : matrix(3, std::vector<int>(3, 0)) {}
-
-    // Increment the value at a specific row and column
-    void incrementValue(int row, int column) {
-        if (row >= 0 && row < matrix.size() && column >= 0 && column < matrix[0].size()) {
-            matrix[row][column]++;
+    // Function to calculate the sum of values of items in the inventory
+    int FinaleChoice::calculateInventorySum(const Character& custom_character) {
+        int sum = 0;
+        for (const auto& item : custom_character.getInventory()) {
+            sum += item.getValue();
         }
+        return sum;
     }
 
-    // Display the matrix (for debugging purposes)
-    void displayMatrix() const {
-        for (const auto& row : matrix) {
-            for (int value : row) {
-                std::cout << value << ' ';
-            }
-            std::cout << '\n';
+    // Function to determine the ending based on the inventory sum
+    void FinaleChoice::determineEnding(Character custom_character) {
+        int sumOfValues = calculateInventorySum(custom_character);
+        std::cout << sumOfValues;
+        PossibleEndings possibleEndings;
+        possibleEndings.getEnding(sumOfValues, custom_character);
+    }
+
+
+    void PossibleEndings::getEnding(int sumOfValues, Character custom_character) {
+        // Determine the ending based on the sumOfValues
+        if (sumOfValues >= 200) {
+            // Call the function for the Explorer's Ending
+            ExplorersEnding(custom_character);
+        } else if (sumOfValues >= 100) {
+            // Call the function for the Neutral Ending
+            NeutralEnding(custom_character);
+        } else {
+            // Call the function for the Bad Ending
+            BadEnding(custom_character);
         }
     }
-};
-
-class PossibleEndings {
-public:
-    Mother mother;
-    Nurse nurse;
 
     // Explorers ending (containing multiple items)
     /*
@@ -55,7 +49,7 @@ public:
      *
      */
 
-    void ExplorersEnding(Character custom_character) {
+    void PossibleEndings::ExplorersEnding(Character custom_character) {
         std::cout << "You wake from the dream as soon as you yell out at the trial. Your surroundings have changed immensely and now you lie next to a tree, with the sun setting on the horizon.\n"
                      "Off to your right in the distance, you see a small shack. Outside of the shack, you see someone. Then you hear them yelling. \n";
 
@@ -79,7 +73,7 @@ public:
      * So Alice got up and ran off, thinking while she ran, as well she might, what a wonderful dream it had been.
      */
 
-    void NeutralEnding(Character custom_character) {
+    void PossibleEndings::NeutralEnding(Character custom_character) {
         std::cout << "You wake from the dream as soon as you yell out at the trial. Your surroundings have changed immensely and now you lie next to a tree, with the sun setting on the horizon.\n"
                      "Off to your right in the distance, you see a small shack. Outside of the shack, you see someone. Then you hear them yelling. \n";
 
@@ -106,7 +100,7 @@ public:
      *
      */
 
-    void BadEnding(Character custom_character) {
+    void PossibleEndings::BadEnding(Character custom_character) {
         std::cout << "You wake up from the dream, or what felt like a dream. But then look around and realize you are in a prison cell. You pinch your arm to see if you are dreaming.\n";
         custom_character.talk("OW");
         std::cout << "Turns out you aren't, at least for this test. You look around and see the executioner near you. He calls to you \"It is time\" and unlocks your cell.\n"
@@ -137,7 +131,6 @@ public:
     }
 
 
-};
 
 
 

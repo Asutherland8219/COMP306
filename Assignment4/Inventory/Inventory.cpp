@@ -46,14 +46,9 @@ void Inventory::displayInventory() {
 
 // The internal inventory, this will be called by internal logic in order to get the flag value for
 // future calculations.
-void Inventory::_displayInventory() const {
-    std::cout << "Inventory:\n";
-    for (const auto& item : items) {
-        std::cout << "Name: " << item.getName() << "\n";
-        std::cout << "Description: " << item.getDescription() << "\n";
-        std::cout << "Value: " << item.getValue() << "\n\n";
+std::vector<Item> Inventory::_displayInventory() const {
+    return items;
     }
-}
 
 // Implementation of dropItem function
 void Inventory::dropItem(const std::string& itemName) const {

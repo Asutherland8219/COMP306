@@ -6,11 +6,11 @@
 #include "ChapterTwo.h"
 
 
-    bool ChapterTwoGates::cook_breaker;
-    bool ChapterTwoGates::cat_breaker;
-    bool ChapterTwoGates::fan_breaker;
-    bool ChapterTwoGates::gardener_breaker;
-    bool ChapterTwoGates::gardener_save_breaker;
+bool ChapterTwoGates::cook_breaker;
+bool ChapterTwoGates::cat_breaker;
+bool ChapterTwoGates::fan_breaker;
+bool ChapterTwoGates::gardener_breaker;
+bool ChapterTwoGates::gardener_save_breaker;
 
     bool ChapterTwoGates::cookChoice(int cook_choice, const Character& custom_character) {
         Cook cook;

@@ -19,7 +19,7 @@ public:
     static void addItem(const Item& newItem);
     static void displayInventory() ;
     // Internal Inventory
-    void _displayInventory() const;
+    std::vector<Item> _displayInventory() const;
     static std::vector<Item> items;
     void dropItem(const std::string& itemName) const;
     Item *const getInventoryItem(const std::string& itemName) const;

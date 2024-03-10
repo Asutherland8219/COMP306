@@ -2,10 +2,7 @@
 // Created by asuth on 2/18/2024.
 //
 
-#include <unordered_map>
 #include "TheEnd.h"
-
-
 
 bool ChapterFourGates::attentionChoice(int attention_choice, const Character& custom_character) {
 

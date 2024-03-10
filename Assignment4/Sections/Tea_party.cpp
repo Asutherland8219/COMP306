@@ -7,12 +7,12 @@
 
 
 // gate breakers
-bool cook_breaker;
-bool cat_breaker;
-bool small_door_breaker;
-bool gardener_breaker;
-bool queen_breaker;
-bool gardener_save_breaker;
+bool Checkpoint2::cook_breaker;
+bool Checkpoint2::cat_breaker;
+bool Checkpoint2::small_door_breaker;
+bool Checkpoint2::gardener_breaker;
+bool Checkpoint2::queen_breaker;
+bool Checkpoint2::gardener_save_breaker;
 
 Character Checkpoint2::Chapter2(Character custom_character) {
         ChapterTwoGates ch_two_gates{};

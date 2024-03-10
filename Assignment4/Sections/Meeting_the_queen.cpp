@@ -2,36 +2,13 @@
 // Created by asuth on 12/13/2023.
 //
 #include <iostream>
-#include "../Gates/Chapter_3/ChapterThree.cpp"
+#include "Meeting_the_queen.h"
 
+bool ChapterThreeGates::duchess_house_choice;
+bool ChapterThreeGates::duchess_intro_choice;
 
-class Checkpoint3 {
-private:
-    // gate breakers
-    bool cook_breaker;
-    bool cat_breaker;
-    bool small_door_breaker;
-    bool gardener_breaker;
-    bool queen_breaker;
-    bool gardener_save_breaker;
-    bool duchess_intro_breaker;
-    bool duchess_house_breaker;
-
-public:
-    MarchHare march_hare;
-    MadHatter mad_hatter;
-    Five five;
-    Seven seven;
-    Two two;
-    Queen queen;
-    Soldiers soldiers;
-    King king;
-    WhiteRabbit rabbit;
-    CheshireCat cheshirecat;
-    Duchess duchess;
-
-    Character Chapter3(Character custom_character) {
-        ChapterThreeGates ch_three_gates;
+Character Checkpoint3::Chapter3(Character custom_character) {
+    ChapterThreeGates ch_three_gates;
 
     std::cout << "People began running about in all directions, tumbling up against each other; however, they got settled down in a minute or two, and the game began. \n "
                  "You have never seen such a curious croquet-ground in her life; it was all ridges and furrows; \n"
@@ -155,18 +132,4 @@ public:
     return custom_character;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
     }
-
-    };

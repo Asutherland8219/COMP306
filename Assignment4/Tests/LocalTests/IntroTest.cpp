@@ -1,15 +1,8 @@
 //
 // Created by asuth on 2/28/2024.
 //
-#include <iostream>
-#include <sstream>
 
 // Include your class and necessary headers here
-#include "../../Character/CharacterBuild.h"
-#include "../../Gates/Chapter_1/ChapterOne.h"
-#include "../../Gates/Chapter_2/ChapterTwo.h"
-#include "../../Sections/Welcome_to_Wonderland.h"
-#include "../../Gates/Intro/intro_choices.h"
 
 void mockUserInput(int input) {
     std::cin.rdbuf(nullptr);
@@ -20,7 +13,9 @@ void mockUserInput(int input) {
 }
 
 
-void runExplorerPathTest() {
+Character runExplorerPathTest() {
+    std::cout << "Running Explorer Ending Test...\n";
+
     // Create test model character
     Character test_character = CharacterBuild::test_character_build();
 
@@ -96,10 +91,23 @@ void runExplorerPathTest() {
     // save gardeners
     ChapterTwoGates::gardenerSaveChoice(1, test_character);
 
+    // talk to duchess after saving
+    ChapterThreeGates::duchessIntroChoice(1, test_character);
+
+    // talk to duchess in house
+    ChapterThreeGates::duchessHouseChoice(1, test_character);
+
+    // Attention choice
+//    ChapterFourGates::attentionChoice(3, test_character);
+//
+//    // Court choice (final choice)
+//    ChapterFourGates::courtChoice(2, test_character);
 
 
 
-    std::cout << "Running Explorer Ending Test...\n";
+    std::cout << "Finished running Explorer Ending Test...\n";
+
+    return test_character;
 }
 
 
