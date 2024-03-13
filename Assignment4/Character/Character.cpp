@@ -115,8 +115,8 @@ void Character::dropItem(const std::string &item_name) {
     Character::inventory.dropItem(item_name);
 }
 
-Item * Character::getItem(const std::string &item_name) {
-     return const_cast<Item *>(Character::inventory.getInventoryItem(item_name));
+Item Character::getItem(const std::string &item_name) {
+     return Character::inventory.getInventoryItem(item_name);
 }
 
 

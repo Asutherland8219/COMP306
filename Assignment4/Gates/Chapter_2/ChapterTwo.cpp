@@ -129,20 +129,20 @@ bool ChapterTwoGates::gardener_save_breaker;
                     // Get the item name based on the user's selection
                     const std::string &selectedItem = inventory_map.at(fan_choice);
 
-                    // Get the corresponding item from the inventory
-                    const Item *selectedInventoryItem = custom_character.inventory.getInventoryItem(selectedItem);
-
                     // Perform actions based on the selected item
-                    if (selectedInventoryItem) {
+                    if (checkInventory(selectedItem, custom_character)) {
+                        // Get the corresponding item from the inventory
+                        Item selectedInventoryItem = custom_character.inventory.getInventoryItem(selectedItem);
+
                         // Example: Display information about the selected item
                         std::cout << "Selected Item: " << selectedItem << std::endl;
-                        std::cout << "Description: " << selectedInventoryItem->getDescription() << std::endl;
+                        std::cout << "Description: " << selectedInventoryItem.getDescription() << std::endl;
 
                         if (std::find(shrinking_items.begin(), shrinking_items.end(), selectedItem) !=
                             shrinking_items.end()) {
                             // Additional actions for shrinking items
                             std::cout << "You use the item and suddenly start getting smaller... \n";
-                            custom_character.inventory.dropItem(selectedInventoryItem->name);
+                            custom_character.inventory.dropItem(selectedInventoryItem.name);
                             custom_character.talk("Perfect, now I can fit through the door.");
                             std::cout
                                     << "You walk over to the door, but wait, it's still locked, and you don't have key... \n";
@@ -165,7 +165,7 @@ bool ChapterTwoGates::gardener_save_breaker;
                             bool hasShrinkingItem = false;
                             std::string selectedShrinkingItem;
                             for (const std::string &shrinkingItem: shrinking_items) {
-                                if (custom_character.inventory.getInventoryItem(shrinkingItem)) {
+                                if (checkInventory(shrinkingItem, custom_character)) {
                                     hasShrinkingItem = true;
                                     break;
                                 }

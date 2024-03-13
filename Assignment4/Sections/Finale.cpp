@@ -6,6 +6,9 @@
 
 #include "Finale.h"
 
+bool Finale::court_breaker;
+bool Finale::attention_breaker;
+
 Character Finale::TheEnd(Character custom_character) {
         std::cout << "You arrive at the castle, and are in total shock and awe at the large gates. \n";
         custom_character.talk("my oh my these doors are huge");
@@ -159,7 +162,9 @@ Character Finale::TheEnd(Character custom_character) {
             }
         }
 
-
         textFormatter::printBoldItalic("END CHAPTER 3/FINALE");
+
+        FinaleChoice::determineEnding(custom_character);
+
         return custom_character;
     }

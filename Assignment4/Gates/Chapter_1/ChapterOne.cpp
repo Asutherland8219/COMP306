@@ -160,7 +160,7 @@ bool ChapterOneGates::bottle_inventory;
     }
 
     bool ChapterOneGates::gloveChoice(int glove_choice, Character custom_character) {
-        Item glove = *custom_character.inventory.getInventoryItem("Gloves");
+        Item glove = custom_character.inventory.getInventoryItem("Gloves");
         switch (glove_choice) {
             case 1:
                 textFormatter::printItalic("Hello Mr Rabbit, are these the gloves you are looking for? \n");

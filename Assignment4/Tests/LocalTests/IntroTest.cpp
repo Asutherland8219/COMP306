@@ -4,12 +4,21 @@
 
 // Include your class and necessary headers here
 
+#include "../../Gates/Finale/TheEnd.h"
+#include "../../Character/FinaleChoices.h"
+#include <cassert>
+
 void mockUserInput(int input) {
     std::cin.rdbuf(nullptr);
     std::cin.clear();
 
     std::istringstream userInput(std::to_string(input));
     std::cin.rdbuf(userInput.rdbuf());
+}
+
+void mockEnter(const std::string& input) {
+    std::istringstream iss(input);
+    std::cin.rdbuf(iss.rdbuf()); // Redirect standard input to the stringstream
 }
 
 
@@ -98,14 +107,17 @@ Character runExplorerPathTest() {
     ChapterThreeGates::duchessHouseChoice(1, test_character);
 
     // Attention choice
-//    ChapterFourGates::attentionChoice(3, test_character);
-//
-//    // Court choice (final choice)
-//    ChapterFourGates::courtChoice(2, test_character);
+    ChapterFourGates::attentionChoice(3, test_character);
 
+    // Court choice (final choice)
+    ChapterFourGates::courtChoice(2, test_character);
 
+    // Test the ending
 
-    std::cout << "Finished running Explorer Ending Test...\n";
+    int end_value = FinaleChoice::determineEnding(test_character);
+    assert(end_value == 3);
+
+    std::cout << "\n\nFinished running Explorer Ending Test...\n";
 
     return test_character;
 }

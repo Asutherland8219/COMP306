@@ -20,25 +20,32 @@
     }
 
     // Function to determine the ending based on the inventory sum
-    void FinaleChoice::determineEnding(Character custom_character) {
+    int FinaleChoice::determineEnding(Character custom_character) {
         int sumOfValues = calculateInventorySum(custom_character);
         std::cout << sumOfValues;
         PossibleEndings possibleEndings;
-        possibleEndings.getEnding(sumOfValues, custom_character);
+        return possibleEndings.getEnding(sumOfValues, custom_character);
     }
 
 
-    void PossibleEndings::getEnding(int sumOfValues, Character custom_character) {
+    int PossibleEndings::getEnding(int sumOfValues, Character custom_character) {
+        std::cout << sumOfValues;
         // Determine the ending based on the sumOfValues
-        if (sumOfValues >= 200) {
+        if (sumOfValues >= 6) {
             // Call the function for the Explorer's Ending
             ExplorersEnding(custom_character);
-        } else if (sumOfValues >= 100) {
+            return 3;
+        } else if (sumOfValues >= 3) {
             // Call the function for the Neutral Ending
             NeutralEnding(custom_character);
-        } else {
+            return 2;
+        } else if (sumOfValues <=2 ) {
             // Call the function for the Bad Ending
             BadEnding(custom_character);
+            return 3;
+        }
+        else {
+            return 0;
         }
     }
 
@@ -53,14 +60,32 @@
         std::cout << "You wake from the dream as soon as you yell out at the trial. Your surroundings have changed immensely and now you lie next to a tree, with the sun setting on the horizon.\n"
                      "Off to your right in the distance, you see a small shack. Outside of the shack, you see someone. Then you hear them yelling. \n";
 
-        std::string response = custom_character.name + "time for dinner! Hurry up now!";
+        std::string response = custom_character.name + " time for dinner! Hurry up now!";
         mother.talk(response);
         std::cout << "You realize it is your mother beckoning you for supper. You jump to your feet, thinking about the strange and wonderful dream you just had \n"
                      "As you jump up, you feel something in your pocket.";
         custom_character.talk("What in the world is this?");
-        std::string response2 = "Reaching into your pocket, you pull out: " + custom_character.inventory.getInventoryItem("Fan")->name;
-        std::cout << "You look it over as you walk towards the house, thinking to yourself, perhaps this wasn't a dream after all... \n";
-        std::cout << "The End.";
+
+        if (checkInventory("Amethyst Signet Ring", custom_character)) {
+            std::string response2 =
+                    "Reaching into your pocket, you pull out: " + custom_character.getItem("Amethyst Signet Ring").name + ".\n";
+            std::cout << response2;
+        }
+        else if (checkInventory("Shrinking Fan", custom_character)) {
+            std::string response2 =
+                    "Reaching into your pocket, you pull out: " + custom_character.getItem("Shrinking Fan").name + ".\n";
+            std::cout << response2;
+        }
+        else if (checkInventory("Fan", custom_character)) {
+            std::string response2 =
+                    "Reaching into your pocket, you pull out: " + custom_character.getItem("Fan").name;
+            std::cout << response2;
+
+        }
+        std::cout << "You look it over as you walk towards the house, thinking to yourself, perhaps this wasn't a dream after all... \n\n";
+        std::cout << "The End. \n";
+
+        std::cout << "\nThanks for playing!";
     }
 
 

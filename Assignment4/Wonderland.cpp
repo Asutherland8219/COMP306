@@ -11,6 +11,7 @@
 #include "Tests/LocalTests/IntroTest.cpp"
 #include "UniversalFunctions/userInput.cpp"
 #include "Sections/Finale.cpp"
+#include "Character/FinaleChoices.cpp"
 
 
 

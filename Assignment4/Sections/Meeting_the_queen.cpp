@@ -117,7 +117,7 @@ Character Checkpoint3::Chapter3(Character custom_character) {
         std::istringstream iss(input1_ch3);
         int duchess_house;
         if (iss >> duchess_house) { // Attempt to read an integer from the input
-            duchess_house_breaker = ch_three_gates.duchessIntroChoice(duchess_house, custom_character);
+            duchess_house_breaker = ch_three_gates.duchessHouseChoice(duchess_house, custom_character);
         }
     }
 

@@ -3,6 +3,14 @@
 //
 
 #include "TheEnd.h"
+#include "../../UniversalFunctions/userInput.h"
+
+bool ChapterFourGates::court_breaker;
+bool ChapterFourGates::attention_breaker;
+Duchess ChapterFourGates::duchess;
+Queen ChapterFourGates::queen;
+WhiteRabbit ChapterFourGates::rabbit;
+King ChapterFourGates::king;
 
 bool ChapterFourGates::attentionChoice(int attention_choice, const Character& custom_character) {
 

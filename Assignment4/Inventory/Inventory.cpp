@@ -12,6 +12,7 @@
 
 #include "Inventory.h"
 #include <iostream>
+#include <optional>
 
 // Constructor
 Inventory::Inventory() {}
@@ -70,7 +71,7 @@ void Inventory::dropItem(const std::string& itemName) const {
 }
 
 // Implementation of getInventoryItem function
-Item *const Inventory::getInventoryItem(const std::string& itemName) const {
+Item Inventory::getInventoryItem(const std::string& itemName) const {
     auto it = std::find_if(items.begin(), items.end(),
                            [&itemName](const Item& item) {
                                return item.getName() == itemName;
@@ -78,13 +79,11 @@ Item *const Inventory::getInventoryItem(const std::string& itemName) const {
 
     // Check if the item was found
     if (it != items.end()) {
-        // Return a pointer to the found item
-        return &(*it);
-    } else {
-        // Return nullptr if the item was not found
-        return nullptr;
+        // Return the found item directly by value
+        return *it;
     }
 }
+
 
 
 void Inventory::updateItem(const std::string& oldName, const Item& updatedItem) const {

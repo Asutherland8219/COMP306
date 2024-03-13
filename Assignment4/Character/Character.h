@@ -57,7 +57,7 @@ public:
 
     void dropItem(const std::string &item_name);
 
-    Item * getItem(const std::string &item_name);
+    Item getItem(const std::string &item_name);
 
     std::vector<Item> getInventory() const;
 };
