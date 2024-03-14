@@ -53,9 +53,11 @@ int main() {
 }
 
 void Wonderland_test() {
-//    runFullSequenceTest();
+    // Explorer path test (best path)
+    runExplorerPathTest(false);
+
+    // Neutral Path test (average path, not good or bad)
 //    runNeutralPathTest();
-    Character test_char = runExplorerPathTest();
 
 }
 
