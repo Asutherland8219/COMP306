@@ -42,7 +42,7 @@
         } else if (sumOfValues <=2 ) {
             // Call the function for the Bad Ending
             BadEnding(custom_character);
-            return 3;
+            return 1;
         }
         else {
             return 0;

@@ -79,6 +79,8 @@ Character CharacterBuild::character_build() {
         default_character.setPronouns(pronouns_choice);
         default_character.addQuest("Create Your Character");
         default_character.completeLastQuestObjective();
+        default_character.inventory.items = {};
+        default_character.quests = {};
     return default_character;
     };
 

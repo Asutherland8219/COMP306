@@ -42,8 +42,15 @@ int main() {
     // finale
 
 
-    // tests
-    Wonderland_test();
+
+
+
+    /*
+     * Test Function. Comment out any tests you want to run. Each test runs based on the path.
+     * If desired, run the full sequence test to run tests on all paths one after the other.
+     * Additionally, if you want to run the tests silent, simply change the bool param.
+     */
+    //    Wonderland_test();
 
 
 
@@ -54,10 +61,17 @@ int main() {
 
 void Wonderland_test() {
     // Explorer path test (best path)
-    runExplorerPathTest(false);
+    //runExplorerPathTest(false);
 
     // Neutral Path test (average path, not good or bad)
-//    runNeutralPathTest();
+    //runNeutralPathTest(false);
+
+    // Bad Path Test
+    //runBadPathTest(false);
+
+    // Full Sequence Test
+    // FullSequenceTest();
+
 
 }
 

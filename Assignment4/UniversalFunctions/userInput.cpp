@@ -30,7 +30,7 @@ std::string getUserInput(Character custom_character, bool input_break) {
         if (input_break) {
             std::cout << "Please press enter to continue...\n";
             // Clear the input buffer to discard any remaining characters
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+//            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             break;
 
         } else {

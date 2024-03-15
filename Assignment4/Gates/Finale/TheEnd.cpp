@@ -47,7 +47,8 @@ bool ChapterFourGates::courtChoice(int court_choice, const Character& custom_cha
             custom_character.talk("I am not a mile high.");
             king.talk("You are.");
             queen.talk("Nearly two miles high.");
-            custom_character.talk("Well, I shan't go at any rate. Besides, that's not a regular: you invented it right now.");
+            custom_character.talk(
+                    "Well, I shan't go at any rate. Besides, that's not a regular: you invented it right now.");
             king.talk("It's the oldest rule in the book.");
             custom_character.talk("Then it ought to be Number One.");
             std::cout << "With this remark, the king turned pale and shut his notebook hastily. \n";
@@ -67,7 +68,8 @@ bool ChapterFourGates::courtChoice(int court_choice, const Character& custom_cha
             queen.talk("In the prisoners handwriting?");
             rabbit.talk("No, it doesn't look like so.");
             king.talk("It must be a forgery, clearly it is this creatures handwriting.");
-            std::cout << "He pointed at you as he said that; it seems they don't have perpetrator, and are just putting everyone up on the stand as potential candidates.";
+            std::cout
+                    << "He pointed at you as he said that; it seems they don't have perpetrator, and are just putting everyone up on the stand as potential candidates.";
             queen.talk("This proves their guilt!");
 
             getUserInput(custom_character, true);
@@ -112,9 +114,12 @@ bool ChapterFourGates::courtChoice(int court_choice, const Character& custom_cha
                         "    Between yourself and me.” ");
 
             king.talk("That's the most important piece of evidence we've heard yet -- so now let the jury...");
-            custom_character.talk("If any one of them can explain it, I'll give him sixpence. I don't believe there's an atom of of meaning in it.");
-            king.talk("If there’s no meaning in it, that saves a world of trouble, you know, as we needn't try to find any. And yet I don’t know,");
-            king.talk("All right, so far; We know it to be true- I gave her one, they gave him two- why, that must be what he did with the tarts, you know-");
+            custom_character.talk(
+                    "If any one of them can explain it, I'll give him sixpence. I don't believe there's an atom of of meaning in it.");
+            king.talk(
+                    "If there’s no meaning in it, that saves a world of trouble, you know, as we needn't try to find any. And yet I don’t know,");
+            king.talk(
+                    "All right, so far; We know it to be true- I gave her one, they gave him two- why, that must be what he did with the tarts, you know-");
             custom_character.talk("But, it goes on -- they all returned from him to you,");
 
             getUserInput(custom_character, true);
@@ -122,7 +127,8 @@ bool ChapterFourGates::courtChoice(int court_choice, const Character& custom_cha
             king.talk("Why, there they are!");
             std::cout << "He stood up from his seat, and pointed to the tarts on the table \n"
                          "He turned to address the Queen.";
-            king.talk("Nothing can be clearer than that. Then again- before she had this fit- you never had fits, my dear, I think?");
+            king.talk(
+                    "Nothing can be clearer than that. Then again- before she had this fit- you never had fits, my dear, I think?");
             queen.talk("Never!");
             king.talk("Then the words don't fit you,");
             king.talk("It's a PUN!");
@@ -133,6 +139,8 @@ bool ChapterFourGates::courtChoice(int court_choice, const Character& custom_cha
             custom_character.talk("I won't");
             queen.talk("Off with their head!!");
             custom_character.talk("Who cares for you!? You're nothing but a pack of cards!");
+            court_breaker = false;
+            break;
 
         case 2:
             custom_character.talk("I plead the 5th");
@@ -148,6 +156,8 @@ bool ChapterFourGates::courtChoice(int court_choice, const Character& custom_cha
             custom_character.talk("I won't");
             queen.talk("Off with their head!!");
             custom_character.talk("Who cares for you!? You're nothing but a pack of cards!");
+            court_breaker = false;
+            break;
 
         case 3:
             custom_character.talk("I know the tarts are on the table in front of us. What is there beyond that?");
@@ -168,7 +178,8 @@ bool ChapterFourGates::courtChoice(int court_choice, const Character& custom_cha
             queen.talk("In the prisoners handwriting?");
             rabbit.talk("No, it doesn't look like so.");
             king.talk("It must be a forgery, clearly it is this creatures handwriting.");
-            std::cout << "He pointed at you as he said that; it seems they don't have perpetrator, and are just putting everyone up on the stand as potential candidates.";
+            std::cout
+                    << "He pointed at you as he said that; it seems they don't have perpetrator, and are just putting everyone up on the stand as potential candidates.";
             queen.talk("This proves their guilt!");
 
             getUserInput(custom_character, true);
@@ -213,9 +224,12 @@ bool ChapterFourGates::courtChoice(int court_choice, const Character& custom_cha
                         "    Between yourself and me.” ");
 
             king.talk("That's the most important piece of evidence we've heard yet -- so now let the jury...");
-            custom_character.talk("If any one of them can explain it, I'll give him sixpence. I don't believe there's an atom of of meaning in it.");
-            king.talk("If there’s no meaning in it, that saves a world of trouble, you know, as we needn't try to find any. And yet I don’t know,");
-            king.talk("All right, so far; We know it to be true- I gave her one, they gave him two- why, that must be what he did with the tarts, you know-");
+            custom_character.talk(
+                    "If any one of them can explain it, I'll give him sixpence. I don't believe there's an atom of of meaning in it.");
+            king.talk(
+                    "If there’s no meaning in it, that saves a world of trouble, you know, as we needn't try to find any. And yet I don’t know,");
+            king.talk(
+                    "All right, so far; We know it to be true- I gave her one, they gave him two- why, that must be what he did with the tarts, you know-");
             custom_character.talk("But, it goes on -- they all returned from him to you,");
 
             getUserInput(custom_character, true);
@@ -223,7 +237,8 @@ bool ChapterFourGates::courtChoice(int court_choice, const Character& custom_cha
             king.talk("Why, there they are!");
             std::cout << "He stood up from his seat, and pointed to the tarts on the table \n"
                          "He turned to address the Queen.";
-            king.talk("Nothing can be clearer than that. Then again- before she had this fit- you never had fits, my dear, I think?");
+            king.talk(
+                    "Nothing can be clearer than that. Then again- before she had this fit- you never had fits, my dear, I think?");
             queen.talk("Never!");
             king.talk("Then the words don't fit you,");
             king.talk("It's a PUN!");
@@ -234,11 +249,13 @@ bool ChapterFourGates::courtChoice(int court_choice, const Character& custom_cha
             custom_character.talk("I won't");
             queen.talk("Off with their head!!");
             custom_character.talk("Who cares for you!? You're nothing but a pack of cards!");
+            court_breaker = false;
+            break;
+    }
 
     std::cout << "As you yell this, the room starts moving, this time for real. All the characters start to float to the sky. \n"
                  "Then, they exploded into cards flying all over so much that it overcame you, almost like a drowning sensation... \n";
 
-    }
     return court_breaker;
 }
 
