@@ -4,6 +4,7 @@
 
 
 #include "Tea_party.h"
+#include "../UniversalFunctions/checkFunctions.h"
 
 
 // gate breakers
@@ -30,6 +31,9 @@ Character Checkpoint2::Chapter2(Character custom_character) {
         // Items
         Item red_mushroom("Red Mushroom", "A mushroom with a red cap and yellow spots", 0);
         Item blue_mushroom("Blue Mushroom", "A mushroom with a blue cap and white spots", 0);
+
+        // tea party quest
+        custom_character.addQuest("Attend Tea Party");
 
         std::cout
                 << "There was a table set out under a tree in front of the house, and the March Hare and the Hatter were having tea at it: a Dormouse was sitting between them, fast asleep, \n"
@@ -112,6 +116,9 @@ Character Checkpoint2::Chapter2(Character custom_character) {
         std::cout << "It seems the conversation has reached a stalemate. This is a good time to leave. \n";
 
         custom_character.talk("Well, Gentleman, it has been a pleasure but I must be going. ");
+
+        custom_character.completeLastQuestObjective();
+
         std::cout << "You push back your chair, and stand up, bowing down to be polite (even though they weren't) \n"
                      "As you walk away, you can hear them still bickering with one another. \n";
         std::cout
@@ -201,6 +208,8 @@ Character Checkpoint2::Chapter2(Character custom_character) {
                 small_door_breaker = ch_two_gates.fanChoice(fan, custom_character, inventoryMap);
             }
     }
+
+        custom_character.addQuest("Investigate the garden.");
 
         std::cout
                 << "A large rose-tree stood near the entrance of the garden: the roses growing on it were white, but there were three gardeners at it, busily painting them red. \n"

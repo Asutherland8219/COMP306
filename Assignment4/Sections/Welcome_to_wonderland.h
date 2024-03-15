@@ -13,23 +13,23 @@
 
 class Checkpoint1 {
 private:
-    bool panic_breaker{};
-    bool rabbit_breaker{};
-    bool rabbit_item_breaker{};
-    bool fan_item_breaker{};
-    bool embankment_breaker{};
-    bool glove_breaker{};
-    bool house_breaker{};
+    static bool panic_breaker{};
+    static bool rabbit_breaker{};
+    static bool rabbit_item_breaker{};
+    static bool fan_item_breaker{};
+    static bool embankment_breaker{};
+    static bool glove_breaker{};
+    static bool house_breaker{};
 
     // Init the npcs
-    NPC rabbit;          // Assuming NPC is the base class for WhiteRabbit, FishFootman, Duchess, CheshireCat, Cook
-    NPC fishman;
-    NPC duchess;
-    NPC cheshirecat;
-    NPC cook;
+    static NPC rabbit;          // Assuming NPC is the base class for WhiteRabbit, FishFootman, Duchess, CheshireCat, Cook
+    static NPC fishman;
+    static NPC duchess;
+    static NPC cheshirecat;
+    static NPC cook;
 
 public:
-    Character Chapter1(Character custom_character);
+    static Character Chapter1(Character custom_character);
 };
 
 #endif //CHECKPOINT1_H

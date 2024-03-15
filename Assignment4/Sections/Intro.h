@@ -11,15 +11,15 @@
 
 class Intro {
 private:
-    bool well_breaker;
-    bool hall_breaker;
-    bool drink_breaker;
-    bool table_breaker;
-    bool land_breaker;
+    static bool well_breaker;
+    static bool hall_breaker;
+    static bool drink_breaker;
+    static bool table_breaker;
+    static bool land_breaker;
 
 public:
     // Function to start the Alice in Wonderland intro
-    void startAliceInWonderland(Character custom_character);
+    static void startAliceInWonderland(Character custom_character);
 };
 
 #endif //INTRO_H

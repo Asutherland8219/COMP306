@@ -156,6 +156,8 @@ Character Checkpoint1::Chapter1(Character custom_character) {
             // print break
             getUserInput(custom_character, true);
 
+            custom_character.addQuest("Find your way out... again.");
+
             while (!Checkpoint1::embankment_breaker) {
                 std::cout << std::endl;
                 std::cout << "What would you like to do?\n";
@@ -209,7 +211,7 @@ Character Checkpoint1::Chapter1(Character custom_character) {
                              "You run upstairs, and find the wardrobe. Opening it up, you find a full set of tuxedos, gloves and fans. \n"
                              "You grab a pair of gloves, and run downstairs to meet the Rabbit in the entry way. You hand him the gloves. \n";
             }
-
+            custom_character.completeLastQuestObjective();
             rabbit.talk("Oh my what a help you have been! Thank you so very much! I am in your debt!");
             custom_character.talk("Mr Rabbit, I am glad to have your attention, where am I exactly?");
             std::cout << "Before the rabbit can answer, there is a rap at the door \n";
@@ -260,7 +262,6 @@ Character Checkpoint1::Chapter1(Character custom_character) {
                         std::cout << "You hand over the letter to the duchess. \n";
                         custom_character.dropItem("Letter");
                         custom_character.completeLastQuestObjective();
-                        custom_character.quests.displayQuests();
                         duchess.talk("Thank you dear. \n");
                         custom_character.talk("It is for a croquet match with the Queen.");
                         duchess.talk(

@@ -21,7 +21,7 @@ private:
     static bool gardener_save_breaker;
 
 public:
-    Character Chapter2(Character custom_character);
+    static Character Chapter2(Character custom_character);
 };
 
 #endif //CHECKPOINT2_H

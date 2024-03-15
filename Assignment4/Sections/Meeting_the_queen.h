@@ -35,7 +35,7 @@ public:
     CheshireCat cheshirecat;
     Duchess duchess;
 
-    Character Chapter3(Character custom_character);
+    static Character Chapter3(Character custom_character);
 };
 
 #endif //YOURPROJECTNAME_MEETING_THE_QUEEN_H

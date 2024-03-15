@@ -30,7 +30,7 @@ public:
     Cook cook;
     Mouse mouse;
 
-    Character TheEnd(Character custom_character);
+    static Character TheEnd(Character custom_character);
 };
 
 #endif // FINALE_H

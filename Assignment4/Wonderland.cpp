@@ -12,36 +12,30 @@
 #include "UniversalFunctions/userInput.cpp"
 #include "Sections/Finale.cpp"
 #include "Character/FinaleChoices.cpp"
-
+#include "UniversalFunctions/checkFunctions.cpp"
 
 
 void Wonderland_test();
 
 int main() {
      //Character creator portion. Walks through the user in creating their own user.
-//     Character my_character = CharacterBuild::character_build();
-//
-////     The intro to the subject material. Same intro regardless of path or choices made.
-////    Intro intro_instance{};
-////    intro_instance.startAliceInWonderland(my_character);
-//
-//     //The first checkpoint; contains multiple chapters and has unique routes based on choices made.
-//    //Also where we start adding items to inventory and tracking choices made for possible outcomes.
-//
-//
-//    my_character.listInventory();
-//    section1.Chapter1(my_character);
-//    my_character.listInventory();
-//    Checkpoint2 section2{};
-//    section2.Chapter2(my_character);
+    Character my_character = CharacterBuild::character_build();
 
-    // checkpoint 2
+    // The intro to the subject material. Same intro regardless of path or choices made.
+    Intro::startAliceInWonderland(my_character);
 
-    // checkpoint 3
+    //The first checkpoint; contains multiple chapters and has unique routes based on choices made.
+    //Also where we start adding items to inventory and tracking choices made for possible outcomes.
+    Checkpoint1::Chapter1(my_character);
 
-    // finale
+    // Checkpoint 2
+    Checkpoint2::Chapter2(my_character);
 
+    // Checkpoint 3
+    Checkpoint3::Chapter3(my_character);
 
+    // Finale
+    Finale::TheEnd(my_character);
 
 
 
