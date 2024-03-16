@@ -17,7 +17,7 @@ private:
 
 public:
     static int calculateInventorySum(const Character& custom_character);
-    static int determineEnding(Character custom_character);
+    static int determineEnding(const Character& custom_character);
 };
 
 class PossibleEndings {
@@ -25,7 +25,7 @@ public:
     Mother mother;
     Nurse nurse;
 
-    int getEnding(int sumOfValues, Character custom_character);
+    int getEnding(int sumOfValues, const Character& custom_character);
     void ExplorersEnding(Character custom_character);
     void NeutralEnding(Character custom_character);
     void BadEnding(Character custom_character);

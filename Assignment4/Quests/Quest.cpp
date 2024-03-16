@@ -48,6 +48,9 @@ void Quests::completeLastQuestObjective() {
     }
 }
 
+void Quests::addCompletedQuest(const Quest& completedQuest) {
+    quests.push_back(completedQuest);
+}
 
 void Quest::displayQuest() const {
     std::cout << "{" << description << ": [";

@@ -71,17 +71,14 @@ void Inventory::dropItem(const std::string& itemName) const {
 }
 
 // Implementation of getInventoryItem function
-Item Inventory::getInventoryItem(const std::string& itemName) const {
+Item Inventory::getInventoryItem(const std::string& itemName) {
     auto it = std::find_if(items.begin(), items.end(),
                            [&itemName](const Item& item) {
                                return item.getName() == itemName;
                            });
 
-    // Check if the item was found
-    if (it != items.end()) {
         // Return the found item directly by value
         return *it;
-    }
 }
 
 

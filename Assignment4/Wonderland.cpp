@@ -8,7 +8,7 @@
 #include "Sections/Tea_party.cpp"
 #include "Sections/Meeting_the_queen.cpp"
 #include "NPC/NPC.cpp"
-#include "Tests/LocalTests/IntroTest.cpp"
+#include "Tests/LocalTests/PathTest.cpp"
 #include "UniversalFunctions/userInput.cpp"
 #include "Sections/Finale.cpp"
 #include "Character/FinaleChoices.cpp"
@@ -22,20 +22,20 @@ int main() {
     Character my_character = CharacterBuild::character_build();
 
     // The intro to the subject material. Same intro regardless of path or choices made.
-    Intro::startAliceInWonderland(my_character);
+    Character intro_char = Intro::startAliceInWonderland(my_character);
 
     //The first checkpoint; contains multiple chapters and has unique routes based on choices made.
     //Also where we start adding items to inventory and tracking choices made for possible outcomes.
-    Checkpoint1::Chapter1(my_character);
+    Character checkpoint1_char = Checkpoint1::Chapter1(intro_char);
 
     // Checkpoint 2
-    Checkpoint2::Chapter2(my_character);
+    Character checkpoint2_char = Checkpoint2::Chapter2(checkpoint1_char);
 
     // Checkpoint 3
-    Checkpoint3::Chapter3(my_character);
+    Character checkpoint3_char = Checkpoint3::Chapter3(checkpoint2_char);
 
     // Finale
-    Finale::TheEnd(my_character);
+    Character the_end = Finale::TheEnd(checkpoint3_char);
 
 
 
@@ -44,7 +44,7 @@ int main() {
      * If desired, run the full sequence test to run tests on all paths one after the other.
      * Additionally, if you want to run the tests silent, simply change the bool param.
      */
-    //    Wonderland_test();
+        Wonderland_test();
 
 
 
@@ -55,7 +55,7 @@ int main() {
 
 void Wonderland_test() {
     // Explorer path test (best path)
-    //runExplorerPathTest(false);
+    runExplorerPathTest(false);
 
     // Neutral Path test (average path, not good or bad)
     //runNeutralPathTest(false);

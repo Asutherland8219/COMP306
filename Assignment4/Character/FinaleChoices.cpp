@@ -2,10 +2,8 @@
 // Created by asuth on 1/17/2024.
 //
 
-/* This is where the matrix assigned to the character will be created. It will also house any functions that modify
-    the matrix. The purpose of the matrix, is that it will be used to gauge outcomes of the story. The overarching
-    quest and progression is linear and will not change, but choices the character makes will change the final outcome.
-    For example, a matrix of all 0's is default, while a matrix of 1 or 2's would result in a normal/optimal outcome etc..
+/*
+ *
 */
 
 #include "FinaleChoices.h"
@@ -20,7 +18,7 @@
     }
 
     // Function to determine the ending based on the inventory sum
-    int FinaleChoice::determineEnding(Character custom_character) {
+    int FinaleChoice::determineEnding(const Character& custom_character) {
         int sumOfValues = calculateInventorySum(custom_character);
         std::cout << sumOfValues;
         PossibleEndings possibleEndings;
@@ -28,7 +26,7 @@
     }
 
 
-    int PossibleEndings::getEnding(int sumOfValues, Character custom_character) {
+    int PossibleEndings::getEnding(int sumOfValues, const Character& custom_character) {
         std::cout << sumOfValues;
         // Determine the ending based on the sumOfValues
         if (sumOfValues >= 6) {
@@ -85,6 +83,11 @@
         std::cout << "You look it over as you walk towards the house, thinking to yourself, perhaps this wasn't a dream after all... \n\n";
         std::cout << "The End. \n";
 
+        Quest ending("Escape Wonderland.");
+        ending.completeObjective();
+
+        custom_character.addCompletedQuest(ending, custom_character);
+
         std::cout << "\nThanks for playing!";
     }
 
@@ -107,6 +110,11 @@
         std::cout << "You realize it is your mother beckoning you for supper. You jump to your feet, thinking about the strange and wonderful dream you just had... \n";
         std::cout << "With a smile on your face, and quite a few memories, you walk towards the house ready to have dinner and tell your parents all about the vivid dream you just had.\n";
         std::cout << "The End.";
+
+        Quest ending("Escape Wonderland.");
+        ending.completeObjective();
+
+        custom_character.addCompletedQuest(ending, custom_character);
 
     }
 
@@ -152,6 +160,11 @@
         std::cout << "You keep laughing, starting to crescendo. At this point you can't stop. Just laugh and laugh and laugh and laugh... \n";
         custom_character.talk("HAHAHAhahaHAHAhahahHAAAHaHAHAH");
         std::cout << "The end.\n";
+
+        Quest ending("Escape Wonderland.");
+        ending.completeObjective();
+
+        custom_character.addCompletedQuest(ending, custom_character);
 
     }
 

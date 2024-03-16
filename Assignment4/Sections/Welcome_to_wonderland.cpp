@@ -6,8 +6,24 @@
 
 #include <sstream>
 #include "../UniversalFunctions/clearFunctions.cpp"
-#include "../UniversalFunctions/checkFunctions.cpp"
+#include "../UniversalFunctions/checkFunctions.h"
 #include "Welcome_to_wonderland.h"
+
+CheshireCat Checkpoint1::cheshirecat;
+Cook Checkpoint1::cook;
+Duchess Checkpoint1::duchess;
+FishFootman Checkpoint1::fishman;
+WhiteRabbit Checkpoint1::rabbit;
+
+// Checkpoints
+bool Checkpoint1::house_breaker;
+bool Checkpoint1::glove_breaker;
+bool Checkpoint1::embankment_breaker;
+bool Checkpoint1::fan_item_breaker;
+bool Checkpoint1::rabbit_breaker;
+bool Checkpoint1::rabbit_item_breaker;
+bool Checkpoint1::panic_breaker;
+
 
 Character Checkpoint1::Chapter1(Character custom_character) {
         ChapterOneGates ch_one_gates;
@@ -356,6 +372,8 @@ Character Checkpoint1::Chapter1(Character custom_character) {
                                     << "The March Hare see you looking and beckons you over. You walk towards the garden, and get ready to join the tea party \n";
 
                             custom_character.addQuest("Attend the Tea Party");
+
+                            textFormatter::printBoldItalic("END CHAPTER 1");
 
                             // End Section 1
                         }

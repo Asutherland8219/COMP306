@@ -119,6 +119,11 @@ Item Character::getItem(const std::string &item_name) {
      return Character::inventory.getInventoryItem(item_name);
 }
 
+void Character::addCompletedQuest(const Quest &completedQuest, Character custom_character) {
+    custom_character.quests.addCompletedQuest(completedQuest);
+}
+
+
 
 
 

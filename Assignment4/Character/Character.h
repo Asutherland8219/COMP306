@@ -37,7 +37,7 @@ public:
     void getQuests() const;
 
     // Add a completed quest to the list
-    void addCompletedQuest(const Quest& completedQuest);
+    void addCompletedQuest(const Quest &completedQuest, Character custom_character);
 
     // Setters
     void setPronouns(int pronoun_choice);  // Setter for pronouns with menu
@@ -60,6 +60,8 @@ public:
     Item getItem(const std::string &item_name);
 
     std::vector<Item> getInventory() const;
+
+
 };
 
 

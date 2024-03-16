@@ -6,9 +6,20 @@
 
 bool ChapterThreeGates::duchess_house_choice;
 bool ChapterThreeGates::duchess_intro_choice;
+bool Checkpoint3::duchess_house_breaker;
+bool Checkpoint3::duchess_intro_breaker;
+bool Checkpoint3::gardener_save_breaker;
+Duchess Checkpoint3::duchess;
+King Checkpoint3::king;
+CheshireCat Checkpoint3::cheshirecat;
+Queen Checkpoint3::queen;
+
 
 Character Checkpoint3::Chapter3(Character custom_character) {
     ChapterThreeGates ch_three_gates;
+
+    // garden quest
+    custom_character.addQuest("Find your way out of the garden.");
 
     std::cout << "People began running about in all directions, tumbling up against each other; however, they got settled down in a minute or two, and the game began. \n "
                  "You have never seen such a curious croquet-ground in her life; it was all ridges and furrows; \n"
@@ -99,6 +110,8 @@ Character Checkpoint3::Chapter3(Character custom_character) {
     std::cout << "In exchange for your help, the Duchess has offered to let you rest overnight at her house. At this point, you have had a very long day, \n"
                  "Not to mention, the day has been full of adventure. Perhaps a rest is in need. \n";
 
+    custom_character.completeLastQuestObjective();
+
     std::cout << "You rest your eyes, and seem to sleep. No dreams, No nightmares, just wait feels like a tranquil rest. \n";
     std::cout << "You almost feel like you never slept, and are awoken by yelling and panic from the Duchess...\n";
     duchess.talk("Oh dear we need to get going come come lets go lets go!!");
@@ -125,7 +138,9 @@ Character Checkpoint3::Chapter3(Character custom_character) {
 
     std::cout << "You are on your way to the large Castle, finally, with hopes to put an end to this wonderful adventure. \n";
 
-    textFormatter::printBoldItalic("END CHAPTER 2");
+    custom_character.addQuest("Go to the castle... Finally.");
+
+    textFormatter::printBoldItalic("END CHAPTER 3");
 
     // end meeting the queen.
 

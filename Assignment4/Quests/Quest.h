@@ -41,6 +41,8 @@ public:
 
     // Complete the last objective of the last quest
     void completeLastQuestObjective();
+
+    void addCompletedQuest(const Quest &completedQuest);
 };
 
 #endif //COMP306_QUEST_H

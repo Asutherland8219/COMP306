@@ -8,6 +8,15 @@
 
 bool Finale::court_breaker;
 bool Finale::attention_breaker;
+MarchHare Finale::march_hare;
+MadHatter Finale::mad_hatter;
+Queen Finale::queen;
+King Finale::king;
+WhiteRabbit Finale::rabbit;
+Duchess Finale::duchess;
+Cook Finale::cook;
+Mouse Finale::mouse;
+
 
 Character Finale::TheEnd(Character custom_character) {
         std::cout << "You arrive at the castle, and are in total shock and awe at the large gates. \n";
@@ -36,6 +45,9 @@ Character Finale::TheEnd(Character custom_character) {
             }
         }
 
+        // complete attending the castle
+        custom_character.completeLastQuestObjective();
+
         // print break
         getUserInput(custom_character, true);
 
@@ -53,6 +65,8 @@ Character Finale::TheEnd(Character custom_character) {
                     "The Knave of Hearts, he stole those tarts,\n"
                     "    And took them quite away!");
         king.talk("Consider your verdict");
+
+        custom_character.quests.addQuest("Attend the trial");
 
         // print break
         getUserInput(custom_character, true);
@@ -161,6 +175,9 @@ Character Finale::TheEnd(Character custom_character) {
                 court_breaker = ChapterFourGates::courtChoice(court_choice, custom_character);
             }
         }
+
+        // complete trial
+        custom_character.completeLastQuestObjective();
 
         textFormatter::printBoldItalic("END CHAPTER 3/FINALE");
 

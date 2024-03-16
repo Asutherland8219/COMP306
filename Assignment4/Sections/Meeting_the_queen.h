@@ -18,9 +18,9 @@ private:
     bool small_door_breaker;
     bool gardener_breaker;
     bool queen_breaker;
-    bool gardener_save_breaker;
-    bool duchess_intro_breaker;
-    bool duchess_house_breaker;
+    static bool gardener_save_breaker;
+    static bool duchess_intro_breaker;
+    static bool duchess_house_breaker;
 
 public:
     MarchHare march_hare;
@@ -28,12 +28,12 @@ public:
     Five five;
     Seven seven;
     Two two;
-    Queen queen;
+    static Queen queen;
     Soldiers soldiers;
-    King king;
+    static King king;
     WhiteRabbit rabbit;
-    CheshireCat cheshirecat;
-    Duchess duchess;
+    static CheshireCat cheshirecat;
+    static Duchess duchess;
 
     static Character Chapter3(Character custom_character);
 };

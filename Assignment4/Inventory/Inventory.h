@@ -22,7 +22,7 @@ public:
     std::vector<Item> _displayInventory() const;
     static std::vector<Item> items;
     void dropItem(const std::string& itemName) const;
-    Item getInventoryItem(const std::string& itemName) const;
+    static Item getInventoryItem(const std::string& itemName) ;
     void updateItem(const std::string& oldName, const Item& updatedItem) const;
 };
 

@@ -16,19 +16,19 @@ public:
     static bool attention_breaker;
     static bool court_breaker;
 
-    MarchHare march_hare;
-    MadHatter mad_hatter;
+    static MarchHare march_hare;
+    static MadHatter mad_hatter;
     Five five;
     Seven seven;
     Two two;
-    Queen queen;
+    static Queen queen;
     Soldiers soldiers;
-    King king;
-    WhiteRabbit rabbit;
+    static King king;
+    static WhiteRabbit rabbit;
     CheshireCat cheshirecat;
-    Duchess duchess;
-    Cook cook;
-    Mouse mouse;
+    static Duchess duchess;
+    static Cook cook;
+    static Mouse mouse;
 
     static Character TheEnd(Character custom_character);
 };

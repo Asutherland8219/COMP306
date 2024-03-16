@@ -19,7 +19,7 @@ private:
 
 public:
     // Function to start the Alice in Wonderland intro
-    static void startAliceInWonderland(Character custom_character);
+    static Character startAliceInWonderland(Character custom_character);
 };
 
 #endif //INTRO_H

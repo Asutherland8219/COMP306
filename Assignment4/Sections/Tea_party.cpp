@@ -364,7 +364,9 @@ Character Checkpoint2::Chapter2(Character custom_character) {
 
         std::cout << "And so, the game begins... \n";
 
-        textFormatter::printBoldItalic("END CHAPTER 1");
+        custom_character.completeLastQuestObjective();
+
+        textFormatter::printBoldItalic("END CHAPTER 2");
 
 
     return  custom_character;
