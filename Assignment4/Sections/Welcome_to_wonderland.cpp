@@ -1,6 +1,29 @@
 //
 // Created by asuth on 12/13/2023.
 //
+
+/*
+ DOCUMENTATION
+
+ Program Purpose:
+	Continue your journey in wonderland, still trying to find a way out.
+
+
+ Classes (functions):
+	- Chapter1(Character)
+        Accepts the previously edited character in the intro function, modifies it and returns it for subsequent chapter calls.
+
+This section is the first instance of where the user has the option to choose a path. I will describe the paths here and the
+ overarching question being asked here. The path options are:
+ 1. House breaker -> Where do you want to go in the house?
+ 2. Glove breaker -> What do you want to do with the gloves?
+ 3. Panic breaker -> How do you react to growing in size?
+ 4. Rabbit breaker -> How do you plan on getting the rabbits attention?
+ 5. Rabbit item breaker -> What items do you or do you not want to take?
+ 6. Fan item breaker -> What do you want to do with the fan?
+ 7. Embankment breaker -> How do you want to talk to the animals?
+*/
+
 #include <iostream>
 #include <string>
 

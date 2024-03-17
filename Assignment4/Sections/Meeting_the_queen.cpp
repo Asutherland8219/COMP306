@@ -1,6 +1,30 @@
 //
 // Created by asuth on 12/13/2023.
 //
+/*
+
+ DOCUMENTATION
+
+ Program Purpose:
+	Interact with the Queen, hope to get an answer or a route out of here.
+
+
+ Classes (functions):
+	- Chapter2(Character)
+        Accepts the previously edited character in the intro function, modifies it and returns it for subsequent chapter calls.
+
+This section is the first instance of where the user has the option to choose a path. I will describe the paths here and the
+ overarching question being asked here. The path options are:
+ 1. Cook breaker -> What do you want to say to the cook?
+ 2. Cat breaker -> What/how do you want to communicate with the Cheshire Cat
+ 3. Small Door breaker -> How do you plan on getting through the small door?
+ 4. Gardener breaker -> How do you want to talk to the gardeners?
+ 5. Queen breaker -> How do you want to interact with the Queen?
+ 6. Gardener Save Breaker -> How do you want to try and save the gardeners?
+
+*/
+
+
 #include <iostream>
 #include "Meeting_the_queen.h"
 

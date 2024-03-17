@@ -2,6 +2,29 @@
 // Created by asuth on 12/20/2023.
 //
 
+/*
+ DOCUMENTATION
+
+ Program Purpose:
+	Introduce the character to the world of wonderland
+
+
+ Classes (functions):
+	- startAliceInWonderland(Character)
+        Function accepts a custom character and returns the character after moving through quests and logic gates.
+
+This section is the first instance of where the user has the option to choose a path. I will describe the paths here and the
+ overarching question being asked here. The path options are:
+ 1. Well breaker -> Do you want to jump down the well?
+ 2. Hall breaker -> Do you want to go down the hall, trying out the doors?
+ 3. Drink breaker -> Do you want to drink the potion?
+ 4. Land breaker -> How do you react after hitting the bottom of the well?
+ 5. Table breaker -> Do you want to try and climb the table?
+
+*/
+
+
+
 
 #include "Intro.h"
 #include "../UniversalFunctions/userInput.h"

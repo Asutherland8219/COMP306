@@ -7,6 +7,9 @@
 
  Includes a test character build to run quick test function in character building. This is used to quickly create a
  default character to pass into each chapter and makes for faster testing.
+
+ Allows for customizable traits like name, hair color, eye color and pronouns.
+
  */
 #include "Character.h"
 #include <string>
