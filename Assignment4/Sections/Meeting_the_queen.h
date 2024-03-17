@@ -13,12 +13,6 @@
 class Checkpoint3 {
 private:
     // gate breakers
-    bool cook_breaker;
-    bool cat_breaker;
-    bool small_door_breaker;
-    bool gardener_breaker;
-    bool queen_breaker;
-    static bool gardener_save_breaker;
     static bool duchess_intro_breaker;
     static bool duchess_house_breaker;
 

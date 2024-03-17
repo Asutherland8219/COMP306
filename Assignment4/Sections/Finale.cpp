@@ -2,7 +2,23 @@
 // Created by asuth on 12/13/2023.
 //
 
-// Start ch.11, Who stole the tarts
+/*
+
+ DOCUMENTATION
+
+ Program Purpose:
+	Get to the castle, attend the trial
+
+
+ Classes (functions):
+	- TheEnd(Character)
+        Accepts the previously edited character in the Chapter 3 function, modifies it as needed, then calculates the appropriate ending
+
+This section is the first instance of where the user has the option to choose a path. I will describe the paths here and the
+ overarching question being asked here. The path options are:
+ 1. attention_breaker -> How do you want to get the rabbit and hatters attention (if at all)
+ 2. court_breaker -> How do you testify?
+*/
 
 #include "Finale.h"
 

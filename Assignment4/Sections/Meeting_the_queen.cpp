@@ -10,18 +10,13 @@
 
 
  Classes (functions):
-	- Chapter2(Character)
-        Accepts the previously edited character in the intro function, modifies it and returns it for subsequent chapter calls.
+	- Chapter3(Character)
+        Accepts the previously edited character in the Chapter 2 function, modifies it and returns it for subsequent chapter calls.
 
 This section is the first instance of where the user has the option to choose a path. I will describe the paths here and the
  overarching question being asked here. The path options are:
- 1. Cook breaker -> What do you want to say to the cook?
- 2. Cat breaker -> What/how do you want to communicate with the Cheshire Cat
- 3. Small Door breaker -> How do you plan on getting through the small door?
- 4. Gardener breaker -> How do you want to talk to the gardeners?
- 5. Queen breaker -> How do you want to interact with the Queen?
- 6. Gardener Save Breaker -> How do you want to try and save the gardeners?
-
+ 1. duchess_house_breaker -> How do you want to deal with the Duchess at her house.
+ 2. duchess_intro_breaker -> How do you want to interact with the Duchess immediately after rescuing her.
 */
 
 
@@ -32,7 +27,6 @@ bool ChapterThreeGates::duchess_house_choice;
 bool ChapterThreeGates::duchess_intro_choice;
 bool Checkpoint3::duchess_house_breaker;
 bool Checkpoint3::duchess_intro_breaker;
-bool Checkpoint3::gardener_save_breaker;
 Duchess Checkpoint3::duchess;
 King Checkpoint3::king;
 CheshireCat Checkpoint3::cheshirecat;
@@ -123,7 +117,7 @@ Character Checkpoint3::Chapter3(Character custom_character) {
             std::istringstream iss(input1_ch3);
             int duchess_intro;
             if (iss >> duchess_intro) { // Attempt to read an integer from the input
-                gardener_save_breaker = ch_three_gates.duchessIntroChoice(duchess_intro, custom_character);
+                duchess_intro_breaker = ch_three_gates.duchessIntroChoice(duchess_intro, custom_character);
             }
         }
 

@@ -2,7 +2,16 @@
 // Created by asuth on 2/28/2024.
 //
 
-// Include your class and necessary headers here
+/*
+
+ DOCUMENTATION
+
+ Program Purpose:
+	Test the three possible paths the user can take.
+
+    Also has a silence function so that the total output is not printed.
+
+*/
 
 #include "../../Gates/Finale/TheEnd.h"
 #include "../../Character/FinaleChoices.h"
