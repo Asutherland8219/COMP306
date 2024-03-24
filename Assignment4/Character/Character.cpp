@@ -79,10 +79,7 @@ std::string Character::getPronounsString() const {
 
 Character::Character(const std::string& name, const std::string& hairColor, const std::string& eyeColor,
           int pronounChoice, const Quests& quest) : name(name), hairColor(hairColor), eyeColor(eyeColor),quests(quest)
-{
-    // Initialize the character's pronouns
-    setPronouns(pronounChoice);
-}
+{}
 
 
 void Character::addQuest(const std::string &description) {

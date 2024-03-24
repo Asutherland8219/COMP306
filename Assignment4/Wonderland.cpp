@@ -44,7 +44,7 @@ int main() {
      * If desired, run the full sequence test to run tests on all paths one after the other.
      * Additionally, if you want to run the tests silent, simply change the bool param.
      */
-        Wonderland_test();
+    //Wonderland_test();
 
 
 
@@ -58,13 +58,13 @@ void Wonderland_test() {
     runExplorerPathTest(false);
 
     // Neutral Path test (average path, not good or bad)
-    //runNeutralPathTest(false);
+    runNeutralPathTest(false);
 
     // Bad Path Test
-    //runBadPathTest(false);
+    runBadPathTest(false);
 
     // Full Sequence Test
-    // FullSequenceTest();
+    FullSequenceTest();
 
 
 }

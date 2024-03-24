@@ -45,6 +45,8 @@ bool Intro::well_breaker;
 
 Character Intro::startAliceInWonderland(Character custom_character) {
     introChoices intro_choices{};
+    std::cout << "Before we start, you can enter h or help at anytime to see the help menu. \n\n";
+
     std::cout
             << "The sun was shining on a beautiful summer day. The dew on the ground reflecting the sunlight while the deer and other fauna scamper around the forest. \n";
     std::cout

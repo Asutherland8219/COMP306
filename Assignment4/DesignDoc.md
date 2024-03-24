@@ -4,7 +4,7 @@ The overall structure is that of an intro, three checkpoint phases and a finale.
 3 possible instances. Each instance is broken down as follows: 
 - Happy Path (The best outcome for the block)
 - Sub-optimal path ( A path with a mixture of outcomes, some happy some sad)
-- Death (The character, Alice, dies and the user is forced to return to the checkpoint)
+- Bad path/ Death (The character, Alice, dies and the user is forced to return to the checkpoint)
 
 ** Death will not be very violent or descriptive. In some instances it may actually be 
 the incapacitation of the character that results in them returning to the checkpoint**

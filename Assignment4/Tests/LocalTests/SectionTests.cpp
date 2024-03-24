@@ -29,3 +29,19 @@ Character TestChapter1(Character intro_character) {
     Character ch_1_character = Checkpoint1::Chapter1(intro_character);
     return ch_1_character;
 }
+
+Character TestChapter2(Character ch_1_character) {
+    Character ch_2_character = Checkpoint2::Chapter2(ch_1_character);
+    return ch_2_character;
+}
+
+Character TestChapter3(Character ch_2_character) {
+    Character ch_3_character = Checkpoint3::Chapter3(ch_2_character);
+    return ch_3_character;
+}
+
+Character TestFinale(Character ch_3_character) {
+    Character finale_character = Finale::TheEnd(ch_3_character);
+    return finale_character;
+}
+
