@@ -37,7 +37,7 @@ Character Checkpoint3::Chapter3(Character custom_character) {
     ChapterThreeGates ch_three_gates;
 
     // garden quest
-    custom_character.addQuest("Find your way out of the garden.");
+    custom_character.addQuest("Find your way out of the garden");
 
     std::cout << "People began running about in all directions, tumbling up against each other; however, they got settled down in a minute or two, and the game began. \n "
                  "You have never seen such a curious croquet-ground in her life; it was all ridges and furrows; \n"
@@ -52,31 +52,31 @@ Character Checkpoint3::Chapter3(Character custom_character) {
 
     std::cout << "This was repeated every few minutes. It seems the Queen is very disagreeable. It is a miracle anyone here is left alive!\n"
                  "You start to feel uneasy and nervous. You look around hoping for a way to escape... \n";
-    std::cout << "In the corner of your eye, you see a shape forming on a tree branch. As usual the first thing you see is the large toothy grin...";
+    std::cout << "In the corner of your eye, you see a shape forming on a tree branch. As usual the first thing you see is the large toothy grin...\n";
     cheshirecat.talk("Hello dear, how are we getting on?");
-    custom_character.talk("I don't think they play fairly. and they all quarrel so dreadfully one can’t hear oneself speak—and they don’t seem to have any rules in particular; \n"
-                          "at least, if there are, nobody attends to them—and you’ve no idea how confusing it is all the things being alive;\n"
-                          " for instance, there’s the arch I’ve got to go through next walking about at the other end of the ground—and I should have croqueted the Queen’s hedgehog just now, only it ran away when it saw mine coming!");
+    custom_character.talk("I don't think they play fairly. and they all quarrel so dreadfully one can't hear oneself speak-and they don't seem to have any rules in particular; \n"
+                          "at least, if there are, nobody attends to them-and you’ve no idea how confusing it is all the things being alive;\n"
+                          " for instance, there's the arch I've got to go through next walking about at the other end of the ground-and I should have croqueted the Queen's hedgehog just now, only it ran away when it saw mine coming!");
     // print break
     getUserInput(custom_character, true);
 
     cheshirecat.talk("Oh well it sounds like you are really enjoying yourself. How do you like the Queen?");
     custom_character.talk("Not at all, she's so extremely --");
-    std::cout << "As you are finishing your sentence, the Queen turns and walks towards you\n";
-    custom_character.talk("—likely to win, that it’s hardly worth while finishing the game.");
+    std::cout << "\nAs you are finishing your sentence, the Queen turns and walks towards you\n";
+    custom_character.talk("-likely to win, that it's hardly worth while finishing the game.\n");
     std::cout << "The Queen smiled and continued on playing \n"
                  "The King was watching this entire interaction and walked over noticing you were talking to someone... \n";
     king.talk("Who are you talking to?");
-    custom_character.talk("It’s a friend of mine - a Cheshire Cat - allow me to introduce it.");
-    king.talk("I don’t like the look of it at all, however, it may kiss my hand if it likes.");
+    custom_character.talk("It's a friend of mine - a Cheshire Cat - allow me to introduce it.");
+    king.talk("I don't like the look of it at all, however, it may kiss my hand if it likes.");
     cheshirecat.talk("I'd rather not.");
-    king.talk("Don’t be impertinent , and don’t look at me like that!");
+    king.talk("Don't be impertinent , and don't look at me like that!");
 
     // print break
     getUserInput(custom_character, true);
 
     std::cout << "The cat was eying the king up and down. Almost as if looking at a meal\n";
-    custom_character.talk("A cat may look at a king; I've read that in some book, but I don’t remember where.");
+    custom_character.talk("A cat may look at a king; I've read that in some book, but I don't remember where.");
     king.talk("Well, it must be removed");
     std::cout << "He turned to beckon the queen. \n";
     king.talk("My dear! I wish you would have this cat removed!");
@@ -101,9 +101,6 @@ Character Checkpoint3::Chapter3(Character custom_character) {
                  "Once he is gone, everyone is running around frantically trying to find him. \n"
                  "The Executioner returned with the Duchess and joined the madness. \n";
 
-    // print break
-    getUserInput(custom_character, true);
-
     // talk with the duchess
 
     while (!duchess_intro_breaker) {
@@ -126,11 +123,11 @@ Character Checkpoint3::Chapter3(Character custom_character) {
 
 
     std::cout << "In exchange for your help, the Duchess has offered to let you rest overnight at her house. At this point, you have had a very long day, \n"
-                 "Not to mention, the day has been full of adventure. Perhaps a rest is in need. \n";
+                 "Not to mention, the day has been full of adventure. Perhaps a rest is in need. \n\n";
 
     custom_character.completeLastQuestObjective();
 
-    std::cout << "You rest your eyes, and seem to sleep. No dreams, No nightmares, just wait feels like a tranquil rest. \n";
+    std::cout << "\nYou rest your eyes, and seem to sleep. No dreams, No nightmares, just wait feels like a tranquil rest. \n";
     std::cout << "You almost feel like you never slept, and are awoken by yelling and panic from the Duchess...\n";
     duchess.talk("Oh dear we need to get going come come lets go lets go!!");
 

@@ -35,7 +35,7 @@ void Quests::displayQuests() const {
 void Quests::addQuest(const std::string& description) {
     Quest newQuest(description);
     std::cout << std::endl;
-    std::cout << "A new quest has been added: " << "{ " << description << "}";
+    std::cout << "A new quest has been added: " << "{" << description << "}";
     std::cout << std::endl;
 
     quests.push_back(newQuest);
@@ -43,10 +43,17 @@ void Quests::addQuest(const std::string& description) {
 
 void Quests::completeLastQuestObjective() {
     if (!quests.empty()) {
-        quests.back().completeObjective();
-        // Complete the last objective of the last quest
+        Quest& lastQuest = quests.back();
+        lastQuest.completeObjective();
+        std::cout << "Objective completed for the quest: " << lastQuest.getDescription() << std::endl;
     }
 }
+
+std::string Quest::getDescription() const {
+    return description;
+}
+
+
 
 void Quests::addCompletedQuest(const Quest& completedQuest) {
     quests.push_back(completedQuest);

@@ -108,7 +108,7 @@ Character Intro::startAliceInWonderland(Character custom_character) {
     }
 
     std::cout
-            << "You look around and scan the area. Everything looks relatively normal except you look up at the sky and it is no longer blue...\n"
+            << " You look around and scan the area. Everything looks relatively normal except you look up at the sky and it is no longer blue...\n"
                "The sky is now dark. Strange, as it was just sunny.\n";
     std::cout << "Out of the corner of your eye, you see something move... It's the rabbit from earlier!\n";
     rabbit.talk("Oh my ears and whiskers, how late it's getting!");
@@ -117,10 +117,10 @@ Character Intro::startAliceInWonderland(Character custom_character) {
             << "You turn and chase after the rabbit, maybe they have an idea of where you are and how to help you get out. \n";
 
     // add the quest
-    custom_character.addQuest("Follow the rabbit and figure out where you are");
+    custom_character.addQuest("Follow the rabbit");
 
     std::cout
-            << "\n As soon as you turn the corner, you see a long hall, filled with doors and lit up with lamps.\n";
+            << "\nAs soon as you turn the corner, you see a long hall, filled with doors and lit up with lamps.\n";
     std::cout
             << "At the end of the hall, you see what looks like a small three legged table. You can't make it out from here, but it looks like something is on top of it\n";
 
@@ -188,9 +188,8 @@ Character Intro::startAliceInWonderland(Character custom_character) {
             table_breaker = intro_choices.tableChoice(table_choice);
         }
     }
-    std::cout << "and now your adventure REALLY begins...";
 
-    textFormatter::printBoldItalic("END INTRO");
+    textFormatter::printBoldItalic("\n \n END INTRO \n \n");
 
     return custom_character;
 }

@@ -82,6 +82,7 @@ bool ChapterOneGates::bottle_inventory;
                 rabbit_breaker = false;
                 break;
             case 2:
+                custom_character.talk("Hello good sir, mr rabbit, can you understand me? I am in need of some assistance.");
                 std::cout << "The rabbit slows down and turns to face you, tilting it's head with an inquisitive look \n";
                 rabbit_breaker = true;
                 break;
@@ -160,6 +161,7 @@ bool ChapterOneGates::bottle_inventory;
     }
 
     bool ChapterOneGates::gloveChoice(int glove_choice, Character custom_character) {
+        WhiteRabbit rabbit;
         switch (glove_choice) {
             case 1:
                 if (checkInventory("Gloves", custom_character)){
@@ -178,6 +180,11 @@ bool ChapterOneGates::bottle_inventory;
                 break;
             case 3:
                 std::cout << "You wait to see if he even sees you; unlike your last encounter this time he sees you! \n";
+                rabbit.talk(" Why, Mary Ann, what are you doing out here? Run home this moment, and fetch me a pair of gloves");
+                std::cout << "Startled from him responding, you run towards a house you see in the distance... \n"
+                             "Upon arrival, you look around the entrance for the gloves. You think to yourself `If I had gloves ,they would be in my wardrobe' \n"
+                             "You run upstairs, and find the wardrobe. Opening it up, you find a full set of tuxedos, gloves and fans. \n"
+                             "You grab a pair of gloves, and run downstairs to meet the Rabbit in the entry way. You hand him the gloves. \n";
                 glove_breaker = false;
                 break;
         }
@@ -234,7 +241,7 @@ bool ChapterOneGates::bottle_inventory;
                         // Handle invalid input
                         std::cout << "Invalid choice. Please enter 'y' or 'n'.\n";
                     }
-                    house_breaker = false;
+                    house_breaker = true;
                 }
 
 // Continue with the rest of your code...
@@ -243,7 +250,7 @@ bool ChapterOneGates::bottle_inventory;
                 std::cout << "You slowly approach the door, and gently open it... \n"
                              "Inside, you smell a pot boiling, likely some sort of soup \n"
                              "You see a man wearing a chefs hat, the cook, and another woman dressed in very gaudy attire... \n"
-                             "She is also quite raucous; directing some crass comments towards the cook.";
+                             "She is also quite raucous; directing some crass comments towards the cook.\n";
                 house_breaker = true;
                 break;
             case 4:
@@ -269,6 +276,7 @@ bool ChapterOneGates::bottle_inventory;
                              "the book binding cracks, and the pages smell slightly of must . \n ";
                 textFormatter::printItalic("I don't think anyone would miss this, just going to borrow it so I can figure out where I am.\n");
                 Character::addItemToInventory(history_book);
+                std::cout << "You return back to entry way of the house, and you smell something from one of the doors. That must be the kitchen, I should check it out.\n";
                 break;
             case 2:
                 std::cout << "You pull this one from the shelves, but it has very little dust on it, it seems to be looked at quite frequently. \n"

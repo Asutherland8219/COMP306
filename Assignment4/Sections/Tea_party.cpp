@@ -56,9 +56,6 @@ Character Checkpoint2::Chapter2(Character custom_character) {
         Item red_mushroom("Red Mushroom", "A mushroom with a red cap and yellow spots", 0);
         Item blue_mushroom("Blue Mushroom", "A mushroom with a blue cap and white spots", 0);
 
-        // tea party quest
-        custom_character.addQuest("Attend Tea Party");
-
         std::cout
                 << "There was a table set out under a tree in front of the house, and the March Hare and the Hatter were having tea at it: a Dormouse was sitting between them, fast asleep, \n"
                    " and the other two were using it as a cushion, resting their elbows on it, and talking over its head. \n"
@@ -67,6 +64,10 @@ Character Checkpoint2::Chapter2(Character custom_character) {
         march_hare.talk("Have some wine");
 
         std::cout << "You looked all round the table, but there was nothing on it but tea. \n";
+
+        // print break
+        getUserInput(custom_character, true);
+
         custom_character.talk("I don't see any wine");
 
         march_hare.talk("There isn't any");
@@ -78,20 +79,20 @@ Character Checkpoint2::Chapter2(Character custom_character) {
         custom_character.talk(
                 "You called me over! Did you not want me to sit? I didn't know it was your table, it's laid for a great many more than three.");
 
-        // print break
-        getUserInput(custom_character, true);
-
         mad_hatter.talk("Your hair wants cutting");
 
         std::cout << "He had been watching you inquisitively during your conversation with the March Hare \n";
 
-        custom_character.talk("You should learn not to make personal remarks; it's very rude.");
+        custom_character.talk("You should learn not to make personal remarks; it's very rude.\n");
 
         std::cout << "In response to this remark, the Mad Hatter was wide eyed and in shock. \n";
 
         mad_hatter.talk("Why is a raven like a writing-desk?");
 
-        std::cout << "You think to yourself, `oh joy, some riddles`";
+        std::cout << "You think to yourself, `oh joy, some riddles`\n";
+
+        // print break
+        getUserInput(custom_character, true);
 
         custom_character.talk("I do not know.");
 
@@ -102,7 +103,7 @@ Character Checkpoint2::Chapter2(Character custom_character) {
         march_hare.talk("Then you should say what you mean");
 
         custom_character.talk(
-                "Did I not say what I mean? I said I do not know, care to share the answer to your riddle?");
+                "Did I not say what I mean? I said I do not know, care to share the answer to your riddle?\n");
 
         std::cout << "and here the conversation dropped, and the party sat silent. \n"
                      "After a few minutes, the Mad Hatter broke the silence. \n ";
@@ -118,7 +119,7 @@ Character Checkpoint2::Chapter2(Character custom_character) {
 
         mad_hatter.talk("Two days wrong!");
 
-        std::cout << "He turned and glared at the March Hare";
+        std::cout << "He turned and glared at the March Hare\n";
         mad_hatter.talk("I told you butter wouldn't suit the works!");
 
         // grab the mushrooms
@@ -135,11 +136,14 @@ Character Checkpoint2::Chapter2(Character custom_character) {
         mad_hatter.talk(
                 "Yes, but some crumbs must have got in as well ; you shouldn't have put it in with the bread-knife.");
 
+        // print break
+        getUserInput(custom_character, true);
+
         std::cout
                 << "The March Hare took the watch and looked at it gloomily: then he dipped it into his cup of tea, and looked at it again: but he could think of nothing better to say \n";
         std::cout << "It seems the conversation has reached a stalemate. This is a good time to leave. \n";
 
-        custom_character.talk("Well, Gentleman, it has been a pleasure but I must be going. ");
+        custom_character.talk("Well, Gentleman, it has been a pleasure but I must be going. \n");
 
         custom_character.completeLastQuestObjective();
 
@@ -169,7 +173,7 @@ Character Checkpoint2::Chapter2(Character custom_character) {
         std::cout
                 << "You stop for a moment and think, `where to go now? I suppose I should try and reach the Queen, to see if she knows how to leave Wonderland.`";
 
-        std::cout << "A thought crosses your mind, `what if the cat knows anything helpful, it disappeared before I had a chance to talk to it`";
+        std::cout << "A thought crosses your mind, `what if the cat knows anything helpful, it disappeared before I had a chance to talk to it`\n";
 
         custom_character.talk("Mr kitty, hello can you hear me? I may not be able to see you but maybe you are still listening. Pspspspsps here kitty kitty.");
 
@@ -217,8 +221,9 @@ Character Checkpoint2::Chapter2(Character custom_character) {
 
 
                 // Output menu option based on item existence
-                std::cout << i + 1 << ". ";
+
                 if (itemExists) {
+                    std::cout << i + 1 << ". ";
                     std::cout << "Use " << itemName;
                     inventoryMap[i + 1] = itemName;
                     std::cout << std::endl;
@@ -233,22 +238,22 @@ Character Checkpoint2::Chapter2(Character custom_character) {
             }
     }
 
-        custom_character.addQuest("Investigate the garden.");
+        custom_character.addQuest("Investigate the garden");
 
         std::cout
                 << "A large rose-tree stood near the entrance of the garden: the roses growing on it were white, but there were three gardeners at it, busily painting them red. \n"
                    "Normal Gardeners they were not, for they were shaped like playing cards, each with a number and house. \n"
-                   "You stand and watch them, and hear one of them speak: ";
+                   "You stand and watch them, and hear one of them speak: \n";
         two.talk("Look out now, Five! Don't go splashing paint over me like that!");
         five.talk("I couldn't help it; Seven jogged my elbow.");
         seven.talk("That's right, Five! Always lay the blame on others!");
         five.talk("You'd better not talk! ; I heard the Queen say only yesterday you deserved to be beheaded!");
         two.talk("What for?");
-        seven.talk("That’s none of your business, Two!");
+        seven.talk("That's none of your business, Two!");
         five.talk(
                 "Yes, it is his business! and I'll tell him—it was for bringing the cook tulip-roots instead of onions.");
         std::cout << "Seven flung down his brush \n";
-        seven.talk("Well, of all the unjust things—");
+        seven.talk("Well, of all the unjust things-");
         std::cout
                 << "he turned as he was speaking and spotted you standing there. Once he saw you and stopped talking the others turned and looked at you as well... \n"
                    "Suddenly they started bowing towards you. \n";
@@ -274,18 +279,18 @@ Character Checkpoint2::Chapter2(Character custom_character) {
         std::cout << "Five and Seven said nothing, but looked at Two. \n";
         two.talk(
                 "Why the fact is, you see, Miss, this here ought to have been a red rose-tree, and we put a white one in by mistake; and if the Queen was to find it out, we should all have our heads cut off, you know.");
-        two.talk("So you see, Miss, we're doing our best, afore she comes, to—");
-        std::cout << "At this moment Five, who had been anxiously looking across the garden spoke up: ";
+        two.talk("So you see, Miss, we're doing our best, afore she comes, to-");
+        std::cout << "At this moment Five, who had been anxiously looking across the garden spoke up: \n";
         five.talk("The Queen! The Queen!");
         std::cout << "and the three gardeners instantly threw themselves flat upon their faces."
                      "There was a sound of many footsteps \n"
                      "Then came a large army of similar designed characters to the gardeners, all surrounding the four of them. \n"
-                     "Finally, then came the Queen and the King. She spoke, addressing the one named two: ";
+                     "Finally, then came the Queen and the King. She spoke, addressing the one named two: \n";
         queen.talk("Who is this?");
-        std::cout << "Tow only bowed and smiled in reply. \n";
+        std::cout << "Two only bowed and smiled in reply. \n";
         queen.talk("Idiot!");
         std::cout << "She turned to look at you. \n";
-        queen.talk("What’s your name, child?");
+        queen.talk("What's your name, child?");
         std::string response = "My name is " + custom_character.name + " so pleased to meet you your Majesty";
         custom_character.talk(response);
         queen.talk("And who are these?");
@@ -295,7 +300,7 @@ Character Checkpoint2::Chapter2(Character custom_character) {
         getUserInput(custom_character, true);
 
         // Use lowercase names and replace Alice with custom_character
-        custom_character.talk("How should I know?; It’s no business of mine.");
+        custom_character.talk("How should I know?; It's no business of mine.");
         std::cout
                 << "The queen turned crimson with fury, and, after glaring at her for a moment like a wild beast, screamed:";
 
@@ -315,17 +320,14 @@ Character Checkpoint2::Chapter2(Character custom_character) {
 
         queen.talk("Leave off that!; You make me giddy. ; What have you been doing here?");
 
-        two.talk("“May it please your majesty, we were trying—");
+        two.talk("May it please your majesty, we were trying-");
 
         queen.talk("I see!...  Off with their heads!");
 
         std::cout
                 << "and the procession moved on, three of the soldiers remaining behind to execute the unfortunate gardeners, who ran towards you for protection.";
 
-        custom_character.talk("You shan’t be beheaded!");
-
-        // print break
-        getUserInput(custom_character, true);
+        custom_character.talk("You shan't be beheaded!");
 
         //and she put them into a large flower-pot that stood near.");
         while (!gardener_save_breaker) {
@@ -333,7 +335,7 @@ Character Checkpoint2::Chapter2(Character custom_character) {
             std::cout << "What would you like to do?\n";
             std::cout << "1. Tell the Gardeners to run. \n";
             std::cout << "2. Grab the Gardeners, and shove them in a nearby pot. \n";
-            std::cout << "3. Ask the Gardeners if he can hide his head. \n";
+            std::cout << "3. Ask the Gardeners if they can hide their heads. \n";
 
             auto input5_ch2 = getUserInput(custom_character, false);
             std::istringstream iss(input5_ch2);
@@ -347,9 +349,9 @@ Character Checkpoint2::Chapter2(Character custom_character) {
 
         soldiers.talk("Their heads are gone, if it please your majesty!");
 
-        queen.talk("That’s right! ; Can you play croquet?”");
+        queen.talk("That's right! ; Can you play croquet?");
 
-        std::cout << "The soldiers were silent, and looked at you as the question was evidently meant for you.";
+        std::cout << "The soldiers were silent, and looked at you as the question was evidently meant for you.\n";
 
         custom_character.talk("Yes!");
 
@@ -357,16 +359,16 @@ Character Checkpoint2::Chapter2(Character custom_character) {
 
         std::cout << "You join the procession, heading to play croquet with the Queen. \n";
 
-        rabbit.talk("It’s—it’s a very fine day!");
+        rabbit.talk("It's-it's a very fine day!");
 
-        std::cout << "You were walking by the White Rabbit, who was peeping anxiously into your face.";
+        std::cout << "You were walking by the White Rabbit, who was peeping anxiously into your face.\n";
 
-        custom_character.talk("“Very, —where’s the duchess?");
+        custom_character.talk("Very, -where's the duchess?");
 
         rabbit.talk("Hush! Hush!");
 
         std::cout
-                << "He looked anxiously over his shoulder as he spoke, and then raised himself upon tiptoe, put his mouth close to her ear, and whispered :";
+                << "He looked anxiously over his shoulder as he spoke, and then raised himself upon tiptoe, put his mouth close to her ear, and whispered :\n";
         rabbit.talk("She's under sentence of execution.");
 
         // print break
@@ -376,13 +378,13 @@ Character Checkpoint2::Chapter2(Character custom_character) {
 
         rabbit.talk("Did you say What a pity!?");
 
-        custom_character.talk("No, I didn't, I don’t think it's at all a pity. I said What for?");
+        custom_character.talk("No, I didn't, I don't think it's at all a pity. I said What for?");
 
-        rabbit.talk("She boxed the queen’s ears—");
+        rabbit.talk("She boxed the queen's ears-");
 
         custom_character.talk("HAHAHAHAHAHAHAHAHAHAHAHAH you're kidding right? That is hilarious!");
 
-        rabbit.talk("Oh, hush! ; The queen will hear you! You see, she came rather late, and the queen said—");
+        rabbit.talk("Oh, hush! ; The queen will hear you! You see, she came rather late, and the queen said-");
 
         queen.talk("GET TO YOUR PLACES!");
 
@@ -390,7 +392,7 @@ Character Checkpoint2::Chapter2(Character custom_character) {
 
         custom_character.completeLastQuestObjective();
 
-        textFormatter::printBoldItalic("END CHAPTER 2");
+        textFormatter::printBoldItalic("\nEND CHAPTER 2\n");
 
 
     return  custom_character;

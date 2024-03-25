@@ -56,7 +56,7 @@ Character Checkpoint1::Chapter1(Character custom_character) {
         RestartChapter:
 
         std::cout
-                << "You feel engorged, almost like you are blowing up. You look down and see the world around you changing... \n";
+                << "\nYou feel engorged, almost like you are blowing up. You look down and see the world around you changing... \n";
         std::cout
                 << "But wait.. no that's not the case, the world isn't changing.. YOU are changing. You are growing! \n";
         std::cout
@@ -83,14 +83,11 @@ Character Checkpoint1::Chapter1(Character custom_character) {
 
         std::cout
                 << "As you look through the door, just hoping someone is there to help you, you see a familiar face! \n"
-                   "The rabbit from earlier! This time he is different though, wearing what looks to be a small tuxedo and carrying something in his hands.";
+                   "The rabbit from earlier! This time he is different though, wearing what looks to be a small tuxedo and carrying something in his hands. \n";
 
         rabbit.talk("Oh! The Duchess, the Duchess!, Oh! won't she be savage if I've kept her waiting.");
         std::cout
                 << "The rabbit is coming closer, though not directly towards you, but close enough within earshot (especially with those big rabbit ears) \n";
-
-        // print break
-        getUserInput(custom_character, true);
 
         while (!Checkpoint1::rabbit_breaker) {
             std::cout << std::endl;
@@ -107,6 +104,7 @@ Character Checkpoint1::Chapter1(Character custom_character) {
 
                 if (!rabbit_breaker) {
                     panic_breaker = false;
+                    std::cout << "\n";
                     goto RestartChapter;
                 }
             }
@@ -116,12 +114,13 @@ Character Checkpoint1::Chapter1(Character custom_character) {
         custom_character.talk("Where are we? \n");
         std::cout
                 << "Immediately as the words exit your mouth, the rabbit drops the items it is holding and bolts back behind the rock. \n";
+        std::cout << "The rabbit dropped a pair of gloves and a fan which slides through the door and lands between your feet.\n";
 
         while (!Checkpoint1::rabbit_item_breaker) {
             std::cout << std::endl;
             std::cout << "What would you like to do?\n";
             std::cout << "1. Leave the items. \n";
-            std::cout << "2. Take just the gloves.'\n";
+            std::cout << "2. Take just the gloves.\n";
             std::cout << "3. Take the fan.  \n";
             std::cout << "4. Take everything. \n";
 
@@ -138,7 +137,7 @@ Character Checkpoint1::Chapter1(Character custom_character) {
                                "Then you remember you have the fan! You pull it out and start fanning yourself... \n"
                                "While this is happening, you are talking to yourself trying to stay calm. \n"
                                "You are getting dizzy again, not really sure why as you are standing still but it feels like the room is moving \n";
-                    custom_character.talk(" THE ROOM IS MOVING ");
+                    custom_character.talk(" THE ROOM IS MOVING \n");
                     std::cout << "You yell as you come to realization that you are SHRINKING again \n"
                                  "Out of panic, you drop the fan... at the same time though, you stop shrinking. \n";
                     custom_character.dropItem("Paper Fan");
@@ -147,7 +146,7 @@ Character Checkpoint1::Chapter1(Character custom_character) {
                     while (!Checkpoint1::fan_item_breaker) {
                         std::cout << "What would you like to do?\n";
                         std::cout << "1. Pick up the fan.\n";
-                        std::cout << "2. Leave the fan.'\n";
+                        std::cout << "2. Leave the fan.\n";
                         auto input4 = getUserInput(custom_character, false);
                         std::istringstream iss(input4);
                         int fan;
@@ -177,13 +176,13 @@ Character Checkpoint1::Chapter1(Character custom_character) {
             getUserInput(custom_character, true);
 
             std::cout
-                    << "You look around, noticing the room has changed a bit. Then the small door catches your eye. You bolt to the door, hoping to make it through \n "
+                    << "You look around, noticing the room has changed a bit. Then the small door catches your eye. You bolt to the door, hoping to make it through "
                        "but as you get there you notice it's closed AGAIN. Not only that, the key from earlier, is back on the table WAY above where you are able to reach. \n";
             custom_character.talk("Well DRAT, what am I supposed to do now? \n");
 
             std::cout << "As soon as you finish your thought, you feel the air around you change... \n";
             textFormatter::printBold("** SPLASH ** \n");
-            std::cout << "You are now neck deep in salt water. \n";
+            std::cout << "Magically, you are now neck deep in salt water. \n";
             custom_character.talk("What a strange and magical place this is. \n");
 
             std::cout
@@ -191,9 +190,6 @@ Character Checkpoint1::Chapter1(Character custom_character) {
                        "or at least as close to reality as this is, and realize you are small so it could be anything. Focusing your vision, you see that it was in fact a mouse! \n"
                        "You see the mouse swim over to the nearest piece of land. On the bank, you see many other creatures like a Duck, a Dodo, a Lory and an Eaglet. \n"
                        "You slowly climb on the embankment, as to not startle the animals. \n";
-
-            // print break
-            getUserInput(custom_character, true);
 
             custom_character.addQuest("Find your way out... again.");
 
@@ -251,8 +247,9 @@ Character Checkpoint1::Chapter1(Character custom_character) {
                              "You grab a pair of gloves, and run downstairs to meet the Rabbit in the entry way. You hand him the gloves. \n";
             }
             custom_character.completeLastQuestObjective();
+
             rabbit.talk("Oh my what a help you have been! Thank you so very much! I am in your debt!");
-            custom_character.talk("Mr Rabbit, I am glad to have your attention, where am I exactly?");
+            custom_character.talk("Mr Rabbit, I am glad to have your attention, where am I exactly?\n");
             std::cout << "Before the rabbit can answer, there is a rap at the door \n";
             textFormatter::printBold("** Knock Knock ** \n");
             std::cout << "At the door appeared a Fish-Footman... \n";
@@ -270,7 +267,7 @@ Character Checkpoint1::Chapter1(Character custom_character) {
             custom_character.addQuest("Deliver the letter");
 
             std::cout << "When you turn around to pass the letter to the rabbit, you notice he's gone! \n";
-            custom_character.talk("Oh my that rabbit is oh so sly. Always disappearing.");
+            custom_character.talk("Oh my that rabbit is oh so sly. Always disappearing.\n");
 
 
             while (!Checkpoint1::house_breaker) {
@@ -291,7 +288,7 @@ Character Checkpoint1::Chapter1(Character custom_character) {
                     if (house_breaker) {
                         bool kitchen_breaker;
                         // This is the main path to take
-                        duchess.talk("You buffoon, this soup tastes like pepper! Too much! Too much! \n");
+                        duchess.talk("You buffoon, this soup tastes like pepper! Too much! Too much!");
                         std::cout << "The Duchess spits out the food aggressively. \n";
                         cook.talk("I am so sorry I will start over.");
 
@@ -301,7 +298,7 @@ Character Checkpoint1::Chapter1(Character custom_character) {
                         std::cout << "You hand over the letter to the duchess. \n";
                         custom_character.dropItem("Letter");
                         custom_character.completeLastQuestObjective();
-                        duchess.talk("Thank you dear. \n");
+                        duchess.talk("Thank you dear.");
                         custom_character.talk("It is for a croquet match with the Queen.");
                         duchess.talk(
                                 "With the Queen!? Oh I must go get ready. Cook forget the soup, it's horrid anyways.");
@@ -310,9 +307,6 @@ Character Checkpoint1::Chapter1(Character custom_character) {
                                 << "The cook turns to look at you, looking awfully glum after her insulting his cooking. \n";
                         cook.talk(
                                 "Would you like some food? I have lots to spare. I swear it's not as bad as she says.");
-
-                        // print break
-                        getUserInput(custom_character, true);
 
                         while (!kitchen_breaker) {
                             std::cout << std::endl;
@@ -332,40 +326,39 @@ Character Checkpoint1::Chapter1(Character custom_character) {
                             std::cout << "After speaking with the cook, you turn to exit the kitchen. \n"
                                          "While turning, you are spooked by a pair of eyes looking directly at you. \n"
                                          "It's a cat, perched up on a shelf just watching...\n";
-                            cheshirecat.talk("Hello dear, you must be new, what is your name?");
-                            std::string response = "Hello Mr Puss, my name is " + custom_character.name + "\n";
+
+                            NPC cat = NPC("Cat") ;
+                            cat.talk("Hello dear, you must be new, what is your name?");
+                            std::string response = "Hello Mr Puss, my name is " + custom_character.name ;
                             custom_character.talk(response);
-                            cheshirecat.talk(
-                                    "Pleasure to meet you, you may call me Cheshire, or the Chesire Cat, whatever suits you best.");
+                            cat.talk(
+                                    "Pleasure to meet you, you may call me Cheshire, or the Cheshire Cat, whatever suits you best.");
                             std::cout
                                     << "The cat flashes you a wide grin, taking up most of its face with large pointed teeth. \n"
                                        "You look it up and down and notice not only does it have sharp teeth, but also sharp claws. \n"
                                        "While friendly at the moment, it would be wise to stay on the good side of such a vicious looking creature. \n";
                             custom_character.talk("Would you tell me, please, which way I ought to go from here?");
-                            cheshirecat.talk("That depends a good deal on where you want to get to,” said the Cat.");
+                            cheshirecat.talk("That depends a good deal on where you want to get to,");
                             custom_character.talk("I don't much care where - ");
                             custom_character.talk("- so long as I get somewhere,");
 
                             // print break
                             getUserInput(custom_character, true);
 
-
                             cheshirecat.talk("Oh, you're sure to do that, if you only walk long enough.");
 
                             custom_character.talk("What sort of people live about here?");
 
                             cheshirecat.talk("In that direction, -- ");
-                            std::cout << "the Cat said, waving its right paw round --";
+                            std::cout << "the Cat said, waving its right paw round --\n";
                             cheshirecat.talk("lives a Hatter: and in that direction, ");
-                            std::cout << " -- waving the other paw -- ";
+                            std::cout << " -- waving the other paw -- \n";
                             cheshirecat.talk("lives a March Hare. Visit either you like: they're both mad.");
-                            std::cout
-                                    << "You think to yourself `ah a Hare, not a rabbit, so is the name of the mysterious rabbit from earlier \n";
 
                             custom_character.talk("But I don't want to go among mad people.");
 
                             cheshirecat.talk(
-                                    "Oh, you can't help that,” said the Cat. “We're all mad here. I'm mad. You're mad.");
+                                    "Oh, you can't help that, We're all mad here. I'm mad. You're mad.");
 
                             // print break
                             getUserInput(custom_character, true);
@@ -385,6 +378,10 @@ Character Checkpoint1::Chapter1(Character custom_character) {
 
                             custom_character.talk("I should like it very much, but I haven't been invited yet.");
                             cheshirecat.talk("You'll see me there.");
+
+                            // print break
+                            getUserInput(custom_character, true);
+
                             std::cout << "The cat threw a wide grin, and winked as it then vanished from sight. \n";
 
                             std::cout
@@ -396,9 +393,10 @@ Character Checkpoint1::Chapter1(Character custom_character) {
 
                             custom_character.addQuest("Attend the Tea Party");
 
-                            textFormatter::printBoldItalic("END CHAPTER 1");
+                            textFormatter::printBoldItalic("\nEND CHAPTER 1\n");
 
                             // End Section 1
+                            return custom_character;
                         }
                     } else {
                         goto RestartHouse;
@@ -407,5 +405,4 @@ Character Checkpoint1::Chapter1(Character custom_character) {
             }
 
         }
-        return custom_character;
     }

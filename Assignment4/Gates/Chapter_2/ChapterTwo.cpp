@@ -28,7 +28,7 @@ bool ChapterTwoGates::gardener_save_breaker;
                 custom_character.talk("Excuse me Mr cook.");
                 cook.talk("yes dear?");
                 custom_character.talk("Do you have any insight on these mushrooms? Perhaps an idea on what they do? if anything.");
-                std::cout << "You pull out the small pieces of mushrooms you grabbed earlier to show him.";
+                std::cout << "\n You pull out the small pieces of mushrooms you grabbed earlier to show him.\n";
                 cook.talk("Yes of course! I am the one who prepared the tea party!");
                 cook.talk("The red mushroom, is a growing mushroom, while the blue is it's counterpart, a shrinking mushroom.");
                 custom_character.talk("Oh thank you so much! This is ever so helpful.");
@@ -101,7 +101,7 @@ bool ChapterTwoGates::gardener_save_breaker;
                     cheshirecat.talk("Ha. Yes the red is to grow, the blue is to shrink. Is that all?");
                     custom_character.talk("Do you have a litter box or do you just go wherever you please around here?");
                     cheshirecat.talk("HA That is a good one. If that is all I'll be on my way. See you at the croquet game.");
-                    std::cout << "The cat disappears from sight";
+                    std::cout << "The cat disappears from sight\n";
                 }
                 else {
                     custom_character.talk("Do you how to escape from here? From Wonderland?");
@@ -223,7 +223,7 @@ bool ChapterTwoGates::gardener_save_breaker;
         switch (gardener_choice) {
             case 1:
                 custom_character.talk("Hello Gentleman? Gentlecards? Gentlethings? Anyways, may I ask what you are doing?");
-                std::cout << "After asking, you walk over and pluck one of the painted flowers from the bush";
+                std::cout << "\nAfter asking, you walk over and pluck one of the painted flowers from the bush";
                 Character::addItemToInventory(painted_flower);
                 gardener_breaker = true;
                 break;
@@ -257,19 +257,19 @@ bool ChapterTwoGates::gardener_save_breaker;
                 gardener_save_breaker = true;
                 break;
             case 3:
-                custom_character.talk("Listen, I have an idea, any chance y'all can hide your heads? Tuck it in like a turtle?");
+                custom_character.talk("Listen, I have an idea, any chance y'all can hide your heads? Tuck it in like a turtle?\n");
                 std::cout << "The Gardeners look puzzled, but look at each other than nod. \n";
-                custom_character.talk("Great, hide your head and lie down. Don't make a sound and leave the rest to me.");
+                custom_character.talk("Great, hide your head and lie down. Don't make a sound and leave the rest to me.\n");
                 std::cout << "The Gardeners quickly hide their heads, and lie down on the ground. You grab some berries from a nearby bush and splatter them"
                              "around the head. The soldiers approach you shortly after. \n";
-                custom_character.talk("Hello Officers, you can report to the Queen they are beheaded");
+                custom_character.talk("Hello Officers, you can report to the Queen they are beheaded\n");
                 std::cout << "The Soldiers look at you, confused but also terrified. \n";
                 soldiers.talk("You don't have a sword or axe, how did you manage to behead them?");
-                custom_character.talk("I ripped their heads off, and threw them in the bush over there.");
+                custom_character.talk("I ripped their heads off, and threw them in the bush over there.\n");
                 std::cout << "You point to the bush, you turn back to face the soldier and show them your red stained hands and flash a toothy grin. \n"
-                             "One of the soldiers, turns green in the face and turns to vomit, the other responds to you with a tremble, also taking a step back in the process.";
+                             "One of the soldiers, turns green in the face and turns to vomit, the other responds to you with a tremble, also taking a step back in the process.\n";
                 soldiers.talk("Uhh oh um yes okay that works alright thank you very much have a nice day goodbye!");
-                std::cout << "The Soldiers trip over each-other trying to run away as fast as possible to return to the procession.";
+                std::cout << "The Soldiers trip over each-other trying to run away as fast as possible to return to the procession.\n";
                 gardener_save_breaker = true;
         }
         return gardener_save_breaker;

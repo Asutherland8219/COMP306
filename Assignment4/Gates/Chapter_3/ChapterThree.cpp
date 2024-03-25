@@ -21,22 +21,22 @@ Duchess duchess;
                 duchess.talk("Back home, to the chalet. Come take my arm I need your assistance walking.");
                 std::cout << "You take her arm and begin guiding her along. She leans on you quite heavily unable to walk of her own accord. \n"
                              "You head in the direction of the house you were at earlier. \n";
-                duchess_intro_choice = false;
+                duchess_intro_choice = true;
                 break;
             case 2:
                 std::cout << "You grab the Duchess while everyone is pre-occupied and bolt back towards the house";
                 custom_character.talk("Can you not go any faster? We only have a short window of opportunity.");
                 duchess.talk("I don't want to break a sweat! It will ruin my makeup.");
-                custom_character.talk("Listen, if you don't hurry up, you are gonna end up back in the cell. Does that register with you?");
+                custom_character.talk("Listen, if you don't hurry up, you are gonna end up back in the cell. Does that register with you?\n");
                 std::cout << "This seems to have clicked, as she straightened up and started running faster. \n";
-                duchess_intro_choice = false;
+                duchess_intro_choice = true;
                 break;
             case 3:
                 custom_character.talk("How the hell did you end up here? Aren't you a duchess? shouldn't you be smart enough to not get in these situations?");
                 duchess.talk("Well yes I am and perhaps I should be but you see --");
-                custom_character.talk("Nope, don't want to hear it , let's go. Time to get you home");
+                custom_character.talk("Nope, don't want to hear it , let's go. Time to get you home\n");
                 std::cout << "You grab the Duchess while everyone is pre-occupied and bolt back towards the house";
-                duchess_intro_choice = false;
+                duchess_intro_choice = true;
                 break;
         }
         return duchess_intro_choice;
@@ -69,7 +69,7 @@ Duchess duchess;
 
                 custom_character.addItemToInventory(amethyst_ring);
 
-                duchess_house_choice = false;
+                duchess_house_choice = true;
                 break;
             case 2:
                 custom_character.talk("Ugh, I am not interested, please go without me.");
@@ -83,7 +83,7 @@ Duchess duchess;
                 std::cout << "You slowly get out of bed and put your clothes on. The Duchess comes back into your room after you are dressed.\n";
                 duchess.talk("NOW lets get moving, we don't want to be late, we know how well that went for me last time.");
                 std::cout << "You let out a little chuckle at that and head downstairs to begin your trek to the castle\n";
-                duchess_house_choice = false;
+                duchess_house_choice = true;
                 break;
             case 3:
                 std::cout << "You slowly get out of bed and put your clothes on. The Duchess comes back into your room after you are dressed.\n";
@@ -91,7 +91,7 @@ Duchess duchess;
                 std::cout << "The thought of this made you want to vomit. Out of politeness, you simply smiled at the Duchess.";
                 duchess.talk("NOW lets get moving, we don't want to be late, we know how well that went for me last time.");
                 std::cout << "You let out a little chuckle at that and head downstairs to begin your trek to the castle\n";
-                duchess_house_choice = false;
+                duchess_house_choice = true;
                 break;
         }
         return duchess_intro_choice;

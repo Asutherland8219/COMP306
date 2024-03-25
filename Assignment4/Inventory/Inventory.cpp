@@ -12,7 +12,6 @@
 
 #include "Inventory.h"
 #include <iostream>
-#include <optional>
 
 // Constructor
 Inventory::Inventory() {}
@@ -63,7 +62,9 @@ void Inventory::dropItem(const std::string& itemName) const {
         items.erase(it);
 
         // Raise a prompt saying "Item dropped"
+        std::cout << "\n";
         std::cout << "Item dropped: " << itemName << "\n";
+        std::cout << "\n";
     } else {
         // Item not found, raise a prompt indicating that it's not in the inventory
         std::cout << "Item not found in the inventory: " << itemName << "\n";

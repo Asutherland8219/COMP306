@@ -28,17 +28,36 @@ Character CharacterBuild::character_build() {
         std::string name, hairColor, eyeColor;
 
 
-        // Get the character's name
+    // Get the character's name
+    while (true) {
         std::cout << "Enter your character's name: ";
         std::getline(std::cin, name);
+        if (!name.empty() && std::all_of(name.begin(), name.end(), [](char c) { return std::isalpha(c) || std::isspace(c); })) {
+            break; // Exit the loop if the input is not empty and contains only alphabetic characters
+        }
+        std::cout << "Invalid input. Please enter a valid character name.\n";
+    }
 
-        // Get the character's hair color
+    // Get the character's hair color
+    while (true) {
         std::cout << "Enter your character's hair color: ";
         std::getline(std::cin, hairColor);
+        if (!hairColor.empty() && std::all_of(hairColor.begin(), hairColor.end(), [](char c) { return std::isalpha(c) || std::isspace(c); })) {
+            break; // Exit the loop if the input is not empty and contains only alphabetic characters
+        }
+        std::cout << "Invalid input. Please enter a valid hair color.\n";
+    }
 
-        // Get the character's eye color
+    // Get the character's eye color
+    while (true) {
         std::cout << "Enter your character's eye color: ";
         std::getline(std::cin, eyeColor);
+        if (!eyeColor.empty() &&
+            std::all_of(eyeColor.begin(), eyeColor.end(), [](char c) { return std::isalpha(c) || std::isspace(c); })) {
+            break; // Exit the loop if the input is not empty and contains only alphabetic characters
+        }
+        std::cout << "Invalid input. Please enter a valid eye color.\n";
+    }
 
         // Set pronouns for the character
         std::cout << "Select Pronouns:\n";
@@ -47,9 +66,24 @@ Character CharacterBuild::character_build() {
         std::cout << "3. Other\n";
 
         int pronounChoice;
-        std::cin >> pronounChoice;
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-
+        while (true) {
+        if (std::cin >> pronounChoice) {
+            // Check if the input is within the valid range
+            if (pronounChoice >= 1 && pronounChoice <= 3) {
+                // Input is valid, exit the loop
+                break;
+            } else {
+                std::cout << "Invalid input. Please enter a valid pronoun choice (1, 2, or 3).\n";
+            }
+        } else {
+            // Clear the error flag and ignore the invalid input
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "Invalid input. Please enter a valid pronoun choice (1, 2, or 3).\n";
+        }
+    }
+    // Clear the input buffer to ensure there's no remaining input
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         // Objectives for the quests
         std::vector<std::string> escapeObjectives;
         std::vector<std::string> keyObjectives;

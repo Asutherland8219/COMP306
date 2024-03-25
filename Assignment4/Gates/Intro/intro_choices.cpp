@@ -46,6 +46,7 @@ bool intro_land_breaker;
             case 1:
                 std::cout << "You wiggle your toes, move your arms and legs making sure everything is good.\n"
                              "You stand up, seemingly unharmed, though still confused.";
+                intro_land_breaker = true;
                 break;
             case 2:
                 std::cout << "You close your eyes and try and sleep or at least gather your bearings. \n";
@@ -74,7 +75,7 @@ bool intro_land_breaker;
                 std::cout << "It could be poison but it is quite enticing to try it out. \n";
                 break;
             case 3:
-                std::cout << "You think to yourself `maybe the way back is changed now too. \n When you turn around you see the same dark void as before \n";
+                std::cout << "You think to yourself `maybe the way back is changed now too`. \n When you turn around you see the same dark void as before \n";
                 break;
         }
         return intro_drink_breaker;

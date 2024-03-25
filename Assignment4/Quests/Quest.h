@@ -26,6 +26,7 @@ public:
     // Mark an objective as completed
     void completeObjective();
 
+    std::string getDescription() const;
 };
 
 class Quests {
