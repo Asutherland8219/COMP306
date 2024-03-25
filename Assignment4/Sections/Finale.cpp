@@ -116,9 +116,9 @@ Character Finale::TheEnd(Character custom_character) {
         std::cout << "he kept shifting from one foot to the other, looking uneasily at the Queen, and in his confusion he bit a large piece out of his teacup instead of the bread-and-butter.";
         queen.talk("Bring me the list of the singers in the last concert!");
         std::cout << "The King turned to the Mad Hatter, glaring at him and repeated himself in a stern tone.";
-        king.talk("Give your evidence, or I’ll have you executed, whether you’re nervous or not.");
+        king.talk("Give your evidence, or I'll have you executed, whether you're nervous or not.");
         std::cout << "The Hatter, responded with a tremble in his voice. \n";
-        mad_hatter.talk("I'm a poor man, your Majesty, -and I hadn’t begun my tea—not above a week or so-and what with the bread-and-butter getting so thin-and the twinkling of the tea-");
+        mad_hatter.talk("I'm a poor man, your Majesty, -and I hadn't begun my tea-not above a week or so-and what with the bread-and-butter getting so thin-and the twinkling of the tea-");
         king.talk("The twinkling of the what?");
         mad_hatter.talk("It began with the tea,");
         king.talk("Of course twinkling begins with a T! Do you take me for a dunce? Go on!");
@@ -142,7 +142,7 @@ Character Finale::TheEnd(Character custom_character) {
         mad_hatter.talk("I'd rather finish my tea.");
         king.talk("Then you may go.");
         std::cout << "The Mad Hatter scurried away -- \n";
-        queen.talk("—and just take his head off outside,");
+        queen.talk("-and just take his head off outside,");
         std::cout << "The Queen said this to one of the officers, but at this point the Mad Hatter was long gone out the door. \n";
         king.talk("Call the next witness!");
         std::cout << "The next witness, was the Duchess' Cook. He looked at you and smiled before approaching.\n";
@@ -153,11 +153,11 @@ Character Finale::TheEnd(Character custom_character) {
         getUserInput(custom_character, true);
 
         std::cout << "The King turned to look at the White Rabbit with an angry glare.\n";
-        rabbit.talk("Your Majesty mush cross examine this witness.");
+        rabbit.talk("Your Majesty must cross examine this witness.");
         std::cout << "The King took a deep breath and let out a sigh \n";
         king.talk("What were the tarts made of?");
         mouse.talk("Treacle");
-        std::cout << "When the mouse spoke up, from a drowsy state, as he was sleeping in the stands \n"
+        std::cout << "Just then the mouse spoke up, from a drowsy state, as he was sleeping in the stands \n"
                      "This caused some uproar in the courtroom and some responses from the jury.\n";
         king.talk("Never mind! Everyone, SILENCE!");
         std::cout << "After a minute or two, he continues. \n";

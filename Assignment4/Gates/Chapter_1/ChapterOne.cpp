@@ -176,6 +176,11 @@ bool ChapterOneGates::bottle_inventory;
                 break;
             case 2:
                 textFormatter::printItalic("I am sorry Mr. Rabbit! I have not seen your gloves! \n");
+                rabbit.talk(" Why, Mary Ann, what are you doing out here? Run home this moment, and fetch me a pair of gloves");
+                std::cout << "Startled from him responding, you run towards a house you see in the distance... \n"
+                             "Upon arrival, you look around the entrance for the gloves. You think to yourself `If I had gloves ,they would be in my wardrobe' \n"
+                             "You run upstairs, and find the wardrobe. Opening it up, you find a full set of tuxedos, gloves and fans. \n"
+                             "You grab a pair of gloves, and run downstairs to meet the Rabbit in the entry way. You hand him the gloves. \n";
                 glove_breaker = false;
                 break;
             case 3:
@@ -236,12 +241,13 @@ bool ChapterOneGates::bottle_inventory;
                         }
                     } else if (userChoice == "n" || userChoice == "no") {
                         // If the user doesn't want to read a book, break out of the loop
+                        std::cout << "\nYou return to the main entryway of the house.\n";
+                        house_breaker = false;
                         break;
                     } else {
                         // Handle invalid input
                         std::cout << "Invalid choice. Please enter 'y' or 'n'.\n";
                     }
-                    house_breaker = true;
                 }
 
 // Continue with the rest of your code...

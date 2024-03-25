@@ -155,7 +155,7 @@ Character Checkpoint3::Chapter3(Character custom_character) {
 
     custom_character.addQuest("Go to the castle... Finally.");
 
-    textFormatter::printBoldItalic("END CHAPTER 3");
+    textFormatter::printBoldItalic("\nEND CHAPTER 3\n");
 
     // end meeting the queen.
 

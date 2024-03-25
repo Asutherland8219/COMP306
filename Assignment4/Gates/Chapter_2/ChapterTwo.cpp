@@ -52,7 +52,7 @@ bool ChapterTwoGates::gardener_save_breaker;
                              "In his hands, he holds a cloth bag with small white box... \n";
                 cook.talk("Here is a parting gift, I know you must be aching to get home. It is a cake, and if record shows"
                           "may be of use later on to you. Your pockets must be getting full so take the bag as well!");
-                std::cout << "He smiles and hands you the bag containing cake box";
+                std::cout << "He smiles and hands you the bag containing cake box\n";
                 Inventory::addItem(cake);
                 custom_character.talk("Thank you so much! I am sure It will be delicious!");
                 std::cout << "You hear a shrill sound in the distance, likely the Duchess losing her mind over something \n";
@@ -157,6 +157,7 @@ bool ChapterTwoGates::gardener_save_breaker;
                         } else if (std::find(growing_items.begin(), growing_items.end(), selectedItem) !=
                                    growing_items.end()) {
                             // Additional actions for growing items
+                            custom_character.inventory.dropItem((selectedInventoryItem.name));
                             std::cout
                                     << "You grow larger and larger, till you are big enough to reach the table and grab the key.\n";
                             std::cout

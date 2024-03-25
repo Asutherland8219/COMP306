@@ -211,32 +211,39 @@ Character Checkpoint2::Chapter2(Character custom_character) {
         std::unordered_map<int, std::string> inventoryMap;
         // Loop over the possible_items list
         while (!small_door_breaker) {
-
             std::cout << "What would you like to do?\n";
-            for (int i = 0; i < possible_items.size(); ++i) {
-                const std::string &itemName = possible_items[i];
 
+            // Variable to keep track of the menu option number
+            int optionNumber = 1;
+
+            // Loop through all possible items
+            for (const std::string &itemName : possible_items) {
                 // Check if the item exists in the character's inventory
                 bool itemExists = checkInventory(itemName, custom_character);
 
-
-                // Output menu option based on item existence
-
+                // Output menu option if the item exists
                 if (itemExists) {
-                    std::cout << i + 1 << ". ";
-                    std::cout << "Use " << itemName;
-                    inventoryMap[i + 1] = itemName;
-                    std::cout << std::endl;
+                    std::cout << optionNumber << ". ";
+                    std::cout << "Use " << itemName << std::endl;
+                    inventoryMap[optionNumber] = itemName;
+                    optionNumber++; // Increment option number only if the item exists
                 }
             }
 
             auto input3_ch2 = getUserInput(custom_character, false);
             std::istringstream iss(input3_ch2);
-            int fan;
-            if (iss >> fan) { // Attempt to read an integer from the input
-                small_door_breaker = ch_two_gates.fanChoice(fan, custom_character, inventoryMap);
+            int userChoice;
+            if (iss >> userChoice) { // Attempt to read an integer from the input
+                // Check if the user choice is within the range of available options
+                if (userChoice >= 1 && userChoice < optionNumber) {
+                    small_door_breaker = ch_two_gates.fanChoice(userChoice, custom_character, inventoryMap);
+                } else {
+                    std::cout << "Invalid option. Please select a valid menu option.\n";
+                }
+            } else {
+                std::cout << "Invalid input. Please enter a valid menu option.\n";
             }
-    }
+        }
 
         custom_character.addQuest("Investigate the garden");
 
