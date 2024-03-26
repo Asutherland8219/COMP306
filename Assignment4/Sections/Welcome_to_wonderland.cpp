@@ -393,7 +393,7 @@ Character Checkpoint1::Chapter1(Character custom_character) {
 
                             custom_character.addQuest("Attend the Tea Party");
 
-                            textFormatter::printBoldItalic("\nEND CHAPTER 1\n");
+                            textFormatter::printBoldItalic("\n \n END CHAPTER 1 \n \n");
 
                             // End Section 1
                             return custom_character;

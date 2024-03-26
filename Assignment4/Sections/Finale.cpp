@@ -195,7 +195,7 @@ Character Finale::TheEnd(Character custom_character) {
         // complete trial
         custom_character.completeLastQuestObjective();
 
-        textFormatter::printBoldItalic("END CHAPTER 3/FINALE");
+        textFormatter::printBoldItalic("\n \n END CHAPTER 3/FINALE \n \n");
 
         FinaleChoice::determineEnding(custom_character);
 
