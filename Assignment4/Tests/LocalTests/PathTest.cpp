@@ -250,10 +250,8 @@ Character runNeutralPathTest(bool silent) {
 
     // Court choice (final choice)
     ChapterFourGates::courtChoice(2, test_character);
-
     // Test the ending
     int end_value = FinaleChoice::determineEnding(test_character);
-    mockEnter("\n");
     assert(end_value == 2);
 
     std::cout << "\n\nFinished running Neutral Ending Test\n"

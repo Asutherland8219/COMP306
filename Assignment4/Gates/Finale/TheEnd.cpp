@@ -19,15 +19,18 @@ bool ChapterFourGates::attentionChoice(int attention_choice, const Character& cu
             std::cout << "You kick them in the arse, trying not to hold back, reminding yourself of their remarks earlier. \n"
                          "They both let out a yelp, but then turn to face the Duchess, and then spin around and rush toward opening the doors. \n";
             attention_breaker = true;
+            break;
         case 2:
             std::cout << "You flick them both in the ears. They both turn towards you angrily, then notice the Duchess looking at them, waiting.\n"
                          "They turn on a dime, and rush towards opening the doors. \n";
             attention_breaker = true;
+            break;
         case 3:
             std::cout << "You pretend not to pay attention, wanting to see what would happen. \n";
             duchess.talk("OPEN THE DOOR YOU BUFFOONS");
             std::cout << "The Mad Hatter and the March Hare, both nearly leap out of their skin, and bolt towards the door pushing them open. \n";
             attention_breaker = true;
+            break;
     }
     return attention_breaker;
 }

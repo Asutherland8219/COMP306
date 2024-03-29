@@ -57,7 +57,7 @@ Character Checkpoint2::Chapter2(Character custom_character) {
         Item blue_mushroom("Blue Mushroom", "A mushroom with a blue cap and white spots", 0);
 
         std::cout
-                << "There was a table set out under a tree in front of the house, and the March Hare and the Hatter were having tea at it: a Dormouse was sitting between them, fast asleep, \n"
+                << "\nThere was a table set out under a tree in front of the house, and the March Hare and the Hatter were having tea at it: a Dormouse was sitting between them, fast asleep, \n"
                    " and the other two were using it as a cushion, resting their elbows on it, and talking over its head. \n"
                    "The table was a large one, but the three were all crowded together at one corner of it: \n"
                    "You approach the table and sit down at a vacant seat. \n";
@@ -201,8 +201,8 @@ Character Checkpoint2::Chapter2(Character custom_character) {
         // print break
         getUserInput(custom_character, true);
 
-        std::cout << "You return back to the room with the tiny door. Hoping to see something has changed. \n"
-                     "Unfortunately, once you get there, you see the large table and the small locked door. ";
+        std::cout << "You leave the house and notice a hallway. You venture down the hallway, which takes you back to the original door from earlier.\n"
+                     "Unfortunately, once you get there, you see the large table and the small re-locked door. ";
 
         std::cout << "Perhaps now would be a good time to look at everything you have collected so far. There might be something of use. \n";
 
@@ -245,12 +245,15 @@ Character Checkpoint2::Chapter2(Character custom_character) {
             }
         }
 
-        custom_character.addQuest("Investigate the garden");
+
 
         std::cout
                 << "A large rose-tree stood near the entrance of the garden: the roses growing on it were white, but there were three gardeners at it, busily painting them red. \n"
                    "Normal Gardeners they were not, for they were shaped like playing cards, each with a number and house. \n"
                    "You stand and watch them, and hear one of them speak: \n";
+
+        custom_character.addQuest("Investigate the garden\n");
+
         two.talk("Look out now, Five! Don't go splashing paint over me like that!");
         five.talk("I couldn't help it; Seven jogged my elbow.");
         seven.talk("That's right, Five! Always lay the blame on others!");
@@ -258,12 +261,12 @@ Character Checkpoint2::Chapter2(Character custom_character) {
         two.talk("What for?");
         seven.talk("That's none of your business, Two!");
         five.talk(
-                "Yes, it is his business! and I'll tell him—it was for bringing the cook tulip-roots instead of onions.");
+                "Yes, it is his business! and I'll tell him-it was for bringing the cook tulip-roots instead of onions.");
         std::cout << "Seven flung down his brush \n";
         seven.talk("Well, of all the unjust things-");
         std::cout
                 << "he turned as he was speaking and spotted you standing there. Once he saw you and stopped talking the others turned and looked at you as well... \n"
-                   "Suddenly they started bowing towards you. \n";
+                   "Suddenly they started bowing towards you.";
 
         // print break
         getUserInput(custom_character, true);
@@ -301,7 +304,7 @@ Character Checkpoint2::Chapter2(Character custom_character) {
         std::string response = "My name is " + custom_character.name + " so pleased to meet you your Majesty";
         custom_character.talk(response);
         queen.talk("And who are these?");
-        std::cout << "She pointed to the three gardeners bowing down on the ground. \n";
+        std::cout << "She pointed to the three gardeners bowing down on the ground.";
 
         // print break
         getUserInput(custom_character, true);

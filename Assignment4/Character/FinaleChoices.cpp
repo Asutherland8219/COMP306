@@ -20,16 +20,14 @@
     // Function to determine the ending based on the inventory sum
     int FinaleChoice::determineEnding(const Character& custom_character) {
         int sumOfValues = calculateInventorySum(custom_character);
-        std::cout << sumOfValues;
         PossibleEndings possibleEndings;
         return possibleEndings.getEnding(sumOfValues, custom_character);
     }
 
 
     int PossibleEndings::getEnding(int sumOfValues, const Character& custom_character) {
-        std::cout << sumOfValues;
         // Determine the ending based on the sumOfValues
-        if (sumOfValues >= 6) {
+        if (sumOfValues >= 5) {
             // Call the function for the Explorer's Ending
             ExplorersEnding(custom_character);
             return 3;
@@ -69,7 +67,7 @@
                     "Reaching into your pocket, you pull out: " + custom_character.getItem("Amethyst Signet Ring").name + ".\n";
             std::cout << response2;
         }
-        else if (checkInventory("Shrinking Fan", custom_character)) {
+        else if (checkInventory("Shrinking Paper Fan", custom_character)) {
             std::string response2 =
                     "Reaching into your pocket, you pull out: " + custom_character.getItem("Shrinking Fan").name + ".\n";
             std::cout << response2;
@@ -83,12 +81,10 @@
         std::cout << "You look it over as you walk towards the house, thinking to yourself, perhaps this wasn't a dream after all... \n\n";
         std::cout << "The End. \n";
 
-        Quest ending("Escape Wonderland.");
-        ending.completeObjective();
+        custom_character.addQuest("Return Home");
+        custom_character.completeLastQuestObjective();
 
-        custom_character.addCompletedQuest(ending, custom_character);
-
-        std::cout << "\nThanks for playing!";
+        std::cout << "\n\nThanks for playing!\n";
     }
 
 
@@ -105,16 +101,15 @@
         std::cout << "You wake from the dream as soon as you yell out at the trial. Your surroundings have changed immensely and now you lie next to a tree, with the sun setting on the horizon.\n"
                      "Off to your right in the distance, you see a small shack. Outside of the shack, you see someone. Then you hear them yelling. \n";
 
-        std::string response = custom_character.name + "time for dinner! Hurry up now!";
+        std::string response = custom_character.name + ", time for dinner! Hurry up now!";
         mother.talk(response);
         std::cout << "You realize it is your mother beckoning you for supper. You jump to your feet, thinking about the strange and wonderful dream you just had... \n";
         std::cout << "With a smile on your face, and quite a few memories, you walk towards the house ready to have dinner and tell your parents all about the vivid dream you just had.\n";
-        std::cout << "The End.";
+        std::cout << "The End.\n";
 
-        Quest ending("Escape Wonderland.");
-        ending.completeObjective();
-
-        custom_character.addCompletedQuest(ending, custom_character);
+        custom_character.addQuest("Return Home");
+        custom_character.completeLastQuestObjective();
+        std::cout << "\n\nThanks for playing!\n";
 
     }
 
@@ -134,16 +129,13 @@
      */
 
     void PossibleEndings::BadEnding(Character custom_character) {
-        std::cout << "You wake up from the dream, or what felt like a dream. But then look around and realize you are in a prison cell. You pinch your arm to see if you are dreaming.\n";
+        std::cout << "\nYou wake up from the dream, or what felt like a dream. But then look around and realize you are in a prison cell. You pinch your arm to see if you are dreaming.\n";
         custom_character.talk("OW");
         std::cout << "Turns out you aren't, at least for this test. You look around and see the executioner near you. He calls to you \"It is time\" and unlocks your cell.\n"
                      " He grabs you and carries you out to be executed. All the while you are begging for your life, pleading and crying for help.";
         custom_character.talk("Please sir, please there must be a misunderstanding, I don't belong here I am far from home. Please let me go! \n");
         std::cout << "He sets your head on the chopping block and pulls his axe up, as he swings down you let out a loud scream. \n";
         custom_character.talk("AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
-
-        // print break for styling
-        getUserInput(custom_character, true);
 
         std::cout << "You awake, in a bed, covered in sweat. Not only that, you are strapped down to the bed and restrained. You squirm and try and wrench yourself free but no luck. \n"
                      "Shortly after finishing screaming, a nurse enters your room. She calms you down, and then explains the last few days you were restrained because you kept yelling and swinging in your sleep. \n"
@@ -152,19 +144,16 @@
                      " You pull it out and it is a deck of cards. You start laughing maniacally... \n";
 
 
-        getUserInput(custom_character, true);
-
-        std::cout << "The nurse jumps scared when you start laughing, she turns to fetch the doctor who is standing outside the door. \n"
+        std::cout << "The nurse is startled when you start laughing, she turns to fetch the doctor who is standing outside the door. \n"
                      "Between your laughs,you here her say something to the doctor... \n";
         nurse.talk(" I think we better keep them for a while... something weird going on here.");
         std::cout << "You keep laughing, starting to crescendo. At this point you can't stop. Just laugh and laugh and laugh and laugh... \n";
         custom_character.talk("HAHAHAhahaHAHAhahahHAAAHaHAHAH");
-        std::cout << "The end.\n";
+        std::cout << "\nThe end.\n";
 
-        Quest ending("Escape Wonderland.");
-        ending.completeObjective();
-
-        custom_character.addCompletedQuest(ending, custom_character);
+        custom_character.addQuest("Return Home");
+        custom_character.completeLastQuestObjective();
+        std::cout << "\n\nThanks for playing!\n";
 
     }
 

@@ -122,7 +122,7 @@ bool ChapterOneGates::bottle_inventory;
     }
 
     bool ChapterOneGates::fanChoice(int fan_choice, const Character& custom_character) {
-        Item fan(" Shrinking Paper Fan" , "A fan, that seemingly shrinks the user.", 1);
+        Item fan("Shrinking Paper Fan" , "A fan, that seemingly shrinks the user.", 1);
 
         switch (fan_choice) {
             case 1:
@@ -241,7 +241,8 @@ bool ChapterOneGates::bottle_inventory;
                         }
                     } else if (userChoice == "n" || userChoice == "no") {
                         // If the user doesn't want to read a book, break out of the loop
-                        std::cout << "\nYou return to the main entryway of the house.\n";
+                        std::cout << "\nYou return to the main entryway of the house.\n"
+                                     "You hear a loud banging noise followed by yelling in the door you assumed was the kitchen earlier. \n";
                         house_breaker = false;
                         break;
                     } else {
@@ -282,7 +283,6 @@ bool ChapterOneGates::bottle_inventory;
                              "the book binding cracks, and the pages smell slightly of must . \n ";
                 textFormatter::printItalic("I don't think anyone would miss this, just going to borrow it so I can figure out where I am.\n");
                 Character::addItemToInventory(history_book);
-                std::cout << "You return back to entry way of the house, and you smell something from one of the doors. That must be the kitchen, I should check it out.\n";
                 break;
             case 2:
                 std::cout << "You pull this one from the shelves, but it has very little dust on it, it seems to be looked at quite frequently. \n"

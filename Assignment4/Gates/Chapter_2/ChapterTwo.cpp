@@ -4,6 +4,7 @@
 
 #include <unordered_map>
 #include "ChapterTwo.h"
+#include <sstream>
 
 
 bool ChapterTwoGates::cook_breaker;
@@ -109,7 +110,7 @@ bool ChapterTwoGates::gardener_save_breaker;
                     std::cout << "He winks at you and begins to disappear \n";
                     custom_character.talk("One more question; Do you know the muffin man? Who lives on Drury lane?");
                     cheshirecat.talk("hahaha");
-                    std::cout << "He cackles as he disappears out of sight";
+                    std::cout << "He cackles as he disappears out of sight\n";
                 }
                 cat_breaker = true;
                 break;
@@ -118,7 +119,7 @@ bool ChapterTwoGates::gardener_save_breaker;
     }
 
     bool ChapterTwoGates::fanChoice(int fan_choice, const Character& custom_character, std::unordered_map<int, std::string> inventory_map) {
-        std::vector<std::string> shrinking_items = {"Blue Mushroom", "Fan", "Shrinking Fan", "Shrinking Mushroom"};
+        std::vector<std::string> shrinking_items = {"Blue Mushroom", "Fan", "Shrinking Paper Fan", "Shrinking Mushroom"};
         std::vector<std::string> growing_items = {"Red Mushroom", "Growing Mushroom","Cook's Cake"};
         switch (fan_choice) {
             case 1:
@@ -168,35 +169,59 @@ bool ChapterTwoGates::gardener_save_breaker;
                             for (const std::string &shrinkingItem: shrinking_items) {
                                 if (checkInventory(shrinkingItem, custom_character)) {
                                     hasShrinkingItem = true;
-                                    break;
                                 }
                             }
 
                             if (hasShrinkingItem) {
                                 std::cout << "Choose another item to use:" << std::endl;
+                                bool first_item = true;
                                 for (int i = 0; i < shrinking_items.size(); ++i) {
-                                    std::cout << i + 1 << ". " << shrinking_items[i] << std::endl;
-                                }
-
-                                int shrinkingChoice;
-                                std::cout << "Enter the number corresponding to your choice: ";
-                                std::cin >> shrinkingChoice;
-
-                                // Validate the user's choice
-                                if (shrinkingChoice >= 1 && shrinkingChoice <= shrinking_items.size()) {
-                                    selectedShrinkingItem = shrinking_items[shrinkingChoice - 1];
-                                    hasShrinkingItem = true;
-
-
-                                    // Additional actions for having a Shrinking item along with Growing Mushroom
-                                    std::cout << "You have chosen to use: " << selectedShrinkingItem << std::endl;
-                                    custom_character.inventory.dropItem(selectedShrinkingItem);
-
-                                    std::cout
-                                            << "You start growing smaller now, small enough to reach the door and unlock it. \n"
-                                               "Without wasting any time, you walk through the door... \n";
+                                    bool itemExists = checkInventory(shrinking_items[i], custom_character);
+                                    if (itemExists) {
+                                        if (first_item) {
+                                            std::cout << i + 1 << ". " << shrinking_items[i] << std::endl;
+                                            first_item = false;
+                                        }
+                                        else {
+                                            std::cout << i  << ". " << shrinking_items[i] << std::endl;
+                                        }
+                                        continue;
+                                    }
 
                                 }
+
+                                while (true) {
+                                    int shrinkingChoice;
+                                    std::cout << "Enter the number corresponding to your choice: ";
+                                    auto shrink_two_input = getUserInput(custom_character,false);
+                                    std::istringstream iss(shrink_two_input);
+
+                                    if (iss >> shrinkingChoice) {
+                                        // Validate the user's choice
+                                        if (shrinkingChoice >= 1 && shrinkingChoice <= shrinking_items.size()) {
+                                            selectedShrinkingItem = shrinking_items[shrinkingChoice];
+                                            hasShrinkingItem = true;
+
+
+                                            // Additional actions for having a Shrinking item along with Growing Mushroom
+                                            std::cout << "You have chosen to use: " << selectedShrinkingItem
+                                                      << std::endl;
+                                            custom_character.inventory.dropItem(selectedShrinkingItem);
+
+                                            std::cout
+                                                    << "You start growing smaller now, small enough to reach the door and unlock it. \n"
+                                                       "Without wasting any time, you walk through the door... \n";
+
+                                            break;
+                                        }
+                                    }
+                                    else {
+                                        std::cout << "\nPlease input a valid numeric selection.\n";
+                                    }
+                                }
+
+
+
                             } else {
                                 std::cout
                                         << "You are too large to fit through the door. With nothing to lose, you pull your leg back and kick the door with all of your might. \n"

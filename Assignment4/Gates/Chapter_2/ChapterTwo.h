@@ -10,6 +10,7 @@
 #include "../../Character/Character.h"
 #include "../../NPC/NPC.h"
 
+
 class ChapterTwoGates {
 private:
 public:

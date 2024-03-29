@@ -39,7 +39,7 @@ Character Checkpoint3::Chapter3(Character custom_character) {
     // garden quest
     custom_character.addQuest("Find your way out of the garden");
 
-    std::cout << "People began running about in all directions, tumbling up against each other; however, they got settled down in a minute or two, and the game began. \n "
+    std::cout << "\nPeople began running about in all directions, tumbling up against each other; however, they got settled down in a minute or two, and the game began. \n "
                  "You have never seen such a curious croquet-ground in her life; it was all ridges and furrows; \n"
                  "the balls were live hedgehogs, the mallets live flamingoes, and the soldiers had to double themselves up and to stand on their hands and feet, to make the arches. \n";
     std::cout << "The players all played at once without waiting for turns, quarrelling all the while, and fighting for the hedgehogs;\n"

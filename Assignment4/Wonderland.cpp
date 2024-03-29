@@ -37,6 +37,9 @@ int main() {
     // Finale
     Character the_end = Finale::TheEnd(checkpoint3_char);
 
+    std::cout << "Enter x or exit to exit the program. Alternatively, you can view other menu options with h or help. \n";
+    getUserInput(the_end, false);
+
 
 
     /*
@@ -44,7 +47,7 @@ int main() {
      * If desired, run the full sequence test to run tests on all paths one after the other.
      * Additionally, if you want to run the tests silent, simply change the bool param.
      */
-    //Wonderland_test();
+//    Wonderland_test();
 
 
 
@@ -57,7 +60,7 @@ void Wonderland_test() {
     // Explorer path test (best path)
     runExplorerPathTest(false);
 
-    // Neutral Path test (average path, not good or bad)
+    //Neutral Path test (average path, not good or bad)
     runNeutralPathTest(false);
 
     // Bad Path Test

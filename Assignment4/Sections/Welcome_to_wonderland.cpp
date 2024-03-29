@@ -257,7 +257,7 @@ Character Checkpoint1::Chapter1(Character custom_character) {
             std::cout << "He extends his arm holding a large letter. \n";
             fishman.talk("It is an invitation from the Queen to play croquet.");
             std::cout
-                    << "As you are the closest person to him, he hands you the letter and turns away, heading back in whatever direction he came. \n";
+                    << "As you are the closest person to him, he hands you the letter and turns away, heading back in whatever direction he came.";
 
             // print break
             getUserInput(custom_character, true);
